@@ -1,0 +1,42 @@
+:root {
+    --dermveda-green: #599269;
+    --dermveda-blue: #305e7d;
+    --dermveda-black: rgba(0, 0, 0, 0.8);
+    --dermveda-gray: rgba(0, 0, 0, 0.44);
+    --dermveda-light-gray: rgba(0, 0, 0, 0.22);
+    --dermveda-gray-solid: #8f8f8f;
+    --dermveda-red: #d9534f;
+    --dermveda-white: #FFFFFF;
+
+    .mainText {
+        color: var(--dermveda-black);
+    }
+
+    .subText {
+        color: var(--dermveda-gray);
+    }
+
+    .greenText {
+        color: var(--dermveda-green);
+
+        & a {
+            color: var(--dermveda-green);
+        }
+    }
+    .whiteText {
+        color: var(--dermveda-white)
+    }
+
+    .redText {
+        color: var(--dermveda-red)
+    }
+    .greenBackground {
+        background-color: var(--dermveda-green);
+    }
+
+    .greenLinksInside {
+        a, * > a {
+            color: var(--dermveda-green);
+        }
+    }
+}
