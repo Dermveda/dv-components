@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { button, green, redText, loader, big, show } from '../styles/form-components.css';
 
-const Button = ({ text, to, type, className, icon, target, onClick, isLoading, isLink, isSubmit, isDisabled, isRed, isLarge, isUpperCase, isFullWidth, children }) => {
+const Button = ({ text, to, type, className, icon, target, onClick, isLoading, isLink, isSubmit, isDisabled, isRed, isLarge, isUpperCase, isFullWidth, children, color }) => {
 	if (!type) type = 'primary';
 	const classes = `btn ${button} ${className} 
 		${type === 'primary' ? green : ''}
+		${(type === 'primary' && color) ? color : ''}
 		${isLarge ? 'btn-lg' : ''} 
 		${isUpperCase ? 'text-uppercase' : ''} 
 		${isFullWidth ? 'btn-block' : ''}
@@ -71,5 +72,7 @@ Button.propTypes = {
 	isUpperCase: PropTypes.bool,
 	isLarge: PropTypes.bool,
 	isFullWidth: PropTypes.bool,
+	color: PropTypes.string,
+	children: PropTypes.any
 };
 export default Button;
