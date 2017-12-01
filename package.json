@@ -2,7 +2,6 @@
 	"name": "@dnovicki/dv-components",
 	"version": "1.0.0",
 	"description": "DV components built with React and Bootstrap",
-	"private": true,
 	"scripts": {
 		"test": "jest --verbose",
 		"lint": "eslint --ext .js --ext .jsx ./src",
