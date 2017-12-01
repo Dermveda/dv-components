@@ -17,9 +17,7 @@ const Button = ({ text, to, type, className, icon, target, onClick, isLoading, i
 	const kind = (isSubmit ? 'submit' : (isLink ? '' : 'button'));
 	const iconComp = (icon ? <i key='icon_comp' className={`material-icons ${text !== '' ? 'mr-2' : ''}`}>{icon}</i> : '');
 	const textComp = (text ? <span key='text_comp'>{text}</span> : '');
-	const loaderComp = <i key='loader_comp' className={`${loader}
-								${isLarge ? big : ''} 
-								${isLoading ? `mr-2 ${show}` : ''}`}></i>;
+	const loaderComp = <i key='loader_comp' className={`${loader} ${isLarge ? big : ''} ${isLoading ? `mr-2 ${show}` : ''}`}></i>;
 	let body;
 	if (children)
 		body = [

@@ -1,0 +1,147 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> Will be link 1`] = `
+<Link
+  className="btn button undefined 
+		green
+		
+		 
+		 
+		
+		 
+		"
+  replace={false}
+  to="/home"
+  type=""
+>
+  <div
+    className="d-flex justify-content-center align-items-center"
+  >
+    <i
+      className="loader  "
+      key="loader_comp"
+    />
+  </div>
+</Link>
+`;
+
+exports[`<Button /> Will be loading 1`] = `
+<button
+  className="btn button undefined 
+		green
+		
+		 
+		 
+		
+		 
+		"
+  disabled={true}
+  type="button"
+>
+  <div
+    className="d-flex justify-content-center align-items-center"
+  >
+    <i
+      className="loader  mr-2 show"
+      key="loader_comp"
+    />
+  </div>
+</button>
+`;
+
+exports[`<Button /> Will be secondary button 1`] = `
+<button
+  className="btn button undefined 
+		
+		
+		 
+		 
+		
+		 
+		"
+  type="button"
+>
+  <div
+    className="d-flex justify-content-center align-items-center"
+  >
+    <i
+      className="loader  "
+      key="loader_comp"
+    />
+  </div>
+</button>
+`;
+
+exports[`<Button /> Will have new target 1`] = `
+<button
+  className="btn button undefined 
+		green
+		
+		 
+		 
+		
+		 
+		"
+  type="button"
+>
+  <div
+    className="d-flex justify-content-center align-items-center"
+  >
+    <i
+      className="loader  "
+      key="loader_comp"
+    />
+  </div>
+</button>
+`;
+
+exports[`<Button /> Will render 1`] = `
+<button
+  className="btn button undefined 
+		green
+		
+		 
+		 
+		
+		 
+		"
+  type="button"
+>
+  <div
+    className="d-flex justify-content-center align-items-center"
+  >
+    <i
+      className="loader  "
+      key="loader_comp"
+    />
+  </div>
+</button>
+`;
+
+exports[`<Button /> Will show text 1`] = `
+<button
+  className="btn button undefined 
+		green
+		
+		 
+		 
+		
+		 
+		"
+  type="button"
+>
+  <div
+    className="d-flex justify-content-center align-items-center"
+  >
+    <i
+      className="loader  "
+      key="loader_comp"
+    />
+    <span
+      key="text_comp"
+    >
+      Hey there!
+    </span>
+  </div>
+</button>
+`;
