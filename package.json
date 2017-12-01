@@ -1,5 +1,5 @@
 {
-	"name": "dv-components",
+	"name": "@dnovicki/dv-components",
 	"version": "1.0.0",
 	"description": "DV components built with React and Bootstrap",
 	"private": true,

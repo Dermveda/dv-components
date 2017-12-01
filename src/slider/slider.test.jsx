@@ -19,9 +19,9 @@ test('Creates basic range Slider', () => {
 test('Creates basic data Slider', () => {
 	const wrapper = shallow(
 		<Slider uniqueId='labels'
-				initial={{ label: 'So-so', stuff: 'stuff 2', extra: 'hi' }}
-				data={data}
-				onLabelChange={(item) => console.log(item)}/>
+			initial={{ label: 'So-so', stuff: 'stuff 2', extra: 'hi' }}
+			data={data}
+			onLabelChange={() => {}}/>
 	);
 	expect(wrapper).toMatchSnapshot();
 });

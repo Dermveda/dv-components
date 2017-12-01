@@ -42,7 +42,7 @@ class Slider extends Component {
 			document.removeEventListener('mouseup', this.onRelease);
 			document.removeEventListener('touchend', this.onRelease);
 		}
-	};
+	}
 	getDimensions() {
 		let trackElement = document.getElementById(this.props.uniqueId + '_track'),
 			thumbElement = document.getElementById(this.props.uniqueId + '_thumb');
@@ -67,7 +67,7 @@ class Slider extends Component {
 				left: box.left + pageXOffset
 			};
 		}
-	};
+	}
 	calculateSegments() {
 		let safeRange = 2;
 		if (this.props.range && this.props.range < 2)
@@ -94,7 +94,7 @@ class Slider extends Component {
 				thumbPosition: fill,
 				leftFill: fill,
 				rightFill: this.state.trackPosition.end - this.state.trackPosition.start - fill
-			})
+			});
 		});
 	}
 	onPress(event) {
@@ -109,7 +109,7 @@ class Slider extends Component {
 		});
 		event.stopPropagation();
 		event.preventDefault();
-	};
+	}
 	onRelease(event) {
 		this.setState({ isDragging: false });
 		if (this.props.range)
@@ -118,7 +118,7 @@ class Slider extends Component {
 			this.props.onLabelChange(this.props.data[this.state.index - 1]);
 		event.stopPropagation();
 		event.preventDefault();
-	};
+	}
 	onMove(event, pressPosition, isRelative) {
 		if (this.props.isDisabled || (!this.state.isDragging && !this.state.isLabelClick)) return;
 		let offset = this.state.thumbWidth + (isRelative ? 0 : this.state.trackPosition.start),
@@ -141,7 +141,7 @@ class Slider extends Component {
 			event.stopPropagation();
 			event.preventDefault();
 		}
-	};
+	}
 	onLabelChange(index) {
 		if (this.props.range)
 			this.props.onIndexChange(index + 1);
@@ -172,37 +172,37 @@ class Slider extends Component {
 			for (let i = 0; i < this.state.safeRange; i++)
 				labels.push(
 					<span key={i}
-						  style={{
-							  ...css.label,
-							  ...{ left: i * this.state.segmentWidth + (this.state.safeRange === i + 1 ? 0 : 4) },
-							  ...{ transform: this.transformLabel(i) }
-						  }}
-						  onClick={() => this.onLabelChange(i)}>
-                    {(this.props.data ? this.props.data[i].label : i + 1)}
-                </span>
+						style={{
+							...css.label,
+							...{ left: i * this.state.segmentWidth + (this.state.safeRange === i + 1 ? 0 : 4) },
+							...{ transform: this.transformLabel(i) }
+						}}
+						onClick={() => this.onLabelChange(i)}>
+						{(this.props.data ? this.props.data[i].label : i + 1)}
+					</span>
 				);
 			return (
 				<div style={css.wrapper}>
 					<div style={css.slider} id={this.props.uniqueId + '_track'}>
 						<div style={css.track}
-							 onTouchStart={(event) => this.onPress(event)}
-							 onMouseDown={(event) => this.onPress(event)}>
+							onTouchStart={(event) => this.onPress(event)}
+							onMouseDown={(event) => this.onPress(event)}>
 							<div style={{
 								...css.left,
 								...(this.props.isDisabled ? css.leftDisabled : null),
 								...{ width: (((this.state.leftFill || 0)) + 'px') }
-							}}/>
+							}} />
 							<div style={{
 								...css.right,
 								...{ width: (this.state.rightFill ? (this.state.rightFill || 1) + 'px' : '100%') }
-							}}/>
+							}} />
 							<div id={this.props.uniqueId + '_thumb'}
-								 style={{
-									 ...css.thumb,
-									 ...(this.state.isDragging ? css.thumbActive : null),
-									 ...(this.props.isDisabled ? css.thumbDisabled : null),
-									 ...{ left: (((this.state.thumbPosition || 0)) + 'px') }
-								 }}/>
+								style={{
+									...css.thumb,
+									...(this.state.isDragging ? css.thumbActive : null),
+									...(this.props.isDisabled ? css.thumbDisabled : null),
+									...{ left: (((this.state.thumbPosition || 0)) + 'px') }
+								}} />
 						</div>
 						{!this.props.isHiddenLabels ? labels : null}
 					</div>
@@ -212,7 +212,7 @@ class Slider extends Component {
 						</div>
 						: null}
 				</div>
-			)
+			);
 		}
 	}
 }

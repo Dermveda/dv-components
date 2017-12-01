@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Slider from '@dnovicki/dv-slider';
+import Slider from '../slider/slider.jsx';
 
 const SliderInput = ({ question, onSelectAnswer }) => {
 	let initialValue = null;
