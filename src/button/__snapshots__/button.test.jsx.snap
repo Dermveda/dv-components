@@ -3,8 +3,8 @@
 exports[`<Button /> Will be link 1`] = `
 <Link
   className="btn button undefined 
-		green
-		
+		primary
+		greenBackground
 		 
 		 
 		
@@ -28,8 +28,8 @@ exports[`<Button /> Will be link 1`] = `
 exports[`<Button /> Will be loading 1`] = `
 <button
   className="btn button undefined 
-		green
-		
+		primary
+		greenBackground
 		 
 		 
 		
@@ -53,7 +53,7 @@ exports[`<Button /> Will be secondary button 1`] = `
 <button
   className="btn button undefined 
 		
-		
+		greenBackground
 		 
 		 
 		
@@ -75,8 +75,8 @@ exports[`<Button /> Will be secondary button 1`] = `
 exports[`<Button /> Will have new target 1`] = `
 <button
   className="btn button undefined 
-		green
-		
+		primary
+		greenBackground
 		 
 		 
 		
@@ -98,8 +98,8 @@ exports[`<Button /> Will have new target 1`] = `
 exports[`<Button /> Will render 1`] = `
 <button
   className="btn button undefined 
-		green
-		
+		primary
+		greenBackground
 		 
 		 
 		
@@ -121,8 +121,8 @@ exports[`<Button /> Will render 1`] = `
 exports[`<Button /> Will show text 1`] = `
 <button
   className="btn button undefined 
-		green
-		
+		primary
+		greenBackground
 		 
 		 
 		
