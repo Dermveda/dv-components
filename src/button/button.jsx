@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { button, green, redText, loader, big, show } from '../styles/form-components.css';
+import { button, primary, redText, loader, big, show } from '../styles/form-components.css';
+import { greenBackground } from '../styles/colors.css';
 
 const Button = ({ text, to, type, className, icon, target, onClick, isLoading, isLink, isSubmit, isDisabled, isRed, isLarge, isUpperCase, isFullWidth, children, color }) => {
 	if (!type) type = 'primary';
 	const classes = `btn ${button} ${className} 
-		${type === 'primary' ? green : ''}
-		${(type === 'primary' && color) ? color : ''}
+		${type === 'primary' ? primary : ''}
+		${(type === 'primary' && color) ? color : greenBackground}
 		${isLarge ? 'btn-lg' : ''} 
 		${isUpperCase ? 'text-uppercase' : ''} 
 		${isFullWidth ? 'btn-block' : ''}
