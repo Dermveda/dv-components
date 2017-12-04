@@ -31,7 +31,7 @@
         color: var(--dermveda-red)
     }
     .greenBackground {
-        background-color: var(--dermveda-green);
+        background-color: var(--dermveda-green) !important;
     }
 
     .greenLinksInside {
