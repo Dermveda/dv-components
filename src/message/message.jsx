@@ -16,7 +16,7 @@ const Message = ({ message, isSuccess, isInfo }) => {
 	);
 };
 Message.propTypes = {
-	message: PropTypes.string.isRequired,
+	message: PropTypes.string,
 	isSuccess: PropTypes.bool,
 	isInfo: PropTypes.bool,
 };

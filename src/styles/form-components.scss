@@ -1,17 +1,36 @@
 @import './color-vars.scss';
 $transition-parameters: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 
-.dvc-input {
-	border: none;
-	border-bottom: 1px solid #aaa;
-	border-radius: 0;
-	margin: 5px 0;
-	font-family: 'Raleway', sans-serif;
-	font-weight: 400;
-	font-size: 1rem;
+.dvc-form-group {
+	// border: none;
+	// border-bottom: 1px solid #aaa;
+	// border-radius: 0;
+	// margin: 5px 0;
+	margin-bottom: 0;
+	label {
+		font-size: 0.7rem;
+		margin-bottom: 0;
+	}
+	input {
+		font-family: 'Raleway', sans-serif;
+		font-weight: 400;
+		font-size: 1rem;
+		border: none;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+		border-radius: 0;
+		&:focus {
+			border: none;
+			border-bottom: 1px solid;
+			border-radius: 5px;
+		}
+	}
 
-	&--uppercase {
+	&--caps {
 		text-transform: uppercase;
+	}
+
+	&--caps::placeholder {
+		text-transform: none;
 	}
 
 	&--billing {
@@ -43,6 +62,15 @@ $transition-parameters: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 	}
 }
 
+$spinnerColor: lighten($dermveda-green, 30%);
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
 .dvc-button {
 	margin: 5px 0;
 	color: rgba(0, 0, 0, 0.88);
@@ -89,7 +117,7 @@ $transition-parameters: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 			width: 15px;
 			height: 15px;
 			visibility: visible;
-			border: 2px solid lighten($dermveda-green, 70%);
+			border: 2px solid $spinnerColor;
 			border-top: 2px solid #f6f6f6;
 
 			&--big {
@@ -143,13 +171,4 @@ $transition-parameters: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 
 .pointer {
 	cursor: pointer;
-}
-
-@keyframes spin {
-	0% {
-		transform: rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
 }
