@@ -3,46 +3,30 @@
 :root {
 	--transition-parameters: box-shadow 0.3s cubic-bezier(.25, .8, .25, 1);
 
-	.input {
+	.caps {
+		text-transform: uppercase;
+	}
+
+	.caps::placeholder {
+		text-transform: none;
+	}
+
+	.formGroup {
+		margin-bottom: 0;
+	}
+	.formGroup label {
+		font-size: 0.7rem;
+		margin-bottom: 0;
+	}
+	.formGroup input {
 		border: none;
-		border-bottom: 1px solid #aaa;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 		border-radius: 0;
-		margin: 5px 0;
-		font-family: 'Raleway', sans-serif;
-		font-weight: 400;
-		font-size: 1rem;
-
-		&.uppercase {
-			text-transform: uppercase;
-		}
-
-		&.billing {
-			height: 30px;
-		}
-
-		&:focus {
-			border-color: var(--dermveda-green);
-		}
-
-		&.error {
-			border-color: var(--dermveda-red) !important;
-
-			&::-webkit-input-placeholder {
-				color: var(--dermveda-red);
-			}
-
-			&::-moz-placeholder {
-				color: var(--dermveda-red);
-			}
-
-			&:-ms-input-placeholder {
-				color: var(--dermveda-red);
-			}
-
-			&:-moz-placeholder {
-				color: var(--dermveda-red);
-			}
-		}
+	}
+	.formGroup input:focus {
+		border:none;
+		border-bottom: 1px solid;
+		border-radius: 5px;
 	}
 
 	.button {

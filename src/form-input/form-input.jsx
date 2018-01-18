@@ -3,79 +3,95 @@ import PropTypes from 'prop-types';
 import css from '../styles/form-components.css';
 
 class FormInput extends Component {
-	constructor(props) {
-		super(props);
-
+	constructor() {
+		super();
 		this.onChange = this.onChange.bind(this);
-		this.onBlur = this.onBlur.bind(this);
 	}
 	onChange(e) {
 		this.props.onChange(e);
-		if (this.props.rules) {
-			let is_valid = this.validate(e.target.value, this.props.rules);
-			this.props.onValidate(this.props.name, is_valid);
-		}
 	}
-	onBlur() {
-		this.props.onTouch(this.props.name);
-	}
-	validate(value, rules) {
-		if (Array.isArray(rules)) {
-			let result = rules.find((item) => {
-				return !this.checkRule(value, item);
-			});
-			return !result;
-		} else
-			return this.checkRule(value, rules);
-
-	}
-	checkRule(value, rule) {
-		let validEmail = new RegExp(/^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/),
-			onlyNumeric = new RegExp(/^[0-9]*$/),
-			onlyAlpha = new RegExp(/^[A-z ]+$/);
-		switch (rule) {
-			case 'EMAIL':
-				return validEmail.test(value);
-			case 'ONLY_NUMERIC':
-				return onlyNumeric.test(value);
-			case 'ONLY_ALPHA':
-				return onlyAlpha.test(value);
-			case 'PASSWORD':
-				return !!value;
-			case 'MINIMUM':
-				return value.length >= 3;
+	// checkRule(value, rule) {
+	// 	let validEmail = new RegExp(/^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/),
+	// 		onlyNumeric = new RegExp(/^[0-9]*$/),
+	// 		onlyAlpha = new RegExp(/^[A-z ]+$/),
+	// 		onlyZip = new RegExp(/^\d{5}(?:[-\s]\d{4})?$/),
+	// 		onlyPhone = new RegExp(/^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/);
+	// 	switch (rule) {
+	// 		case 'EMAIL':
+	// 			return validEmail.test(value);
+	// 		case 'ONLY_NUMERIC':
+	// 			return onlyNumeric.test(value);
+	// 		case 'PHONE_NUMBER':
+	// 			return onlyPhone.test(value);
+	// 		case 'ZIP':
+	// 			return onlyZip.test(value);
+	// 		case 'ONLY_ALPHA':
+	// 			return onlyAlpha.test(value);
+	// 		case 'PASSWORD':
+	// 			return !!value;
+	// 		case 'MINIMUM':
+	// 			if (this.props.minLength)
+	// 				return value.length >= this.props.minLength;
+	// 			else
+	// 				return value.length >= 3;
+	// 		default:
+	// 			return undefined;
+	// 	}
+	// }
+	getErrorMessage(type) {
+		switch (type) {
+			case 'email':
+				return 'Please enter a valid email.';
+			case 'password':
+				return 'Please enter a password.';
+			case 'text':
+				return 'Please fill in field.';
+			case 'number':
+				return 'Please enter a valid email.';
+			case 'date':
+				return 'Please enter a valid date.';
 			default:
-				return undefined;
+				return 'Invalid input.';
 		}
 	}
 	render() {
 		return (
-			<div>
+			<div className={`form-group ${css.formGroup}`}>
+				<label htmlFor={this.props.name}>{this.props.required ? '*' : ''}{this.props.label}</label>
 				<input
+					required={this.props.required}
 					value={this.props.value}
 					placeholder={this.props.placeholder}
-					className={`form-control ${css.input} ${this.props.isUppercase ? css.uppercase : null} ${css[this.props.inputClassName] || ''}`}
+					className={`form-control ${this.props.isUppercase ? css.caps : ''}`}// ${css.input} ${css[this.props.inputClassName] || ''}
 					type={this.props.type}
+					id={this.props.name}
 					name={this.props.name}
 					onChange={this.onChange}
-					onBlur={this.onBlur}
 					autoComplete="off"
 					disabled={this.props.disabled}
 				/>
+				<div className='invalid-feedback'>{this.getErrorMessage(this.props.type)}</div>
+				<small className='form-text text-muted'>{this.props.helpText}</small>
 			</div>
 		);
 	}
 }
 FormInput.propTypes = {
 	value: PropTypes.string,
+	required: PropTypes.string,
+	label: PropTypes.string,
+	helpText: PropTypes.string,
+	min: PropTypes.number,
+	max: PropTypes.number,
 	placeholder: PropTypes.string,
 	inputClassName: PropTypes.string,
 	name: PropTypes.string.isRequired,
 	type: PropTypes.string.isRequired,
 	isUppercase: PropTypes.bool,
-	onTouch: PropTypes.func.isRequired,
+	minLength: PropTypes.number,
+	onTouch: PropTypes.func,
 	onChange: PropTypes.func.isRequired,
-	onValidate: PropTypes.func.isRequired,
+	onValidate: PropTypes.func,
 	disabled: PropTypes.bool,
 	rules: PropTypes.oneOfType([
 		PropTypes.array,
