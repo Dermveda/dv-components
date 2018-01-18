@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { card, disabledMinimal, enabledMinimal, pointer } from '../styles/card.css';
-import { greenText } from '../styles/colors.css';
 
 const MultipleChoice = ({ question, onSelectAnswer }) => {
 	let answers = question.answers.map(answer => {
@@ -9,7 +7,7 @@ const MultipleChoice = ({ question, onSelectAnswer }) => {
 			return (
 				<div
 					key={'QuizQuestionAnswer_' + question._id + '_' + answer._id}
-					className={`my-0 ${card} ${pointer} ${disabledMinimal}`}
+					className={'my-0 dvc-card pointer dvc-card--disabledMinimal'}
 					onClick={() => onSelectAnswer(question, answer)}>
 					<div className="my-auto">
 						<i className={'material-icons pr-2 align-middle'}>radio_button_unchecked</i>
@@ -21,10 +19,10 @@ const MultipleChoice = ({ question, onSelectAnswer }) => {
 			return (
 				<div
 					key={'QuizQuestionAnswer_' + question._id + '_' + answer._id}
-					className={`my-0 ${card} ${enabledMinimal}`}
+					className={'my-0 dvc-card dvc-card--enabledMinimal'}
 					onClick={() => onSelectAnswer(question, answer)}>
 					<div className="my-auto">
-						<i className={`material-icons pr-2 ${greenText} align-middle`}>check_circle</i>
+						<i className={'material-icons pr-2 dvc-primary-text align-middle'}>check_circle</i>
 						{answer.name}
 					</div>
 				</div>
@@ -33,17 +31,13 @@ const MultipleChoice = ({ question, onSelectAnswer }) => {
 	});
 	return (
 		<li>
-			<div className="pb-1">
-				{question.name}
-			</div>
-			<div>
-				{answers}
-			</div>
+			<div className="pb-1">{question.name}</div>
+			<div>{answers}</div>
 		</li>
 	);
 };
 MultipleChoice.propTypes = {
 	question: PropTypes.object,
-	onSelectAnswer: PropTypes.func,
+	onSelectAnswer: PropTypes.func
 };
 export default MultipleChoice;

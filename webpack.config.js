@@ -25,19 +25,19 @@ let config = {
 				}],
 			},
 			{
-				test: /\.css$/,
+				test: /(\.scss|\.css)$/,
 				exclude: [/node_modules/],
 				use: ExtractTextPlugin.extract({
 					fallback: 'style-loader',
 					use: [{
 						loader: 'css-loader',
 						options: {
-							modules: true,
+							// modules: true,
 							importLoaders: 1,
 							root: '.',
-							localIdentName: '[path][name]__[local]--[hash:base64:5]',
+							// localIdentName: '[path][name]__[local]--[hash:base64:5]',
 						}
-					}, 'postcss-loader']
+					}, 'sass-loader']
 				})
 			}
 			//loaders for other file types can go here

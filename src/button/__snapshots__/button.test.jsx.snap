@@ -2,9 +2,9 @@
 
 exports[`<Button /> Will be link 1`] = `
 <Link
-  className="btn button undefined 
-		primary
-		greenBackground
+  className="btn dvc-button undefined 
+		dvc-button--primary
+		dvc-primary-background
 		 
 		 
 		
@@ -18,18 +18,46 @@ exports[`<Button /> Will be link 1`] = `
     className="d-flex justify-content-center align-items-center"
   >
     <i
-      className="loader  "
+      className="dvc-button__loader  "
       key="loader_comp"
     />
   </div>
 </Link>
 `;
 
+exports[`<Button /> Will be link deep 1`] = `
+<a
+  className="btn dvc-button undefined 
+		dvc-button--primary
+		dvc-primary-background
+		 
+		 
+		
+		 
+		"
+  disabled={undefined}
+  href="/home"
+  onClick={[Function]}
+  target={undefined}
+  type=""
+>
+  <div
+    className="d-flex justify-content-center align-items-center"
+  >
+    <i
+      className="dvc-button__loader  "
+    />
+    
+    
+  </div>
+</a>
+`;
+
 exports[`<Button /> Will be loading 1`] = `
 <button
-  className="btn button undefined 
-		primary
-		greenBackground
+  className="btn dvc-button undefined 
+		dvc-button--primary
+		dvc-primary-background
 		 
 		 
 		
@@ -42,18 +70,44 @@ exports[`<Button /> Will be loading 1`] = `
     className="d-flex justify-content-center align-items-center"
   >
     <i
-      className="loader  mr-2 show"
+      className="dvc-button__loader  mr-2 dvc-button__loader--show"
       key="loader_comp"
     />
   </div>
 </button>
 `;
 
+exports[`<Button /> Will be loading deep 1`] = `
+<button
+  className="btn dvc-button undefined 
+		dvc-button--primary
+		dvc-primary-background
+		 
+		 
+		
+		 
+		"
+  disabled={true}
+  onClick={undefined}
+  type="button"
+>
+  <div
+    className="d-flex justify-content-center align-items-center"
+  >
+    <i
+      className="dvc-button__loader  mr-2 dvc-button__loader--show"
+    />
+    
+    
+  </div>
+</button>
+`;
+
 exports[`<Button /> Will be secondary button 1`] = `
 <button
-  className="btn button undefined 
+  className="btn dvc-button undefined 
 		
-		greenBackground
+		dvc-primary-background
 		 
 		 
 		
@@ -65,7 +119,7 @@ exports[`<Button /> Will be secondary button 1`] = `
     className="d-flex justify-content-center align-items-center"
   >
     <i
-      className="loader  "
+      className="dvc-button__loader  "
       key="loader_comp"
     />
   </div>
@@ -74,9 +128,9 @@ exports[`<Button /> Will be secondary button 1`] = `
 
 exports[`<Button /> Will have new target 1`] = `
 <button
-  className="btn button undefined 
-		primary
-		greenBackground
+  className="btn dvc-button undefined 
+		dvc-button--primary
+		dvc-primary-background
 		 
 		 
 		
@@ -88,18 +142,44 @@ exports[`<Button /> Will have new target 1`] = `
     className="d-flex justify-content-center align-items-center"
   >
     <i
-      className="loader  "
+      className="dvc-button__loader  "
       key="loader_comp"
     />
+  </div>
+</button>
+`;
+
+exports[`<Button /> Will have new target deep 1`] = `
+<button
+  className="btn dvc-button undefined 
+		dvc-button--primary
+		dvc-primary-background
+		 
+		 
+		
+		 
+		"
+  disabled={undefined}
+  onClick={undefined}
+  type="button"
+>
+  <div
+    className="d-flex justify-content-center align-items-center"
+  >
+    <i
+      className="dvc-button__loader  "
+    />
+    
+    
   </div>
 </button>
 `;
 
 exports[`<Button /> Will render 1`] = `
 <button
-  className="btn button undefined 
-		primary
-		greenBackground
+  className="btn dvc-button undefined 
+		dvc-button--primary
+		dvc-primary-background
 		 
 		 
 		
@@ -111,18 +191,44 @@ exports[`<Button /> Will render 1`] = `
     className="d-flex justify-content-center align-items-center"
   >
     <i
-      className="loader  "
+      className="dvc-button__loader  "
       key="loader_comp"
     />
   </div>
 </button>
 `;
 
+exports[`<Button /> Will render deep 1`] = `
+<button
+  className="btn dvc-button undefined 
+		dvc-button--primary
+		dvc-primary-background
+		 
+		 
+		
+		 
+		"
+  disabled={undefined}
+  onClick={undefined}
+  type="button"
+>
+  <div
+    className="d-flex justify-content-center align-items-center"
+  >
+    <i
+      className="dvc-button__loader  "
+    />
+    
+    
+  </div>
+</button>
+`;
+
 exports[`<Button /> Will show text 1`] = `
 <button
-  className="btn button undefined 
-		primary
-		greenBackground
+  className="btn dvc-button undefined 
+		dvc-button--primary
+		dvc-primary-background
 		 
 		 
 		
@@ -134,7 +240,7 @@ exports[`<Button /> Will show text 1`] = `
     className="d-flex justify-content-center align-items-center"
   >
     <i
-      className="loader  "
+      className="dvc-button__loader  "
       key="loader_comp"
     />
     <span
@@ -142,6 +248,60 @@ exports[`<Button /> Will show text 1`] = `
     >
       Hey there!
     </span>
+  </div>
+</button>
+`;
+
+exports[`<Button /> Will show text deep 1`] = `
+<button
+  className="btn dvc-button undefined 
+		dvc-button--primary
+		dvc-primary-background
+		 
+		 
+		
+		 
+		"
+  disabled={undefined}
+  onClick={undefined}
+  type="button"
+>
+  <div
+    className="d-flex justify-content-center align-items-center"
+  >
+    <i
+      className="dvc-button__loader  "
+    />
+    
+    <span>
+      Hey there!
+    </span>
+  </div>
+</button>
+`;
+
+exports[`<Button /> Willbe secondary button deep 1`] = `
+<button
+  className="btn dvc-button undefined 
+		
+		dvc-primary-background
+		 
+		 
+		
+		 
+		"
+  disabled={undefined}
+  onClick={undefined}
+  type="button"
+>
+  <div
+    className="d-flex justify-content-center align-items-center"
+  >
+    <i
+      className="dvc-button__loader  "
+    />
+    
+    
   </div>
 </button>
 `;

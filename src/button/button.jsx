@@ -1,57 +1,64 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { button, primary, redText, loader, big, show } from '../styles/form-components.css';
-import { greenBackground } from '../styles/colors.css';
 
-const Button = ({ text, to, type, className, icon, target, onClick, isLoading, isLink, isSubmit, isDisabled, isRed, isLarge, isUpperCase, isFullWidth, children, color }) => {
+const Button = ({
+	text,
+	to,
+	type,
+	className,
+	icon,
+	target,
+	onClick,
+	isLoading,
+	isLink,
+	isSubmit,
+	isDisabled,
+	isRed,
+	isLarge,
+	isUpperCase,
+	isFullWidth,
+	children,
+	color
+}) => {
 	if (!type) type = 'primary';
-	const classes = `btn ${button} ${className} 
-		${type === 'primary' ? primary : ''}
-		${(type === 'primary' && color) ? color : greenBackground}
+	const classes = `btn dvc-button ${className} 
+		${type === 'primary' ? 'dvc-button--primary' : ''}
+		${type === 'primary' && color ? color : 'dvc-primary-background'}
 		${isLarge ? 'btn-lg' : ''} 
 		${isUpperCase ? 'text-uppercase' : ''} 
 		${isFullWidth ? 'btn-block' : ''}
-		${(icon !== '' && icon !== undefined) ? 'd-inline-flex justify-content-center align-items-center' : ''} 
-		${isRed ? redText : ''}`;
+		${icon !== '' && icon !== undefined ? 'd-inline-flex justify-content-center align-items-center' : ''} 
+		${isRed && type !== 'primary' ? 'dvc-button--red-text' : ''}`;
 	const disabled = isDisabled || isLoading;
-	const kind = (isSubmit ? 'submit' : (isLink ? '' : 'button'));
-	const iconComp = (icon ? <i key='icon_comp' className={`material-icons ${text !== '' ? 'mr-2' : ''}`}>{icon}</i> : '');
-	const textComp = (text ? <span key='text_comp'>{text}</span> : '');
-	const loaderComp = <i key='loader_comp' className={`${loader} ${isLarge ? big : ''} ${isLoading ? `mr-2 ${show}` : ''}`}></i>;
+	const kind = isSubmit ? 'submit' : isLink ? '' : 'button';
+	const iconComp = icon ? (
+		<i key="icon_comp" className={`material-icons ${text !== '' ? 'mr-2' : ''}`}>
+			{icon}
+		</i>
+	) : (
+		''
+	);
+	const textComp = text ? <span key="text_comp">{text}</span> : '';
+	const loaderComp = (
+		<i
+			key="loader_comp"
+			className={`dvc-button__loader ${isLarge ? 'dvc-button__loader--show--big' : ''} ${isLoading ? 'mr-2 dvc-button__loader--show' : ''}`}
+		/>
+	);
 	let body;
-	if (children)
-		body = [
-			loaderComp,
-			children
-		];
-	else
-		body = [
-			loaderComp,
-			iconComp,
-			textComp
-		];
+	if (children) body = [loaderComp, children];
+	else body = [loaderComp, iconComp, textComp];
 	if (isLink)
 		return (
-			<Link to={to}
-				type={kind}
-				target={target}
-				disabled={disabled}
-				className={classes}>
-				<div className='d-flex justify-content-center align-items-center'>
-					{body}
-				</div>
+			<Link to={to} type={kind} target={target} disabled={disabled} className={classes}>
+				<div className="d-flex justify-content-center align-items-center">{body}</div>
 			</Link>
 		);
 	else
 		return (
-			<button type={kind}
-				disabled={disabled}
-				onClick={onClick}
-				className={classes}>
-				<div className='d-flex justify-content-center align-items-center'>
-					{body}
-				</div>
+			<button type={kind} disabled={disabled} onClick={onClick} className={classes}>
+				<div className="d-flex justify-content-center align-items-center">{body}</div>
 			</button>
 		);
 };
