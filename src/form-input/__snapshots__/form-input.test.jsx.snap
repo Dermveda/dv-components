@@ -1,0 +1,460 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FormInput/> Will be date 1`] = `
+<div
+  className="form-group dvc-form-group"
+>
+  <label
+    htmlFor="test"
+  />
+  <input
+    autoComplete="off"
+    className="form-control "
+    id="test"
+    name="test"
+    onChange={[Function]}
+    type="date"
+  />
+  <div
+    className="invalid-feedback"
+  >
+    Please enter a valid date.
+  </div>
+  <small
+    className="form-text text-muted"
+  />
+</div>
+`;
+
+exports[`<FormInput/> Will be disabled 1`] = `
+<div
+  className="form-group dvc-form-group"
+>
+  <label
+    htmlFor="test"
+  />
+  <input
+    autoComplete="off"
+    className="form-control "
+    disabled={true}
+    id="test"
+    name="test"
+    onChange={[Function]}
+    type="email"
+  />
+  <div
+    className="invalid-feedback"
+  >
+    Please enter a valid email.
+  </div>
+  <small
+    className="form-text text-muted"
+  />
+</div>
+`;
+
+exports[`<FormInput/> Will be invalid type 1`] = `
+<div
+  className="form-group dvc-form-group"
+>
+  <label
+    htmlFor="test"
+  />
+  <input
+    autoComplete="off"
+    className="form-control "
+    id="test"
+    name="test"
+    onChange={[Function]}
+    type=""
+  />
+  <div
+    className="invalid-feedback"
+  >
+    Invalid input.
+  </div>
+  <small
+    className="form-text text-muted"
+  />
+</div>
+`;
+
+exports[`<FormInput/> Will be invalid type 2`] = `
+<div
+  className="form-group dvc-form-group"
+>
+  <label
+    htmlFor="test"
+  />
+  <input
+    autoComplete="off"
+    className="form-control "
+    id="test"
+    name="test"
+    onChange={[Function]}
+    type=""
+  />
+  <div
+    className="invalid-feedback"
+  >
+    Invalid input.
+  </div>
+  <small
+    className="form-text text-muted"
+  />
+</div>
+`;
+
+exports[`<FormInput/> Will be number 1`] = `
+<div
+  className="form-group dvc-form-group"
+>
+  <label
+    htmlFor="test"
+  />
+  <input
+    autoComplete="off"
+    className="form-control "
+    id="test"
+    name="test"
+    onChange={[Function]}
+    type="number"
+  />
+  <div
+    className="invalid-feedback"
+  >
+    Please enter a valid email.
+  </div>
+  <small
+    className="form-text text-muted"
+  />
+</div>
+`;
+
+exports[`<FormInput/> Will be password 1`] = `
+<div
+  className="form-group dvc-form-group"
+>
+  <label
+    htmlFor="test"
+  />
+  <input
+    autoComplete="off"
+    className="form-control "
+    id="test"
+    name="test"
+    onChange={[Function]}
+    type="password"
+  />
+  <div
+    className="invalid-feedback"
+  >
+    Please enter a password.
+  </div>
+  <small
+    className="form-text text-muted"
+  />
+</div>
+`;
+
+exports[`<FormInput/> Will be required 1`] = `
+<div
+  className="form-group dvc-form-group"
+>
+  <label
+    htmlFor="test"
+  >
+    *
+  </label>
+  <input
+    autoComplete="off"
+    className="form-control "
+    id="test"
+    name="test"
+    onChange={[Function]}
+    required={true}
+    type="email"
+  />
+  <div
+    className="invalid-feedback"
+  >
+    Please enter a valid email.
+  </div>
+  <small
+    className="form-text text-muted"
+  />
+</div>
+`;
+
+exports[`<FormInput/> Will be text 1`] = `
+<div
+  className="form-group dvc-form-group"
+>
+  <label
+    htmlFor="test"
+  />
+  <input
+    autoComplete="off"
+    className="form-control "
+    id="test"
+    name="test"
+    onChange={[Function]}
+    type="text"
+  />
+  <div
+    className="invalid-feedback"
+  >
+    Please fill in field.
+  </div>
+  <small
+    className="form-text text-muted"
+  />
+</div>
+`;
+
+exports[`<FormInput/> Will be uppercase 1`] = `
+<div
+  className="form-group dvc-form-group"
+>
+  <label
+    htmlFor="test"
+  />
+  <input
+    autoComplete="off"
+    className="form-control dvc-form-group--caps"
+    id="test"
+    name="test"
+    onChange={[Function]}
+    type="email"
+  />
+  <div
+    className="invalid-feedback"
+  >
+    Please enter a valid email.
+  </div>
+  <small
+    className="form-text text-muted"
+  />
+</div>
+`;
+
+exports[`<FormInput/> Will have help text 1`] = `
+<div
+  className="form-group dvc-form-group"
+>
+  <label
+    htmlFor="test"
+  />
+  <input
+    autoComplete="off"
+    className="form-control "
+    id="test"
+    name="test"
+    onChange={[Function]}
+    type="email"
+  />
+  <div
+    className="invalid-feedback"
+  >
+    Please enter a valid email.
+  </div>
+  <small
+    className="form-text text-muted"
+  >
+    help me test
+  </small>
+</div>
+`;
+
+exports[`<FormInput/> Will have label 1`] = `
+<div
+  className="form-group dvc-form-group"
+>
+  <label
+    htmlFor="test"
+  >
+    test label
+  </label>
+  <input
+    autoComplete="off"
+    className="form-control "
+    id="test"
+    name="test"
+    onChange={[Function]}
+    type="email"
+  />
+  <div
+    className="invalid-feedback"
+  >
+    Please enter a valid email.
+  </div>
+  <small
+    className="form-text text-muted"
+  />
+</div>
+`;
+
+exports[`<FormInput/> Will have label 2`] = `
+<div
+  className="form-group dvc-form-group"
+>
+  <label
+    htmlFor="test"
+  >
+    test label
+  </label>
+  <input
+    autoComplete="off"
+    className="form-control "
+    id="test"
+    name="test"
+    onChange={[Function]}
+    type="email"
+  />
+  <div
+    className="invalid-feedback"
+  >
+    Please enter a valid email.
+  </div>
+  <small
+    className="form-text text-muted"
+  />
+</div>
+`;
+
+exports[`<FormInput/> Will have max number 1`] = `
+<div
+  className="form-group dvc-form-group"
+>
+  <label
+    htmlFor="test"
+  />
+  <input
+    autoComplete="off"
+    className="form-control "
+    id="test"
+    name="test"
+    onChange={[Function]}
+    type="number"
+  />
+  <div
+    className="invalid-feedback"
+  >
+    Please enter a valid email.
+  </div>
+  <small
+    className="form-text text-muted"
+  />
+</div>
+`;
+
+exports[`<FormInput/> Will have min length 1`] = `
+<div
+  className="form-group dvc-form-group"
+>
+  <label
+    htmlFor="test"
+  />
+  <input
+    autoComplete="off"
+    className="form-control "
+    id="test"
+    name="test"
+    onChange={[Function]}
+    type="email"
+  />
+  <div
+    className="invalid-feedback"
+  >
+    Please enter a valid email.
+  </div>
+  <small
+    className="form-text text-muted"
+  />
+</div>
+`;
+
+exports[`<FormInput/> Will have min number 1`] = `
+<div
+  className="form-group dvc-form-group"
+>
+  <label
+    htmlFor="test"
+  />
+  <input
+    autoComplete="off"
+    className="form-control "
+    id="test"
+    name="test"
+    onChange={[Function]}
+    type="number"
+  />
+  <div
+    className="invalid-feedback"
+  >
+    Please enter a valid email.
+  </div>
+  <small
+    className="form-text text-muted"
+  />
+</div>
+`;
+
+exports[`<FormInput/> Will have placeholder 1`] = `
+<div
+  className="form-group dvc-form-group"
+>
+  <label
+    htmlFor="test"
+  />
+  <input
+    autoComplete="off"
+    className="form-control "
+    id="test"
+    name="test"
+    onChange={[Function]}
+    placeholder="test ph"
+    type="email"
+  />
+  <div
+    className="invalid-feedback"
+  >
+    Please enter a valid email.
+  </div>
+  <small
+    className="form-text text-muted"
+  />
+</div>
+`;
+
+exports[`<FormInput/> Will render 1`] = `
+<div
+  className="form-group dvc-form-group"
+>
+  <label
+    htmlFor="test"
+  >
+    
+  </label>
+  <input
+    autoComplete="off"
+    className="form-control "
+    disabled={undefined}
+    id="test"
+    name="test"
+    onChange={[Function]}
+    placeholder={undefined}
+    required={undefined}
+    type="email"
+    value={undefined}
+  />
+  <div
+    className="invalid-feedback"
+  >
+    Please enter a valid email.
+  </div>
+  <small
+    className="form-text text-muted"
+  />
+</div>
+`;
