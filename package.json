@@ -51,9 +51,16 @@
 		"webpack": "^3.8.1"
 	},
 	"jest": {
-		"setupFiles": ["<rootDir>/jestconfig.js"],
-		"moduleFileExtensions": ["jsx", "js"],
-		"snapshotSerializers": ["enzyme-to-json/serializer"],
+		"setupFiles": [
+			"<rootDir>/jestconfig.js"
+		],
+		"moduleFileExtensions": [
+			"jsx",
+			"js"
+		],
+		"snapshotSerializers": [
+			"enzyme-to-json/serializer"
+		],
 		"moduleNameMapper": {
 			"^.+\\.(css|scss)$": "identity-obj-proxy"
 		},
