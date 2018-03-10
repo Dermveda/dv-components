@@ -106,16 +106,17 @@ $spinnerColor: lighten($dermveda-green, 30%);
 		margin-bottom: -2px;
 		width: 0;
 		height: 0;
-		display: inline-block;
 		animation-name: spin;
 		animation-duration: 2s;
 		animation-timing-function: linear;
 		animation-iteration-count: infinite;
+		display: none;
 		visibility: hidden;
 
 		&--show {
 			width: 15px;
 			height: 15px;
+			display: inline-block;
 			visibility: visible;
 			border: 2px solid $spinnerColor;
 			border-top: 2px solid #f6f6f6;

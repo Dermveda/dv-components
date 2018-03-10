@@ -40,12 +40,12 @@ const Button = ({
 		''
 	);
 	const textComp = text ? <span key="text_comp">{text}</span> : '';
-	const loaderComp = (
-		<i
-			key="loader_comp"
-			className={`dvc-button__loader ${isLarge ? 'dvc-button__loader--show--big' : ''} ${isLoading ? 'mr-2 dvc-button__loader--show' : ''}`}
-		/>
-	);
+	let loaderClass = 'dvc-button__loader';
+	if (isLoading) {
+		loaderClass = `${loaderClass} mr-2 dvc-button__loader--show`;
+		if (isLarge) loaderClass = `${loaderClass} mr-2 dvc-button__loader--show--big`;
+	}
+	const loaderComp = <i key="loader_comp" className={loaderClass} />;
 	let body;
 	if (children) body = [loaderComp, children];
 	else body = [loaderComp, iconComp, textComp];
