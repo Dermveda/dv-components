@@ -19,7 +19,9 @@ const Button = ({
 	isUpperCase,
 	isFullWidth,
 	children,
-	color
+	color,
+	isDownload,
+	downloadFilename
 }) => {
 	if (!type) type = 'primary';
 	const classes = `btn dvc-button ${className} 
@@ -31,7 +33,7 @@ const Button = ({
 		${icon !== '' && icon !== undefined ? 'd-inline-flex justify-content-center align-items-center' : ''} 
 		${isRed && type !== 'primary' ? 'dvc-button--red-text' : ''}`;
 	const disabled = isDisabled || isLoading;
-	const kind = isSubmit ? 'submit' : isLink ? '' : 'button';
+	const kind = isSubmit ? 'submit' : isLink || isDownload ? '' : 'button';
 	const iconComp = icon ? (
 		<i key="icon_comp" className={`material-icons ${text !== '' ? 'mr-2' : ''}`}>
 			{icon}
@@ -54,6 +56,12 @@ const Button = ({
 			<Link to={to} type={kind} target={target} disabled={disabled} className={classes}>
 				<div className="d-flex justify-content-center align-items-center">{body}</div>
 			</Link>
+		);
+	else if (isDownload)
+		return (
+			<a href={to} download={downloadFilename} className={classes} disabled={disabled} target={target}>
+				<div className="d-flex justify-content-center align-items-center">{body}</div>
+			</a>
 		);
 	else
 		return (
@@ -79,6 +87,8 @@ Button.propTypes = {
 	isLarge: PropTypes.bool,
 	isFullWidth: PropTypes.bool,
 	color: PropTypes.string,
-	children: PropTypes.any
+	children: PropTypes.any,
+	isDownload: PropTypes.bool,
+	downloadFilename: PropTypes.string
 };
 export default Button;
