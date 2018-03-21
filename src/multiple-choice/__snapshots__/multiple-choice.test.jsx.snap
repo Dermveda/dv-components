@@ -1,0 +1,180 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MultipleChoice/> Will have question 1`] = `
+<li>
+  <div
+    className="pb-1"
+  >
+    test q
+  </div>
+  <div>
+    <div
+      className="my-0 dvc-card dvc-card--enabledMinimal"
+      key="QuizQuestionAnswer_abc123_abc234"
+      onClick={[Function]}
+    >
+      <div
+        className="my-auto"
+      >
+        <i
+          className="material-icons pr-2 dvc-primary-text align-middle"
+        >
+          check_circle
+        </i>
+        test a
+      </div>
+    </div>
+    <div
+      className="my-0 dvc-card pointer dvc-card--disabledMinimal"
+      key="QuizQuestionAnswer_abc123_abc235"
+      onClick={[Function]}
+    >
+      <div
+        className="my-auto"
+      >
+        <i
+          className="material-icons pr-2 align-middle"
+        >
+          radio_button_unchecked
+        </i>
+        test a
+      </div>
+    </div>
+    <div
+      className="my-0 dvc-card pointer dvc-card--disabledMinimal"
+      key="QuizQuestionAnswer_abc123_abc236"
+      onClick={[Function]}
+    >
+      <div
+        className="my-auto"
+      >
+        <i
+          className="material-icons pr-2 align-middle"
+        >
+          radio_button_unchecked
+        </i>
+        test a
+      </div>
+    </div>
+    <div
+      className="my-0 dvc-card pointer dvc-card--disabledMinimal"
+      key="QuizQuestionAnswer_abc123_abc237"
+      onClick={[Function]}
+    >
+      <div
+        className="my-auto"
+      >
+        <i
+          className="material-icons pr-2 align-middle"
+        >
+          radio_button_unchecked
+        </i>
+        test a
+      </div>
+    </div>
+    <div
+      className="my-0 dvc-card pointer dvc-card--disabledMinimal"
+      key="QuizQuestionAnswer_abc123_abc238"
+      onClick={[Function]}
+    >
+      <div
+        className="my-auto"
+      >
+        <i
+          className="material-icons pr-2 align-middle"
+        >
+          radio_button_unchecked
+        </i>
+        test a
+      </div>
+    </div>
+  </div>
+</li>
+`;
+
+exports[`<MultipleChoice/> Will render 1`] = `
+<li>
+  <div
+    className="pb-1"
+  >
+    test q
+  </div>
+  <div>
+    <div
+      className="my-0 dvc-card dvc-card--enabledMinimal"
+      onClick={[Function]}
+    >
+      <div
+        className="my-auto"
+      >
+        <i
+          className="material-icons pr-2 dvc-primary-text align-middle"
+        >
+          check_circle
+        </i>
+        test a
+      </div>
+    </div>
+    <div
+      className="my-0 dvc-card pointer dvc-card--disabledMinimal"
+      onClick={[Function]}
+    >
+      <div
+        className="my-auto"
+      >
+        <i
+          className="material-icons pr-2 align-middle"
+        >
+          radio_button_unchecked
+        </i>
+        test a
+      </div>
+    </div>
+    <div
+      className="my-0 dvc-card pointer dvc-card--disabledMinimal"
+      onClick={[Function]}
+    >
+      <div
+        className="my-auto"
+      >
+        <i
+          className="material-icons pr-2 align-middle"
+        >
+          radio_button_unchecked
+        </i>
+        test a
+      </div>
+    </div>
+    <div
+      className="my-0 dvc-card pointer dvc-card--disabledMinimal"
+      onClick={[Function]}
+    >
+      <div
+        className="my-auto"
+      >
+        <i
+          className="material-icons pr-2 align-middle"
+        >
+          radio_button_unchecked
+        </i>
+        test a
+      </div>
+    </div>
+    <div
+      className="my-0 dvc-card pointer dvc-card--disabledMinimal"
+      onClick={[Function]}
+    >
+      <div
+        className="my-auto"
+      >
+        <i
+          className="material-icons pr-2 align-middle"
+        >
+          radio_button_unchecked
+        </i>
+        test a
+      </div>
+    </div>
+  </div>
+</li>
+`;

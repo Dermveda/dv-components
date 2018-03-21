@@ -1,0 +1,138 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<StarRating/> Will have question 1`] = `
+<li
+  key="qq_star_abc123"
+>
+  test q
+  <div
+    className="dvc-pointer"
+  >
+    <i
+      className="material-icons"
+      key="star_rating_0"
+      onClick={[Function]}
+      style={
+        Object {
+          "fontSize": "200%",
+        }
+      }
+    >
+      star_border
+    </i>
+    <i
+      className="material-icons"
+      key="star_rating_1"
+      onClick={[Function]}
+      style={
+        Object {
+          "fontSize": "200%",
+        }
+      }
+    >
+      star_border
+    </i>
+    <i
+      className="material-icons"
+      key="star_rating_2"
+      onClick={[Function]}
+      style={
+        Object {
+          "fontSize": "200%",
+        }
+      }
+    >
+      star_border
+    </i>
+    <i
+      className="material-icons"
+      key="star_rating_3"
+      onClick={[Function]}
+      style={
+        Object {
+          "fontSize": "200%",
+        }
+      }
+    >
+      star_border
+    </i>
+    <i
+      className="material-icons"
+      key="star_rating_4"
+      onClick={[Function]}
+      style={
+        Object {
+          "fontSize": "200%",
+        }
+      }
+    >
+      star_border
+    </i>
+  </div>
+</li>
+`;
+
+exports[`<StarRating/> Will render 1`] = `
+<li>
+  test q
+  <div
+    className="dvc-pointer"
+  >
+    <i
+      className="material-icons"
+      onClick={[Function]}
+      style={
+        Object {
+          "fontSize": "200%",
+        }
+      }
+    >
+      star_border
+    </i>
+    <i
+      className="material-icons"
+      onClick={[Function]}
+      style={
+        Object {
+          "fontSize": "200%",
+        }
+      }
+    >
+      star_border
+    </i>
+    <i
+      className="material-icons"
+      onClick={[Function]}
+      style={
+        Object {
+          "fontSize": "200%",
+        }
+      }
+    >
+      star_border
+    </i>
+    <i
+      className="material-icons"
+      onClick={[Function]}
+      style={
+        Object {
+          "fontSize": "200%",
+        }
+      }
+    >
+      star_border
+    </i>
+    <i
+      className="material-icons"
+      onClick={[Function]}
+      style={
+        Object {
+          "fontSize": "200%",
+        }
+      }
+    >
+      star_border
+    </i>
+  </div>
+</li>
+`;

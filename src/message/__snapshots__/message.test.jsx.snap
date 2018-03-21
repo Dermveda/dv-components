@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Message/> Will be info 1`] = `
+<div>
+  <div
+    className="mt-2 alert alert-info"
+    role="alert"
+  >
+    Test message
+  </div>
+</div>
+`;
+
+exports[`<Message/> Will be success 1`] = `
+<div>
+  <div
+    className="mt-2 alert alert-success"
+    role="alert"
+  >
+    <strong>
+      Awesome!
+       
+    </strong>
+    Test message
+  </div>
+</div>
+`;
+
+exports[`<Message/> Will not have message 1`] = `<div />`;
+
+exports[`<Message/> Will render 1`] = `
+<div>
+  <div
+    className="mt-2 alert alert-danger"
+    role="alert"
+  >
+    <strong>
+      Oops!
+       
+    </strong>
+    Test message
+  </div>
+</div>
+`;

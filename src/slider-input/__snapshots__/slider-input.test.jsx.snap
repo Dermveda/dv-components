@@ -1,0 +1,167 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SliderInput/> Will have question 1`] = `
+<li
+  className="pb-4"
+  key="QuizQuestion_abc123"
+>
+  test q
+  <Slider
+    data={
+      Array [
+        Object {
+          "answer": Object {
+            "_id": "abc234",
+            "isChosen": true,
+            "isCorrect": false,
+            "name": "test a",
+          },
+          "label": "test a",
+        },
+        Object {
+          "answer": Object {
+            "_id": "abc235",
+            "isChosen": true,
+            "isCorrect": false,
+            "name": "test a",
+          },
+          "label": "test a",
+        },
+        Object {
+          "answer": Object {
+            "_id": "abc236",
+            "isChosen": true,
+            "isCorrect": false,
+            "name": "test a",
+          },
+          "label": "test a",
+        },
+        Object {
+          "answer": Object {
+            "_id": "abc237",
+            "isChosen": true,
+            "isCorrect": false,
+            "name": "test a",
+          },
+          "label": "test a",
+        },
+        Object {
+          "answer": Object {
+            "_id": "abc238",
+            "isChosen": true,
+            "isCorrect": false,
+            "name": "test a",
+          },
+          "label": "test a",
+        },
+      ]
+    }
+    initial={
+      Object {
+        "answer": Object {
+          "_id": "abc234",
+          "isChosen": true,
+          "isCorrect": false,
+          "name": "test a",
+        },
+        "label": "test a",
+      }
+    }
+    isHiddenLabels={true}
+    isSideLabel={true}
+    isSticky={true}
+    onLabelChange={[Function]}
+    uniqueId="Slider_abc123"
+  />
+</li>
+`;
+
+exports[`<SliderInput/> Will render 1`] = `
+<li
+  className="pb-4"
+>
+  test q
+  <div
+    style={
+      Object {
+        "display": "flex",
+      }
+    }
+  >
+    <div
+      className="slider-lables-wrapper"
+      id="Slider_abc123_track"
+      style={
+        Object {
+          "display": "inline-block",
+          "position": "relative",
+          "width": "calc(100% - 50px)",
+        }
+      }
+    >
+      <div
+        onMouseDown={[Function]}
+        onTouchStart={[Function]}
+        style={
+          Object {
+            "cursor": "pointer",
+            "padding": "11.5px 0",
+            "touchAction": "manipulation",
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "background": "#599269",
+              "height": "5px",
+              "width": "0px",
+            }
+          }
+        />
+        <div
+          style={
+            Object {
+              "background": "rgba(0, 0, 0, 0.2)",
+              "float": "right",
+              "height": "5px",
+              "marginTop": "-5px",
+              "width": "100%",
+            }
+          }
+        />
+        <div
+          id="Slider_abc123_thumb"
+          style={
+            Object {
+              "background": "#599269",
+              "borderRadius": "50%",
+              "height": "15px",
+              "left": "0px",
+              "marginTop": "-9.5px",
+              "position": "absolute",
+              "touchAction": "none",
+              "transform": "scale(1)",
+              "transition": ".3s transform ease-in-out",
+              "width": "15px",
+            }
+          }
+        />
+      </div>
+    </div>
+    <div
+      style={
+        Object {
+          "alignSelf": "center",
+          "display": "inline-block",
+          "margin": "0 auto",
+          "padding": "5px 10px",
+        }
+      }
+    >
+      test a
+    </div>
+  </div>
+</li>
+`;
