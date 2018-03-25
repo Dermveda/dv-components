@@ -1,6 +1,6 @@
 {
 	"name": "@dnovicki/dv-components",
-	"version": "1.2.2",
+	"version": "1.2.3",
 	"description": "DV components built with React and Bootstrap",
 	"scripts": {
 		"test": "jest --verbose",
@@ -51,9 +51,16 @@
 		"webpack": "^3.8.1"
 	},
 	"jest": {
-		"setupFiles": ["<rootDir>/jestconfig.js"],
-		"moduleFileExtensions": ["jsx", "js"],
-		"snapshotSerializers": ["enzyme-to-json/serializer"],
+		"setupFiles": [
+			"<rootDir>/jestconfig.js"
+		],
+		"moduleFileExtensions": [
+			"jsx",
+			"js"
+		],
+		"snapshotSerializers": [
+			"enzyme-to-json/serializer"
+		],
 		"moduleNameMapper": {
 			"^.+\\.(css|scss)$": "identity-obj-proxy"
 		},
