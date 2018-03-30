@@ -62,7 +62,7 @@ $transition-parameters: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 	}
 }
 
-$spinnerColor: lighten($dermveda-green, 30%);
+$spinnerColor: rgba(255, 255, 255, 0.5);
 @keyframes spin {
 	0% {
 		transform: rotate(0deg);
@@ -89,7 +89,8 @@ $spinnerColor: lighten($dermveda-green, 30%);
 		&:active,
 		&:focus {
 			color: #fff;
-			span {
+			span,
+			i {
 				color: #fff;
 			}
 		}
@@ -97,7 +98,8 @@ $spinnerColor: lighten($dermveda-green, 30%);
 
 	&--primary {
 		color: #fff;
-		span {
+		span,
+		i {
 			color: #fff;
 		}
 		border: 0;
@@ -119,7 +121,8 @@ $spinnerColor: lighten($dermveda-green, 30%);
 		&:active,
 		&:focus {
 			color: unset;
-			span {
+			span,
+			i {
 				color: unset;
 			}
 		}
@@ -131,7 +134,7 @@ $spinnerColor: lighten($dermveda-green, 30%);
 	&__loader {
 		transition: 0.2s ease-in-out all;
 		border: none;
-		border-radius: 100%;
+		border-radius: 50%;
 		margin-bottom: -2px;
 		width: 0;
 		height: 0;
