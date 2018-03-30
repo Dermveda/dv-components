@@ -73,8 +73,8 @@ $spinnerColor: lighten($dermveda-green, 30%);
 }
 .dvc-button {
 	margin: 5px 0;
-	color: rgba(0, 0, 0, 0.88);
-	background-color: #fff;
+	color: #fff;
+	background-color: transparent;
 	cursor: pointer;
 	border-radius: 2px;
 	font-family: 'Raleway', sans-serif;
@@ -84,8 +84,22 @@ $spinnerColor: lighten($dermveda-green, 30%);
 		box-shadow: 0 0 0 2px rgba($dermveda-green, 25%);
 	}
 
+	&--is-link {
+		&:hover,
+		&:active,
+		&:focus {
+			color: #fff;
+			span {
+				color: #fff;
+			}
+		}
+	}
+
 	&--primary {
 		color: #fff;
+		span {
+			color: #fff;
+		}
 		border: 0;
 		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 
@@ -95,8 +109,23 @@ $spinnerColor: lighten($dermveda-green, 30%);
 		}
 	}
 
-	&--red-text {
-		color: $dermveda-red;
+	&--red {
+		background-color: $dermveda-red;
+	}
+
+	&--secondary {
+		background-color: transparent !important;
+		&:hover,
+		&:active,
+		&:focus {
+			color: unset;
+			span {
+				color: unset;
+			}
+		}
+		&.dvc-button--red {
+			color: $dermveda-red;
+		}
 	}
 
 	&__loader {
@@ -127,6 +156,10 @@ $spinnerColor: lighten($dermveda-green, 30%);
 			}
 		}
 	}
+}
+
+.dvc-secondary-color {
+	color: $dermveda-green;
 }
 
 .dvc-checkbox {

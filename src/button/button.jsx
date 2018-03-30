@@ -21,17 +21,22 @@ const Button = ({
 	children,
 	color,
 	isDownload,
-	downloadFilename
+	downloadFilename,
+	seconaryTextColor
 }) => {
 	if (!type) type = 'primary';
 	const classes = `btn dvc-button ${className} 
+		${type === 'secondary' ? 'dvc-button--secondary' : ''}
 		${type === 'primary' ? 'dvc-button--primary' : ''}
-		${type === 'primary' && color ? color : 'dvc-primary-background'}
+		${type === 'primary' && color && !isRed ? color : !isRed ? 'dvc-primary-background' : ''}
+		${type === 'secondary' && seconaryTextColor && !isRed ? seconaryTextColor : !isRed ? 'dvc-secondary-color' : ''}
 		${isLarge ? 'btn-lg' : ''} 
 		${isUpperCase ? 'text-uppercase' : ''} 
 		${isFullWidth ? 'btn-block' : ''}
 		${icon !== '' && icon !== undefined ? 'd-inline-flex justify-content-center align-items-center' : ''} 
-		${isRed && type !== 'primary' ? 'dvc-button--red-text' : ''}`;
+		${isRed ? 'dvc-button--red' : ''}
+		${isLink || isDownload ? 'dvc-button--is-link' : ''}`;
+	if (isLink && !to) to = '#';
 	const disabled = isDisabled || isLoading;
 	const kind = isSubmit ? 'submit' : isLink || isDownload ? '' : 'button';
 	const iconComp = icon ? (
@@ -89,6 +94,7 @@ Button.propTypes = {
 	color: PropTypes.string,
 	children: PropTypes.any,
 	isDownload: PropTypes.bool,
-	downloadFilename: PropTypes.string
+	downloadFilename: PropTypes.string,
+	seconaryTextColor: PropTypes.string
 };
 export default Button;
