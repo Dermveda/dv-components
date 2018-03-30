@@ -3,13 +3,16 @@
 exports[`<Button /> Will be link 1`] = `
 <Link
   className="btn dvc-button undefined 
+		
 		dvc-button--primary
 		dvc-primary-background
+		dvc-secondary-color
 		 
 		 
 		
 		 
-		"
+		
+		dvc-button--is-link"
   replace={false}
   to="/home"
   type=""
@@ -28,13 +31,16 @@ exports[`<Button /> Will be link 1`] = `
 exports[`<Button /> Will be link deep 1`] = `
 <a
   className="btn dvc-button undefined 
+		
 		dvc-button--primary
 		dvc-primary-background
+		dvc-secondary-color
 		 
 		 
 		
 		 
-		"
+		
+		dvc-button--is-link"
   disabled={undefined}
   href="/home"
   onClick={[Function]}
@@ -56,12 +62,15 @@ exports[`<Button /> Will be link deep 1`] = `
 exports[`<Button /> Will be loading 1`] = `
 <button
   className="btn dvc-button undefined 
+		
 		dvc-button--primary
 		dvc-primary-background
+		dvc-secondary-color
 		 
 		 
 		
 		 
+		
 		"
   disabled={true}
   type="button"
@@ -80,12 +89,15 @@ exports[`<Button /> Will be loading 1`] = `
 exports[`<Button /> Will be loading deep 1`] = `
 <button
   className="btn dvc-button undefined 
+		
 		dvc-button--primary
 		dvc-primary-background
+		dvc-secondary-color
 		 
 		 
 		
 		 
+		
 		"
   disabled={true}
   onClick={undefined}
@@ -106,12 +118,15 @@ exports[`<Button /> Will be loading deep 1`] = `
 exports[`<Button /> Will be secondary button 1`] = `
 <button
   className="btn dvc-button undefined 
+		dvc-button--secondary
 		
 		dvc-primary-background
+		dvc-secondary-color
 		 
 		 
 		
 		 
+		
 		"
   type="button"
 >
@@ -129,12 +144,15 @@ exports[`<Button /> Will be secondary button 1`] = `
 exports[`<Button /> Will have new target 1`] = `
 <button
   className="btn dvc-button undefined 
+		
 		dvc-button--primary
 		dvc-primary-background
+		dvc-secondary-color
 		 
 		 
 		
 		 
+		
 		"
   type="button"
 >
@@ -152,12 +170,15 @@ exports[`<Button /> Will have new target 1`] = `
 exports[`<Button /> Will have new target deep 1`] = `
 <button
   className="btn dvc-button undefined 
+		
 		dvc-button--primary
 		dvc-primary-background
+		dvc-secondary-color
 		 
 		 
 		
 		 
+		
 		"
   disabled={undefined}
   onClick={undefined}
@@ -178,12 +199,15 @@ exports[`<Button /> Will have new target deep 1`] = `
 exports[`<Button /> Will render 1`] = `
 <button
   className="btn dvc-button undefined 
+		
 		dvc-button--primary
 		dvc-primary-background
+		dvc-secondary-color
 		 
 		 
 		
 		 
+		
 		"
   type="button"
 >
@@ -201,12 +225,15 @@ exports[`<Button /> Will render 1`] = `
 exports[`<Button /> Will render deep 1`] = `
 <button
   className="btn dvc-button undefined 
+		
 		dvc-button--primary
 		dvc-primary-background
+		dvc-secondary-color
 		 
 		 
 		
 		 
+		
 		"
   disabled={undefined}
   onClick={undefined}
@@ -227,12 +254,15 @@ exports[`<Button /> Will render deep 1`] = `
 exports[`<Button /> Will show text 1`] = `
 <button
   className="btn dvc-button undefined 
+		
 		dvc-button--primary
 		dvc-primary-background
+		dvc-secondary-color
 		 
 		 
 		
 		 
+		
 		"
   type="button"
 >
@@ -255,12 +285,15 @@ exports[`<Button /> Will show text 1`] = `
 exports[`<Button /> Will show text deep 1`] = `
 <button
   className="btn dvc-button undefined 
+		
 		dvc-button--primary
 		dvc-primary-background
+		dvc-secondary-color
 		 
 		 
 		
 		 
+		
 		"
   disabled={undefined}
   onClick={undefined}
@@ -283,12 +316,15 @@ exports[`<Button /> Will show text deep 1`] = `
 exports[`<Button /> Willbe secondary button deep 1`] = `
 <button
   className="btn dvc-button undefined 
+		dvc-button--secondary
 		
 		dvc-primary-background
+		dvc-secondary-color
 		 
 		 
 		
 		 
+		
 		"
   disabled={undefined}
   onClick={undefined}
