@@ -7,10 +7,14 @@ let config = {
 	context: path.resolve(__dirname, './src'),
 	devtool: 'source-map',
 	entry: {
-		app: './index.js',
+		components: './index.js',
+		atoms: './atoms/index.js',
+		theme: './theme/index.js',
+		static: './static/index.js',
+		molecules: './molecules/index.js'
 	},
 	output: {
-		filename: 'components.bundle.js',
+		filename: '[name].js',
 		path: path.resolve(__dirname, './dist'),
 		libraryTarget: 'commonjs2'
 	},
@@ -39,6 +43,10 @@ let config = {
 						}
 					}, 'sass-loader']
 				})
+			},
+			{
+				test: /\.svg$/,
+				loader: 'svg-inline-loader'
 			}
 			//loaders for other file types can go here
 		]
@@ -47,6 +55,7 @@ let config = {
 		'react': 'commonjs react', // this line is just to use the React dependency of our parent-testing-project instead of using our own React.
 		'react-router-dom': 'commonjs react-router-dom',
 		'react-dom': 'commonjs react-dom',
+		'styled-components': 'commonjs styled-components'
 	},
 	plugins: [
 		new ExtractTextPlugin("styles.css"),
