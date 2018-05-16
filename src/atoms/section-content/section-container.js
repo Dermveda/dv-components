@@ -18,7 +18,7 @@ const SectionContainer = styled.section.attrs({
 `;
 
 SectionContainer.propTypes = {
-	type: PropTypes.oneOf(['white', 'gray', 'primary', 'tertiary', 'secondary'])
+	type: PropTypes.oneOf(['white', 'gray', 'primary', 'tertiary', 'secondary', 'transparent'])
 };
 
 SectionContainer.defaultProps = {

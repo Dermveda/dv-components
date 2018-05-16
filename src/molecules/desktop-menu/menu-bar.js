@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { fontSize } from 'utils';
@@ -8,6 +9,11 @@ import { space } from 'styled-system';
 import { Bar, NavLink, MenuLinks } from 'atoms';
 
 const NavBar = Bar.withComponent('nav');
+
+const TitleLink = styled(Link)`
+	text-decoration: none;
+	outline: none;
+`;
 
 const Title = styled.h1.attrs({
 	fontSize: 3
@@ -41,16 +47,18 @@ const MenuBar = ({
 }) => (
 	<NavBar py={3} px={2} justifyContent="space-between" display={['none', 'none', 'flex']}>
 		<Box>
-			<Title>
-				<TitleImage>
-					{sourceAttributes.map(attributes => (
-						<source {...attributes} key={attributes.srcset} />
-					))}
-					<img alt={title} {...imageAttributes} />
-				</TitleImage>
-				<TitleImage {...imageAttributes} alt={title} aria-hidden />
-				<TitleText>{title}</TitleText>
-			</Title>
+			<TitleLink to="/" title={title}>
+				<Title>
+					<TitleImage>
+						{sourceAttributes.map(attributes => (
+							<source {...attributes} key={attributes.srcset} />
+						))}
+						<img alt={title} {...imageAttributes} />
+					</TitleImage>
+					<TitleImage {...imageAttributes} alt={title} aria-hidden />
+					<TitleText>{title}</TitleText>
+				</Title>
+			</TitleLink>
 			{menuLinks && (
 				<MenuLinks>
 					{menuLinks.map(({ text, ...attrs }) => (

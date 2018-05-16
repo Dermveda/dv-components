@@ -7,11 +7,7 @@ let config = {
 	context: path.resolve(__dirname, './src'),
 	devtool: 'source-map',
 	entry: {
-		components: './index.js',
-		atoms: './atoms/index.js',
-		theme: './theme/index.js',
-		static: './static/index.js',
-		molecules: './molecules/index.js'
+		components: './index.js'
 	},
 	output: {
 		filename: '[name].js',

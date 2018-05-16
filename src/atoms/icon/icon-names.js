@@ -1,18 +1,16 @@
-import 'static/icons.svg';
+import React from 'react';
+import * as IconListing from './icon-listing';
 
 export const icons = {
-	heart: {
-		glyph: 'heart-2-2',
-		outline: 'heart-2-3',
-		colored: 'heart-2-4'
-	},
-	rightArrow: {
-		glyph: 'tail-right-3',
-		outline: 'tail-right-2',
-		colored: 'tail-right-1'
-	}
+	rightArrow: 'RightArrow'
 };
 
-const IconMapper = (name, style = 'glyph') => `#nc-${icons[name][style]}`;
+const Icon = (icon, type) => {
+	const name = icons[icon];
+	const Component = IconListing[name];
+	return <Component type={type} />;
+};
+
+const IconMapper = (name, style = 'glyph') => Icon(name, style);
 
 export default IconMapper;

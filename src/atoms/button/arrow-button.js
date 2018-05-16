@@ -15,7 +15,7 @@ const ArrowIcon = styled(Icon).attrs({
 	stroke: white;
 `;
 
-const ArrowButton = ({ children, ...props }) => (
+export const ArrowButton = ({ children, ...props }) => (
 	<Button {...props}>
 		{children}
 		<ArrowIcon alignToText />
@@ -26,7 +26,7 @@ ArrowButton.propTypes = {
 	children: PropTypes.node.isRequired
 };
 
-const ArrowButtonLink = ({ children, ...props }) => (
+export const ArrowButtonLink = ({ children, ...props }) => (
 	<ButtonLink {...props}>
 		{children}
 		<ArrowIcon alignToText />
@@ -35,9 +35,4 @@ const ArrowButtonLink = ({ children, ...props }) => (
 
 ArrowButtonLink.propTypes = {
 	children: PropTypes.node.isRequired
-};
-
-module.exports = {
-	ArrowButton,
-	ArrowButtonLink
 };

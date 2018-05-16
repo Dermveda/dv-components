@@ -13,17 +13,24 @@ import {
 class Section extends Component {
 	static propTypes = {
 		buttonAttributes: PropTypes.shape({
-			text: PropTypes.string
+			text: PropTypes.string,
+			noButtonSpacing: PropTypes.bool
 		}),
 		titleAttributes: PropTypes.shape({
 			color: PropTypes.string
 		}),
-		title: PropTypes.string.isRequired,
+		imageAttributes: PropTypes.shape({
+			img: PropTypes.string,
+			alt: PropTypes.string
+		}),
+		title: PropTypes.string,
 		children: PropTypes.node.isRequired
 	}
 
 	static defaultProps = {
 		buttonAttributes: { text: null },
+		imageAttributes: null,
+		title: null,
 		titleAttributes: {}
 	}
 
@@ -48,14 +55,14 @@ class Section extends Component {
 		const {
 			buttonAttributes, title, children, titleAttributes, ...attrs
 		} = this.props;
-		const { text, ...buttonProps } = buttonAttributes;
+		const { text, noButtonSpacing, ...buttonProps } = buttonAttributes;
 
 		return (
 			<SectionContainer {...attrs}>
-				<SectionTitle {...titleAttributes}>{title}</SectionTitle>
-				<SectionBody>{children}</SectionBody>
+				{title && <SectionTitle {...titleAttributes}>{title}</SectionTitle>}
+				{children && <SectionBody>{children}</SectionBody>}
 				{text && (
-					<Section.ButtonContainer pt={6}>
+					<Section.ButtonContainer pt={noButtonSpacing ? 0 : 6}>
 						{this.renderButton(buttonProps, text)}
 					</Section.ButtonContainer>
 				)}

@@ -1,5 +1,6 @@
 export {
 	ListItemTitle,
 	ListItemBody,
-	ListItemContainer
+	ListItemContainer,
+	ListItemImage
 } from './list-item-content';

@@ -21,9 +21,9 @@ const Title = sys({
 const Body = sys({
 	is: 'p',
 	p: 0,
-	pb: [3, 0],
+	pb: 3,
 	m: 0,
-	fontSize: 2,
+	fontSize: [2, 3],
 	fontWeight: 'normal'
 }).extend`
 	${fontSize}

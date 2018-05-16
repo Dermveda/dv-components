@@ -28,7 +28,7 @@ storiesOf('Atoms/Icon', module)
             ~~~
         `)(() => (
 			<Icon
-				name={select('icons', Object.keys(icons), 'heart')}
+				name={select('icons', Object.keys(icons), 'rightArrow')}
 				type={select('type', ['glyph', 'outline', 'colored'], 'glyph')}
 				strokeSize={select('stroke', [1, 2, 3, 4], 2)}
 				iconSize={select('size', ['xs', 'sm', 'md', 'lg', 'xl'], 'md')}
@@ -39,7 +39,7 @@ storiesOf('Atoms/Icon', module)
 	)
 	.add('with circle', () => (
 		<IconCircle
-			name={select('icons', Object.keys(icons), 'heart')}
+			name={select('icons', Object.keys(icons), 'rightArrow')}
 			type={select('type', ['glyph', 'outline', 'colored'], 'glyph')}
 			strokeSize={select('stroke', [1, 2, 3, 4], 2)}
 			iconSize={select('size', ['xs', 'sm', 'md', 'lg', 'xl'], 'md')}

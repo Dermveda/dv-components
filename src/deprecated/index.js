@@ -6,6 +6,7 @@ import Slider from './slider/slider.jsx';
 import SliderInput from './slider-input/slider-input.jsx';
 import StarRating from './star-rating/star-rating.jsx';
 import TextInput from './text-input/text-input.jsx';
+import Styles from './styles/index.js';
 
 module.exports = {
 	Button,
@@ -14,6 +15,7 @@ module.exports = {
 	MultipleChoice,
 	Slider,
 	SliderInput,
+	Styles,
 	StarRating,
 	TextInput
 };

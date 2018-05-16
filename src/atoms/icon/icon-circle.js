@@ -3,7 +3,7 @@ import sys from 'system-components';
 import PropTypes from 'prop-types';
 import { adjustHue } from 'polished';
 import { themeGet } from 'styled-system';
-import { Icon } from '.';
+import Icon from './icons';
 
 const IconWrapper = sys({
 	is: 'div',

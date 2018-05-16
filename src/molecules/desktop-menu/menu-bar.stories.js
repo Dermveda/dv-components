@@ -6,6 +6,7 @@ import { action } from '@storybook/addon-actions';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, object } from '@storybook/addon-knobs/react';
+import StoryRouter from 'storybook-react-router';
 /* eslint-enable import/no-extraneous-dependencies */
 
 import { Button, MenuButtons } from 'atoms';
@@ -14,6 +15,7 @@ import MenuBar from './menu-bar';
 storiesOf('Molecules/Desktop Menu', module)
 	.addDecorator(checkA11y)
 	.addDecorator(withKnobs)
+	.addDecorator(StoryRouter())
 	.add(
 		'without children',
 		withInfo(`
@@ -42,10 +44,10 @@ storiesOf('Molecules/Desktop Menu', module)
 					src: 'http://fillmurray.com/150/32'
 				}}
 				menuLinks={object('menu links', [
-					{ href: '/courses', text: 'Courses' },
-					{ href: '/how-it-works', text: 'How It Works' },
-					{ href: '/about-us', text: 'About Us' },
-					{ href: '/contact-us', text: 'Contact Us' }
+					{ to: '/courses', text: 'Courses' },
+					{ to: '/how-it-works', text: 'How It Works' },
+					{ to: '/about-us', text: 'About Us' },
+					{ to: '/contact-us', text: 'Contact Us' }
 				])}
 			/>
 		))
@@ -78,10 +80,10 @@ storiesOf('Molecules/Desktop Menu', module)
 					src: 'http://fillmurray.com/150/32'
 				}}
 				menuLinks={object('menu links', [
-					{ href: '/courses', text: 'Courses' },
-					{ href: '/how-it-works', text: 'How It Works' },
-					{ href: '/about-us', text: 'About Us' },
-					{ href: '/contact-us', text: 'Contact Us' }
+					{ to: '/courses', text: 'Courses' },
+					{ to: '/how-it-works', text: 'How It Works' },
+					{ to: '/about-us', text: 'About Us' },
+					{ to: '/contact-us', text: 'Contact Us' }
 				])}
 			>
 				<MenuButtons>
@@ -133,10 +135,10 @@ storiesOf('Molecules/Desktop Menu', module)
 					src: 'http://fillmurray.com/150/32'
 				}}
 				menuLinks={object('menu links', [
-					{ href: '/courses', text: 'Courses' },
-					{ href: '/how-it-works', text: 'How It Works' },
-					{ href: '/about-us', text: 'About Us' },
-					{ href: '/contact-us', text: 'Contact Us' }
+					{ to: '/courses', text: 'Courses' },
+					{ to: '/how-it-works', text: 'How It Works' },
+					{ to: '/about-us', text: 'About Us' },
+					{ to: '/contact-us', text: 'Contact Us' }
 				])}
 			/>
 		))

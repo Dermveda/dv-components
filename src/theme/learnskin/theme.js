@@ -18,6 +18,7 @@ const learnSkinTheme = {
 		'0 7px 14px rgba(50,50,93,.1),0 3px 6px rgba(0,0,0,.08)'
 	],
 	space: [0, 4, 8, 16, 24, 32, 64],
+	lineHeights: [1, 1.125, 1.25, 1.5, 1.75],
 	backgrounds: {
 		gray: '#f7f7f7',
 		primary: `linear-gradient(to bottom right, ${colors.gradient.primary.join(',')})`,

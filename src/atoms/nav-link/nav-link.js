@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-// import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import { space, themeGet } from 'styled-system';
 import { darken } from 'polished';
 import { fontSize } from 'utils';
 
-const NavLink = styled('a').attrs({
+const NavLink = styled(RouterLink).attrs({
 	fontSize: 2,
 	py: 2,
 	px: 4,
@@ -18,6 +18,7 @@ const NavLink = styled('a').attrs({
 	color: #2B2B2B;
 	transition: all .2s ease-in;
 	border-bottom: 1px solid transparent;
+	text-decoration: none;
 
 	&:hover {
 		color: ${props => darken(0.2, themeGet('colors.primary.main')(props))};

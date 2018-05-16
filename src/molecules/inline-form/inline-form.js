@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Input, ArrowButton, HiddenText } from 'atoms';
+import { Input, ArrowButton, HiddenText } from '../../atoms';
 
 const Form = styled.form`
 	display: flex;
@@ -12,6 +12,7 @@ const Form = styled.form`
 const Label = styled.label`
 	margin: 0;
 	padding: 0;
+	display: flex;
 `;
 
 class InlineForm extends Component {
@@ -56,7 +57,6 @@ class InlineForm extends Component {
 					<Input
 						value={this.state.inputValue}
 						onChange={this.handleInput}
-						height="100%"
 						required
 						ref={(input) => { this.input = input; }}
 						{...inputAttributes}

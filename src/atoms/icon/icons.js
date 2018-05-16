@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { icons } from './icon-names';
-import iconMapper from './icon-names';
-
+import iconMapper, { icons } from './icon-names';
 
 // size is one of xs, s, md, lg, xl
 const iconSize = {
@@ -82,11 +80,11 @@ const Icon = ({
 	type,
 	...props
 }) => (
-	<SVGWrapper type={type} {...props}>
+	<SVGWrapper type={type} {...props} viewBox="0 0 48 48">
 		<g>
 			{title && <title>{title}</title>}
 			{description && <desc>{description}</desc>}
-			<use xlinkHref={iconMapper(name, type)} />
+			{iconMapper(name, type)}
 		</g>
 	</SVGWrapper>
 );

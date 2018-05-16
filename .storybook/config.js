@@ -4,6 +4,8 @@ import backgrounds from "@storybook/addon-backgrounds";
 import infoAddon, { setDefaults } from '@storybook/addon-info';
 import StoryRouter from 'storybook-react-router';
 import { LearnSkinTheme } from 'theme';
+import '../src/global.styles';
+import '../src/static/icons.svg';
 
 const req = require.context('../src', true, /\.stories\.js$/);
 

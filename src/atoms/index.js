@@ -11,7 +11,8 @@ export { default as Input } from './input';
 export {
 	ListItemTitle,
 	ListItemBody,
-	ListItemContainer
+	ListItemContainer,
+	ListItemImage
 } from './list-item-content';
 export {
 	MenuLinks,
@@ -19,3 +20,14 @@ export {
 } from './menu-items';
 export { default as NavLink } from './nav-link';
 export { SectionContainer, SectionTitle, SectionBody } from './section-content';
+export { HeroContainer, HeroTitle, HeroSubTitle, HeroBody, HeroImage } from './hero-content';
+export {
+	Card,
+	CardContainer,
+	CardImage,
+	CardTitle,
+	CardHeader,
+	CardText,
+	CardSubtitle,
+	CardFooter
+} from './card';

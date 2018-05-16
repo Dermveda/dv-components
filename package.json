@@ -1,6 +1,6 @@
 {
   "name": "@dnovicki/dv-components",
-  "version": "2.0.0",
+  "version": "2.0.18",
   "description": "DV components built with React and Bootstrap",
   "scripts": {
     "test": "jest --verbose",
@@ -13,7 +13,12 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
-  "main": "dist/components.bundle.js",
+  "files": [
+	 "dist/components.js",
+	 "dist/components.bundle.js",
+	 "dist/styles.css"
+  ],
+  "main": "dist/components.js",
   "author": "David Novicki",
   "license": "ISC",
   "devDependencies": {
