@@ -16,7 +16,8 @@ storiesOf('Molecules/List Item', module)
 	.add('simple input', () => {
 		const buttonAttributes = {
 			text: 'Learn More',
-			nostyle: true
+			nostyle: true,
+			onClick: () => {}
 		};
 
 		return (
@@ -36,7 +37,8 @@ storiesOf('Molecules/List Item', module)
 	.add('with icons', () => {
 		const buttonAttributes = {
 			text: 'Learn More',
-			nostyle: true
+			nostyle: true,
+			onClick: () => {}
 		};
 
 		const iconAttributes = {
@@ -61,7 +63,8 @@ storiesOf('Molecules/List Item', module)
 	.add('with images', () => {
 		const buttonAttributes = {
 			text: 'Learn More',
-			nostyle: true
+			nostyle: true,
+			onClick: () => {}
 		};
 
 		const imageAttributes = {
