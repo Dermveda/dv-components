@@ -1,12 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { themeGet } from 'styled-system';
+import { themeGet, space } from 'styled-system';
+import { fontSize } from 'utils';
 import { Link as RouterLink } from 'react-router-dom';
 import { nostyle, outline } from 'styles';
 import Button from './button';
 
 const Link = Button.withComponent('a');
 const ExternalLink = Link.extend`
+	${space};
+	${fontSize};
+
 	text-decoration: none;
 	color: ${props => themeGet(`colors.${props.type}.secondary`, '#2b2b2b')};
 

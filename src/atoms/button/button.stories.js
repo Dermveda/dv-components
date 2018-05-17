@@ -35,6 +35,7 @@ storiesOf('Atoms/Buttons', module)
 				gradient={boolean('isGradient', false)}
 				outline={boolean('isOutline', false)}
 				raised={boolean('isRaised', false)}
+				small={boolean('isSmall', false)}
 				nostyle={boolean('isNoStyle', false)}
 				squared={boolean('isSquared', false)}
 				white={boolean('isWHite', false)}
@@ -48,6 +49,7 @@ storiesOf('Atoms/Buttons', module)
 			href="#"
 			large={boolean('isLarge', false)}
 			onClick={action('button click')}
+			small={boolean('isSmall', false)}
 			type={select('button types', ['primary', 'secondary', 'tertiary', 'bold'], 'primary')}
 			gradient={boolean('isGradient', false)}
 			nostyle={boolean('isNoStyle', false)}
@@ -62,6 +64,7 @@ storiesOf('Atoms/Buttons', module)
 		<ArrowButton
 			large={boolean('isLarge', false)}
 			onClick={action('button click')}
+			small={boolean('isSmall', false)}
 			type={select('button types', ['primary', 'secondary', 'tertiary', 'bold'], 'primary')}
 			gradient={boolean('isGradient', false)}
 			nostyle={boolean('isNoStyle', false)}
@@ -77,6 +80,7 @@ storiesOf('Atoms/Buttons', module)
 			href="#"
 			large={boolean('isLarge', false)}
 			onClick={action('button click')}
+			small={boolean('isSmall', false)}
 			type={select('button types', ['primary', 'secondary', 'tertiary', 'bold'], 'primary')}
 			gradient={boolean('isGradient', false)}
 			nostyle={boolean('isNoStyle', false)}

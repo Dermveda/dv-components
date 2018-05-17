@@ -53,12 +53,13 @@ class Section extends Component {
 
 	render() {
 		const {
-			buttonAttributes, title, children, titleAttributes, ...attrs
+			buttonAttributes, title, children, titleAttributes, imageAttributes, ...attrs
 		} = this.props;
 		const { text, noButtonSpacing, ...buttonProps } = buttonAttributes;
 
 		return (
 			<SectionContainer {...attrs}>
+				{imageAttributes && <img {...imageAttributes} />}
 				{title && <SectionTitle {...titleAttributes}>{title}</SectionTitle>}
 				{children && <SectionBody>{children}</SectionBody>}
 				{text && (

@@ -5,7 +5,7 @@ import { fontSize } from 'utils';
 export const ListItemTitle = styled.h3.attrs({
 	fontSize: 4,
 	lineHeight: 2,
-	pb: 2,
+	pb: 3,
 	m: 0
 })`
 	${space};

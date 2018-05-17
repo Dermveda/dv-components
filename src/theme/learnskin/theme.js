@@ -11,7 +11,7 @@ const learnSkinTheme = {
 		0: `Abril Text, ${systemFonts}`,
 		display: '"Abril Fatface", Georgia, serif'
 	},
-	fontSizes: [0.619, 0.825, 1.1, 1.466, 1.955, 2.606, 3.473],
+	fontSizes: [0.819, 1.092, 1.455, 1.94, 2.585, 3.446, 4.594],
 	shadows: [
 		'none',
 		'rgba(50, 50, 93, 0.11) 0px 4px 6px 0px, rgba(0, 0, 0, 0.08) 0px 1px 3px 0px',

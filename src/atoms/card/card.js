@@ -19,7 +19,13 @@ export const Card = sys({
 
 export const CardContainer = sys({
 	is: 'div',
-	p: 4
+	p: 4,
+	display: 'flex',
+	alignItems: 'flex-start',
+	flexDirection: 'column',
+	flexWrap: 'nowrap',
+	justifyContent: 'space-between',
+	height: '100%'
 });
 
 export const CardImage = sys({

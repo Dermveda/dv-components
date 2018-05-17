@@ -26,6 +26,10 @@ storiesOf('Molecules/Section', module)
 
 		return (
 			<Section
+				imageAttributes={{
+					src: 'http://fillmurray.com/100/100',
+					alt: 'something'
+				}}
 				title={text('Title', 'Why LearnSkin')}
 				titleAttributes={object('title styles', titleAttributes)}
 				buttonAttributes={object('button', buttonAttributes)}

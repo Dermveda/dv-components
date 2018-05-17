@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { color, flex, flexWrap, flexDirection, justifyContent, alignItems, space, themeGet } from 'styled-system';
 
 const SectionContainer = styled.section.attrs({
-	p: [2, 4, 6],
+	p: [3, 4, 6],
 	m: 0
 })`
 	${color};
@@ -14,6 +14,10 @@ const SectionContainer = styled.section.attrs({
 	${alignItems};
 	${space};
 
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
 	background: ${props => themeGet(`backgrounds.${props.type}`, 'transparent')};
 `;
 

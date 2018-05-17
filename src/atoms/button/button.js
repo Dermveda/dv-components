@@ -19,9 +19,9 @@ const gradient = css`
 `;
 
 const Button = styled.button.attrs({
-	fontSize: ({ large, small }) => (small ? 1 : large ? 3 : 2),
-	py: [2, 3],
-	px: ({ small }) => (small ? 4 : [3, 4])
+	fontSize: ({ large }) => (large ? 3 : 2),
+	py: ({ small }) => (small ? 2 : [2, 3]),
+	px: ({ small }) => (small ? 3 : [3, 4])
 })`
 	${space};
 	${border};

@@ -32,6 +32,7 @@ export const HeroTitle = styled.h1.attrs({
 	${space};
 	${fontSize};
 
+	font-family: ${props => themeGet('fonts.display')(props)};
 	font-weight: 700;
 `;
 
@@ -50,11 +51,11 @@ export const HeroSubTitle = styled.h2.attrs({
 `;
 
 export const HeroBody = styled.div.attrs({
-	p: 4,
+	p: props => (props.p || 4),
 	order: [2, 2, 0]
 })`
 	flex: 1 25px;
-	max-width: 600px;
+	max-width: 800px;
 	${space};
 	${order};
 `;

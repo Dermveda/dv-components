@@ -31,3 +31,12 @@ export {
 	CardSubtitle,
 	CardFooter
 } from './card';
+export { H3, Subtitle } from './typography';
+export {
+	ArticleHeader,
+	ArticleContainer,
+	ArticleBody,
+	ArticleImage,
+	ArticleImageContainer,
+	ArticleDescription
+} from './article-content';
