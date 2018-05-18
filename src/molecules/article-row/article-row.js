@@ -12,8 +12,8 @@ import {
 	ArticleBody,
 } from 'atoms';
 
-const ArticleRow = ({ title, subtitle, description, children, imageAttributes }) => (
-	<ArticleContainer>
+const ArticleRow = ({ title, subtitle, description, imageAttributes, children, ...attrs }) => (
+	<ArticleContainer {...attrs}>
 		<ArticleBody>
 			<ArticleHeader>
 				<H3>{title}</H3>
@@ -49,7 +49,7 @@ ArticleRow.defaultProps = {
 	subtitle: null,
 	description: null,
 	children: null,
-	imageAttributes: null
+	imageAttributes: {}
 };
 
 export default ArticleRow;

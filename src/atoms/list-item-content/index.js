@@ -2,5 +2,8 @@ export {
 	ListItemTitle,
 	ListItemBody,
 	ListItemContainer,
-	ListItemImage
+	ListItemImage,
+	BulletItem,
+	BulletIcon,
+	BulletListContainer
 } from './list-item-content';

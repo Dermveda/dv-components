@@ -25,18 +25,20 @@ const IconWrapper = sys({
 	}
 `));
 
-const IconCircle = ({ background, ...props }) => (
-	<IconWrapper type={background}>
+const IconCircle = ({ background, className, ...props }) => (
+	<IconWrapper type={background} className={className}>
 		<Icon {...props} />
 	</IconWrapper>
 );
 
 IconCircle.propTypes = {
+	className: PropTypes.string,
 	background: PropTypes.oneOf(['primary', 'secondary', 'tertiary'])
 };
 
 IconCircle.defaultProps = {
-	background: 'primary'
+	background: 'primary',
+	className: ''
 };
 
 export default IconCircle;

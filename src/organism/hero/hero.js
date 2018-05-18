@@ -17,16 +17,18 @@ const FlippedBox = styled.div`
 const ImageContainer = styled.div`
 	max-height: 300px;
 	overflow: hidden;
+	flex: 1 30%;
+	display: flex;
 `;
 
 const Hero = ({
-	title, subtitle, children, imageAttributes, type, ...attrs
+	title, subtitle, children, imageAttributes, type, subtitleAttributes, ...attrs
 }) => (
 	<HeroContainer type={type} {...attrs}>
 		<HeroBody>
 			<FlippedBox lineHeight="1.25">
 				<HeroTitle>{title}</HeroTitle>
-				{subtitle && <HeroSubTitle>{subtitle}</HeroSubTitle>}
+				{subtitle && <HeroSubTitle {...subtitleAttributes}>{subtitle}</HeroSubTitle>}
 			</FlippedBox>
 			{children}
 		</HeroBody>
@@ -44,6 +46,7 @@ Hero.propTypes = {
 	title: PropTypes.string.isRequired,
 	children: PropTypes.node.isRequired,
 	subtitle: PropTypes.string,
+	subtitleAttributes: PropTypes.object,
 	imageAttributes: PropTypes.shape({
 		alt: PropTypes.string.isRequired,
 		src: PropTypes.string.isRequired
@@ -54,7 +57,8 @@ Hero.propTypes = {
 Hero.defaultProps = {
 	subtitle: null,
 	type: 'transparent',
-	imageAttributes: null
+	imageAttributes: null,
+	subtitleAttributes: {}
 };
 
 export default Hero;

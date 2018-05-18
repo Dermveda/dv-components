@@ -39,14 +39,15 @@ export const HeroTitle = styled.h1.attrs({
 export const HeroSubTitle = styled.h2.attrs({
 	fontSize: 2,
 	m: 0,
-	pb: 1
+	pb: 1,
+	color: props => props.color || '#717171'
 })`
 	${fontSize};
 	${space};
+	${color};
 
 	text-transform: uppercase;
 	letter-spacing: .04rem;
-	color: #717171;
 	font-weight: 600;
 `;
 
@@ -54,12 +55,14 @@ export const HeroBody = styled.div.attrs({
 	p: props => (props.p || 4),
 	order: [2, 2, 0]
 })`
-	flex: 1 25px;
+	flex: 2 60%;
 	max-width: 800px;
+	min-width: 300px;
 	${space};
 	${order};
 `;
 
 export const HeroImage = styled.img`
-
+	width: 100%;
+	height: auto;
 `;

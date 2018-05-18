@@ -1,1 +1,1 @@
-export { default as ArticleRow } from './article-row';
+export { default } from './article-row';

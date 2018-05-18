@@ -17,7 +17,10 @@ export const SectionTitle = styled.h2.attrs({
 	font-weight: 700;
 `;
 
-export const SectionBody = styled.div`
+export const SectionBody = styled.div.attrs({
+	fontSize: [1, 2]
+})`
+	${fontSize};
 	${color};
 	${flex};
 	${flexWrap};

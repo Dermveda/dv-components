@@ -12,7 +12,10 @@ export {
 	ListItemTitle,
 	ListItemBody,
 	ListItemContainer,
-	ListItemImage
+	ListItemImage,
+	BulletItem,
+	BulletIcon,
+	BulletListContainer
 } from './list-item-content';
 export {
 	MenuLinks,
@@ -40,3 +43,4 @@ export {
 	ArticleImageContainer,
 	ArticleDescription
 } from './article-content';
+export { default as Main } from './main';

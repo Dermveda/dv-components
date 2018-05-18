@@ -36,7 +36,7 @@ export const ArticleImage = sys({
 	width: ['177.777%', '100%', '100%']
 });
 
-export const ArticleImageContainer = styled.div.attrs`
+export const ArticleImageContainer = styled.div`
 	flex: 1 30%;
 	@media screen and (max-width: ${themeGet('breakpoints.0', '40em')}) {
 		overflow: hidden;
