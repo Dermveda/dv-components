@@ -2,7 +2,10 @@ import React from 'react';
 import * as IconListing from './icon-listing';
 
 export const icons = {
-	rightArrow: 'RightArrow'
+	rightArrow: 'RightArrow',
+	clock: 'Clock',
+	award: 'Award',
+	price: 'Price'
 };
 
 const Icon = (icon, type) => {

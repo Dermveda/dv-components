@@ -1,1 +1,1 @@
-export { default } from './button-list-item';
+export { default } from './bullet-list-item';

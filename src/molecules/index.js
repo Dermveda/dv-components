@@ -7,3 +7,4 @@ export { IconListItem, ListItem, ImageListItem } from './list-item';
 export { default as ArticleRow } from './article-row';
 export { default as ColumnLayout } from './column-layout';
 export { default as BulletListItem } from './bullet-list-item';
+export { default as IconAttributes } from './icon-attributes';

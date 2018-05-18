@@ -30,10 +30,7 @@ RightArrow.propTypes = {
 };
 
 RightArrow.defaultProps = {
-	type: 'glyph',
-	size: 48,
-	className: '',
-	color: '#111'
+	type: 'glyph'
 };
 
 export default RightArrow;
