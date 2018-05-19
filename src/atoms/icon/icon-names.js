@@ -5,7 +5,8 @@ export const icons = {
 	rightArrow: 'RightArrow',
 	clock: 'Clock',
 	award: 'Award',
-	price: 'Price'
+	price: 'Price',
+	simpleCheck: 'SimpleCheck'
 };
 
 const Icon = (icon, type) => {

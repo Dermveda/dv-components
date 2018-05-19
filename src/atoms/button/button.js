@@ -90,13 +90,13 @@ const Button = styled.button.attrs({
 
 Button.propTypes = {
 	type: PropTypes.oneOf(['primary', 'secondary', 'bold', 'tertiary']),
-	gradient: PropTypes.bool,
-	outline: PropTypes.bool,
-	nostyle: PropTypes.bool,
-	squared: PropTypes.bool,
-	large: PropTypes.bool,
-	small: PropTypes.bool,
-	raised: PropTypes.bool
+	gradient: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+	outline: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+	nostyle: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+	squared: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+	large: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+	small: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+	raised: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
 };
 
 Button.defaultProps = {

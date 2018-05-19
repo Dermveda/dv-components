@@ -23,14 +23,15 @@ class BulletListItem extends Component {
 			value: PropTypes.number
 		}),
 		buttonAttributes: PropTypes.shape({
-			text: PropTypes.string.isRequired,
+			text: PropTypes.string,
 			nostyle: PropTypes.bool
 		})
 	}
 
 	static defaultProps = {
 		buttonAttributes: {
-			nostyle: true
+			nostyle: true,
+			text: null
 		},
 		iconAttributes: { name: null },
 		listOrderAttributes: {

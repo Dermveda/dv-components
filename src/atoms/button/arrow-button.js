@@ -23,7 +23,26 @@ export const ArrowButton = ({ children, ...props }) => (
 );
 
 ArrowButton.propTypes = {
+	type: PropTypes.oneOf(['primary', 'secondary', 'bold', 'tertiary']),
+	gradient: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+	outline: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+	nostyle: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+	squared: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+	large: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+	small: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+	raised: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
 	children: PropTypes.node.isRequired
+};
+
+ArrowButton.defaultProps = {
+	type: 'primary',
+	raised: false,
+	nostyle: false,
+	gradient: false,
+	outline: false,
+	squared: false,
+	large: false,
+	small: false
 };
 
 export const ArrowButtonLink = ({ children, ...props }) => (
@@ -34,5 +53,24 @@ export const ArrowButtonLink = ({ children, ...props }) => (
 );
 
 ArrowButtonLink.propTypes = {
+	type: PropTypes.oneOf(['primary', 'secondary', 'bold', 'tertiary']),
+	gradient: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+	outline: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+	nostyle: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+	squared: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+	large: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+	small: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+	raised: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
 	children: PropTypes.node.isRequired
+};
+
+ArrowButtonLink.defaultProps = {
+	type: 'primary',
+	raised: false,
+	nostyle: false,
+	gradient: false,
+	outline: false,
+	squared: false,
+	large: false,
+	small: false
 };

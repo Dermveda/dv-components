@@ -2231,7 +2231,7 @@ clean-css@4.1.x:
   dependencies:
     source-map "0.5.x"
 
-clean-tag@^1.0.3:
+clean-tag@^1.0.3, clean-tag@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/clean-tag/-/clean-tag-1.0.4.tgz#9b407b306fadce114e6dffa774e7b61bdfc0c190"
   dependencies:

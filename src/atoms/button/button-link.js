@@ -46,10 +46,26 @@ const ButtonLink = ({ href, ...attrs }) => (
 );
 
 ButtonLink.propTypes = {
+	type: PropTypes.oneOf(['primary', 'secondary', 'bold', 'tertiary']),
+	gradient: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+	outline: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+	nostyle: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+	squared: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+	large: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+	small: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+	raised: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
 	href: PropTypes.string
 };
 
 ButtonLink.defaultProps = {
+	type: 'primary',
+	raised: false,
+	nostyle: false,
+	gradient: false,
+	outline: false,
+	squared: false,
+	large: false,
+	small: false,
 	href: null
 };
 

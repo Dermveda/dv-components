@@ -26,12 +26,16 @@ const AttributeListItem = styled.li.attrs({
 	pr: [2, 0, 0]
 })`
 	${space};
-	color: #2b2b2b;
+	color: rgba(0, 0, 0, 0.3);
 	font-weight: 600;
 
+	span {
+		color: rgba(0, 0, 0, 0.8);
+	}
+
 	svg {
-		padding-right: 4px;
-		color: #717171;
+		padding-right: 8px;
+		color: rgba(0, 0, 0, 0.4);
 	}
 `;
 
@@ -39,7 +43,7 @@ const IconAttributes = ({ attributeListing, ...attrs }) => (
 	<AttributeListing {...attrs}>
 		{attributeListing.map(attribute => (
 			<AttributeListItem key={attribute.label}>
-				<Icon {...attribute.iconAttributes} aria-hidden iconSize="sm" alignToText />
+				<Icon {...attribute.iconAttributes} aria-hidden iconSize="sm" alignToText type="outline" />
 				<HiddenText>{attribute.label}: </HiddenText>
 				<span>{attribute.text}</span>
 			</AttributeListItem>

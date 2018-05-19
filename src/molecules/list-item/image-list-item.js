@@ -9,7 +9,7 @@ import {
 	ArrowButtonLink
 } from 'atoms';
 
-class IconListItem extends Component {
+class ImageListItem extends Component {
 	static propTypes = {
 		title: PropTypes.string.isRequired,
 		imageAttributes: PropTypes.shape({
@@ -50,4 +50,4 @@ class IconListItem extends Component {
 	}
 }
 
-export default IconListItem;
+export default ImageListItem;

@@ -24,14 +24,15 @@ class Section extends Component {
 			alt: PropTypes.string
 		}),
 		title: PropTypes.string,
-		children: PropTypes.node.isRequired
+		children: PropTypes.node
 	}
 
 	static defaultProps = {
 		buttonAttributes: { text: null },
 		imageAttributes: null,
 		title: null,
-		titleAttributes: {}
+		titleAttributes: {},
+		children: null
 	}
 
 	static ButtonContainer = styled.div`

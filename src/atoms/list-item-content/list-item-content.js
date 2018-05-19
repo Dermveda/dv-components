@@ -4,7 +4,7 @@ import { fontSize } from 'utils';
 import { IconCircle } from 'atoms';
 
 export const ListItemTitle = styled.h3.attrs({
-	fontSize: 4,
+	fontSize: [3, 4],
 	lineHeight: 2,
 	pb: 3,
 	m: 0
@@ -16,7 +16,7 @@ export const ListItemTitle = styled.h3.attrs({
 `;
 
 export const ListItemBody = styled.p.attrs({
-	fontSize: 2,
+	fontSize: [1, 2],
 	p: 0,
 	m: 0,
 	lineHeight: 3
