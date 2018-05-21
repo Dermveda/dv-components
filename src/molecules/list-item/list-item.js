@@ -14,13 +14,13 @@ class ListItem extends Component {
 		children: PropTypes.node.isRequired,
 		buttonAttributes: PropTypes.shape({
 			text: PropTypes.string.isRequired,
-			nostyle: PropTypes.bool
+			nostyle: PropTypes.oneOf(['true', 'false'])
 		})
 	}
 
 	static defaultProps = {
 		buttonAttributes: {
-			nostyle: true
+			nostyle: 'true'
 		}
 	}
 

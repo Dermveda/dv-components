@@ -53,9 +53,10 @@ storiesOf('Atoms/Buttons', module)
 			type={select('button types', ['primary', 'secondary', 'tertiary', 'bold'], 'primary')}
 			gradient={boolean('isGradient', false)}
 			nostyle={boolean('isNoStyle', false)}
-			raised={boolean('isRaised', false)}
-			squared={boolean('isSquared', false)}
-			white={boolean('isWHite', false)}
+			raised={true}
+			// raised={boolean('isRaised', false)}
+			// squared={boolean('isSquared', false)}
+			// white={boolean('isWHite', false)}
 		>
 			{text('test', 'I am a simple button')}
 		</ButtonLink>
@@ -68,7 +69,8 @@ storiesOf('Atoms/Buttons', module)
 			type={select('button types', ['primary', 'secondary', 'tertiary', 'bold'], 'primary')}
 			gradient={boolean('isGradient', false)}
 			nostyle={boolean('isNoStyle', false)}
-			raised={boolean('isRaised', false)}
+			// raised={boolean('isRaised', false)}
+			raised={true}
 			white={boolean('isWHite', false)}
 			squared={boolean('isSquared', false)}
 		>

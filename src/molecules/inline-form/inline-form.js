@@ -63,8 +63,8 @@ class InlineForm extends Component {
 					/>
 				</Label>
 				<ArrowButton
-					raised={false}
-					squared
+					raised="false"
+					squared="true"
 					{...buttonAttributes}
 				>
 					{buttonText}

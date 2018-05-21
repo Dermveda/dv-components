@@ -60,9 +60,9 @@ const CallToAction = ({ buttonProps, title, children }) => {
 			</Box>
 			{
 				buttonProps.onClick ? (
-					<Button type="primary" outline {...buttonAttrs}>{text}</Button>
+					<Button type="primary" outline='true' {...buttonAttrs}>{text}</Button>
 				) : (
-					<ButtonLink type="primary" outline {...buttonAttrs}>{text}</ButtonLink>
+					<ButtonLink type="primary" outline='true' {...buttonAttrs}>{text}</ButtonLink>
 				)
 			}
 		</Section>
