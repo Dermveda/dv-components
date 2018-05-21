@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import Icon from '../icon/icons';
-import { Button, ButtonLink } from '../index';
+import { Button, ButtonLink } from 'atoms';
+import { buttonProps, buttonDefaultProps } from './button';
 
 const ArrowIcon = styled(Icon).attrs({
 	name: 'rightArrow',
@@ -13,64 +13,41 @@ const ArrowIcon = styled(Icon).attrs({
 })`
 	color: white;
 	stroke: white;
-`;
+	`;
 
-export const ArrowButton = ({ children, ...props }) => (
-	<Button {...props}>
-		{children}
-		<ArrowIcon alignToText />
-	</Button>
-);
+class ArrowButton extends Component {
+	static propTypes = buttonProps
+	static defaultProps = buttonDefaultProps
 
-ArrowButton.propTypes = {
-	type: PropTypes.oneOf(['primary', 'secondary', 'bold', 'tertiary']),
-	gradient: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-	outline: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-	nostyle: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-	squared: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-	large: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-	small: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-	raised: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-	children: PropTypes.node.isRequired
-};
+	render = () => {
+		const { children, ...props } = this.props;
 
-ArrowButton.defaultProps = {
-	type: 'primary',
-	raised: false,
-	nostyle: false,
-	gradient: false,
-	outline: false,
-	squared: false,
-	large: false,
-	small: false
-};
+		return(
+			<Button {...props}>
+				{children}
+				<ArrowIcon alignToText />
+			</Button>
+		);
+	}
+}
 
-export const ArrowButtonLink = ({ children, ...props }) => (
-	<ButtonLink {...props}>
-		{children}
-		<ArrowIcon alignToText />
-	</ButtonLink>
-);
+class ArrowButtonLink extends Component {
+	static propTypes = buttonProps
+	static defaultProps = buttonDefaultProps
 
-ArrowButtonLink.propTypes = {
-	type: PropTypes.oneOf(['primary', 'secondary', 'bold', 'tertiary']),
-	gradient: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-	outline: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-	nostyle: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-	squared: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-	large: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-	small: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-	raised: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-	children: PropTypes.node.isRequired
-};
+	render = () => {
+		const { children, ...props } = this.props;
 
-ArrowButtonLink.defaultProps = {
-	type: 'primary',
-	raised: false,
-	nostyle: false,
-	gradient: false,
-	outline: false,
-	squared: false,
-	large: false,
-	small: false
+		return(
+			<ButtonLink {...props}>
+				{children}
+				<ArrowIcon alignToText />
+			</ButtonLink>
+		);
+	}
+}
+
+module.exports = {
+	ArrowButton,
+	ArrowButtonLink
 };

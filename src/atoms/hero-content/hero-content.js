@@ -1,17 +1,20 @@
 import styled from 'styled-components';
 import { color, flex, flexWrap, flexDirection, justifyContent, alignItems, space, themeGet, order } from 'styled-system';
+import tag from 'clean-tag';
+import sys from 'system-components';
 import { fontSize } from 'utils';
 
-export const HeroContainer = styled.header.attrs({
-	p: props => props.p || 4,
+export const HeroContainer = styled(tag.header).attrs({
 	flexDirection: ['column', 'column', 'row'],
 	flexWrap: ['nowrap', 'nowrap', 'wrap'],
-	justifyContent: ['center', 'center', 'space-between']
+	justifyContent: ['center', 'center', 'space-between'],
+	p: props => props.p || 4
 })`
 	display: flex;
-	line-height: 1.5;
 	overflow: hidden;
 	align-content: center;
+	line-height: 1.5;
+	background: ${props => themeGet(`backgrounds.${props.type}`, 'transparent')};
 
 	${color};
 	${flex};
@@ -20,49 +23,49 @@ export const HeroContainer = styled.header.attrs({
 	${justifyContent};
 	${alignItems};
 	${space};
-
-	background: ${props => themeGet(`backgrounds.${props.type}`, 'transparent')};
 `;
 
-export const HeroTitle = styled.h1.attrs({
+export const HeroTitle = styled(tag.h1).attrs({
 	m: 0,
 	pb: 3,
 	fontSize: [4, 5]
 })`
-	${space};
-	${fontSize};
-
 	font-family: ${props => themeGet('fonts.display')(props)};
-	font-weight: 700;
+	font-weight: 600;
+
+	${fontSize};
+	${space};
 `;
 
-export const HeroSubTitle = styled.h2.attrs({
+export const HeroSubTitle = styled(tag.h2).attrs({
 	fontSize: 2,
 	m: 0,
 	pb: 1,
 	color: props => props.color || '#717171'
 })`
-	${fontSize};
-	${space};
-	${color};
-
 	text-transform: uppercase;
 	letter-spacing: .04rem;
 	font-weight: 600;
+
+	${space};
+	${fontSize};
+	${color};
 `;
 
-export const HeroBody = styled.div.attrs({
+export const HeroBody = styled(tag.div).attrs({
 	p: props => (props.p || 4),
 	order: [2, 2, 0]
 })`
 	flex: 2 60%;
 	max-width: 800px;
 	min-width: 300px;
+
 	${space};
 	${order};
 `;
 
-export const HeroImage = styled.img`
-	width: 100%;
-	height: auto;
-`;
+export const HeroImage = sys({
+	is: 'img',
+	width: '100%',
+	height: 'auto'
+});

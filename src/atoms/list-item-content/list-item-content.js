@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import tag from 'clean-tag';
 import { space, themeGet, lineHeight } from 'styled-system';
 import { fontSize } from 'utils';
 import { IconCircle } from 'atoms';
 
-export const ListItemTitle = styled.h3.attrs({
+export const ListItemTitle = styled(tag.h3).attrs({
 	fontSize: [3, 4],
 	lineHeight: 2,
 	pb: 3,
@@ -15,7 +16,7 @@ export const ListItemTitle = styled.h3.attrs({
 	font-family: ${themeGet('fonts.display', 'serif')};
 `;
 
-export const ListItemBody = styled.p.attrs({
+export const ListItemBody = styled(tag.p).attrs({
 	fontSize: [1, 2],
 	p: 0,
 	m: 0,
@@ -26,7 +27,7 @@ export const ListItemBody = styled.p.attrs({
 	${fontSize};
 `;
 
-export const ListItemContainer = styled.li`
+export const ListItemContainer = styled(tag.li)`
 	${space};
 	display: flex;
 	flex-flow: column nowrap;
@@ -34,13 +35,13 @@ export const ListItemContainer = styled.li`
 	background: ${props => themeGet(`backgrounds.${props.type}`, 'transparent')}
 `;
 
-export const ListItemImage = styled.img`
+export const ListItemImage = styled(tag.img)`
 	width: 125px;
 	height: auto;
 	border-radius: 100%;
 `;
 
-export const BulletItem = styled.span.attrs({
+export const BulletItem = styled(tag.span).attrs({
 	fontSize: 3,
 	mt: 1,
 	p: 2
@@ -61,10 +62,10 @@ export const BulletItem = styled.span.attrs({
 
 export const BulletIcon = styled(IconCircle).attrs({
 	p: 2,
-	mt: 1
+	mt: 2
 })`
-	width: 30px;
-	height: 30px;
+	width: 36px;
+	height: 36px;
 	${space};
 	svg {
 		height: 24px;

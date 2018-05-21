@@ -1,13 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import styled from 'styled-components';
 import { themeGet, space } from 'styled-system';
 import { fontSize } from 'utils';
 import { Link as RouterLink } from 'react-router-dom';
 import { nostyle, outline } from 'styles';
-import Button from './button';
+import Button, { buttonProps, buttonDefaultProps } from './button';
 
 const Link = Button.withComponent('a');
-const ExternalLink = Link.extend`
+const ExternalLink = styled(Link)`
 	${space};
 	${fontSize};
 
@@ -19,9 +19,9 @@ const ExternalLink = Link.extend`
 		text-decoration: none;
 	}
 
-	${props => props.outline && outline};
-	${props => props.nostyle && nostyle};
-	${props => props.white && `
+	${props => props.outline ? outline : ''};
+	${props => props.nostyle ? nostyle : ''};
+	${props => props.white ? `
 		border-color: white;
 		color: white;
 		background-color: transparent;
@@ -33,40 +33,20 @@ const ExternalLink = Link.extend`
 		&:focus, &:active {
 			background: rgba(0, 0, 0, 0.4);
 		}
-	`}
+	` : ''}
 `;
 const LocalLink = ExternalLink.withComponent(RouterLink);
 
-const ButtonLink = ({ href, ...attrs }) => (
-	href ? (
-		<ExternalLink href={href} rel="noopener noreferrer" target="_blank" {...attrs} />
-	) : (
-		<LocalLink {...attrs } />
-	)
-);
+export default class ButtonLink extends Component {
+	static propTypes = buttonProps
+	static defaultProps = buttonDefaultProps
 
-ButtonLink.propTypes = {
-	type: PropTypes.oneOf(['primary', 'secondary', 'bold', 'tertiary']),
-	gradient: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-	outline: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-	nostyle: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-	squared: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-	large: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-	small: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-	raised: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-	href: PropTypes.string
-};
-
-ButtonLink.defaultProps = {
-	type: 'primary',
-	raised: false,
-	nostyle: false,
-	gradient: false,
-	outline: false,
-	squared: false,
-	large: false,
-	small: false,
-	href: null
-};
-
-export default ButtonLink;
+	render = () => {
+		const { href, ...attrs } = this.props;
+		return href ? (
+			<ExternalLink href={href} rel="noopener noreferrer" target="_blank" {...attrs} />
+		) : (
+			<LocalLink {...attrs } />
+		);
+	}
+}
