@@ -17,6 +17,7 @@ const Input = styled.input.attrs({
 	border: 1px solid #F7F7F7;
 	border-color: ${props => !props.gray && '#717171'};
 	box-shadow: none;
+	display: block;
 `;
 
 export default Input;

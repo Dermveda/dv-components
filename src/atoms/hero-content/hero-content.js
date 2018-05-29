@@ -54,12 +54,13 @@ export const HeroSubTitle = styled(tag.h2).attrs({
 
 export const HeroBody = styled(tag.div).attrs({
 	p: props => (props.p || 4),
-	order: [2, 2, 0]
+	order: [2, 2, 0],
+	flex: props => props.flex || '2 60%'
 })`
-	flex: 2 60%;
 	max-width: 800px;
 	min-width: 300px;
 
+	${flex};
 	${space};
 	${order};
 `;

@@ -4,14 +4,17 @@ import {
 	ListItemContainer,
 	ListItemTitle,
 	ListItemBody,
+	ListItemHeader,
 	ArrowButton,
-	ArrowButtonLink
+	ArrowButtonLink,
+	Subtitle
 } from 'atoms';
 
 class ListItem extends Component {
 	static propTypes = {
 		title: PropTypes.string.isRequired,
 		children: PropTypes.node.isRequired,
+		subtitle: PropTypes.string,
 		buttonAttributes: PropTypes.shape({
 			text: PropTypes.string.isRequired,
 			nostyle: PropTypes.bool
@@ -21,7 +24,8 @@ class ListItem extends Component {
 	static defaultProps = {
 		buttonAttributes: {
 			nostyle: true
-		}
+		},
+		subtitle: null
 	}
 
 	renderButton = (buttonProps, text) => (
@@ -33,12 +37,15 @@ class ListItem extends Component {
 	)
 
 	render() {
-		const { title, children, buttonAttributes, ...attrs } = this.props;
+		const { title, children, buttonAttributes, subtitle, ...attrs } = this.props;
 		const { text, ...buttonProps } = buttonAttributes;
 
 		return (
 			<ListItemContainer {...attrs}>
-				<ListItemTitle>{title}</ListItemTitle>
+				<ListItemHeader>
+					<ListItemTitle>{title}</ListItemTitle>
+					{subtitle && <Subtitle pb={1} color="#717171">{subtitle}</Subtitle>}
+				</ListItemHeader>
 				<ListItemBody>{children}</ListItemBody>
 				{text && this.renderButton(buttonProps, text)}
 			</ListItemContainer>

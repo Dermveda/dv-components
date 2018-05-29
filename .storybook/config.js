@@ -2,7 +2,7 @@ import React from 'react';
 import { configure, addDecorator, setAddon } from '@storybook/react';
 import backgrounds from "@storybook/addon-backgrounds";
 import infoAddon, { setDefaults } from '@storybook/addon-info';
-import { BrowserRouter as Router } from 'react-router-dom';
+import StoryRouter from 'storybook-react-router';
 import { LearnSkinTheme } from 'theme';
 import '../src/global.styles';
 import '../src/static/icons.svg';
@@ -15,13 +15,14 @@ setDefaults({
 });
 setAddon(infoAddon);
 
+// Configure React router
+addDecorator(StoryRouter());
+
 // Configure theme provider
 addDecorator(storyfn => (
-	<Router>
-		<LearnSkinTheme>
-			{storyfn()}
-		</LearnSkinTheme>
-	</Router>
+	<LearnSkinTheme>
+		{storyfn()}
+	</LearnSkinTheme>
 ));
 
 // Configure background options

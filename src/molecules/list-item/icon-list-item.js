@@ -4,8 +4,10 @@ import {
 	ListItemContainer,
 	ListItemTitle,
 	ListItemBody,
+	ListItemHeader,
 	IconCircle,
 	ArrowButton,
+	Subtitle,
 	ArrowButtonLink
 } from 'atoms';
 
@@ -15,6 +17,7 @@ class IconListItem extends Component {
 		iconAttributes: PropTypes.shape({
 			name: PropTypes.string.isRequired
 		}).isRequired,
+		subtitle: PropTypes.string,
 		children: PropTypes.node.isRequired,
 		buttonAttributes: PropTypes.shape({
 			text: PropTypes.string.isRequired,
@@ -23,7 +26,8 @@ class IconListItem extends Component {
 	}
 
 	static defaultProps = {
-		buttonAttributes: {}
+		buttonAttributes: {},
+		subtitle: null
 	}
 
 	renderButton = (buttonProps, text) => (
@@ -35,13 +39,16 @@ class IconListItem extends Component {
 	)
 
 	render() {
-		const { iconAttributes, buttonAttributes, title, children, ...attrs } = this.props;
+		const { iconAttributes, buttonAttributes, title, children, subtitle, ...attrs } = this.props;
 		const { text, ...buttonProps } = buttonAttributes;
 
 		return (
 			<ListItemContainer {...attrs}>
 				<IconCircle {...iconAttributes} />
-				<ListItemTitle mt={2}>{title}</ListItemTitle>
+				<ListItemHeader mt={3}>
+					<ListItemTitle>{title}</ListItemTitle>
+					{subtitle && <Subtitle pb={1} color="#717171">{subtitle}</Subtitle>}
+				</ListItemHeader>
 				<ListItemBody>{children}</ListItemBody>
 				{text && this.renderButton(buttonProps, text)}
 			</ListItemContainer>

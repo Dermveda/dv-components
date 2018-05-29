@@ -5,5 +5,6 @@ export {
 	ListItemImage,
 	BulletItem,
 	BulletIcon,
-	BulletListContainer
+	BulletListContainer,
+	ListItemHeader
 } from './list-item-content';

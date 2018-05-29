@@ -3,3 +3,8 @@ export { default as Award } from './award';
 export { default as Price } from './price';
 export { default as Clock } from './clock';
 export { default as SimpleCheck } from './simple-check';
+export { default as User } from './user';
+export { default as BookStack } from './book-stack';
+export { default as Close } from './close';
+export { default as Menu } from './menu';
+export { default as Player } from './player';

@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 import tag from 'clean-tag';
 import { space, themeGet, lineHeight } from 'styled-system';
+import { createSkeletonElement } from '@trainline/react-skeletor';
+import { flipOrder } from 'styles';
 import { fontSize } from 'utils';
 import { IconCircle } from 'atoms';
 
-export const ListItemTitle = styled(tag.h3).attrs({
+const makeListItemTitle = styled(tag.h3).attrs({
 	fontSize: [3, 4],
 	lineHeight: 2,
 	pb: 3,
@@ -15,10 +17,11 @@ export const ListItemTitle = styled(tag.h3).attrs({
 	${fontSize};
 	font-family: ${themeGet('fonts.display', 'serif')};
 `;
+export const ListItemTitle = createSkeletonElement(makeListItemTitle);
 
-export const ListItemBody = styled(tag.p).attrs({
+const makeListItemBody = styled(tag.p).attrs({
 	fontSize: [1, 2],
-	p: 0,
+	pt: 1,
 	m: 0,
 	lineHeight: 3
 })`
@@ -26,6 +29,7 @@ export const ListItemBody = styled(tag.p).attrs({
 	${space};
 	${fontSize};
 `;
+export const ListItemBody = createSkeletonElement(makeListItemBody);
 
 export const ListItemContainer = styled(tag.li)`
 	${space};
@@ -35,16 +39,15 @@ export const ListItemContainer = styled(tag.li)`
 	background: ${props => themeGet(`backgrounds.${props.type}`, 'transparent')}
 `;
 
-export const ListItemImage = styled(tag.img)`
+const makeListItemImage = styled(tag.img)`
 	width: 125px;
-	height: auto;
+	height: 125px;
 	border-radius: 100%;
 `;
+export const ListItemImage = createSkeletonElement(makeListItemImage);
 
 export const BulletItem = styled(tag.span).attrs({
-	fontSize: 3,
-	mt: 1,
-	p: 2
+	fontSize: 3
 })`
 	${fontSize};
 	${space};
@@ -61,14 +64,14 @@ export const BulletItem = styled(tag.span).attrs({
 `;
 
 export const BulletIcon = styled(IconCircle).attrs({
-	p: 2,
-	mt: 2
+	p: 2
 })`
 	width: 36px;
 	height: 36px;
 	${space};
 	svg {
 		height: 24px;
+		padding: 0;
 		width: 24px;
 	}
 `;
@@ -85,4 +88,9 @@ export const BulletListContainer = ListItemContainer.extend`
 	& > *:last-of-type {
 		flex: 1;
 	}
+`;
+
+export const ListItemHeader = styled(tag.header)`
+	${flipOrder};
+	${space};
 `;

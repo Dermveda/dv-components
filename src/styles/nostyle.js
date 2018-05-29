@@ -14,7 +14,7 @@ const nostyle = css`
 	}
 
 	&:hover {
-		color: ${props => darken(0.2, themeGet(`colors.${props.type}.main`)(props))};
+		color: ${props => darken(0.2, themeGet(`colors.${props.type}.main`)(props))} !important;
 
 		svg {
 			color: ${props => darken(0.2, themeGet(`colors.${props.type}.main`)(props))};

@@ -24,7 +24,6 @@ export const CardContainer = sys({
 	alignItems: 'flex-start',
 	flexDirection: 'column',
 	flexWrap: 'nowrap',
-	justifyContent: 'space-between',
 	height: '100%'
 });
 
@@ -39,7 +38,7 @@ export const CardImage = sys({
 
 export const CardTitle = styled.h3.attrs({
 	fontSize: [3, 4],
-	pb: 3,
+	pb: 2,
 	m: 0
 })`
 	${space};
@@ -77,5 +76,6 @@ export const CardText = styled.p.attrs({
 
 export const CardFooter = sys({
 	is: 'footer',
-	pt: 3
+	pt: 3,
+	mt: 'auto'
 });

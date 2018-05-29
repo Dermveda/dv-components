@@ -1,8 +1,11 @@
 import sys from 'system-components';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { space, themeGet } from 'styled-system';
+import { createSkeletonElement } from '@trainline/react-skeletor';
+import { space, themeGet, width, maxWidth, display } from 'styled-system';
 import { flipOrder } from 'styles';
 import { fontSize } from 'utils';
+import tag from 'clean-tag';
 
 export const ArticleHeader = styled.header`
 	${flipOrder};
@@ -16,11 +19,11 @@ export const ArticleContainer = sys({
 	display: 'flex',
 	lineHeight: '1.5',
 	justifyContent: 'space-between',
-	alignItems: 'center'
+	alignItems: 'flex-start'
 });
 
 export const ArticleBody = styled.div.attrs({
-	fontSize: [1, 1, 2],
+	fontSize: [0, 1, 2],
 	mr: [2, 3]
 })`
 	${fontSize};
@@ -29,12 +32,16 @@ export const ArticleBody = styled.div.attrs({
 	flex: 2 70%;
 `;
 
-export const ArticleImage = sys({
-	is: 'img',
+const makeArticleImage = styled(tag.img).attrs({
 	maxWidth: ['300px', '400px', '400px'],
 	m: ['0 -38.885%', 0, 0],
 	width: ['177.777%', '100%', '100%']
-});
+})`
+	${width};
+	${maxWidth};
+	${space};
+`;
+export const ArticleImage = createSkeletonElement(makeArticleImage);
 
 export const ArticleImageContainer = styled.div`
 	flex: 1 30%;
@@ -43,9 +50,26 @@ export const ArticleImageContainer = styled.div`
 	}
 `;
 
-export const ArticleDescription = sys({
-	is: 'p',
-	m: 0,
-	pt: 3,
+export const ArticleImageLinkable = styled(Link)`
+	color: inherit;
+	text-decoration: none !important;
+
+	&:hover {
+		color: inherit;
+	}
+
+	flex: 1 30%;
+	@media screen and (max-width: ${themeGet('breakpoints.0', '40em')}) {
+		overflow: hidden;
+	}
+`;
+
+const makeArticleDescription = styled(tag.p).attrs({
+	m: props => props.m || 0,
+	pb: props => props.pb || 3,
 	display: ['none', 'none', 'block']
-});
+})`
+	${display};
+	${space};
+`;
+export const ArticleDescription = createSkeletonElement(makeArticleDescription);

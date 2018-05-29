@@ -1,1 +1,1 @@
-export { H3, Subtitle } from './typography';
+export { H3, Subtitle, Content } from './typography';

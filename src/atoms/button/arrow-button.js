@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Icon from '../icon/icons';
-import { Button, ButtonLink } from 'atoms';
-import { buttonProps, buttonDefaultProps } from './button';
+import Button from './button';
+import ButtonLink from './button-link';
+import { Spin } from 'animations';
 
 const ArrowIcon = styled(Icon).attrs({
 	name: 'rightArrow',
@@ -13,41 +15,34 @@ const ArrowIcon = styled(Icon).attrs({
 })`
 	color: white;
 	stroke: white;
-	`;
+	${props => props.spin && `
+		animation: ${Spin} 1s ease infinite;
+	`};
+`;
 
-class ArrowButton extends Component {
-	static propTypes = buttonProps
-	static defaultProps = buttonDefaultProps
+export const ArrowButton = ({ children, spin, ...props }) => (
+	<Button {...props}>
+		{children}
+		<ArrowIcon alignToText spin={spin} />
+	</Button>
+);
 
-	render = () => {
-		const { children, ...props } = this.props;
+ArrowButton.propTypes = {
+	children: PropTypes.node.isRequired,
+	spin: PropTypes.bool
+};
 
-		return(
-			<Button {...props}>
-				{children}
-				<ArrowIcon alignToText />
-			</Button>
-		);
-	}
-}
+ArrowButton.defaultProps = {
+	spin: false
+};
 
-class ArrowButtonLink extends Component {
-	static propTypes = buttonProps
-	static defaultProps = buttonDefaultProps
+export const ArrowButtonLink = ({ children, ...props }) => (
+	<ButtonLink {...props}>
+		{children}
+		<ArrowIcon alignToText />
+	</ButtonLink>
+);
 
-	render = () => {
-		const { children, ...props } = this.props;
-
-		return(
-			<ButtonLink {...props}>
-				{children}
-				<ArrowIcon alignToText />
-			</ButtonLink>
-		);
-	}
-}
-
-module.exports = {
-	ArrowButton,
-	ArrowButtonLink
+ArrowButtonLink.propTypes = {
+	children: PropTypes.node.isRequired
 };

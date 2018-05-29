@@ -6,7 +6,12 @@ export const icons = {
 	clock: 'Clock',
 	award: 'Award',
 	price: 'Price',
-	simpleCheck: 'SimpleCheck'
+	simpleCheck: 'SimpleCheck',
+	user: 'User',
+	bookStack: 'BookStack',
+	menu: 'Menu',
+	close: 'Close',
+	player: 'Player'
 };
 
 const Icon = (icon, type) => {

@@ -1,41 +1,20 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { themeGet, space } from 'styled-system';
-import { fontSize } from 'utils';
+import { createSkeletonElement } from '@trainline/react-skeletor';
 import { Link as RouterLink } from 'react-router-dom';
-import { nostyle, outline } from 'styles';
-import Button, { buttonProps, buttonDefaultProps } from './button';
+import tag from 'clean-tag';
+import {
+	buttonProps, buttonDefaultProps, buttonCSS, buttonAttributes
+} from './button-styles';
 
-const Link = Button.withComponent('a');
-const ExternalLink = styled(Link)`
-	${space};
-	${fontSize};
-
-	text-decoration: none;
-	color: ${props => themeGet(`colors.${props.type}.secondary`, '#2b2b2b')};
-
-	&:hover {
-		color: ${props => themeGet(`colors.${props.type}.secondary`, '#2b2b2b')};
-		text-decoration: none;
-	}
-
-	${props => props.outline ? outline : ''};
-	${props => props.nostyle ? nostyle : ''};
-	${props => props.white ? `
-		border-color: white;
-		color: white;
-		background-color: transparent;
-
-		&:hover {
-			background: rgba(0, 0, 0, 0.2);
-		}
-
-		&:focus, &:active {
-			background: rgba(0, 0, 0, 0.4);
-		}
-	` : ''}
+const makeExternalLink = styled(tag.a).attrs(buttonAttributes)`
+	${buttonCSS};
 `;
-const LocalLink = ExternalLink.withComponent(RouterLink);
+const makeLocalLink = styled(RouterLink).attrs(buttonAttributes)`
+	${buttonCSS};
+`;
+const ExternalLink = createSkeletonElement(makeExternalLink);
+const LocalLink = createSkeletonElement(makeLocalLink);
 
 export default class ButtonLink extends Component {
 	static propTypes = buttonProps

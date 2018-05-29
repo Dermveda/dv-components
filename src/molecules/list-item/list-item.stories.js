@@ -25,6 +25,7 @@ storiesOf('Molecules/List Item', module)
 				title={text('title', 'Physicians CME')}
 				buttonAttributes={object('button', buttonAttributes)}
 				type={select('background', ['white', 'gray', 'primary'], 'white')}
+				subtitle={text('subtitle', 'Something')}
 			>
 				{text('description', `
 					We’re on a mission to provide mobile-friendly continuing education
@@ -50,6 +51,7 @@ storiesOf('Molecules/List Item', module)
 				title={text('title', 'Physicians CME')}
 				iconAttributes={object('icon', iconAttributes)}
 				buttonAttributes={object('button', buttonAttributes)}
+				subtitle={text('subtitle', 'Something')}
 				type={select('background', ['white', 'grey', 'primary'], 'white')}
 			>
 				{text('description', `
@@ -75,6 +77,7 @@ storiesOf('Molecules/List Item', module)
 		return (
 			<ImageListItem
 				title={text('title', 'Physicians CME')}
+				subtitle={text('subtitle', 'Something')}
 				imageAttributes={object('icon', imageAttributes)}
 				buttonAttributes={object('button', buttonAttributes)}
 				type={select('background', ['white', 'grey', 'primary'], 'white')}

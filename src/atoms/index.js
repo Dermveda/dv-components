@@ -13,6 +13,7 @@ export {
 	ListItemBody,
 	ListItemContainer,
 	ListItemImage,
+	ListItemHeader,
 	BulletItem,
 	BulletIcon,
 	BulletListContainer
@@ -34,13 +35,16 @@ export {
 	CardSubtitle,
 	CardFooter
 } from './card';
-export { H3, Subtitle } from './typography';
+export { H3, Subtitle, Content } from './typography';
 export {
 	ArticleHeader,
 	ArticleContainer,
 	ArticleBody,
 	ArticleImage,
 	ArticleImageContainer,
-	ArticleDescription
+	ArticleDescription,
+	ArticleImageLinkable
 } from './article-content';
 export { default as Main } from './main';
+export { MenuIcon } from './interactive-icon';
+export { Label } from './form-elements';

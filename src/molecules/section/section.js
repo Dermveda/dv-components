@@ -64,7 +64,7 @@ class Section extends Component {
 				{title && <SectionTitle {...titleAttributes}>{title}</SectionTitle>}
 				{children && <SectionBody>{children}</SectionBody>}
 				{text && (
-					<Section.ButtonContainer pt={noButtonSpacing ? 0 : 6}>
+					<Section.ButtonContainer pt={noButtonSpacing ? 0 : [3, 4, 6]}>
 						{this.renderButton(buttonProps, text)}
 					</Section.ButtonContainer>
 				)}

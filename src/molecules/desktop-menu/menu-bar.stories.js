@@ -34,7 +34,7 @@ storiesOf('Molecules/Desktop Menu', module)
 				sourceAttributes={[
 					{
 						srcset: 'http://fillmurray.com/48/48',
-						media: '(max-width: 1200px)'
+						media: '(max-width: 1300px)'
 					},
 					{
 						srcset: 'http://fillmurray.com/150/32'
@@ -70,7 +70,7 @@ storiesOf('Molecules/Desktop Menu', module)
 				sourceAttributes={[
 					{
 						srcset: 'http://fillmurray.com/48/48',
-						media: '(max-width: 1200px)'
+						media: '(max-width: 1300px)'
 					},
 					{
 						srcset: 'http://fillmurray.com/150/32'
@@ -125,7 +125,7 @@ storiesOf('Molecules/Desktop Menu', module)
 				sourceAttributes={[
 					{
 						srcset: 'http://fillmurray.com/48/48',
-						media: '(max-width: 1200px)'
+						media: '(max-width: 1300px)'
 					},
 					{
 						srcset: 'http://fillmurray.com/150/32'
