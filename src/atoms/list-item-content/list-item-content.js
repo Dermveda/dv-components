@@ -1,12 +1,11 @@
 import styled from 'styled-components';
-import tag from 'clean-tag';
 import { space, themeGet, lineHeight } from 'styled-system';
 import { createSkeletonElement } from '@trainline/react-skeletor';
 import { flipOrder } from 'styles';
 import { fontSize } from 'utils';
 import { IconCircle } from 'atoms';
 
-const makeListItemTitle = styled(tag.h3).attrs({
+const makeListItemTitle = styled.h3.attrs({
 	fontSize: [3, 4],
 	lineHeight: 2,
 	pb: 3,
@@ -19,7 +18,7 @@ const makeListItemTitle = styled(tag.h3).attrs({
 `;
 export const ListItemTitle = createSkeletonElement(makeListItemTitle);
 
-const makeListItemBody = styled(tag.p).attrs({
+const makeListItemBody = styled.p.attrs({
 	fontSize: [1, 2],
 	pt: 1,
 	m: 0,
@@ -31,7 +30,7 @@ const makeListItemBody = styled(tag.p).attrs({
 `;
 export const ListItemBody = createSkeletonElement(makeListItemBody);
 
-export const ListItemContainer = styled(tag.li)`
+export const ListItemContainer = styled.li`
 	${space};
 	display: flex;
 	flex-flow: column nowrap;
@@ -39,14 +38,14 @@ export const ListItemContainer = styled(tag.li)`
 	background: ${props => themeGet(`backgrounds.${props.type}`, 'transparent')}
 `;
 
-const makeListItemImage = styled(tag.img)`
+const makeListItemImage = styled.img`
 	width: 125px;
 	height: 125px;
 	border-radius: 100%;
 `;
 export const ListItemImage = createSkeletonElement(makeListItemImage);
 
-export const BulletItem = styled(tag.span).attrs({
+export const BulletItem = styled.span.attrs({
 	fontSize: 3
 })`
 	${fontSize};
@@ -90,7 +89,7 @@ export const BulletListContainer = ListItemContainer.extend`
 	}
 `;
 
-export const ListItemHeader = styled(tag.header)`
+export const ListItemHeader = styled.header`
 	${flipOrder};
 	${space};
 `;

@@ -47,4 +47,4 @@ export {
 } from './article-content';
 export { default as Main } from './main';
 export { MenuIcon } from './interactive-icon';
-export { Label } from './form-elements';
+export { Label, Select } from './form-elements';

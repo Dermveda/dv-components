@@ -5,7 +5,6 @@ import { createSkeletonElement } from '@trainline/react-skeletor';
 import { space, themeGet, width, maxWidth, display } from 'styled-system';
 import { flipOrder } from 'styles';
 import { fontSize } from 'utils';
-import tag from 'clean-tag';
 
 export const ArticleHeader = styled.header`
 	${flipOrder};
@@ -32,7 +31,7 @@ export const ArticleBody = styled.div.attrs({
 	flex: 2 70%;
 `;
 
-const makeArticleImage = styled(tag.img).attrs({
+const makeArticleImage = styled.img.attrs({
 	maxWidth: ['300px', '400px', '400px'],
 	m: ['0 -38.885%', 0, 0],
 	width: ['177.777%', '100%', '100%']
@@ -64,7 +63,7 @@ export const ArticleImageLinkable = styled(Link)`
 	}
 `;
 
-const makeArticleDescription = styled(tag.p).attrs({
+const makeArticleDescription = styled.p.attrs({
 	m: props => props.m || 0,
 	pb: props => props.pb || 3,
 	display: ['none', 'none', 'block']

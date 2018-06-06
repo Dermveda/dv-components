@@ -11,7 +11,8 @@ export const icons = {
 	bookStack: 'BookStack',
 	menu: 'Menu',
 	close: 'Close',
-	player: 'Player'
+	player: 'Player',
+	chevronDown: 'ChevronDown'
 };
 
 const Icon = (icon, type) => {

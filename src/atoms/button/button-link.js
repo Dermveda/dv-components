@@ -2,17 +2,32 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { createSkeletonElement } from '@trainline/react-skeletor';
 import { Link as RouterLink } from 'react-router-dom';
-import tag from 'clean-tag';
 import {
 	buttonProps, buttonDefaultProps, buttonCSS, buttonAttributes
 } from './button-styles';
 
-const makeExternalLink = styled(tag.a).attrs(buttonAttributes)`
+const makeExternalLink = styled.a.attrs(buttonAttributes)`
 	${buttonCSS};
 `;
-const makeLocalLink = styled(RouterLink).attrs(buttonAttributes)`
+
+/* eslint-disable no-unused-vars */
+const makeLocalLink = styled(({
+	type,
+	gradient,
+	outline,
+	squared,
+	large,
+	small,
+	raised,
+	children,
+	nostyle,
+	white,
+	...props
+}) => <RouterLink {...props}>{children}</RouterLink>).attrs(buttonAttributes)`
 	${buttonCSS};
 `;
+/* eslint-enable */
+
 const ExternalLink = createSkeletonElement(makeExternalLink);
 const LocalLink = createSkeletonElement(makeLocalLink);
 

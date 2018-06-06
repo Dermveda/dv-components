@@ -8,3 +8,4 @@ export { default as BookStack } from './book-stack';
 export { default as Close } from './close';
 export { default as Menu } from './menu';
 export { default as Player } from './player';
+export { default as ChevronDown } from './chevron-down';

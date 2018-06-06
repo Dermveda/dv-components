@@ -60,6 +60,22 @@ storiesOf('Atoms/Buttons', module)
 			{text('test', 'I am a simple button')}
 		</ButtonLink>
 	))
+	.add('button internal link', () => (
+		<ButtonLink
+			to="/"
+			large={boolean('isLarge', false)}
+			onClick={action('button click')}
+			small={boolean('isSmall', false)}
+			type={select('button types', ['primary', 'secondary', 'tertiary', 'bold'], 'primary')}
+			gradient={boolean('isGradient', false)}
+			nostyle={boolean('isNoStyle', false)}
+			raised={boolean('isRaised', false)}
+			squared={boolean('isSquared', false)}
+			white={boolean('isWHite', false)}
+		>
+			{text('test', 'I am a simple button')}
+		</ButtonLink>
+	))
 	.add('arrow button', () => (
 		<ArrowButton
 			large={boolean('isLarge', false)}
@@ -78,6 +94,22 @@ storiesOf('Atoms/Buttons', module)
 	.add('arrow button link', () => (
 		<ArrowButtonLink
 			href="#"
+			large={boolean('isLarge', false)}
+			onClick={action('button click')}
+			small={boolean('isSmall', false)}
+			type={select('button types', ['primary', 'secondary', 'tertiary', 'bold'], 'primary')}
+			gradient={boolean('isGradient', false)}
+			nostyle={boolean('isNoStyle', false)}
+			raised={boolean('isRaised', false)}
+			squared={boolean('isSquared', false)}
+			white={boolean('isWHite', false)}
+		>
+			{text('test', 'I am a simple button')}
+		</ArrowButtonLink>
+	))
+	.add('arrow button internal link', () => (
+		<ArrowButtonLink
+			to="/"
 			large={boolean('isLarge', false)}
 			onClick={action('button click')}
 			small={boolean('isSmall', false)}

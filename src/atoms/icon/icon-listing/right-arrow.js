@@ -12,8 +12,8 @@ const RightArrow = ({ type }) => {
 		case 'outline':
 			return (
 				<g>
-					<line data-cap="butt" data-color="color-2" fill="none" stroke="currentColor" strokeWidth="2" strokeMiterlimit="10" x1="2" y1="24" x2="45" y2="24" strokeLinejoin="miter" strokeLinecap="butt" />
-					<polyline fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="square" strokeMiterlimit="10" points="31,10 45,24 31,38 " strokeLinejoin="miter" />
+					<line data-cap="butt" data-color="color-2" fill="none" stroke="currentColor" strokeMiterlimit="10" x1="2" y1="24" x2="45" y2="24" strokeLinejoin="miter" strokeLinecap="butt" />
+					<polyline fill="none" stroke="currentColor" strokeLinecap="square" strokeMiterlimit="10" points="31,10 45,24 31,38 " strokeLinejoin="miter" />
 				</g>
 			);
 		default:

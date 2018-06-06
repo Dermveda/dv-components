@@ -37,7 +37,7 @@ export const CardImage = sys({
 });
 
 export const CardTitle = styled.h3.attrs({
-	fontSize: [3, 4],
+	fontSize: [2, 3],
 	pb: 2,
 	m: 0
 })`
@@ -48,7 +48,7 @@ export const CardTitle = styled.h3.attrs({
 `;
 
 export const CardSubtitle = styled.h4.attrs({
-	fontSize: [1, 2],
+	fontSize: [0, 1],
 	pb: 1,
 	m: 0
 })`
@@ -65,7 +65,7 @@ export const CardHeader = styled.header`
 `;
 
 export const CardText = styled.p.attrs({
-	fontSize: [1, 2],
+	fontSize: 1,
 	m: 0
 })`
 	${space};

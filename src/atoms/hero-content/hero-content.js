@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 import { color, flex, flexWrap, flexDirection, justifyContent, alignItems, space, themeGet, order } from 'styled-system';
-import tag from 'clean-tag';
 import sys from 'system-components';
 import { fontSize } from 'utils';
 
-export const HeroContainer = styled(tag.header).attrs({
+export const HeroContainer = styled.header.attrs({
 	flexDirection: ['column', 'column', 'row'],
 	flexWrap: ['nowrap', 'nowrap', 'wrap'],
 	justifyContent: ['center', 'center', 'space-between'],
@@ -25,19 +24,19 @@ export const HeroContainer = styled(tag.header).attrs({
 	${space};
 `;
 
-export const HeroTitle = styled(tag.h1).attrs({
+export const HeroTitle = styled.h1.attrs({
 	m: 0,
 	pb: 3,
 	fontSize: [4, 5]
 })`
 	font-family: ${props => themeGet('fonts.display')(props)};
-	font-weight: 600;
+	font-weight: normal;
 
 	${fontSize};
 	${space};
 `;
 
-export const HeroSubTitle = styled(tag.h2).attrs({
+export const HeroSubTitle = styled.h2.attrs({
 	fontSize: 2,
 	m: 0,
 	pb: 1,
@@ -52,7 +51,7 @@ export const HeroSubTitle = styled(tag.h2).attrs({
 	${color};
 `;
 
-export const HeroBody = styled(tag.div).attrs({
+export const HeroBody = styled.div.attrs({
 	p: props => (props.p || 4),
 	order: [2, 2, 0],
 	flex: props => props.flex || '2 60%'

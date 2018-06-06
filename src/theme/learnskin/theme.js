@@ -8,8 +8,8 @@ import colors from './colors';
 
 const learnSkinTheme = {
 	fonts: {
-		0: `Abril Text, ${systemFonts}`,
-		display: '"Abril Fatface", Georgia, serif'
+		0: `Abril-Text, ${systemFonts}`,
+		display: '"Abril-Fatface", Georgia, serif'
 	},
 	fontSizes: [0.819, 1.092, 1.455, 1.94, 2.585, 3.446, 4.594],
 	shadows: [

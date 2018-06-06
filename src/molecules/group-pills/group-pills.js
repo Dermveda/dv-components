@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { space, color } from 'styled-system';
 import styled from 'styled-components';
-import tag from 'clean-tag';
 import { fontSize } from 'utils';
 
-const GroupTitle = styled(tag.h4).attrs({
+const GroupTitle = styled.h4.attrs({
 	m: 0,
 	pb: 2,
 	fontSize: 2,
@@ -17,7 +16,7 @@ const GroupTitle = styled(tag.h4).attrs({
 	letter-spacing: .02rem;
 `;
 
-const GroupContainer = styled(tag.div).attrs({
+const GroupContainer = styled.div.attrs({
 	fontSize: 2,
 	color: props => props.color || '#717171'
 })`
@@ -29,7 +28,7 @@ const GroupContainer = styled(tag.div).attrs({
 	letter-spacing: .02rem;
 `;
 
-const Badge = styled(tag.div).attrs({
+const Badge = styled.div.attrs({
 	fontSize: 1,
 	py: 1,
 	px: 3
@@ -51,7 +50,7 @@ const Badge = styled(tag.div).attrs({
 	}
 `;
 
-const Box = styled(tag.div)`
+const Box = styled.div`
 	${space};
 `;
 

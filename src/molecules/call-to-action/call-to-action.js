@@ -10,8 +10,7 @@ const Title = sys({
 	is: 'h4',
 	pb: 4,
 	m: 0,
-	fontSize: [3, 4],
-	fontWeight: 700
+	fontSize: [3, 4]
 }).extend`
 	${fontSize}
 

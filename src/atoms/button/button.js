@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 import { createSkeletonElement } from '@trainline/react-skeletor';
-import tag from 'clean-tag';
 import {
 	buttonProps, buttonDefaultProps, buttonCSS, buttonAttributes
 } from './button-styles';
 
-const makeButton = styled(tag.button).attrs(buttonAttributes)`
+const makeButton = styled.button.attrs(buttonAttributes)`
 	${buttonCSS}
 `;
 const Button = createSkeletonElement(makeButton);

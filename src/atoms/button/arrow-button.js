@@ -9,8 +9,8 @@ import { Spin } from 'animations';
 const ArrowIcon = styled(Icon).attrs({
 	name: 'rightArrow',
 	type: 'outline',
-	strokeSize: 4,
-	iconSize: 'xs',
+	strokeSize: 3,
+	iconSize: 'sm',
 	'aria-hidden': true
 })`
 	color: white;
