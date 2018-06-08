@@ -7,10 +7,11 @@ import { systemFonts } from 'utils';
 import { darken } from 'polished';
 import colors from './colors';
 
-const learnSkinTheme = {
+const dermvedaTheme = {
 	fonts: {
-		0: `Abril-Text, Georgia, 'Times New Roman', times, ${systemFonts}`,
-		display: '"Abril-Fatface", Georgia, "Times New Roman", times, serif'
+		0: `Raleway, ${systemFonts}`,
+		display: `Raleway, ${systemFonts}`,
+		styled: '"Abril-Fatface", "Times New Roman", times, serif'
 	},
 	fontSizes: [0.819, 1.092, 1.455, 1.94, 2.585, 3.446, 4.594],
 	shadows: [
@@ -39,6 +40,7 @@ const BaseFont = styled.div`
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
+	 font-feature-settings: "lnum";
 
 	button,
 	input,
@@ -50,20 +52,20 @@ const BaseFont = styled.div`
 
 	*::-moz-selection {
 		color: white;
-		background: ${darken(0.2, colors.tertiary.main)}};
+		background: ${darken(0.2, colors.primary.main)}};
 	}
 
 	*::selection {
 		color: white;
-		background: ${darken(0.2, colors.tertiary.main)}};
+		background: ${darken(0.2, colors.primary.main)}};
 	}
 `;
 
-class LearnSkinTheme extends React.Component {
+class DermvedaTheme extends React.Component {
 	componentDidMount() {
 		webFont.load({
-			typekit: {
-				id: 'tum6nht'
+			google: {
+				families: ['Raleway:400,500,600,700', 'Abril Fatface:400']
 			},
 			active: () => {
 				sessionStorage.fonts = true;
@@ -72,7 +74,7 @@ class LearnSkinTheme extends React.Component {
 	}
 
 	render = () => (
-		<ThemeProvider theme={learnSkinTheme}>
+		<ThemeProvider theme={dermvedaTheme}>
 			<BaseFont>
 				{this.props.children}
 			</BaseFont>
@@ -80,8 +82,8 @@ class LearnSkinTheme extends React.Component {
 	)
 }
 
-LearnSkinTheme.propTypes = {
+DermvedaTheme.propTypes = {
 	children: PropTypes.node.isRequired
 };
 
-export default LearnSkinTheme;
+export default DermvedaTheme;

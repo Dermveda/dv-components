@@ -48,8 +48,8 @@
     "babel-runtime": "^6.26.0",
     "chai": "^4.1.2",
     "css-loader": "^0.28.7",
-    "enzyme": "^3.2.0",
-    "enzyme-adapter-react-16": "^1.1.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.2.2",
     "eslint": "^4.12.1",
     "eslint-plugin-filenames": "^1.2.0",
@@ -57,7 +57,7 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "husky": "^0.14.3",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^21.2.1",
+    "jest": "^23.1.0",
     "jest-enzyme": "^4.0.1",
     "node-sass": "^4.7.2",
     "normalize.css": "^8.0.0",
@@ -109,6 +109,7 @@
     "react-spring": "^5.1.10",
     "react-tilt": "^0.1.4",
     "styled-components": "^3.2.6",
-    "system-components": "^2.0.3"
+    "system-components": "^2.0.3",
+    "webfontloader": "^1.6.28"
   }
 }

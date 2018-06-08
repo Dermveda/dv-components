@@ -3,17 +3,14 @@ import React from 'react';
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, object, select } from '@storybook/addon-knobs/react';
+import { text, object, select } from '@storybook/addon-knobs/react';
 /* eslint-enable import/no-extraneous-dependencies */
 
 import Hero from './hero';
 import { Button } from 'atoms';
 
 storiesOf('Organism/Hero', module)
-	.addDecorator(checkA11y)
-	.addDecorator(withKnobs)
 	.add(
 		'without children',
 		withInfo(`

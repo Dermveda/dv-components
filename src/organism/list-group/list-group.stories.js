@@ -2,16 +2,13 @@ import React from 'react';
 
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, select } from '@storybook/addon-knobs/react';
+import { text, select } from '@storybook/addon-knobs/react';
 /* eslint-enable import/no-extraneous-dependencies */
 
 import ListGroup from './list-group';
 
 storiesOf('Organism/ListGroup', module)
-	.addDecorator(checkA11y)
-	.addDecorator(withKnobs)
 	.add(
 		'without children',
 		withInfo(`

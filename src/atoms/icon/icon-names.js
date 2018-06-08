@@ -12,7 +12,11 @@ export const icons = {
 	menu: 'Menu',
 	close: 'Close',
 	player: 'Player',
-	chevronDown: 'ChevronDown'
+	chevronDown: 'ChevronDown',
+	facebook: 'Facebook',
+	twitter: 'Twitter',
+	instagram: 'Instagram',
+	youtube: 'Youtube'
 };
 
 const Icon = (icon, type) => {

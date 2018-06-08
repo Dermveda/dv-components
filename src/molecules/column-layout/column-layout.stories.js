@@ -2,15 +2,12 @@ import React from 'react';
 
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from 'storybook-addon-a11y';
-import { withKnobs, select } from '@storybook/addon-knobs/react';
+import { select } from '@storybook/addon-knobs/react';
 /* eslint-enable import/no-extraneous-dependencies */
 
 import ColumnLayout from './column-layout';
 
 storiesOf('Molecules/Column Layout', module)
-	.addDecorator(checkA11y)
-	.addDecorator(withKnobs)
 	.add('simple input', () => (
 		<ColumnLayout
 			imageAttributes={{ src: 'http://fillmurray.com/500/300', alt: '' }}

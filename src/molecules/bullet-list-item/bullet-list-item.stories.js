@@ -2,15 +2,11 @@ import React from 'react';
 
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from 'storybook-addon-a11y';
-import { withKnobs } from '@storybook/addon-knobs/react';
 /* eslint-enable import/no-extraneous-dependencies */
 
 import BulletListItem from './bullet-list-item';
 
 storiesOf('Molecules/Bullet List Item', module)
-	.addDecorator(checkA11y)
-	.addDecorator(withKnobs)
 	.add('list values', () => (
 		<BulletListItem
 			title="test"

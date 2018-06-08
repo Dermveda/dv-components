@@ -4,7 +4,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, select } from '@storybook/addon-knobs/react';
+import { text, select } from '@storybook/addon-knobs/react';
 /* eslint-enable import/no-extraneous-dependencies */
 
 import Icon from './icons';
@@ -13,7 +13,6 @@ import { icons } from './icon-names';
 
 storiesOf('Atoms/Icon', module)
 	.addDecorator(checkA11y)
-	.addDecorator(withKnobs)
 	.add(
 		'with text',
 		withInfo(`

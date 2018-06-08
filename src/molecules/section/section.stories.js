@@ -2,16 +2,13 @@ import React from 'react';
 
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from 'storybook-addon-a11y';
 import { action } from '@storybook/addon-actions';
-import { withKnobs, object, text, select } from '@storybook/addon-knobs/react';
+import { object, text, select } from '@storybook/addon-knobs/react';
 /* eslint-enable import/no-extraneous-dependencies */
 
 import Section from './section';
 
 storiesOf('Molecules/Section', module)
-	.addDecorator(checkA11y)
-	.addDecorator(withKnobs)
 	.add('simple input', () => {
 		const buttonAttributes = {
 			text: 'Start Earning CE',

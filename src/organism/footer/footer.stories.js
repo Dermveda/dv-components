@@ -2,16 +2,13 @@ import React from 'react';
 
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from 'storybook-addon-a11y';
 import { action } from '@storybook/addon-actions';
-import { withKnobs, boolean } from '@storybook/addon-knobs/react';
+import { boolean } from '@storybook/addon-knobs/react';
 /* eslint-enable import/no-extraneous-dependencies */
 
 import Footer from './footer';
 
 storiesOf('Organism/Footer', module)
-	.addDecorator(checkA11y)
-	.addDecorator(withKnobs)
 	.add('simple input', () => (
 		<Footer
 			imageAttributes={{
@@ -60,7 +57,8 @@ storiesOf('Organism/Footer', module)
 				buttonAttributes: {
 					text: 'Join Newsletter',
 					outline: true,
-					type: 'tertiary'
+					type: 'primary',
+					small: true
 				},
 				inputAttributes: {
 					type: 'email',
@@ -68,6 +66,28 @@ storiesOf('Organism/Footer', module)
 					required: true
 				}
 			}}
+			social={[
+				{
+					name: 'twitter',
+					text: 'Follow us on Twitter',
+					href: 'http://google.com',
+				},
+				{
+					name: 'facebook',
+					text: 'Follow us on Twitter',
+					href: 'http://google.com',
+				},
+				{
+					name: 'youtube',
+					text: 'Follow us on Twitter',
+					href: 'http://google.com',
+				},
+				{
+					name: 'instagram',
+					text: 'Follow us on Twitter',
+					href: 'http://google.com',
+				}
+			]}
 			legal="All material on this website is protected by copyright, Copyright 2018 by Dermveda Inc. This website also contains material copyrighted by 3rd parties."
 		/>
 	));

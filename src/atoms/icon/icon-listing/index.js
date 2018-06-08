@@ -9,3 +9,7 @@ export { default as Close } from './close';
 export { default as Menu } from './menu';
 export { default as Player } from './player';
 export { default as ChevronDown } from './chevron-down';
+export { default as Youtube } from './youtube';
+export { default as Facebook } from './facebook';
+export { default as Twitter } from './twitter';
+export { default as Instagram } from './instagram';

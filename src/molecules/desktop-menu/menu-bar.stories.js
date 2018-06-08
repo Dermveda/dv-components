@@ -3,9 +3,8 @@ import React from 'react';
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, object } from '@storybook/addon-knobs/react';
+import { object } from '@storybook/addon-knobs/react';
 import StoryRouter from 'storybook-react-router';
 /* eslint-enable import/no-extraneous-dependencies */
 
@@ -13,8 +12,6 @@ import { Button, MenuButtons } from 'atoms';
 import MenuBar from './menu-bar';
 
 storiesOf('Molecules/Desktop Menu', module)
-	.addDecorator(checkA11y)
-	.addDecorator(withKnobs)
 	.addDecorator(StoryRouter())
 	.add(
 		'without children',
