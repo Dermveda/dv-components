@@ -13,9 +13,8 @@ export const ArticleHeader = styled.header`
 export const ArticleContainer = sys({
 	is: 'div',
 	py: 3,
-	flexDirection: 'row',
-	flexWrap: 'nowrap',
-	display: 'flex',
+	display: 'grid',
+	gridTemplateColumns: '1fr 30%',
 	lineHeight: '1.5',
 	justifyContent: 'space-between',
 	alignItems: 'flex-start'

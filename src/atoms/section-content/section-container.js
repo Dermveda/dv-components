@@ -19,7 +19,15 @@ const SectionContainer = styled.section.attrs({
 	flex-flow: column nowrap;
 	justify-content: center;
 	align-items: center;
-	background: ${props => themeGet(`backgrounds.${props.type}`, 'transparent')};
+
+	${props => props.backgroundImage ? `
+		background-image: url('${props.backgroundImage.url}');
+		background-repeat: ${props.backgroundImage.pattern ? 'repeat' : 'no-repeat'};
+		background-size: ${props.backgroundImage.pattern ? 'auto' : 'cover'};
+		background-position: center center;
+	` : `
+		background: ${props => themeGet(`backgrounds.${props.type}`, 'transparent')};
+	`};
 	${props => props.centered ? 'margin: 0 auto' : ''};
 	${props => props.content ? 'max-width: 1200px': ''};
 `;

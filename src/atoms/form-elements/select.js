@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import ReactSelect from 'react-select';
 import { space, themeGet } from 'styled-system';
-import { Icon } from 'atoms';
+import { Icon, ChevronDown } from 'atoms';
 
 const lightGray = themeGet('colors.gray.light', '#f7f7f7');
 const mediumGray = themeGet('colors.gray.medium', '#717171');
@@ -32,25 +32,9 @@ const ClearIndicator = ({ innerProps: { ref, ...restInnerProps } }) => (
 	</div>
 );
 
-const DropDownIcon = styled(Icon).attrs({
-	p: 3
-})`
-	${space};
-	display: flex;
-	transition: transform .15s linear, color .1s linear;
-	color: ${mediumGray};
-	overflow: visible !important;
-    box-sizing: content-box;
-	${props => props.isOpen ? 'transform: scaleY(-1)': 'transform: scaleY(1)'};
-
-	&:Hover {
-		color: ${darkGray};
-	}
-`;
-
 const DropdownIndicator = ({ innerProps: { ref, ...restInnerProps }, selectProps: { menuIsOpen } }) => (
 	<div {...restInnerProps} ref={ref}>
-		<DropDownIcon name="chevronDown" iconSize="sm" isOpen={menuIsOpen} />
+		<ChevronDown iconSize="sm" isOpen={menuIsOpen} />
 	</div>
 );
 

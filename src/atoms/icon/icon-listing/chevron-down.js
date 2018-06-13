@@ -12,7 +12,7 @@ const ChevronDown = ({ type }) => {
 		case 'outline':
 			return (
 				<g fill="currentColor">
-					<polyline fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="square" strokeMiterlimit="10" points="4,14 24,34 44,14 " strokeLinejoin="miter" />
+					<polyline fill="none" stroke="currentColor" strokeLinecap="square" strokeMiterlimit="10" points="4,14 24,34 44,14 " strokeLinejoin="miter" />
 				</g>
 			);
 		default:

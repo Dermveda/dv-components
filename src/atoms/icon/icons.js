@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import { space, display } from 'styled-system';
+import { space, display, color } from 'styled-system';
 
 import iconMapper, { icons } from './icon-names';
 
@@ -73,7 +73,8 @@ export const SVGWrapper = styled.svg`
 	height: ${prop => iconSize[prop.iconSize]};
 	width: ${prop => iconSize[prop.iconSize]};
 
-	strokeWidth: ${prop => strokeSize[prop.strokeSize]};
+	stroke-width: ${prop => strokeSize[prop.strokeSize]};
+	${color};
 `;
 
 const Icon = ({

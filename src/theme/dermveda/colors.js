@@ -35,6 +35,12 @@ const gray = {
 	dark: '#2b2b2b'
 };
 
+const accent = {
+	primary: '#FDB88F',
+	secondary: '#37ECB7',
+	tertiary: '#668CFF'
+};
+
 const gradientInverse = {
 	primary: `linear-gradient(to top, ${primary.main}, ${primary.tertiary})`,
 	bold: `linear-gradient(to top, ${bold.main}, ${bold.tertiary})`,
@@ -49,6 +55,7 @@ const colors = {
 	bold,
 	gradient,
 	gray,
+	accent,
 	gradientInverse
 };
 

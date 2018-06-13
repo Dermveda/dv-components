@@ -5,8 +5,8 @@ import { fontSize } from 'utils';
 
 const makeH3 = styled.h3.attrs({
 	fontSize: props => props.fontSize || [2, 3, 3],
-	m: 0,
-	mb: 3
+	m: props => props.m || 0,
+	mb: props => props.mb || 3
 })`
 	${textAlign};
 	${space};

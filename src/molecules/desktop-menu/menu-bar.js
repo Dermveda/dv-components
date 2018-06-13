@@ -8,8 +8,6 @@ import { space } from 'styled-system';
 
 import { Bar, NavLink, MenuLinks } from 'atoms';
 
-const NavBar = Bar.withComponent('nav');
-
 const TitleLink = styled(Link)`
 	text-decoration: none;
 	outline: none;
@@ -45,7 +43,7 @@ const Box = styled.div`
 const MenuBar = ({
 	menuLinks, children, imageAttributes, title, sourceAttributes
 }) => (
-	<NavBar py={3} px={2} justifyContent="space-between" display={['none', 'none', 'flex']}>
+	<Bar is="nav" py={3} px={2} navBorder justifyContent="space-between" display={['none', 'none', 'flex']}>
 		<Box>
 			<TitleLink to="/" title={title}>
 				<Title>
@@ -72,7 +70,7 @@ const MenuBar = ({
 				{children}
 			</Box>
 		)}
-	</NavBar>
+	</Bar>
 );
 
 MenuBar.propTypes = {

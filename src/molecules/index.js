@@ -9,3 +9,4 @@ export { default as ColumnLayout } from './column-layout';
 export { default as BulletListItem } from './bullet-list-item';
 export { default as IconAttributes } from './icon-attributes';
 export { default as GroupPills } from './group-pills';
+export { default as ArticleListHeader } from './article-list-header';

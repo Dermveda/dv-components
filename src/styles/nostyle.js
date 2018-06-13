@@ -5,7 +5,7 @@ import { darken } from 'polished';
 const nostyle = css`
 	background: transparent;
 	border-color: transparent;
-	color: ${props => themeGet(`colors.${props.type}.main`)(props)};
+	color: ${props => themeGet(`colors.${props.type}.${props.type === 'secondary' ? 'secondary' : 'main'}`)(props)};
 	padding: 8px 0 !important;
 
 	svg {

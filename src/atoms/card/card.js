@@ -9,13 +9,12 @@ export const Card = sys({
 	border: '1px solid #ececec',
 	borderRadius: '3px',
 	background: 'white',
-	boxShadow: '0 1px 4px rgba(0, 0, 0, 0.04)',
 	display: 'flex',
 	flexDirection: 'column',
 	flexWrap: 'nowrap',
 	maxWidth: 500,
 	color: '#2b2b2b'
-});
+}, 'boxShadow');
 
 export const CardContainer = sys({
 	is: 'div',

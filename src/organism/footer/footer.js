@@ -28,9 +28,11 @@ const FooterLinkContainer = styled.div`
 `;
 
 const FooterLink = styled(Link).attrs({
-	pb: 1
+	pb: 1,
+	color: 'gray.dark'
 })`
 	${space};
+	${color};
 	font-weight: 500;
 `;
 
@@ -113,6 +115,12 @@ const FlexBox = styled.div`
 	flex-flow: row wrap;
 `;
 
+const NewsLetterContainer = styled.div.attrs({
+	pt: 4
+})`
+	${space};
+`;
+
 export default class Footer extends Component {
 	renderSocial = () => this.props.social.map(x => (
 		<NoStyleLink key={x.name} href={x.href} target="_blank" rel="noopener noreferrer">
@@ -122,7 +130,7 @@ export default class Footer extends Component {
 	))
 
 	render() {
-		const { imageAttributes, footerLinks, newsLetter, legal, social } = this.props;
+		const { imageAttributes, footerLinks, newsLetter, renderLegal, social } = this.props;
 		return (
 			<FooterContainer>
 				<FooterBox>
@@ -150,7 +158,7 @@ export default class Footer extends Component {
 							)}
 						</FooterLinkSectionContainer>
 						{newsLetter && (
-							<div>
+							<NewsLetterContainer>
 								<FooterSectionTitle>{newsLetter.title}</FooterSectionTitle>
 								<div style={{ paddingBottom: '8px' }}>{newsLetter.message}</div>
 								<InlineForm
@@ -159,9 +167,14 @@ export default class Footer extends Component {
 									buttonAttributes={newsLetter.buttonAttributes}
 									inputAttributes={newsLetter.inputAttributes}
 								/>
-							</div>
+							</NewsLetterContainer>
 						)}
-						<FooterLegal>{legal}</FooterLegal>
+						{renderLegal && (
+							<FooterLegal>
+								{renderLegal()}
+							</FooterLegal>
+
+						)}
 					</div>
 				</FooterBox>
 			</FooterContainer>

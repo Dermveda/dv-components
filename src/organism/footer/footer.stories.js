@@ -88,6 +88,10 @@ storiesOf('Organism/Footer', module)
 					href: 'http://google.com',
 				}
 			]}
-			legal="All material on this website is protected by copyright, Copyright 2018 by Dermveda Inc. This website also contains material copyrighted by 3rd parties."
+			renderLegal={() => (
+				<p>
+					All material on this website is protected by copyright, Copyright 2018 by Dermveda Inc. This website also contains material copyrighted by 3rd parties.
+				</p>
+			)}
 		/>
 	));

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color, flex, flexWrap, flexDirection, justifyContent, alignItems, space, themeGet } from 'styled-system';
+import { color, flex, flexWrap, flexDirection, fontFamily, justifyContent, alignItems, space, themeGet } from 'styled-system';
 import { fontSize } from 'utils';
 
 export const SectionTitle = styled.h2.attrs({
@@ -10,6 +10,7 @@ export const SectionTitle = styled.h2.attrs({
 	color: props => props.color || themeGet('textColors.1')(props)
 })`
 	${fontSize};
+	${fontFamily}
 	${space};
 	${color};
 

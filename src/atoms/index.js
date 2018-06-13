@@ -46,5 +46,5 @@ export {
 	ArticleImageLinkable
 } from './article-content';
 export { default as Main } from './main';
-export { MenuIcon } from './interactive-icon';
+export { MenuIcon, ChevronDown } from './interactive-icon';
 export { Label, Select } from './form-elements';

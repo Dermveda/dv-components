@@ -21,7 +21,7 @@ import { Button } from 'atoms';
 storiesOf('Atoms/Card', module)
 	.addDecorator(checkA11y)
 	.add('simple input', () => (
-		<Card>
+		<Card boxShadow={2}>
 			<CardImage src="http://fillmurray.com/1280/720" />
 			<CardContainer>
 				<CardHeader>
