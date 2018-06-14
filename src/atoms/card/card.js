@@ -14,7 +14,7 @@ export const Card = sys({
 	flexWrap: 'nowrap',
 	maxWidth: 500,
 	color: '#2b2b2b'
-}, 'boxShadow');
+}, 'boxShadow', 'space');
 
 export const CardContainer = sys({
 	is: 'div',

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Transition, animated } from 'react-spring';
 import { NavLink, Link } from 'react-router-dom';
 import React, { Component } from 'react';
 import { space, themeGet } from 'styled-system';

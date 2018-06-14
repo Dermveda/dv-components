@@ -67,13 +67,6 @@
     esutils "^2.0.2"
     js-tokens "^3.0.0"
 
-"@babel/runtime@7.0.0-beta.46":
-  version "7.0.0-beta.46"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.0.0-beta.46.tgz#466a9c0498f6d12d054a185981eef742d59d4871"
-  dependencies:
-    core-js "^2.5.3"
-    regenerator-runtime "^0.11.1"
-
 "@babel/template@7.0.0-beta.44":
   version "7.0.0-beta.44"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.0.0-beta.44.tgz#f8832f4fdcee5d59bf515e595fc5106c529b394f"
@@ -398,9 +391,17 @@
   dependencies:
     prop-types "^15.5.10"
 
+"@types/invariant@^2.2.29":
+  version "2.2.29"
+  resolved "https://registry.yarnpkg.com/@types/invariant/-/invariant-2.2.29.tgz#aa845204cd0a289f65d47e0de63a6a815e30cc66"
+
 "@types/node@*":
   version "10.0.8"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.0.8.tgz#37b4d91d4e958e4c2ba0be2b86e7ed4ff19b0858"
+
+"@types/node@^10.0.5":
+  version "10.3.3"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.3.3.tgz#8798d9e39af2fa604f715ee6a6b19796528e46c3"
 
 abab@^1.0.4:
   version "1.0.4"
@@ -2633,7 +2634,7 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-create-react-class@^15.5.2, create-react-class@^15.6.2:
+create-react-class@^15.5.2, create-react-class@^15.6.2, create-react-class@^15.6.3:
   version "15.6.3"
   resolved "https://registry.yarnpkg.com/create-react-class/-/create-react-class-15.6.3.tgz#2d73237fb3f970ae6ebe011a9e66f46dbca80036"
   dependencies:
@@ -3891,6 +3892,10 @@ fragment-cache@^0.2.1:
   dependencies:
     map-cache "^0.2.2"
 
+framesync@^3.1.8, framesync@^3.1.9:
+  version "3.1.9"
+  resolved "https://registry.yarnpkg.com/framesync/-/framesync-3.1.9.tgz#f65f815c711cf876f343b1f63da6e18b1384172f"
+
 fresh@0.5.2:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/fresh/-/fresh-0.5.2.tgz#3d8cadd90d976569fa835ab1f8e4b23a105605a7"
@@ -4290,6 +4295,10 @@ hawk@~6.0.2:
 he@1.1.x, he@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/he/-/he-1.1.1.tgz#93410fd21b009735151f8868c2f271f3427e23fd"
+
+hey-listen@^1.0.4, hey-listen@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/hey-listen/-/hey-listen-1.0.5.tgz#6d0a3a2f60177f65bc4404d571a00025bf5dc20e"
 
 history@^4.7.2:
   version "4.7.2"
@@ -6668,6 +6677,34 @@ polished@^1.9.2:
   version "1.9.2"
   resolved "https://registry.yarnpkg.com/polished/-/polished-1.9.2.tgz#d705cac66f3a3ed1bd38aad863e2c1e269baf6b6"
 
+popmotion-pose@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/popmotion-pose/-/popmotion-pose-2.0.3.tgz#5259769e58994f875d16313a0bfbccc0aa300c54"
+  dependencies:
+    popmotion "^8.2.4"
+    pose-core "^0.7.4"
+    style-value-types "^1.0.10"
+    tslib "^1.9.1"
+
+popmotion@^8.2.4, popmotion@^8.2.5:
+  version "8.2.5"
+  resolved "https://registry.yarnpkg.com/popmotion/-/popmotion-8.2.5.tgz#29decf7747720cb95e960bd9c9f9fa92f4163835"
+  dependencies:
+    framesync "^3.1.9"
+    hey-listen "^1.0.5"
+    style-value-types "^1.0.8"
+    stylefire "^2.0.2"
+    tslib "^1.9.1"
+
+pose-core@^0.7.4:
+  version "0.7.4"
+  resolved "https://registry.yarnpkg.com/pose-core/-/pose-core-0.7.4.tgz#21d64b6efe5eb7e0d1c2e7a111d0836ea00cdea5"
+  dependencies:
+    "@types/invariant" "^2.2.29"
+    "@types/node" "^10.0.5"
+    hey-listen "^1.0.5"
+    tslib "^1.9.1"
+
 posix-character-classes@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
@@ -7523,6 +7560,14 @@ react-onclickoutside@^6.5.0:
   version "6.7.1"
   resolved "https://registry.yarnpkg.com/react-onclickoutside/-/react-onclickoutside-6.7.1.tgz#6a5b5b8b4eae6b776259712c89c8a2b36b17be93"
 
+react-pose@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/react-pose/-/react-pose-2.1.2.tgz#d3ad0cb2f7a56edef34d4626cc5e78ceefd34663"
+  dependencies:
+    hey-listen "^1.0.5"
+    popmotion-pose "^2.0.3"
+    tslib "^1.9.1"
+
 react-reconciler@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/react-reconciler/-/react-reconciler-0.7.0.tgz#9614894103e5f138deeeb5eabaf3ee80eb1d026d"
@@ -7580,12 +7625,6 @@ react-split-pane@^0.1.77:
     inline-style-prefixer "^3.0.6"
     prop-types "^15.5.10"
     react-style-proptype "^3.0.0"
-
-react-spring@^5.1.10:
-  version "5.1.10"
-  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-5.1.10.tgz#6c2c9be2c9222691a92eeeb1fe0ef876889801c5"
-  dependencies:
-    "@babel/runtime" "7.0.0-beta.46"
 
 react-style-proptype@^3.0.0:
   version "3.2.1"
@@ -7787,7 +7826,7 @@ regenerator-runtime@^0.10.5:
   version "0.10.5"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.10.5.tgz#336c3efc1220adcedda2c9fab67b5a7955a33658"
 
-regenerator-runtime@^0.11.0, regenerator-runtime@^0.11.1:
+regenerator-runtime@^0.11.0:
   version "0.11.1"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
 
@@ -8689,6 +8728,10 @@ style-loader@^0.20.3:
     loader-utils "^1.1.0"
     schema-utils "^0.4.5"
 
+style-value-types@^1.0.10, style-value-types@^1.0.6, style-value-types@^1.0.8:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/style-value-types/-/style-value-types-1.0.10.tgz#e46a11922f7b9efe265fb22bfd3b5429611bc016"
+
 styled-components@>=3.0.0, styled-components@^3.2.6:
   version "3.2.6"
   resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-3.2.6.tgz#99e6e75a746bdedd295a17e03dd1493055a1cc3b"
@@ -8709,6 +8752,14 @@ styled-components@>=3.0.0, styled-components@^3.2.6:
   resolved "https://registry.yarnpkg.com/styled-system/-/styled-system-2.2.5.tgz#95f1e2c2c9ddc5c462cc56237cf039aa9ecfd27d"
   dependencies:
     prop-types "^15.6.0"
+
+stylefire@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/stylefire/-/stylefire-2.0.2.tgz#2c0c5d2749a22f71d3c5ae95889dcee1b3597599"
+  dependencies:
+    framesync "^3.1.8"
+    hey-listen "^1.0.4"
+    style-value-types "^1.0.6"
 
 stylis-rule-sheet@^0.0.10:
   version "0.0.10"
@@ -8958,6 +9009,10 @@ trim-right@^1.0.1:
   resolved "https://registry.yarnpkg.com/true-case-path/-/true-case-path-1.0.2.tgz#7ec91130924766c7f573be3020c34f8fdfd00d62"
   dependencies:
     glob "^6.0.4"
+
+tslib@^1.9.1:
+  version "1.9.2"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.2.tgz#8be0cc9a1f6dc7727c38deb16c2ebd1a2892988e"
 
 tty-browserify@0.0.0:
   version "0.0.0"
