@@ -12,7 +12,8 @@ storiesOf('Molecules/Article List Header', module)
 		<ArticleListHeader
 			title="test"
 			buttonAttributes={{
-				text: 'asdfad'
+				text: 'asdfad',
+				to: '/'
 			}}
 		/>
 	));

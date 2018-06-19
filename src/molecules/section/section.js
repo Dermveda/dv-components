@@ -25,7 +25,7 @@ class Section extends Component {
 		}),
 		title: PropTypes.string,
 		children: PropTypes.node,
-		backgroundImage: PropTypes.string
+		backgroundImage: PropTypes.object
 	}
 
 	static defaultProps = {

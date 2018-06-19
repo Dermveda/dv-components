@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { createSkeletonElement } from '@trainline/react-skeletor';
-import { space, color, textAlign, themeGet, fontWeight } from 'styled-system';
+import { space, color, textAlign, themeGet, fontWeight, maxWidth } from 'styled-system';
 import { fontSize } from 'utils';
 
 const makeH3 = styled.h3.attrs({
@@ -13,6 +13,7 @@ const makeH3 = styled.h3.attrs({
 	${fontWeight};
 	${fontSize};
 	${color};
+	${maxWidth};
 
 	line-height: 1.25;
 	display: inline-block;

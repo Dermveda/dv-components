@@ -23,8 +23,9 @@ const SectionContainer = styled.section.attrs({
 	${props => props.backgroundImage ? `
 		background-image: url('${props.backgroundImage.url}');
 		background-repeat: ${props.backgroundImage.pattern ? 'repeat' : 'no-repeat'};
-		background-size: ${props.backgroundImage.pattern ? 'auto' : 'cover'};
-		background-position: center center;
+		background-size: ${props.backgroundImage.pattern ? props.backgroundImage.size || 'auto' : 'cover'};
+		background-position: ${props.backgroundImage.position || 'center center'};
+		background-color: ${props => themeGet(`colors.${props.backgroundImage.color}`, 'transparent')};
 	` : `
 		background: ${props => themeGet(`backgrounds.${props.type}`, 'transparent')};
 	`};

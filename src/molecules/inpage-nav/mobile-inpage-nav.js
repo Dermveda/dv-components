@@ -9,7 +9,7 @@ import { fontSize } from 'utils';
 const Link = NavLink.withComponent(ScrollLink);
 
 const NavBar = styled(Bar)`
-	width: calc(100% - 16px);
+	width: 100%;
 	left: 0;
 	overflow: hidden;
 	padding: 0 8px;

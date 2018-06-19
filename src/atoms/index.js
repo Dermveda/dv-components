@@ -20,7 +20,8 @@ export {
 } from './list-item-content';
 export {
 	MenuLinks,
-	MenuButtons
+	MenuButtons,
+	MegaMenuIcon
 } from './menu-items';
 export { default as NavLink } from './nav-link';
 export { SectionContainer, SectionTitle, SectionBody } from './section-content';
@@ -48,3 +49,5 @@ export {
 export { default as Main } from './main';
 export { MenuIcon, ChevronDown } from './interactive-icon';
 export { Label, Select } from './form-elements';
+export { default as Dropdown } from './dropdown';
+export { default as MegaMenuItem } from './mega-menu';

@@ -1,10 +1,19 @@
+import React from 'react';
 import styled from 'styled-components';
 import { Link as RouterLink } from 'react-router-dom';
 import { space, themeGet, color } from 'styled-system';
 import { darken } from 'polished';
 import { fontSize } from 'utils';
 
-const NavLink = styled(RouterLink).attrs({
+const NavLink = styled(({
+	fontSize,
+	py,
+	px,
+	mx,
+	color,
+	leftBorder,
+	...props
+}) => <RouterLink {...props} />).attrs({
 	fontSize: 2,
 	py: props => props.py || 2,
 	px: props => props.px || 4,
@@ -37,7 +46,6 @@ const NavLink = styled(RouterLink).attrs({
 		text-decoration: none;
 		border-color: ${props => darken(0.2, themeGet('colors.primary.main')(props))};
 	}
-
 `;
 
 export default NavLink;

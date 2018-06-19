@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
 import { themeGet } from 'styled-system';
-import webFont from 'webfontloader';
 import { systemFonts } from 'utils';
 import { darken } from 'polished';
 import colors from './colors';
@@ -63,14 +62,17 @@ const BaseFont = styled.div`
 
 class DermvedaTheme extends React.Component {
 	componentDidMount() {
-		webFont.load({
-			google: {
-				families: ['Raleway:400,500,600,700', 'Abril Fatface:400']
-			},
-			active: () => {
-				sessionStorage.fonts = true;
-			}
-		});
+		if (typeof window !== 'undefined' && !sessionStorage.fonts) {
+			const webFont = require('webfontloader');
+			webFont.load({
+				google: {
+					families: ['Raleway:400,500,600,700', 'Abril Fatface:400']
+				},
+				active: () => {
+					sessionStorage.fonts = true;
+				}
+			});
+		}
 	}
 
 	render = () => (

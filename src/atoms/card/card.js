@@ -5,7 +5,6 @@ import { flipOrder } from 'styles';
 import { space } from 'styled-system';
 
 export const Card = sys({
-	is: 'section',
 	border: '1px solid #ececec',
 	borderRadius: '3px',
 	background: 'white',

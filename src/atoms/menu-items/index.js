@@ -1,1 +1,3 @@
-export { MenuLinks, MenuButtons } from './menu-items';
+export {
+	MenuLinks, MenuButtons, MegaMenuItem, MegaMenuIcon
+} from './menu-items';

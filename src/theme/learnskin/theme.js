@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
 import { themeGet } from 'styled-system';
-import webFont from 'webfontloader';
 import { systemFonts } from 'utils';
 import { darken } from 'polished';
 import colors from './colors';
@@ -61,14 +60,17 @@ const BaseFont = styled.div`
 
 class LearnSkinTheme extends React.Component {
 	componentDidMount() {
-		webFont.load({
-			typekit: {
-				id: 'tum6nht'
-			},
-			active: () => {
-				sessionStorage.fonts = true;
-			}
-		});
+		if (typeof window !== 'undefined' && !sessionStorage.fonts) {
+			const webFont = require('webfontloader');
+			webFont.load({
+				typekit: {
+					id: 'tum6nht'
+				},
+				active: () => {
+					sessionStorage.fonts = true;
+				}
+			});
+		}
 	}
 
 	render = () => (

@@ -9,9 +9,25 @@ import HoverNav from './hover-nav';
 
 storiesOf('Molecules/Hover Nav', module)
 	.add('simple input', () => (
-		<HoverNav
-			large={boolean('isLarge', false)}
-			gray={boolean('isGrey', false)}
-			type="text"
-		/>
+		<div>
+			<ul style={{ display: 'flex', padding: 0 }}>
+				<HoverNav
+					large={boolean('isLarge', false)}
+					gray={boolean('isGrey', false)}
+					type="text"
+				/>
+				<HoverNav
+					large={boolean('isLarge', false)}
+					gray={boolean('isGrey', false)}
+					type="text"
+				/>
+				<HoverNav
+					large={boolean('isLarge', false)}
+					gray={boolean('isGrey', false)}
+					type="text"
+				/>
+			</ul>
+			this is an example
+		</div>
+
 	));

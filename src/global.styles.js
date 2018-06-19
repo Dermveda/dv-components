@@ -63,4 +63,35 @@ injectGlobal`
 	h6, .h6 {
 	  font-size: 1rem;
 	}
+
+	.menu-aim {
+  width: 300px;
+}
+.menu-aim__item {
+  position: relative;
+  width: 300px;
+}
+.menu-aim a {
+  display: block;
+  color: blue;
+}
+.menu-aim a:hover,
+.menu-aim__item--active .menu-aim__item-name {
+  color: white;
+  background: blue;
+}
+.menu-aim--delaying .menu-aim__item-name:hover {
+  color: blue;
+  background: none;
+}
+.menu-aim__item-submenu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 300px;
+  width: 300px;
+}
+.menu-aim__item--active .menu-aim__item-submenu {
+  display: block;
+}
 `;
