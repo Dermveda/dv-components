@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Bar, H3, ButtonLink, Icon } from 'atoms';
 
 const ArticleBar = styled(Bar)`
+	position: relative;
 	h3 {
 		margin: 0;
 		font-weight: 700;

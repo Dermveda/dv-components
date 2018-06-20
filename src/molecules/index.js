@@ -13,3 +13,4 @@ export { default as ArticleListHeader } from './article-list-header';
 export { default as HoverNav } from './hover-nav';
 export { default as SideMenu } from './side-menu';
 export { MobileInPageNav, InPageNav } from './inpage-nav';
+export { ArticleTile } from './article-tile';

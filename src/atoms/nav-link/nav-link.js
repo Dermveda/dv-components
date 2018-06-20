@@ -27,6 +27,7 @@ const NavLink = styled(({
 	font-weight: 600;
 	letter-spacing: .03rem;
 	transition: all .15s linear;
+	cursor: pointer;
 
 	${props => props.leftBorder ? `
 		border-left: 1px solid transparent;

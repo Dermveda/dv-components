@@ -51,3 +51,4 @@ export { MenuIcon, ChevronDown } from './interactive-icon';
 export { Label, Select } from './form-elements';
 export { default as Dropdown } from './dropdown';
 export { default as MegaMenuItem } from './mega-menu';
+export { default as LinkWrapper } from './link-wrapper';

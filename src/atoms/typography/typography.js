@@ -25,7 +25,7 @@ export const H3 = createSkeletonElement(makeH3);
 const makeSubtitle = styled.h4.attrs({
 	fontSize: [0, 1],
 	m: props => props.m || 0,
-	mb: props => props.pb || 2
+	mb: props => props.mb || 2
 })`
 	${textAlign};
 	${space};

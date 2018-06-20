@@ -13,7 +13,8 @@ const Bar = styled(tag)`
 	align-items: center;
 
 	position: sticky;
-	top: 0;
+	top: ${props => props.top || 0};
+	z-index: ${props => props.zIndex || 100};
 
 	${props => props.navBorder && navBorder};
 	${space};

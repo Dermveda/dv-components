@@ -65,9 +65,11 @@ export const ArticleImageLinkable = styled(Link)`
 const makeArticleDescription = styled.p.attrs({
 	m: props => props.m || 0,
 	pb: props => props.pb || 3,
+	fontSize: 1,
 	display: ['none', 'none', 'block']
 })`
 	${display};
 	${space};
+	${fontSize};
 `;
 export const ArticleDescription = createSkeletonElement(makeArticleDescription);

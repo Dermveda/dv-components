@@ -33,7 +33,7 @@ const ArticleRow = ({ title, subtitle, description, imageAttributes, children, i
 		<ArticleBody>
 			<Linkable to={to} isLinkable={isLinkable}>
 				<ArticleHeader>
-					<H3 fontSize={[1, 2, 3]} fontWeight="bold">{title}</H3>
+					<H3 fontSize={[1, 2]} fontWeight="bold">{title}</H3>
 					{subtitle && <Subtitle>{subtitle}</Subtitle>}
 				</ArticleHeader>
 				{description && (

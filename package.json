@@ -1,6 +1,6 @@
 {
   "name": "@dnovicki/dv-components",
-  "version": "2.1.6",
+  "version": "2.2.1",
   "description": "DV components built with React and Bootstrap",
   "scripts": {
     "test": "jest --verbose",
@@ -100,6 +100,7 @@
     "@trainline/react-skeletor": "^1.0.2",
     "clean-element": "^1.0.0",
     "clean-tag": "^1.0.4",
+    "common-tags": "^1.8.0",
     "lodash": "^4.17.4",
     "popmotion": "^8.2.5",
     "react": "^16.2.0",
