@@ -1,8 +1,15 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { color, flex, flexWrap, flexDirection, justifyContent, alignItems, space, themeGet } from 'styled-system';
 
-const SectionContainer = styled.section.attrs({
+const SectionContainer = styled(({
+	content,
+	centered,
+	backgroundImage,
+	children,
+	...props
+}) => <section {...props}>{children}</section>).attrs({
 	py: props => props.py ||[3, 4, 6],
 	px: props => props.px || [3, 4, 6],
 	m: props => props.m || 0

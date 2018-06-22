@@ -1,1 +1,3 @@
-export { default } from './nav-link';
+export {
+	NavLink, NavScrollLink
+} from './nav-link';

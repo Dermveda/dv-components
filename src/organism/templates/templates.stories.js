@@ -25,25 +25,12 @@ storiesOf('Organism/Templates', module)
 	.add('tile featured', () => (
 		<div>
 			<TileFeatured
-				title="Article List"
-				buttonAttributes={{
-					to: '/sdf',
-					text: 'Something'
-				}}
-				articles={[article, article, article]}
-				footerProps={['author', '_id']}
-				renderFooter={({ author, _id }) => (
-					<div>
-						{author && <p>{author}</p>}
-						{_id && <p>{_id}</p>}
-					</div>
-				)}
-			/>
-			<TileFeatured
-				title="Article List"
-				buttonAttributes={{
-					to: '/sdf',
-					text: 'Something'
+				headerAttributes={{
+					buttonAttributes: {
+						to: '/sdf',
+						text: 'Something'
+					},
+					title: "Article List"
 				}}
 				articles={[article, article, article]}
 				footerProps={['author', '_id']}

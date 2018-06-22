@@ -23,7 +23,7 @@ export {
 	MenuButtons,
 	MegaMenuIcon
 } from './menu-items';
-export { default as NavLink } from './nav-link';
+export { NavLink, NavScrollLink } from './nav-link';
 export { SectionContainer, SectionTitle, SectionBody } from './section-content';
 export { HeroContainer, HeroTitle, HeroSubTitle, HeroBody, HeroImage } from './hero-content';
 export {

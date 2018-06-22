@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Link as ScrollLink } from 'react-scroll';
 import { space } from 'styled-system';
-import { Bar, NavLink, ChevronDown } from 'atoms';
+import { Bar, NavLink, ChevronDown, NavScrollLink } from 'atoms';
 import { SlideDown } from 'animations';
 import { fontSize } from 'utils';
-
-const Link = NavLink.withComponent(ScrollLink);
 
 const NavBar = styled(Bar)`
 	width: 100%;
@@ -76,11 +73,12 @@ export default class MobileInPageNav extends Component {
 				</Box>
 				<Slider isHidden={this.state.isHidden}>
 					{links.map(link => (
-						<Link
+						<NavScrollLink
 							key={link.to}
 							to={link.to}
 							spy
 							leftBorder
+							pl={2}
 							onSetActive={this.handleSetActive}
 							color="gray.dark"
 							smooth
@@ -90,7 +88,7 @@ export default class MobileInPageNav extends Component {
 							onClick={this.handleDropDownToggle}
 						>
 							{link.text}
-						</Link>
+						</NavScrollLink>
 					))}
 				</Slider>
 			</NavBar>
