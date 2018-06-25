@@ -2,14 +2,17 @@ import React from 'react';
 
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from '@storybook/react';
+import { boolean } from '@storybook/addon-knobs/react';
+import { action } from '@storybook/addon-actions';
 /* eslint-enable import/no-extraneous-dependencies */
 
-import MobileMenu from './mobile-menu';
+import MenuContainer from './menu-container';
 
-storiesOf('Organism/Mobile Menu', module)
+storiesOf('Molecules/Menu Container', module)
 	.add('simple input', () => (
-		<MobileMenu
-			drawerLinks={[
+		<MenuContainer
+			dismiss={action('dismiss-menu')}
+			links={[
 				{
 					key: 'skin-care',
 					text: 'Skin Care Education',
@@ -39,20 +42,5 @@ storiesOf('Organism/Mobile Menu', module)
 					to: '/something'
 				}
 			]}
-			appBarLinkLeft={{
-				icon: 'award',
-				text: 'Courses',
-				link: '/courses'
-			}}
-			appBarLinkRight={{
-				icon: 'award',
-				text: 'Account',
-				link: '/sign-up'
-			}}
-			showCallToAction
-			callToAction={{
-				link: '/sign-up',
-				text: 'Start Earning Credits'
-			}}
 		/>
 	));

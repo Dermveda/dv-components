@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Dropdown, MegaMenuItem, MegaMenuIcon } from 'atoms';
-import { space } from 'styled-system';
+import { Dropdown, NavButtonLink, Icon } from 'atoms';
+import { space, boxShadow } from 'styled-system';
 import { fontSize } from 'utils';
 import { source, target } from 'react-aim';
 
@@ -12,13 +12,6 @@ const Button = styled.button`
 	margin: 0 16px;
 `;
 
-const Testeroo = target()(styled.div`
-	position: absolute;
-	top: 0;
-	left: 100%;
-	background: #f7f7f7;
-`);
-
 class HoverNav extends Component {
 	state = {
 		displayDropdown: false
@@ -28,43 +21,27 @@ class HoverNav extends Component {
 		const { displayDropdown } = this.state;
 		return (
 			<li style={{ listStyleType: 'none' }}>
-				<Button
-					href="#"
+				<NavButtonLink
 					// onClick={this.toggleDropdown}
 					role="menu"
 				>
-					tester
-				</Button>
+					{this.props.title}
+					<Icon
+						iconSize="xs"
+						ml={2}
+						type="outline"
+						name="chevronDown"
+						rotate={displayDropdown ? '180deg' : '0'}
+					/>
+				</NavButtonLink>
 				<div style={{ position: 'relative' }}>
-					{
-						displayDropdown && (
-							<Dropdown
-								is="ul"
-								boxShadow={2}
-								display={true}
-							>
-								<MegaMenuItem title="Discipline">
-									<Testeroo>
-										something
-										something
-										something
-										something
-										something
-										something
-									</Testeroo>
-								</MegaMenuItem>
-								<MegaMenuItem title="Discipline">
-									<Testeroo>
-										testerooo
-										testerooo
-										testerooo
-										testerooo
-										testerooo
-									</Testeroo>
-								</MegaMenuItem>
-							</Dropdown>
-						)
-					}
+					<Dropdown
+						is="ul"
+						boxShadow={2}
+						display={displayDropdown}
+					>
+						{this.props.children}
+					</Dropdown>
 				</div>
 
 

@@ -12,8 +12,8 @@ const Close = ({ type }) => {
 		case 'outline':
 			return (
 				<g fill="currentColor">
-					<line fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="square" strokeMiterlimit="10" x1="38" y1="10" x2="10" y2="38" strokeLinejoin="miter" />
-					<line fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="square" strokeMiterlimit="10" x1="38" y1="38" x2="10" y2="10" strokeLinejoin="miter" />
+					<line fill="none" stroke="currentColor" strokeLinecap="square" strokeMiterlimit="10" x1="38" y1="10" x2="10" y2="38" strokeLinejoin="miter" />
+					<line fill="none" stroke="currentColor" strokeLinecap="square" strokeMiterlimit="10" x1="38" y1="38" x2="10" y2="10" strokeLinejoin="miter" />
 				</g>
 			);
 		default:

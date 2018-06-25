@@ -1,35 +1,60 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { source } from 'react-aim';
 import { space } from 'styled-system';
 import { fontSize } from 'utils';
 import {MegaMenuIcon} from 'atoms';
 
-const MenuItem = styled.div.attrs({
+const MenuItem = styled.li.attrs({
 	fontSize: [1, 1, 2],
 	p: 3
 })`
 	display: flex;
 	align-items: center;
+	z-index: 250;
 	justify-content: space-between;
 	${space};
 	${fontSize};
 `;
 
+const LinkItem = styled.div`
+	min-width: 270px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+`;
+
+const NavLink = styled(Link)`
+	min-width: 270px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	color: currentColor;
+`;
+
 class MegaMenuItem extends Component {
-
-
 	state = {
 		displayMenu: false
 	}
 
-	render = () => (
-		<MenuItem>
-			<div style={{ minWidth: '270px' }}>
+	renderSubMenu = () => (
+		<React.Fragment>
+			<LinkItem>
 				<span>{this.props.title}</span>
 				<MegaMenuIcon />
-			</div>
+			</LinkItem>
 			{this.state.displayMenu && this.props.children}
+		</React.Fragment>
+	)
+
+	renderMenuLink = () => (
+		<NavLink to={this.props.to}>{this.props.title}</NavLink>
+	)
+
+	render = () => (
+		<MenuItem>
+			{this.props.to ? this.renderMenuLink() : this.renderSubMenu()}
 		</MenuItem>
 	)
 }

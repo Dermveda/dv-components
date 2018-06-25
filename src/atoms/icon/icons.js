@@ -74,6 +74,9 @@ export const SVGWrapper = styled.svg`
 	width: ${prop => iconSize[prop.iconSize]};
 
 	stroke-width: ${prop => strokeSize[prop.strokeSize]};
+	${prop => prop.rotate && `
+		transform: rotate(${prop.rotate});
+	`};
 	${color};
 `;
 

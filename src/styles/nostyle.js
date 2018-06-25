@@ -9,8 +9,7 @@ const nostyle = css`
 	padding: 8px 0 !important;
 
 	svg {
-		color: ${props => themeGet(`colors.${props.type}.main`)(props)};
-		stroke: ${props => themeGet(`colors.${props.type}.main`)(props)};
+		color: ${props => themeGet(`colors.${props.type}.${props.type === 'secondary' ? 'secondary' : 'main'}`)(props)};
 	}
 
 	&:hover {

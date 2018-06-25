@@ -15,6 +15,12 @@ const styles = css`
 	letter-spacing: .03rem;
 	transition: all .15s linear;
 	cursor: pointer;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: center;
+	background: transparent;
+	border: none;
 
 	${props => props.leftBorder ? `
 		border-left: 1px solid transparent;
@@ -54,6 +60,16 @@ export const NavLink = styled(({
 	...props
 }) => <RouterLink {...props} />).attrs(props)`${styles};`;
 
+export const NavButtonLink = styled(({
+	fontSize,
+	py,
+	px,
+	mx,
+	color,
+	leftBorder,
+	...props
+}) => <button {...props} />).attrs(props)`${styles};`;
+
 export const NavScrollLink = styled(({
 	fontSize,
 	py,
@@ -63,3 +79,44 @@ export const NavScrollLink = styled(({
 	leftBorder,
 	...props
 }) => <ScrollLink {...props} />).attrs(props)`${styles};`;
+
+const mobileStyles = css`
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: flex-start;
+	${'' /* justify-content: flex-start; */}
+
+	height: 56px;
+	text-align: center;
+	${space};
+	font-weight: 600;
+	text-decoration: none;
+	box-sizing: border-box;
+
+	svg { color: #717171; }
+
+	&.active ${NavLinkText},
+	&.active svg {
+		color: ${themeGet('colors.tertiary.main')};
+	}
+`;
+
+const mobileProps = {
+	pt: 2,
+	pb: '12px',
+	px: '12px'
+};
+
+export const NavLinkText = styled.div`
+	text-align: left;
+	width: 100%;
+	color: #2b2b2b;
+	text-decoration: none;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+`;
+
+export const MobileNavLink = styled(NavLink).attrs(mobileProps)`${mobileStyles}`;
+export const MobileNavButtonLink = styled(NavButtonLink).attrs(mobileProps)`${mobileStyles}`;

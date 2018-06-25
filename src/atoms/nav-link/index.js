@@ -1,3 +1,3 @@
 export {
-	NavLink, NavScrollLink
+	NavLink, NavScrollLink, NavButtonLink, MobileNavLink, MobileNavButtonLink, NavLinkText
 } from './nav-link';

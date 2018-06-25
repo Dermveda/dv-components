@@ -11,6 +11,7 @@ const Dropdown = styled(Card)`
 	top: 8px;
 
 	${props => props.display ? SwingIn : SwingOut};
+	display: ${props => props.display ? 'block' : 'none'};
 
 	&::after,
 	&::before {

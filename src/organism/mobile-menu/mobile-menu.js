@@ -3,6 +3,7 @@ import { NavLink, Link } from 'react-router-dom';
 import React, { Component } from 'react';
 import { space, themeGet } from 'styled-system';
 import { Icon, MenuIcon } from 'atoms';
+import { MobileMenuContainer } from 'molecules';
 import { fontSize } from 'utils';
 import { lighten } from 'polished';
 
@@ -14,7 +15,7 @@ const LinkText = styled.div`
 `;
 
 const MobileContainer = styled.nav.attrs({
-	px: '12px',
+	px: 0,
 	m: 0
 })`
 	background-color: ${themeGet('colors.gray.light', '#f7f7f7')};
@@ -74,7 +75,8 @@ const MenuContainer = styled.div`
 `;
 
 const MobileNavLinkContainer = styled.div.attrs({
-	p: [4, 5]
+	px: 0,
+	py: 4
 })`
 	${space};
 	display: flex;
@@ -103,7 +105,7 @@ const MobileNavLink = styled(NavLink).attrs({
 const CTANavLink = styled(Link).attrs({
 	py: 4,
 	px: [4, 5],
-	fontSize: 3
+	fontSize: 2
 })`
 	font-weight: 600;
 	width: 100%;
@@ -124,7 +126,7 @@ const CTANavLink = styled(Link).attrs({
 
 	svg {
 		margin-left: 16px;
-		margin-top: -3px;
+		margin-top: 0
 	}
 	${space};
 	${fontSize};
@@ -157,13 +159,10 @@ class MobileMenu extends Component {
 			<React.Fragment>
 				<MenuContainer style={this.state.showMenu ? showStyles : hiddenStyles}>
 					<MobileNavLinkContainer>
-						{drawerLinks.map(({ link, text }) => (
-							<MobileNavLink
-								key={link}
-								to={link}
-								onClick={this.onClick}
-							>{text}</MobileNavLink>
-						))}
+						<MobileMenuContainer
+							links={drawerLinks}
+							dismiss={this.onClick}
+						/>
 					</MobileNavLinkContainer>
 					{showCallToAction && (
 						<CTANavLink to={callToAction.link} onClick={this.onClick}>
