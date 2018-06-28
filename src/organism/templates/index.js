@@ -1,7 +1,7 @@
 import TileFeatured from './tile-featured';
 import Lifestyle from './lifestyle';
+import CardRow from './card-row';
 
-const CardRow = TileFeatured;
 const RowListing = TileFeatured;
 const TileSmall = TileFeatured;
 
