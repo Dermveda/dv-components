@@ -5,13 +5,15 @@ import { Bar, NavLink } from 'atoms';
 const Link = NavLink.withComponent(ScrollLink);
 
 const InPageNav = ({ links, ...props }) => (
-	<Bar is="nav" bg="accent.secondary" justifyContent="center" {...props}>
+	<Bar color="white" is="nav" bg="accent.secondary" justifyContent="center" {...props}>
 		{links.map(link => (
 			<Link
 				key={link.to}
+				px="0"
+				flex="1"
 				to={link.to}
 				spy
-				color="gray.dark"
+				color="white"
 				smooth
 				isDynamic
 				duration={300}

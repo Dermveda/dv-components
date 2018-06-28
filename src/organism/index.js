@@ -7,3 +7,4 @@ export {
 	CardRow,
 	RowListing
 } from './templates';
+export { default as Footer } from './footer';

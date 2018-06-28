@@ -5,7 +5,7 @@ import { target } from 'react-aim';
 
 const Dropdown = styled(Card)`
 	position: absolute;
-	padding: 0;
+	padding: 14px 0;
 	display: inline-block;
 	left: 20px;
 	top: 8px;

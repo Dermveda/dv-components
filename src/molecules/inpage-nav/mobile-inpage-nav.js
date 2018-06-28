@@ -60,6 +60,7 @@ export default class MobileInPageNav extends Component {
 
 		return (
 			<NavBar
+				color="white"
 				is="nav"
 				bg="accent.secondary"
 				justifyContent="center"
@@ -80,7 +81,7 @@ export default class MobileInPageNav extends Component {
 							leftBorder
 							pl={2}
 							onSetActive={this.handleSetActive}
-							color="gray.dark"
+							color="white"
 							smooth
 							isDynamic
 							duration={300}

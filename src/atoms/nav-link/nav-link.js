@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { Link as ScrollLink } from 'react-scroll';
 import { Link as RouterLink } from 'react-router-dom';
-import { space, themeGet, color } from 'styled-system';
+import { space, themeGet, color, flex } from 'styled-system';
 import { darken } from 'polished';
 import { fontSize } from 'utils';
 
@@ -10,17 +10,21 @@ const styles = css`
 	${space};
 	${fontSize};
 	${color};
+	${flex};
 	text-align: center;
 	font-weight: 600;
 	letter-spacing: .03rem;
 	transition: all .15s linear;
 	cursor: pointer;
-	display: flex;
 	flex-wrap: nowrap;
 	justify-content: space-between;
 	align-items: center;
 	background: transparent;
 	border: none;
+	box-sizing: border-box;
+	width: 100%;
+	outline: none;
+	white-space: nowrap;
 
 	${props => props.leftBorder ? `
 		border-left: 1px solid transparent;
@@ -43,10 +47,11 @@ const styles = css`
 `;
 
 const props = {
-	fontSize: 2,
+	fontSize: props => props.fontSize || 2,
+	display: props => props.display || 'flex',
 	py: props => props.py || 2,
 	px: props => props.px || 4,
-	mx: 2,
+	mx: props => props.mx || 2,
 	color: props => props.color || 'gray.medium'
 };
 
@@ -108,14 +113,17 @@ const mobileProps = {
 };
 
 export const NavLinkText = styled.div`
-	text-align: left;
-	width: 100%;
+	box-sizing: border-box;
 	color: #2b2b2b;
 	text-decoration: none;
 	display: flex;
-	flex-flow: row nowrap;
+	width: 100%;
 	justify-content: space-between;
 	align-items: center;
+
+	svg {
+		margin-left: auto;
+	}
 `;
 
 export const MobileNavLink = styled(NavLink).attrs(mobileProps)`${mobileStyles}`;

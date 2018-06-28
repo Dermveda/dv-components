@@ -3,7 +3,7 @@ import tag from 'clean-tag';
 import { space, justifyContent, themeGet, display, color, flexDirection } from 'styled-system';
 
 const navBorder = css`
-	border-top: 4px solid ${themeGet('colors.primary.main', '#2B2B2B')};
+	border-top: 4px solid ${themeGet('colors.accent.logo', '#2B2B2B')};
 	border-bottom: 1px solid #ACACAC;
 `;
 

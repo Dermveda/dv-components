@@ -40,12 +40,7 @@ storiesOf('Molecules/Desktop Menu', module)
 				imageAttributes={{
 					src: 'http://fillmurray.com/150/32'
 				}}
-				menuLinks={object('menu links', [
-					{ to: '/courses', text: 'Courses' },
-					{ to: '/how-it-works', text: 'How It Works' },
-					{ to: '/about-us', text: 'About Us' },
-					{ to: '/contact-us', text: 'Contact Us' }
-				])}
+				menuLinks={() => (<p>test</p>)}
 			/>
 		))
 	)
@@ -76,12 +71,7 @@ storiesOf('Molecules/Desktop Menu', module)
 				imageAttributes={{
 					src: 'http://fillmurray.com/150/32'
 				}}
-				menuLinks={object('menu links', [
-					{ to: '/courses', text: 'Courses' },
-					{ to: '/how-it-works', text: 'How It Works' },
-					{ to: '/about-us', text: 'About Us' },
-					{ to: '/contact-us', text: 'Contact Us' }
-				])}
+				menuLinks={() => (<p>test</p>)}
 			>
 				<MenuButtons>
 					<Button
@@ -131,12 +121,7 @@ storiesOf('Molecules/Desktop Menu', module)
 				imageAttributes={{
 					src: 'http://fillmurray.com/150/32'
 				}}
-				menuLinks={object('menu links', [
-					{ to: '/courses', text: 'Courses' },
-					{ to: '/how-it-works', text: 'How It Works' },
-					{ to: '/about-us', text: 'About Us' },
-					{ to: '/contact-us', text: 'Contact Us' }
-				])}
+				menuLinks={() => (<p>test</p>)}
 			/>
 		))
 	);

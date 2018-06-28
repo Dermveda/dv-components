@@ -10,7 +10,7 @@ export { default as BulletListItem } from './bullet-list-item';
 export { default as IconAttributes } from './icon-attributes';
 export { default as GroupPills } from './group-pills';
 export { default as ArticleListHeader } from './article-list-header';
-export { default as HoverNav } from './hover-nav';
+export { UserDropdown, HoverNav } from './hover-nav';
 export { default as SideMenu } from './side-menu';
 export { MobileInPageNav, InPageNav } from './inpage-nav';
 export { ArticleTile } from './article-tile';

@@ -41,9 +41,9 @@ const Box = styled.div`
 `;
 
 const MenuBar = ({
-	menuLinks, children, imageAttributes, title, sourceAttributes
+	menuLinks, children, imageAttributes, title, sourceAttributes, ...props
 }) => (
-	<Bar is="nav" py={3} px={2} navBorder justifyContent="space-between" display={['none', 'none', 'flex']}>
+	<Bar is="nav" py={3} px={2} navBorder justifyContent="space-between" {...props}>
 		<Box>
 			<TitleLink to="/" title={title}>
 				<Title>
@@ -53,15 +53,12 @@ const MenuBar = ({
 						))}
 						<img alt={title} {...imageAttributes} />
 					</TitleImage>
-					<TitleImage {...imageAttributes} alt={title} aria-hidden />
 					<TitleText>{title}</TitleText>
 				</Title>
 			</TitleLink>
 			{menuLinks && (
 				<MenuLinks>
-					{menuLinks.map(({ text, ...attrs }) => (
-						<NavLink key={text} {...attrs}>{text}</NavLink>
-					))}
+					{menuLinks()}
 				</MenuLinks>
 			)}
 		</Box>

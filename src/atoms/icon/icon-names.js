@@ -16,7 +16,13 @@ export const icons = {
 	facebook: 'Facebook',
 	twitter: 'Twitter',
 	instagram: 'Instagram',
-	youtube: 'Youtube'
+	youtube: 'Youtube',
+	western: 'Western',
+	ayurveda: 'Ayurveda',
+	tcm: 'TCM',
+	naturopathy: 'Naturopathy',
+	cart: 'Cart',
+	school: 'SchoolBuilding'
 };
 
 const Icon = (icon, type) => {

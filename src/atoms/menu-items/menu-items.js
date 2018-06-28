@@ -33,8 +33,9 @@ export const MenuButtons = styled.div`
 
 export const MegaMenuIcon = styled(Icon).attrs({
 	name: 'chevronDown',
-	iconSize: 'sm',
-	type: 'outline'
+	iconSize: 'xs',
+	type: 'outline',
+	strokeSize: 3
 })`
 	transform: rotate(-90deg);
 `;

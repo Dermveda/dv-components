@@ -56,8 +56,6 @@ const FooterContainer = styled.footer.attrs({
 	bg: 'gray.light',
 	p: [2, 4, 5]
 })`
-
-
 	${space};
 	${color};
 `;
@@ -92,13 +90,12 @@ const FooterLegal = styled.div.attrs({
 	${fontSize};
 	${color};
 	${space};
-	margin: 0 auto;
+	margin-top: auto;
 `;
 
 const NoStyleLink = styled.a`
-	${noStyleLink};
 	display: inline-block;
-	margin: 0 4px;
+	margin: 12px 4px;
 	flex: 1 50px;
 
 	& > svg {
@@ -113,11 +110,15 @@ const NoStyleLink = styled.a`
 const FlexBox = styled.div`
 	display: flex;
 	flex-flow: row wrap;
+	margin-top: 12px;
 `;
 
-const NewsLetterContainer = styled.div.attrs({
-	pt: 4
-})`
+const ImageLink = styled(Link)`
+	outline: none;
+	text-decoration: none;
+`;
+
+const NewsLetterContainer = styled.div.attrs({ pt: 4 })`
 	${space};
 `;
 
@@ -135,7 +136,9 @@ export default class Footer extends Component {
 			<FooterContainer>
 				<FooterBox>
 					<FooterHeader>
-						<img {...imageAttributes} />
+						<ImageLink to="/">
+							<img {...imageAttributes} />
+						</ImageLink>
 						<FlexBox>
 							{this.renderSocial()}
 						</FlexBox>
@@ -173,7 +176,6 @@ export default class Footer extends Component {
 							<FooterLegal>
 								{renderLegal()}
 							</FooterLegal>
-
 						)}
 					</div>
 				</FooterBox>

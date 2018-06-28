@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
-import { Dropdown, NavButtonLink, Icon } from 'atoms';
+import styled from 'styled-components';
+import { Dropdown, Icon, NavButtonLink } from 'atoms';
 import { source } from 'react-aim';
 
-class HoverNav extends Component {
+const ProfileDropdown = styled(Dropdown)`
+	left: -200px;
+	&::after, &::before { left: 250px; }
+`;
+
+class UserDropdown extends Component {
 	state = {
 		displayDropdown: false
 	}
@@ -17,24 +23,18 @@ class HoverNav extends Component {
 					px={2}
 					mx="12px"
 				>
-					{this.props.title}
 					<Icon
-						iconSize="xs"
+						iconSize="sm"
 						ml={2}
-						alignToText
-						type="outline"
-						name="chevronDown"
-						rotate={displayDropdown ? '180deg' : '0'}
+						name="user"
+						type="glyph"
+						color="primary.main"
 					/>
 				</NavButtonLink>
 				<div style={{ position: 'relative' }}>
-					<Dropdown
-						is="ul"
-						boxShadow={2}
-						display={displayDropdown}
-					>
+					<ProfileDropdown is="ul" boxShadow={2} display={displayDropdown}>
 						{this.props.children}
-					</Dropdown>
+					</ProfileDropdown>
 				</div>
 			</li>
 		);
@@ -44,4 +44,4 @@ class HoverNav extends Component {
 export default source({
 	mouseEnter: (props, component) => component.setState({ displayDropdown: true }),
 	mouseLeave: (props, component) => component.setState({ displayDropdown: false })
-})(HoverNav);
+})(UserDropdown);

@@ -7,9 +7,10 @@ import { boolean } from '@storybook/addon-knobs/react';
 
 import { SubMenuContainer, NavLink, MegaMenuItem } from 'atoms';
 import HoverNav from './hover-nav';
+import UserDropdown from './user-dropdown';
 
 storiesOf('Molecules/Hover Nav', module)
-	.add('simple input', () => (
+	.add('menu item dropdown', () => (
 		<nav>
 			<ul style={{ display: 'flex', padding: 0 }}>
 				<HoverNav title="test">
@@ -19,6 +20,7 @@ storiesOf('Molecules/Hover Nav', module)
 						</SubMenuContainer>
 					</MegaMenuItem>
 					<MegaMenuItem title="something" to="/" />
+					<NavLink to="/">tset</NavLink>
 				</HoverNav>
 				<HoverNav
 					title="testeroo"
@@ -43,5 +45,42 @@ storiesOf('Molecules/Hover Nav', module)
 			</ul>
 			this is an example
 		</nav>
-
+	))
+	.add('user dropdown', () => (
+		<nav>
+			<ul style={{ display: 'flex', padding: 0 }}>
+				<HoverNav title="test">
+					<MegaMenuItem title="test">
+						<SubMenuContainer>
+							testeroo
+						</SubMenuContainer>
+					</MegaMenuItem>
+					<MegaMenuItem title="something" to="/" />
+					<NavLink to="/">tset</NavLink>
+				</HoverNav>
+				<HoverNav
+					title="testeroo"
+				>
+					<MegaMenuItem title="test">
+						<SubMenuContainer>
+							testeroo
+						</SubMenuContainer>
+					</MegaMenuItem>
+					<MegaMenuItem title="something" to="/" />
+				</HoverNav>
+				<HoverNav
+					title="testeroo"
+				>
+					<MegaMenuItem title="test">
+						<SubMenuContainer>
+							testeroo
+						</SubMenuContainer>
+					</MegaMenuItem>
+					<MegaMenuItem title="something" to="/" />
+				</HoverNav>
+				<UserDropdown>
+					<MegaMenuItem title="something" to="/" />
+				</UserDropdown>
+			</ul>
+		</nav>
 	));

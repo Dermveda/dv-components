@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Button, Icon, MobileNavLink, MobileNavButtonLink, NavLinkText } from 'atoms';
 import { space, color } from 'styled-system';
@@ -24,6 +25,14 @@ const BreadCrumbContainer = styled.div`
 `;
 
 export default class MenuContainer extends Component {
+	static propTypes = {
+		onClick: PropTypes.func
+	}
+
+	static defaultProps = {
+		onClick: () => {}
+	}
+
 	state = {
 		breadcrumb: []
 	};
@@ -88,14 +97,23 @@ export default class MenuContainer extends Component {
 
 	renderNavItem = (item) => {
 		const buttonProps = {
-			onClick: item.subLinks ? () => { this.addBreadCrumb(item); } : undefined,
+			onClick: item.subLinks ?
+				() => { this.addBreadCrumb(item); } :
+				() => {
+					if (item.onClick) item.onClick();
+					this.props.dismiss();
+				},
 			to: item.to || undefined
 		};
 
-		return buttonProps.onClick ? (
-			<MobileNavButtonLink {...buttonProps}>
+		return buttonProps.to ? (
+			<MobileNavLink {...buttonProps}>
+				<NavLinkText>{item.text}</NavLinkText>
+			</MobileNavLink>
+		) : (
+			<MobileNavButtonLink {...buttonProps} display="block">
 				<NavLinkText>
-					{item.text}
+					<div style={{ paddingRight: '10px' }}>{item.text}</div>
 					<Icon
 						type="outline"
 						strokeSize={3}
@@ -105,10 +123,6 @@ export default class MenuContainer extends Component {
 					/>
 				</NavLinkText>
 			</MobileNavButtonLink>
-		) : (
-			<MobileNavLink {...buttonProps}>
-				<NavLinkText>{item.text}</NavLinkText>
-			</MobileNavLink>
 		);
 	}
 

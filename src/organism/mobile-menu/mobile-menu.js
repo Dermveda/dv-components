@@ -60,8 +60,8 @@ const MobileItem = styled(NavLink).attrs({
 `;
 
 const MenuContainer = styled.div`
-	height: calc(100vh - 76px);
-	transition: transform .3s linear, opacity .3s linear;
+	height: calc(100vh - 56px);
+	transition: transform .3s cubic-bezier(.59,.04,.4,1), opacity .3s cubic-bezier(.59,.04,.4,1);
 	background-color: #f7f7f7;
 	position: fixed;
 	width: 100vw;
@@ -117,7 +117,6 @@ const CTANavLink = styled(Link).attrs({
 	background-color: blue;
 	color: #2b2b2b;
 	text-decoration: none;
-	margin-top: auto;
 	background-color: ${props => lighten(0.25, themeGet('colors.primary.main')(props))};
 
 	&:hover {
@@ -137,9 +136,16 @@ class MobileMenu extends Component {
 		showMenu: false
 	}
 
-	onClick = () => {
-		this.setState(({ showMenu }) => ({ showMenu: !showMenu }));
-	}
+	onClick = () =>
+		this.setState(({ showMenu }) => {
+			if (typeof document !== 'undefined') {
+				const body = document.getElementsByTagName('body')[0];
+				if (!showMenu) body.classList.add('no-scroll');
+				else body.classList.remove('no-scroll');
+			}
+
+			return ({ showMenu: !showMenu });
+		})
 
 	render() {
 		const showStyles = {
@@ -156,7 +162,7 @@ class MobileMenu extends Component {
 		const { drawerLinks, appBarLinkLeft, appBarLinkRight, showCallToAction, callToAction } = this.props;
 
 		return (
-			<React.Fragment>
+			<div className={this.props.className}>
 				<MenuContainer style={this.state.showMenu ? showStyles : hiddenStyles}>
 					<MobileNavLinkContainer>
 						<MobileMenuContainer
@@ -182,7 +188,7 @@ class MobileMenu extends Component {
 						<LinkText>{appBarLinkRight.text}</LinkText>
 					</MobileItem>
 				</MobileContainer>
-			</React.Fragment>
+			</div>
 		);
 	}
 }

@@ -1,6 +1,6 @@
 {
   "name": "@dnovicki/dv-components",
-  "version": "2.2.5",
+  "version": "2.2.43",
   "description": "DV components built with React and Bootstrap",
   "scripts": {
     "test": "jest --verbose",
@@ -9,7 +9,7 @@
     "start": "webpack --watch",
     "prepublish": "npm run build",
     "commitmsg": "validate-commit-msg",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6007",
     "build-storybook": "build-storybook"
   },
   "files": [

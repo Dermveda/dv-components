@@ -11,7 +11,7 @@ const secondary = {
 };
 
 const primary = {
-	main: '#668CFF',
+	main: '#6C6FF9',
 	secondary: '#ffffff',
 	tertiary: '#45B9E1'
 };
@@ -37,8 +37,9 @@ const gray = {
 
 const accent = {
 	primary: '#FDB88F',
-	secondary: '#37ECB7',
-	tertiary: '#668CFF'
+	secondary: '#10ac84',
+	tertiary: '#6C6FF9',
+	logo: '#10ac84'
 };
 
 const gradientInverse = {

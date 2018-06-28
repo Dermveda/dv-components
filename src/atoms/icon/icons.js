@@ -60,20 +60,27 @@ const alignToText = css`
 	use { color: inherit; }
 `;
 
+const glyph = css`
+	stroke-width: 0;
+`;
+
+const outline = css`
+	${outlineStyles};
+	${prop => (prop.strokeSize === 1 || prop.strokeSize === 3) && oddStroke};
+	stroke-width: ${prop => strokeSize[prop.strokeSize]};
+`;
+
 export const SVGWrapper = styled.svg`
 	${baseStyles};
 	${space};
 	${display};
 
-	${prop => prop.type === 'outline' && outlineStyles};
+	${prop => prop.type == 'outline' ? outline : glyph};
 	${prop => prop.alignToText && alignToText};
-	${prop => (prop.strokeSize === 1 || prop.strokeSize === 3) && oddStroke};
-
 
 	height: ${prop => iconSize[prop.iconSize]};
 	width: ${prop => iconSize[prop.iconSize]};
 
-	stroke-width: ${prop => strokeSize[prop.strokeSize]};
 	${prop => prop.rotate && `
 		transform: rotate(${prop.rotate});
 	`};
