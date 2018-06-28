@@ -27,6 +27,7 @@ class UserDropdown extends Component {
 						iconSize="sm"
 						ml={2}
 						name="user"
+						alignToText
 						type="glyph"
 						color="primary.main"
 					/>

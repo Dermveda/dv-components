@@ -178,12 +178,12 @@ class MobileMenu extends Component {
 					)}
 				</MenuContainer>
 				<MobileContainer>
-					<MobileItem to={appBarLinkLeft.link}>
+					<MobileItem to={appBarLinkLeft.link} exact>
 						<Icon name={appBarLinkLeft.icon} iconSize="md" />
 						<LinkText>{appBarLinkLeft.text}</LinkText>
 					</MobileItem>
 					<MenuIcon iconSize="md" p={3} onClick={this.onClick} isDismiss={this.state.showMenu} />
-					<MobileItem to={appBarLinkRight.link}>
+					<MobileItem to={appBarLinkRight.link} exact>
 						<Icon name={appBarLinkRight.icon} iconSize="md" />
 						<LinkText>{appBarLinkRight.text}</LinkText>
 					</MobileItem>

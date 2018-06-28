@@ -80,6 +80,7 @@ storiesOf('Molecules/Hover Nav', module)
 				</HoverNav>
 				<UserDropdown>
 					<MegaMenuItem title="something" to="/" />
+					<MegaMenuItem onClick={() => {}} title="Sign Out" />
 				</UserDropdown>
 			</ul>
 		</nav>

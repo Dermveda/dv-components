@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color, flex, flexWrap, flexDirection, fontFamily, justifyContent, alignItems, space, themeGet } from 'styled-system';
+import { color, flex, flexWrap, flexDirection, fontFamily, justifyContent, alignItems, space, themeGet, width } from 'styled-system';
 import { fontSize } from 'utils';
 
 export const SectionTitle = styled.h2.attrs({
@@ -29,4 +29,5 @@ export const SectionBody = styled.div.attrs({
 	${justifyContent};
 	${alignItems};
 	${space};
+	${width};
 `;

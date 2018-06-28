@@ -5,6 +5,7 @@ export {
 	TileFeatured,
 	TileSmall,
 	CardRow,
-	RowListing
+	RowListing,
+	Lifestyle
 } from './templates';
 export { default as Footer } from './footer';

@@ -29,6 +29,7 @@ const LinkItem = styled.div.attrs({
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	${props => props.isActive && 'color: #6C6FF9;'};
 	${hover};
 `;
 
@@ -40,7 +41,12 @@ const NavLink = styled(Link)`
 	color: currentColor;
 `;
 
-const NavButtonLink = styled.button`
+const NavButtonLink = styled.button.attrs({
+	fontSize: [1, 1, 2],
+	hover: {
+		color: 'primary.main'
+	}
+})`
 	border: none;
 	background: transparent;
 	min-width: 270px;
@@ -48,6 +54,11 @@ const NavButtonLink = styled.button`
 	align-items: center;
 	justify-content: space-between;
 	color: currentColor;
+	padding: 0;
+	font-weight: 500;
+	cursor: pointer;
+	${hover};
+	${fontSize};
 `;
 
 class MegaMenuItem extends Component {
@@ -55,15 +66,31 @@ class MegaMenuItem extends Component {
 		displayMenu: false
 	}
 
-	renderSubMenu = () => (
-		<React.Fragment>
-			<LinkItem>
-				<span>{this.props.title}</span>
-				<MegaMenuIcon />
-			</LinkItem>
-			{this.state.displayMenu && this.props.children}
-		</React.Fragment>
-	)
+	getId = () => this.props.title.toLowerCase().split(' ').join('-');
+
+	renderSubMenu = () => {
+		const id = this.getId();
+		return (
+			<React.Fragment>
+				<LinkItem
+					id={this.getId()}
+					data-toggle="dropdown"
+					aria-haspopup="true"
+					aria-expanded={this.state.displayMenu}
+					isActive={this.state.displayMenu}
+				>
+					<span>{this.props.title}</span>
+					<MegaMenuIcon />
+				</LinkItem>
+				{this.state.displayMenu &&
+					React.cloneElement(
+						this.props.children,
+						{ 'aria-labelledby': id }
+					)
+				}
+			</React.Fragment>
+		);
+	}
 
 	renderMenuLink = () =>
 		this.props.to ?

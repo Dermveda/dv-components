@@ -19,3 +19,4 @@ export { default as TCM } from './tcm';
 export { default as Ayurveda } from './ayurveda';
 export { default as Cart } from './cart';
 export { default as SchoolBuilding } from './school-building';
+export { default as Search } from './search';

@@ -6,16 +6,7 @@ import {
 	Section
 } from 'molecules';
 
-const FlexBox = styled.div`
-	display: flex;
-	flex-flow: row wrap;
-	align-items: stretch;
-	justify-content: space-between;
-	margin: -16px;
-	margin-bottom: 16px;
-`;
-
-class TileFeatured extends Component {
+export default class TileFeatured extends Component {
 	pluckProps = (footerProps, props) => Object
 		.keys(props)
 		.filter(x => footerProps.includes(x))
@@ -42,12 +33,17 @@ class TileFeatured extends Component {
 			.map(this.renderArticleRow);
 
 		return (
-			<Section centered content>
+			<Section centered content buttonAttributes={{
+				...headerAttributes.buttonAttributes,
+				noButtonSpacing: true,
+				buttonLeft: false,
+				nostyle: true,
+				small: true,
+				type: 'primary'
+			}}>
 				<ArticleListHeader {...headerAttributes} />
 				{rowArticles}
 			</Section>
 		);
 	}
 }
-
-export default TileFeatured;

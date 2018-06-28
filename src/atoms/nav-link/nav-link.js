@@ -11,6 +11,7 @@ const styles = css`
 	${fontSize};
 	${color};
 	${flex};
+	outline: none;
 	text-align: center;
 	font-weight: 600;
 	letter-spacing: .03rem;

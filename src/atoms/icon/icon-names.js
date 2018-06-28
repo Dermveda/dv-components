@@ -22,7 +22,8 @@ export const icons = {
 	tcm: 'TCM',
 	naturopathy: 'Naturopathy',
 	cart: 'Cart',
-	school: 'SchoolBuilding'
+	school: 'SchoolBuilding',
+	search: 'Search'
 };
 
 const Icon = (icon, type) => {

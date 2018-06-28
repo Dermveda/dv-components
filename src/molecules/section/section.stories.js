@@ -94,6 +94,7 @@ storiesOf('Molecules/Section', module)
 				backgroundImage={{
 					url: 'https://transparenttextures.com/patterns/always-grey.png',
 					pattern: true,
+					size: '90px'
 				}}
 				title={text('Title', 'Why LearnSkin')}
 				buttonAttributes={object('button', buttonAttributes)}

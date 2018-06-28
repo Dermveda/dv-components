@@ -9,6 +9,7 @@ class HoverNav extends Component {
 
 	render() {
 		const { displayDropdown } = this.state;
+		const id = this.props.title.toLowerCase().split(' ').join('-');
 		return (
 			<li style={{ listStyleType: 'none' }}>
 				<NavButtonLink
@@ -16,6 +17,10 @@ class HoverNav extends Component {
 					role="menu"
 					px={2}
 					mx="12px"
+					data-toggle="dropdown"
+					aria-haspopup="true"
+					id={id}
+					aria-expanded={displayDropdown}
 				>
 					{this.props.title}
 					<Icon
@@ -32,6 +37,7 @@ class HoverNav extends Component {
 						is="ul"
 						boxShadow={2}
 						display={displayDropdown}
+						aria-labelledby={id}
 					>
 						{this.props.children}
 					</Dropdown>

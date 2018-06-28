@@ -36,7 +36,7 @@ const gray = {
 };
 
 const accent = {
-	primary: '#FDB88F',
+	primary: '#FFE9DD',
 	secondary: '#10ac84',
 	tertiary: '#6C6FF9',
 	logo: '#10ac84'

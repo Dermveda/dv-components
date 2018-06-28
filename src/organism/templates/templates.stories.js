@@ -6,6 +6,8 @@ import { boolean } from '@storybook/addon-knobs/react';
 /* eslint-enable import/no-extraneous-dependencies */
 
 import TileFeatured from './tile-featured';
+import CardRow from './card-row';
+import Lifestyle from './lifestyle';
 
 const article = {
 	_id: '59ead04ac9ad306351f29a7c',
@@ -22,25 +24,60 @@ const article = {
 };
 
 storiesOf('Organism/Templates', module)
+	.add('card row', () => (
+		<CardRow
+			headerAttributes={{
+				buttonAttributes: {
+					to: '/sdf',
+					text: 'Something'
+				},
+				title: 'Article List'
+			}}
+			articles={[article, article, article]}
+			footerProps={['author', '_id']}
+			renderFooter={({ author, _id }) => (
+				<div>
+					{author && <p>{author}</p>}
+					{_id && <p>{_id}</p>}
+				</div>
+			)}
+		/>
+	))
+	.add('Lifestyle', () => (
+		<Lifestyle
+			headerAttributes={{
+				buttonAttributes: {
+					to: '/sdf',
+					text: 'Something'
+				},
+				title: 'Article List'
+			}}
+			articles={[article, article, article]}
+			footerProps={['author', '_id']}
+			renderFooter={({ author, _id }) => (
+				<div>
+					{author && <p>{author}</p>}
+					{_id && <p>{_id}</p>}
+				</div>
+			)}
+		/>
+	))
 	.add('tile featured', () => (
-		<div>
-			<TileFeatured
-				headerAttributes={{
-					buttonAttributes: {
-						to: '/sdf',
-						text: 'Something'
-					},
-					title: "Article List"
-				}}
-				articles={[article, article, article]}
-				footerProps={['author', '_id']}
-				renderFooter={({ author, _id }) => (
-					<div>
-						{author && <p>{author}</p>}
-						{_id && <p>{_id}</p>}
-					</div>
-				)}
-			/>
-		</div>
-
+		<TileFeatured
+			headerAttributes={{
+				buttonAttributes: {
+					to: '/sdf',
+					text: 'Something'
+				},
+				title: 'Article List'
+			}}
+			articles={[article, article, article]}
+			footerProps={['author', '_id']}
+			renderFooter={({ author, _id }) => (
+				<div>
+					{author && <p>{author}</p>}
+					{_id && <p>{_id}</p>}
+				</div>
+			)}
+		/>
 	));

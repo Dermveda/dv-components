@@ -16,7 +16,8 @@
 				"styles": "./src/styles",
 				"organisms": "./src/organisms",
 				"static": "./src/static",
-				"animations": "./src/animations"
+				"animations": "./src/animations",
+				"img": "./src/img"
 			}
 		}]
 	]

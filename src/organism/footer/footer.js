@@ -40,13 +40,12 @@ const FooterLinkSectionContainer = styled.div.attrs({
 	mx: [-2, -3, -4]
 })`
 	${space};
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: space-between;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))
 `;
 
 const FooterLinkSection = styled.div.attrs({
-	my: [3, 2],
+	my: 3,
 	mx: [2, 3, 4]
 })`
 	${space};
@@ -131,7 +130,7 @@ export default class Footer extends Component {
 	))
 
 	render() {
-		const { imageAttributes, footerLinks, newsLetter, renderLegal, social } = this.props;
+		const { imageAttributes, footerLinks, newsLetter, renderLegal, social, success, loading } = this.props;
 		return (
 			<FooterContainer>
 				<FooterBox>
@@ -169,6 +168,9 @@ export default class Footer extends Component {
 									buttonText={newsLetter.buttonAttributes.text}
 									buttonAttributes={newsLetter.buttonAttributes}
 									inputAttributes={newsLetter.inputAttributes}
+									isPromise={newsLetter.isPromise}
+									success={newsLetter.success}
+									loading={newsLetter.loading}
 								/>
 							</NewsLetterContainer>
 						)}
