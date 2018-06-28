@@ -7,7 +7,7 @@ const Box = styled.div`
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: center;
-	align-items: center;
+	align-items: stretch;
 	& > * {
 		flex: 1 300px;
 	}
