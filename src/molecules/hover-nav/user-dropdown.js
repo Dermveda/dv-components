@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Dropdown, Icon, NavButtonLink } from 'atoms';
+import { Dropdown, Icon, NavButtonLink, DropdownContainer } from 'atoms';
 import { source } from 'react-aim';
 
-const ProfileDropdown = styled(Dropdown)`
+const ProfileDropdown = styled(DropdownContainer)`
 	left: -200px;
-	&::after, &::before { left: 250px; }
+	& > ul::after, & > ul::before { left: 250px; }
 `;
 
 class UserDropdown extends Component {
@@ -33,8 +33,10 @@ class UserDropdown extends Component {
 					/>
 				</NavButtonLink>
 				<div style={{ position: 'relative' }}>
-					<ProfileDropdown is="ul" boxShadow={2} display={displayDropdown}>
-						{this.props.children}
+					<ProfileDropdown>
+						<Dropdown is="ul" boxShadow={2} display={displayDropdown}>
+							{this.props.children}
+						</Dropdown>
 					</ProfileDropdown>
 				</div>
 			</li>

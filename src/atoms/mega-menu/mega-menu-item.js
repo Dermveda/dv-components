@@ -39,6 +39,7 @@ const NavLink = styled(Link)`
 	align-items: center;
 	justify-content: space-between;
 	color: currentColor;
+	cursor: pointer;
 `;
 
 const NavButtonLink = styled.button.attrs({

@@ -26,7 +26,8 @@ storiesOf('Organism/Footer', module)
 						links: [
 							{ to: '/our-story', text: 'Our Story' },
 							{ to: '/our-team', text: 'Meet The Team' },
-							{ to: '/our-story', text: 'Our Story' }
+							{ to: '/our-story', text: 'Our Story' },
+							{ href: 'http://google.com', text: 'External About' }
 						]
 					},
 					{

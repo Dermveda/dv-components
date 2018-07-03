@@ -26,7 +26,7 @@ const ArticleListHeader = ({ title, buttonAttributes, ...props }) => {
 
 	return (
 		<ArticleBar px={2} bg="gray.light" justifyContent="space-between" {...props}>
-			<H3 color="gray.medium" fontSize={1} mb={0}>{title}</H3>
+			<H3 is="h2" color="gray.medium" fontSize={1} mb={0}>{title}</H3>
 			<ArticleLink fontSize={1} type="secondary" {...buttonProps} nostyle>
 				{buttonText}
 				<Icon name="chevronDown" type="outline" iconSize="xs" strokeSize={4} />

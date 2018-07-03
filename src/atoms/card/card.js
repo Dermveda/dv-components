@@ -12,8 +12,10 @@ export const Card = sys({
 	flexDirection: 'column',
 	flexWrap: 'nowrap',
 	maxWidth: 500,
-	color: '#2b2b2b'
-}, 'boxShadow', 'space');
+	color: '#2b2b2b',
+}, 'boxShadow', 'space', 'hover', () => `
+	transition: all .2s ease-in-out;
+`);
 
 export const CardContainer = sys({
 	is: 'div',
@@ -76,4 +78,4 @@ export const CardFooter = sys({
 	is: 'footer',
 	pt: 3,
 	mt: 'auto'
-});
+}, 'width');

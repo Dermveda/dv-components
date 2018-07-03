@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Dropdown, NavButtonLink, Icon } from 'atoms';
+import { Dropdown, DropdownContainer, NavButtonLink, Icon } from 'atoms';
 import { source } from 'react-aim';
 
 class HoverNav extends Component {
@@ -33,14 +33,16 @@ class HoverNav extends Component {
 					/>
 				</NavButtonLink>
 				<div style={{ position: 'relative' }}>
-					<Dropdown
-						is="ul"
-						boxShadow={2}
-						display={displayDropdown}
-						aria-labelledby={id}
-					>
-						{this.props.children}
-					</Dropdown>
+					<DropdownContainer>
+						<Dropdown
+							is="ul"
+							boxShadow={2}
+							display={displayDropdown}
+							aria-labelledby={id}
+						>
+							{this.props.children}
+						</Dropdown>
+					</DropdownContainer>
 				</div>
 			</li>
 		);

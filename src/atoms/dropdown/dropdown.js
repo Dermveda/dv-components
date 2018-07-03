@@ -1,14 +1,9 @@
 import styled from 'styled-components';
 import { Card } from 'atoms';
 import { SwingIn, SwingOut } from 'animations';
-import { target } from 'react-aim';
 
 const Dropdown = styled(Card)`
-	position: absolute;
 	padding: 14px 0;
-	display: inline-block;
-	left: 20px;
-	top: 8px;
 
 	${props => props.display ? SwingIn : SwingOut};
 	display: ${props => props.display ? 'block' : 'none'};
@@ -41,4 +36,4 @@ const Dropdown = styled(Card)`
 	}
 `;
 
-export default target()(Dropdown);
+export default Dropdown;

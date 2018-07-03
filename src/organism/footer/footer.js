@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { fontSize } from 'utils';
 import { color, space, themeGet } from 'styled-system';
-import PropTypes from 'prop-types';
-import { noStyleLink } from 'styles';
 import { HiddenText, Icon } from 'atoms';
 import { InlineForm } from 'molecules';
 
@@ -28,6 +26,15 @@ const FooterLinkContainer = styled.div`
 `;
 
 const FooterLink = styled(Link).attrs({
+	pb: 1,
+	color: 'gray.dark'
+})`
+	${space};
+	${color};
+	font-weight: 500;
+`;
+
+const FooterExternalLink = styled.a.attrs({
 	pb: 1,
 	color: 'gray.dark'
 })`
@@ -149,11 +156,21 @@ export default class Footer extends Component {
 									<FooterLinkSection key={index}>
 										<FooterSectionTitle>{list.title}</FooterSectionTitle>
 										<FooterLinkContainer>
-											{list.links.map(item => (
+											{list.links.map(item => item.to ? (
 												<FooterLink to={item.to} key={item.to}>
 													{item.text}
 												</FooterLink>
-											))}
+											) : (
+												<FooterExternalLink
+													href={item.href}
+													key={item.href}
+													target="_blank"
+													rel="noopener noreferrer"
+												>
+													{item.text}
+												</FooterExternalLink>
+											)
+											)}
 										</FooterLinkContainer>
 									</FooterLinkSection>
 								))

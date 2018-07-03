@@ -1,33 +1,27 @@
+import sys from 'system-components';
 import styled from 'styled-components';
-import { color, flex, flexWrap, flexDirection, fontFamily, justifyContent, alignItems, space, themeGet, width } from 'styled-system';
 import { fontSize } from 'utils';
 
-export const SectionTitle = styled.h2.attrs({
-	fontSize: [4, 5],
+const makeSectionTitle = sys({
+	fontWeight: 700,
 	pb: 4,
 	m: 0,
-	mt: 3,
-	color: props => props.color || themeGet('textColors.1')(props)
+	mt: 3
+}, 'color', 'textAlign');
+
+export const SectionTitle = styled(makeSectionTitle).attrs({
+	fontSize: props => props.fontSize || [4, 5],
+	textAlign: props => props.textAlign || 'center',
+	color: props => props.color || 'textColors.1',
+	is: props => props.is || 'h2'
 })`
 	${fontSize};
-	${fontFamily}
-	${space};
-	${color};
-
-	text-align: center;
-	font-weight: 700;
 `;
 
-export const SectionBody = styled.div.attrs({
-	fontSize: [1, 2]
+const makeSectionBody = sys('color', 'flex', 'flexWrap', 'flexDirection', 'justifyContent', 'alignItems', 'space' ,'width');
+
+export const SectionBody = styled(makeSectionBody).attrs({
+	fontSize: props => props.fontSize || [1, 2],
 })`
 	${fontSize};
-	${color};
-	${flex};
-	${flexWrap};
-	${flexDirection};
-	${justifyContent};
-	${alignItems};
-	${space};
-	${width};
 `;

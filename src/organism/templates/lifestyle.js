@@ -28,7 +28,7 @@ export default class CardRow extends Component {
 	}
 
 	renderArticleRow = ({ ...article }) => (
-		<Card mx={2} my={3} boxShadow={2}>
+		<Card mx={2} my={3} boxShadow={1} hover={{ boxShadow: 2 }}>
 			<LinkWrapper to={article.to}>
 				<CardImage {...article.imageAttributes} />
 			</LinkWrapper>
@@ -85,7 +85,8 @@ export default class CardRow extends Component {
 				buttonAttributes={buttonAttributes}
 				titleAttributes={{
 					fontFamily: 'styled',
-					color: 'primary.main'
+					color: 'primary.main',
+					fontWeight: 400
 				}}
 			>
 				<Box>

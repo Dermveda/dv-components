@@ -42,6 +42,8 @@ const accent = {
 	logo: '#10ac84'
 };
 
+const textColors = ['#2B2B2B', '#103A45'];
+
 const gradientInverse = {
 	primary: `linear-gradient(to top, ${primary.main}, ${primary.tertiary})`,
 	bold: `linear-gradient(to top, ${bold.main}, ${bold.tertiary})`,
@@ -57,7 +59,8 @@ const colors = {
 	gradient,
 	gray,
 	accent,
-	gradientInverse
+	gradientInverse,
+	textColors
 };
 
 export default colors;

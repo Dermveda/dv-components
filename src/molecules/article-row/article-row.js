@@ -44,7 +44,7 @@ const ArticleRow = ({ title, subtitle, description, imageAttributes, children, i
 				)}
 				{subtitle && (
 					<LinkWrapper to={subtitleLink}>
-						<Subtitle>
+						<Subtitle is="div">
 							{subtitle}
 						</Subtitle>
 					</LinkWrapper>

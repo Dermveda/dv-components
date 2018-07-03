@@ -39,7 +39,7 @@ export default class CardRow extends Component {
 						<CardSubtitle>{article.subtitle}</CardSubtitle>
 					</LinkWrapper>
 				</CardHeader>
-				<CardFooter>
+				<CardFooter width="100%">
 					{this.renderFooter(article)}
 				</CardFooter>
 			</CardContainer>
@@ -65,7 +65,7 @@ export default class CardRow extends Component {
 			small: true,
 			type: 'primary',
 			noButtonSpacing: true,
-			outline: true
+			nostyle: true
 		};
 
 		return (

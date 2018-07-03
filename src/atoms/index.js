@@ -49,6 +49,6 @@ export {
 export { default as Main } from './main';
 export { MenuIcon, ChevronDown } from './interactive-icon';
 export { Label, Select } from './form-elements';
-export { default as Dropdown } from './dropdown';
+export { Dropdown, DropdownContainer } from './dropdown';
 export { MegaMenuItem, SubMenuContainer } from './mega-menu';
 export { default as LinkWrapper } from './link-wrapper';
