@@ -64,6 +64,10 @@ injectGlobal`
 	  font-size: 1rem;
 	}
 
+	strong {
+		font-weight: 700;
+	}
+
 	.menu-aim {
   width: 300px;
 }

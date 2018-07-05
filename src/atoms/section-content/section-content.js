@@ -7,7 +7,7 @@ const makeSectionTitle = sys({
 	pb: 4,
 	m: 0,
 	mt: 3
-}, 'color', 'textAlign');
+}, 'color', 'textAlign', 'fontFamily');
 
 export const SectionTitle = styled(makeSectionTitle).attrs({
 	fontSize: props => props.fontSize || [4, 5],

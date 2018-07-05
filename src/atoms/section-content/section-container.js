@@ -1,7 +1,10 @@
 import React from 'react';
+import sys from 'system-components';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { color, flex, flexWrap, flexDirection, justifyContent, alignItems, space, themeGet } from 'styled-system';
+import { themeGet } from 'styled-system';
+
+const SystemSection = sys('color', 'flex', 'flexWrap', 'flexDirection', 'justifyContent', 'alignItems', 'space');
 
 const SectionContainer = styled(({
 	content,
@@ -9,19 +12,12 @@ const SectionContainer = styled(({
 	backgroundImage,
 	children,
 	...props
-}) => <section {...props}>{children}</section>).attrs({
+}) => <SystemSection {...props}>{children}</SystemSection>).attrs({
 	py: props => props.py ||[3, 4, 6],
 	px: props => props.px || [3, 4, 6],
-	m: props => props.m || 0
+	m: props => props.m || 0,
+	is: props => props.is || 'section'
 })`
-	${color};
-	${flex};
-	${flexWrap};
-	${flexDirection};
-	${justifyContent};
-	${alignItems};
-	${space};
-
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: center;

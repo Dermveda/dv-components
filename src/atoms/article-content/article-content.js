@@ -27,10 +27,6 @@ export const ArticleBody = styled.div.attrs({
 })`
 	${fontSize};
 	${space};
-	display: flex;
-	flex-flow: column nowrap;
-
-	flex: 2 70%;
 `;
 
 const makeArticleImage = styled(tag.img).attrs({

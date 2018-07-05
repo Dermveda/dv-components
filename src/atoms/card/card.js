@@ -19,12 +19,7 @@ export const Card = sys({
 
 export const CardContainer = sys({
 	is: 'div',
-	p: 4,
-	display: 'flex',
-	alignItems: 'flex-start',
-	flexDirection: 'column',
-	flexWrap: 'nowrap',
-	height: '100%'
+	p: 4
 });
 
 export const CardImage = sys({
@@ -33,6 +28,7 @@ export const CardImage = sys({
 	mt: '-1px',
 	mb: 0,
 	ml: '-1px',
+	flex: '1',
 	width: 'calc(100% + 2px)'
 });
 

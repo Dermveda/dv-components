@@ -47,6 +47,12 @@ export default class MobileInPageNav extends Component {
 		isHidden: true
 	}
 
+	componentDidUpdate = (prevProps) => {
+		if (this.props.links[0].text !== prevProps.links[0].text) {
+			this.setState({ selectedItem: this.props.links[0].text });
+		}
+	}
+
 	handleSetActive = to => this.setState({
 		selectedItem: this.props.links.find(x => x.to === to).text
 	})

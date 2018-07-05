@@ -129,4 +129,4 @@ storiesOf('Atoms/Buttons', module)
 				{text('test', 'I am a simple button')}
 			</ArrowButtonLink>
 		))
-	)
+	);

@@ -10,7 +10,7 @@ const dermvedaTheme = {
 	fonts: {
 		0: `Raleway, ${systemFonts}`,
 		display: `Raleway, ${systemFonts}`,
-		styled: '"Abril Fatface", "Times New Roman", times, serif'
+		styled: '"Abril-Fatface", "Times New Roman", times, serif'
 	},
 	fontSizes: [0.819, 1.092, 1.455, 1.94, 2.585, 3.446, 4.594],
 	shadows: [
@@ -62,14 +62,14 @@ const BaseFont = styled.div`
 
 class DermvedaTheme extends React.Component {
 	componentDidMount() {
-		if (typeof window !== 'undefined' && !sessionStorage.fonts) {
+		if (typeof window !== 'undefined') {
 			const webFont = require('webfontloader');
 			webFont.load({
 				google: {
-					families: ['Raleway:400,500,600,700', 'Abril Fatface:400']
+					families: ['Raleway:400,500,600,700']
 				},
-				active: () => {
-					sessionStorage.fonts = true;
+				typekit: {
+					id: 'vdp5fzz'
 				}
 			});
 		}

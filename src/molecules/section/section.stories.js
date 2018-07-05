@@ -23,6 +23,7 @@ storiesOf('Molecules/Section', module)
 
 		return (
 			<Section
+				is="header"
 				imageAttributes={{
 					src: 'http://fillmurray.com/100/100',
 					alt: 'something'
