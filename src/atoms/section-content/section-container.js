@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { themeGet } from 'styled-system';
 
-const SystemSection = sys('color', 'flex', 'flexWrap', 'flexDirection', 'justifyContent', 'alignItems', 'space');
+const SystemSection = sys('color', 'flex', 'flexWrap', 'flexDirection', 'justifyContent', 'alignItems', 'space', 'maxWidth', 'display');
 
 const SectionContainer = styled(({
 	content,
@@ -13,14 +13,14 @@ const SectionContainer = styled(({
 	children,
 	...props
 }) => <SystemSection {...props}>{children}</SystemSection>).attrs({
-	py: props => props.py ||[3, 4, 6],
+	py: props => props.py ||[5, 4, 6],
 	px: props => props.px || [3, 4, 6],
 	m: props => props.m || 0,
-	is: props => props.is || 'section'
+	is: props => props.is || 'section',
+	display: props => props.display || 'flex',
+	justifyContent: props => props.justifyContent || 'center'
 })`
-	display: flex;
 	flex-flow: column nowrap;
-	justify-content: center;
 	align-items: center;
 
 	${props => props.backgroundImage ? `

@@ -7,6 +7,16 @@ class HoverNav extends Component {
 		displayDropdown: false
 	}
 
+	renderChildren = (children) => React.Children.map(children, (child) =>
+		child.props.to ?
+			React.cloneElement(child, { onClick: this.dismissDropdown }) :
+			React.cloneElement(child, { dismissDropdown: this.dismissDropdown })
+	);
+
+	dismissDropdown = (e) => this.setState({ displayDropdown: false });
+
+	toggleDropdown = () => this.setState(({ displayDropdown }) => ({ displayDropdown: !displayDropdown }));
+
 	render() {
 		const { displayDropdown } = this.state;
 		const id = this.props.title.toLowerCase().split(' ').join('-');
@@ -19,6 +29,7 @@ class HoverNav extends Component {
 					mx="12px"
 					data-toggle="dropdown"
 					aria-haspopup="true"
+					onClick={this.toggleDropdown}
 					id={id}
 					aria-expanded={displayDropdown}
 				>
@@ -40,7 +51,7 @@ class HoverNav extends Component {
 							display={displayDropdown}
 							aria-labelledby={id}
 						>
-							{this.props.children}
+							{this.renderChildren(this.props.children)}
 						</Dropdown>
 					</DropdownContainer>
 				</div>

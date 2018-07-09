@@ -71,6 +71,7 @@ class MegaMenuItem extends Component {
 
 	renderSubMenu = () => {
 		const id = this.getId();
+		const { title, children, dismissDropdown } = this.props;
 		return (
 			<React.Fragment>
 				<LinkItem
@@ -80,23 +81,26 @@ class MegaMenuItem extends Component {
 					aria-expanded={this.state.displayMenu}
 					isActive={this.state.displayMenu}
 				>
-					<span>{this.props.title}</span>
+					<span>{title}</span>
 					<MegaMenuIcon />
 				</LinkItem>
 				{this.state.displayMenu &&
-					React.cloneElement(
-						this.props.children,
-						{ 'aria-labelledby': id }
-					)
+					React.cloneElement(children, { 'aria-labelledby': id, dismissDropdown })
 				}
 			</React.Fragment>
 		);
 	}
 
-	renderMenuLink = () =>
-		this.props.to ?
-			<NavLink to={this.props.to}>{this.props.title}</NavLink> :
-			<NavButtonLink onClick={this.props.onClick}>{this.props.title}</NavButtonLink>
+	renderMenuLink = () => {
+		const { to, title, dismissDropdown, ...props } = this.props;
+		return this.props.to ?
+			<NavLink to={this.props.to} {...props}>{this.props.title}</NavLink> :
+			<NavButtonLink
+				onClick={() => { dismissDropdown(); this.props.onClick();}}
+			>
+				{this.props.title}
+			</NavButtonLink>
+	}
 
 	render = () => (
 		<MenuItem>

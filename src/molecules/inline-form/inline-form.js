@@ -9,6 +9,7 @@ const Form = styled.form`
 	display: flex;
 	flex-flow: row wrap;
 	align-items: stretch;
+	${space};
 `;
 
 const Label = styled.label`
@@ -93,12 +94,12 @@ class InlineForm extends Component {
 	)
 
 	render() {
-		const { inputAttributes, buttonAttributes, buttonText, success, loading } = this.props;
+		const { inputAttributes, buttonAttributes, buttonText, success, loading, ...props } = this.props;
 		const { success: successState, error } = this.state;
 		if (success || successState) return this.renderSuccessMessage();
 		return (
 			<React.Fragment>
-				<Form onSubmit={this.handleSubmit}>
+				<Form onSubmit={this.handleSubmit} {...props}>
 					<Label>
 						<HiddenText>test</HiddenText>
 						<Input
@@ -112,6 +113,7 @@ class InlineForm extends Component {
 					<ArrowButton
 						raised={false}
 						squared
+						onClick={this.handleSubmit}
 						spin={loading || this.state.submitting}
 						{...buttonAttributes}
 					>

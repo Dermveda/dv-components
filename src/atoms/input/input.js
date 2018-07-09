@@ -7,7 +7,7 @@ const lightGray = themeGet('colors.gray.light', '#F7F7F7');
 const darkGray = themeGet('colors.gray.dark', '#2b2b2b');
 
 const Input = styled.input.attrs({
-	fontSize: props => (props.large ? [3, 2] : 2),
+	fontSize: props => props.fontSize || (props.large ? [3, 2] : 2),
 	p: props => (props.large ? [2, 3] : 2)
 })`
 	${space};

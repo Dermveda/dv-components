@@ -9,6 +9,8 @@ import { SubMenuContainer, NavLink, MegaMenuItem } from 'atoms';
 import HoverNav from './hover-nav';
 import UserDropdown from './user-dropdown';
 
+const TestButton = ({ dismissDropdown }) => <button onClick={dismissDropdown}>test</button>;
+
 storiesOf('Molecules/Hover Nav', module)
 	.add('menu item dropdown', () => (
 		<nav>
@@ -27,7 +29,7 @@ storiesOf('Molecules/Hover Nav', module)
 				>
 					<MegaMenuItem title="test">
 						<SubMenuContainer>
-							testeroo
+							<TestButton />
 						</SubMenuContainer>
 					</MegaMenuItem>
 					<MegaMenuItem title="something" to="/" />

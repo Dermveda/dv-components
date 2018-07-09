@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from '@storybook/react';
-import { boolean } from '@storybook/addon-knobs/react';
 import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 /* eslint-enable */
