@@ -1,7 +1,7 @@
 import React from 'react';
-import { configure, addDecorator, setAddon } from '@storybook/react';
+import { configure, addDecorator } from '@storybook/react';
 import backgrounds from "@storybook/addon-backgrounds";
-import infoAddon, { setDefaults } from '@storybook/addon-info';
+import { setDefaults } from '@storybook/addon-info';
 import { withKnobs, select } from '@storybook/addon-knobs/react';
 import StoryRouter from 'storybook-react-router';
 import { checkA11y } from 'storybook-addon-a11y';
@@ -12,10 +12,7 @@ import '../src/static/icons.svg';
 const req = require.context('../src', true, /\.stories\.js$/);
 
 // Configure withInfo addon
-setDefaults({
-    inline: true
-});
-setAddon(infoAddon);
+setDefaults({ source: false, inline: true });
 
 // Configure React router
 addDecorator(StoryRouter());

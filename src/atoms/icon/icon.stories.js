@@ -17,13 +17,13 @@ storiesOf('Atoms/Icon', module)
 		'with text',
 		withInfo(`
             ## About
-            A simple button that executes an action
+            An SVG icon
 
             ## Usage
             ~~~js
-            import { Button } from 'dv-component-library/atoms';
+            import { Icon } from 'dv-component-library/atoms';
 
-            <Button>I'm a simple button!</Button>
+            <Icon name="rightArrow" type="glyph" iconSize="md" />
             ~~~
         `)(() => (
 			<Icon

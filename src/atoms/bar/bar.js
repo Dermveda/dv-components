@@ -1,27 +1,43 @@
-import styled, { css } from 'styled-components';
-import tag from 'clean-tag';
-import { space, justifyContent, themeGet, display, color, flexDirection } from 'styled-system';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import sys from 'system-components';
+import { themeGet } from 'styled-system';
+import { fontSize } from 'utils';
 
-const navBorder = css`
-	border-top: 4px solid ${themeGet('colors.accent.logo', '#2B2B2B')};
-	border-bottom: 1px solid #ACACAC;
+const MakeBar = sys({
+	flexWrap: 'wrap',
+	alignItems: 'center',
+	position: 'sticky'
+}, 'color', 'space', 'flexDirection', 'justifyContent', 'display');
+
+const Bar = styled(MakeBar).attrs({
+	display: props => props.display || 'flex'
+})`
+	top: ${props => props.top};
+	z-index: ${props => props.zIndex};
+
+	${props => props.navBorder && `
+		border-top: 4px solid ${themeGet('colors.accent.logo')(props)};
+		border-bottom: 1px solid #ACACAC;
+	`};
+
+	${fontSize};
 `;
 
-const Bar = styled(tag)`
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
+Bar.propTypes = {
+	/** test */
+	top: PropTypes.number,
+	/** tesadfdst */
+	zIndex: PropTypes.number,
+	navBorder: PropTypes.bool
+};
 
-	position: sticky;
-	top: ${props => props.top || 0};
-	z-index: ${props => props.zIndex || 100};
+Bar.defaultProps = {
+	top: 0,
+	zIndex: 100,
+	navBorder: false
+};
 
-	${props => props.navBorder && navBorder};
-	${space};
-	${color};
-	${display};
-	${flexDirection};
-	${justifyContent};
-`;
+Bar.displayName = 'Bar';
 
 export default Bar;

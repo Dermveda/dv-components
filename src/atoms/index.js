@@ -35,7 +35,7 @@ export {
 	CardText,
 	CardSubtitle,
 	CardFooter
-} from './card';
+} from './card-content';
 export { H3, Subtitle, Content } from './typography';
 export {
 	ArticleHeader,
