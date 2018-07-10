@@ -19,9 +19,9 @@ storiesOf('Atoms/Bar', module)
 					bg: 'accent.logo',
 					py: 3
 				})}
-				navBorder={boolean('Navigation Border', false)}
-				top={number('Position Top', 0)}
-				zIndex={number('ZIndex', 100)}
+				navBorder={boolean('navBorder', false)}
+				top={number('top', 0)}
+				zIndex={number('zIndex', 100)}
 			>
 				<div>test</div>
 				<div>test</div>

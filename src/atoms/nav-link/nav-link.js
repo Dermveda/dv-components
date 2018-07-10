@@ -57,32 +57,32 @@ const props = {
 };
 
 export const NavLink = styled(({
-	fontSize,
-	py,
-	px,
-	mx,
-	color,
-	leftBorder,
+	fontSize, /* eslint-disable-line */
+	py, /* eslint-disable-line */
+	px, /* eslint-disable-line */
+	mx, /* eslint-disable-line */
+	color, /* eslint-disable-line */
+	leftBorder, /* eslint-disable-line */
 	...props
 }) => <RouterLink {...props} />).attrs(props)`${styles};`;
 
 export const NavButtonLink = styled(({
-	fontSize,
-	py,
-	px,
-	mx,
-	color,
-	leftBorder,
+	fontSize, /* eslint-disable-line */
+	py, /* eslint-disable-line */
+	px, /* eslint-disable-line */
+	mx, /* eslint-disable-line */
+	color, /* eslint-disable-line */
+	leftBorder, /* eslint-disable-line */
 	...props
 }) => <button {...props} />).attrs(props)`${styles};`;
 
 export const NavScrollLink = styled(({
-	fontSize,
-	py,
-	px,
-	mx,
-	color,
-	leftBorder,
+	fontSize, /* eslint-disable-line */
+	py, /* eslint-disable-line */
+	px, /* eslint-disable-line */
+	mx, /* eslint-disable-line */
+	color, /* eslint-disable-line */
+	leftBorder, /* eslint-disable-line */
 	...props
 }) => <ScrollLink {...props} />).attrs(props)`${styles};`;
 

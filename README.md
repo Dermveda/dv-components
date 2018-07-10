@@ -1,69 +1,72 @@
-# dv-components
-## Dermveda Component Library used for common components built on React, Bootstrap, and PostCSS. 
+# Dermveda Components
 
-To use this library you will need to be sure your project imports the global styles `@import 'dv-components/dist/styles.css'` somewhere in your project.
+Components used by [learnskin](http://learnskin.com) and [dermveda](http://dermveda.com)
 
-### Button
-This button gives up many different options for an animated and material-like design. 
-| Property    | Required | Type    | Default  | Description 						|
-| ----------- | -------- | ------- | -------- | ----------------------------------- |
-| to          | 		 | url     | null     | Link url if isLink                  |
-| text        | 		 | String  | null     | Button text                         |
-| icon        | 		 | String  | null     | Material icon class                 |
-| type        | 		 | String  | secondary| Primary or secondary                |
-| className   | 		 | String  | null     | Additional class if needed          |
-| target      | 		 | String  | null     | `<a target={target}>`               |
-| onClick     | 		 | Function| null     | Function ran when clicked           |
-| isLoading   | 		 | Boolean | false    | Shows loader in button              |
-| isLink      | 		 | Boolean | false    | Determines link or not              |
-| isSubmit    | 		 | Boolean | false    | Submit button for form?             |
-| isDisabled  | 		 | Boolean | false    | HTML disabled                       |
-| isRed       | 		 | Boolean | false    | Red text                            |
-| isUppercase | 		 | Boolean | false    | All uppercase                       |
-| isLarge     | 		 | Boolean | false    | Large button                        |
-| isFullWidth | 		 | Boolean | false    | Is width of container               |
-| color       | 		 | String  | DV Green | Optional className for color        |
-| children    | 		 | HTML    | null     | Custom guts                         |
+## Getting Started
 
-### FormInput
-Material design form input. 
-| Property    | Required | Type    | Default  | Description 						|
-| ----------- | -------- | ------- | -------- | ----------------------------------- |
-| to          | 		 | url     | null     | Link url if isLink                  |
+### Install the component library
+
+```shell
+npm install @dnovicki/dv-components
+```
+
+```javascript
+// App.js
+import React from 'react';
+import { Atoms } from '@dnovicki/dv-components';
+
+const App = () => (
+	<h1>Hi</h1>
+	<Atoms.Button onClick=({ () => alert('yay!'); })>
+		Click Me!
+	</Atoms.Button>
+);
+
+export default App;
+```
+
+### View Available components
+
+```shell
+npm run storybook
+open localhost:6007
+```
 
 
-### Message
-General message box used for errors.
-| Property    | Required | Type    | Default  | Description 						|
-| ----------- | -------- | ------- | -------- | ----------------------------------- |
-| to          | 		 | url     | null     | Link url if isLink                  |
+## Background Learning
 
-### MultipleChoice
-This button gives up many different options for an animated and material-like design. 
-| Property    | Required | Type    | Default  | Description 						|
-| ----------- | -------- | ------- | -------- | ----------------------------------- |
-| to          | 		 | url     | null     | Link url if isLink                  |
+### Styled Components
+The basis for the entire library. All components are built on styled components as the base, with some slight tools to make overall implementations easier. The idea behind styled components is one of [css-in-js](https://hackernoon.com/all-you-need-to-know-about-css-in-js-984a72d48ebc).
 
-### Slider
-Slider used to typically handle numerical levels. 
-| Property    | Required | Type    | Default  | Description 						|
-| ----------- | -------- | ------- | -------- | ----------------------------------- |
-| to          | 		 | url     | null     | Link url if isLink                  |
+* [Egg Head Tutorials](https://egghead.io/playlists/styled-components-1af2dd10)
+* [Official Documentation](https://www.styled-components.com/)
 
-### SliderInput
-Extension of Slider for more input. 
-| Property    | Required | Type    | Default  | Description 						|
-| ----------- | -------- | ------- | -------- | ----------------------------------- |
-| to          | 		 | url     | null     | Link url if isLink                  |
+### Styled System
+A library that adds base utilities such as padding, margins, colors. This is based on a theme that is passed down by the theme provider. The [Theme Table](https://jxnblk.com/styled-system/table) details which function names relate to which theme field.
 
-### StarRating
-StarRating is used for getting star rating feedback. 
-| Property    | Required | Type    | Default  | Description 						|
-| ----------- | -------- | ------- | -------- | ----------------------------------- |
-| to          | 		 | url     | null     | Link url if isLink                  |
+* [Official Documentation](https://github.com/jxnblk/styled-system)
 
-### TextInput
-TextInput is for questions that require longer feedback than FormInput can handle. 
-| Property    | Required | Type    | Default  | Description 						|
-| ----------- | -------- | ------- | -------- | ----------------------------------- |
-| to          | 		 | url     | null     | Link url if isLink                  |
+### System Components
+A wrapper for styled system that allows for object declaration. This allows for less code when a component is basically just an extension of styled system. System components also exposes the `is` prop, which allows us to change the tag on the fly. This is useful if you want to make something a `h1` tag. A common pattern in the component library is to expose some attribute like `titleAttributes` allow the `is` prop to be passed in to the element.
+
+#### Before
+```js
+	import styled from 'styled-components';
+	import { space } from 'styled-system';
+	const Card = styled.section.attrs({
+		p: 3
+	})`
+		${space};
+	`
+```
+
+#### After
+```js
+	import sys from 'system-components';
+	const Card = sys({
+		p: 3,
+		is: 'section'
+	});
+```
+
+* [Official Documentation](https://github.com/jxnblk/styled-system/tree/master/system-components)

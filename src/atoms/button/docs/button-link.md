@@ -2,6 +2,8 @@
 A simple button that should route to a new page.
 
 ## Usage
+Your only able to pass [aria](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)
+attributes to this component in terms of props outside of the custom proptypes definition
 
 ### Internal Link
 Opens link in current tab for internal links and uses react-router-dom links

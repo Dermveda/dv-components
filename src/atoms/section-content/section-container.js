@@ -7,9 +7,9 @@ import { themeGet } from 'styled-system';
 const SystemSection = sys('color', 'flex', 'flexWrap', 'flexDirection', 'justifyContent', 'alignItems', 'space', 'maxWidth', 'display');
 
 const SectionContainer = styled(({
-	content,
-	centered,
-	backgroundImage,
+	content, /* eslint-disable-line */
+	centered, /* eslint-disable-line */
+	backgroundImage, /* eslint-disable-line */
 	children,
 	...props
 }) => <SystemSection {...props}>{children}</SystemSection>).attrs({

@@ -2,7 +2,7 @@
 Simple form input `<input>`
 
 ## Usage
-You can pass all [available html attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) for the input tag in addition to the custom props detailed below.
+You can pass all [available html input attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) for the input tag in addition to the custom props detailed below.
 
 ```javascript
 import { Atoms } from '@dnovicki/dv-components';

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { target } from 'react-aim';
 import styled from 'styled-components';
 import { boxShadow } from 'styled-system';
@@ -19,5 +20,10 @@ const SubMenuContainer = ({ children, dismissDropdown }) => (
 		{children.type ? React.cloneElement(children, { dismissDropdown }) : children}
 	</MenuContainer>
 );
+
+SubMenuContainer.propTypes = {
+	children: PropTypes.node.isRequired,
+	dismissDropdown: PropTypes.func
+};
 
 export default target()(SubMenuContainer);

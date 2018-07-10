@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import ReactSelect from 'react-select';
 import { space, themeGet } from 'styled-system';
@@ -32,11 +33,18 @@ const ClearIndicator = ({ innerProps: { ref, ...restInnerProps } }) => (
 	</div>
 );
 
+ClearIndicator.propTypes = { innerProps: PropTypes.object };
+
 const DropdownIndicator = ({ innerProps: { ref, ...restInnerProps }, selectProps: { menuIsOpen } }) => (
 	<div {...restInnerProps} ref={ref}>
 		<ChevronDown iconSize="sm" isOpen={menuIsOpen} />
 	</div>
 );
+
+DropdownIndicator.propTypes = {
+	innerProps: PropTypes.object,
+	selectProps: PropTypes.shape({ menuIsOpen: PropTypes.bool })
+};
 
 const MultiValueIcon = styled(Icon)`
 	overflow: visible !important;
@@ -48,6 +56,8 @@ const MultiValueRemove = ({ innerRef, ...props }) => (
 		<MultiValueIcon name='close' iconSize='xs' />
 	</div>
 );
+
+MultiValueRemove.propTypes = { innerRef: PropTypes.object };
 
 const Select = ({ options, gray, ...attrs }) => {
 	const styles = {
@@ -95,6 +105,21 @@ const Select = ({ options, gray, ...attrs }) => {
 			{...attrs}
 		/>
 	);
+};
+
+Select.propTypes = {
+	options: PropTypes.arrayOf(PropTypes.shape({
+		label: PropTypes.string.isRequired,
+		value: PropTypes.oneOfType([
+			PropTypes.string,
+			PropTypes.number
+		])
+	})).isRequired,
+	gray: PropTypes.boolean
+};
+
+Select.defaultProps = {
+	gray: false
 };
 
 export default Select;

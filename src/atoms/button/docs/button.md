@@ -2,6 +2,9 @@
 A simple button used to execute an action
 
 ## Usage
+Your only able to pass [aria](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)
+attributes to this component in terms of props outside of the custom proptypes definition
+
 ```javascript
 import { Atoms } from '@dnovicki/dv-components';
 

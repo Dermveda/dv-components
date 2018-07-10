@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { source } from 'react-aim';
@@ -63,6 +64,14 @@ const NavButtonLink = styled.button.attrs({
 `;
 
 class MegaMenuItem extends Component {
+	static propTypes = {
+		title: PropTypes.string.isRequired,
+		children: PropTypes.node.isRequired,
+		dismissDropdown: PropTypes.func,
+		to: PropTypes.string,
+		onClick: PropTypes.func.isRequired
+	}
+
 	state = {
 		displayMenu: false
 	}
@@ -94,12 +103,12 @@ class MegaMenuItem extends Component {
 	renderMenuLink = () => {
 		const { to, title, dismissDropdown, ...props } = this.props;
 		return this.props.to ?
-			<NavLink to={this.props.to} {...props}>{this.props.title}</NavLink> :
+			<NavLink to={to} {...props}>{title}</NavLink> :
 			<NavButtonLink
 				onClick={() => { dismissDropdown(); this.props.onClick();}}
 			>
-				{this.props.title}
-			</NavButtonLink>
+				{title}
+			</NavButtonLink>;
 	}
 
 	render = () => (

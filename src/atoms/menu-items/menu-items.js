@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { space } from 'styled-system';
 import { fontSize } from 'utils';
 import { Icon } from 'atoms';
-import { source } from 'react-aim';
 
 export const MenuLinks = styled.div`
 	display: flex;

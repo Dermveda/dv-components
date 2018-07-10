@@ -8,7 +8,15 @@ The icon library will output an `SVG` that can be manipulated.
 
 To see available icons, see the story knobs icon name dropdown.
 
-Icon descriptions and titles should be used when the icon has [semantic value](https://en.wikipedia.org/wiki/Semantic_HTML). Otherwise, add the [aria-hidden](https://www.w3.org/WAI/standards-guidelines/aria/) attribute.
+## Usage
+Icon descriptions and titles should be used when the icon has [semantic value](https://en.wikipedia.org/wiki/Semantic_HTML).
+Otherwise, add the [aria-hidden](https://www.w3.org/WAI/standards-guidelines/aria/) attribute.
+
+~~~javascript
+import { Atoms } from '@dnovicki/dv-components';
+
+<Atoms.IconCircle name="rightArrow" type="outline" color="white" />
+~~~
 
 ## Styled System Utilities
 * [color](https://jxnblk.com/styled-system/api#color-responsive)
@@ -26,11 +34,3 @@ Icon descriptions and titles should be used when the icon has [semantic value](h
 | iconSize    | string   | false    | md      | one of xs, sm, md, lg, xl                                                        |
 | background  | string   | false    | primary | one of primary, secondary, or tertiary                                           |
 | rotate      | string   | false    | null    | sets the rotation in degrees                                                     |
-
-
-## Usage
-~~~javascript
-import { Atoms } from '@dnovicki/dv-components';
-
-<Atoms.IconCircle name="rightArrow" type="outline" color="white" />
-~~~

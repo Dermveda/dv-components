@@ -1,1 +1,4 @@
-export { H3, Subtitle, Content } from './typography';
+export {
+	H3, Subtitle, Content,
+	FlexBox, Box, GridBox
+} from './typography';

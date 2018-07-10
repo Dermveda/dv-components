@@ -3,14 +3,12 @@ import styled from 'styled-components';
 
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from 'storybook-addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 /* eslint-enable */
 
 import { Spin, SlideDown } from 'animations';
 
 storiesOf('Animations/Spin', module)
-	.addDecorator(checkA11y)
 	.add(
 		'simple spinning box',
 		withInfo(`

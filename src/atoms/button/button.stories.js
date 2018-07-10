@@ -23,7 +23,7 @@ storiesOf('Atoms/Buttons', module)
 			onClick={action('button click')}
 			large={boolean('large', false)}
 			small={boolean('small', false)}
-			type={select('button types', ['primary', 'secondary', 'tertiary', 'bold'], 'primary')}
+			type={select('type', ['primary', 'secondary', 'tertiary', 'bold'], 'primary')}
 			gradient={boolean('gradient', false)}
 			nostyle={boolean('nostyle', false)}
 			raised={boolean('raised', false)}
@@ -38,7 +38,7 @@ storiesOf('Atoms/Buttons', module)
 			to="/page"
 			large={boolean('large', false)}
 			small={boolean('small', false)}
-			type={select('button types', ['primary', 'secondary', 'tertiary', 'bold'], 'primary')}
+			type={select('type', ['primary', 'secondary', 'tertiary', 'bold'], 'primary')}
 			gradient={boolean('gradient', false)}
 			nostyle={boolean('nostyle', false)}
 			raised={boolean('raised', false)}
@@ -53,7 +53,7 @@ storiesOf('Atoms/Buttons', module)
 			href="http://google.com"
 			large={boolean('large', false)}
 			small={boolean('small', false)}
-			type={select('button types', ['primary', 'secondary', 'tertiary', 'bold'], 'primary')}
+			type={select('type', ['primary', 'secondary', 'tertiary', 'bold'], 'primary')}
 			gradient={boolean('gradient', false)}
 			nostyle={boolean('nostyle', false)}
 			raised={boolean('raised', false)}
@@ -68,7 +68,7 @@ storiesOf('Atoms/Buttons', module)
 			onClick={action('button click')}
 			large={boolean('large', false)}
 			small={boolean('small', false)}
-			type={select('button types', ['primary', 'secondary', 'tertiary', 'bold'], 'primary')}
+			type={select('type', ['primary', 'secondary', 'tertiary', 'bold'], 'primary')}
 			gradient={boolean('gradient', false)}
 			nostyle={boolean('nostyle', false)}
 			raised={boolean('raised', false)}
@@ -83,7 +83,7 @@ storiesOf('Atoms/Buttons', module)
 			to="/page"
 			large={boolean('large', false)}
 			small={boolean('small', false)}
-			type={select('button types', ['primary', 'secondary', 'tertiary', 'bold'], 'primary')}
+			type={select('type', ['primary', 'secondary', 'tertiary', 'bold'], 'primary')}
 			gradient={boolean('gradient', false)}
 			nostyle={boolean('nostyle', false)}
 			raised={boolean('raised', false)}
@@ -98,7 +98,7 @@ storiesOf('Atoms/Buttons', module)
 			href="http://google.com"
 			large={boolean('large', false)}
 			small={boolean('small', false)}
-			type={select('button types', ['primary', 'secondary', 'tertiary', 'bold'], 'primary')}
+			type={select('type', ['primary', 'secondary', 'tertiary', 'bold'], 'primary')}
 			gradient={boolean('gradient', false)}
 			nostyle={boolean('nostyle', false)}
 			raised={boolean('raised', false)}

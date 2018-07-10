@@ -2,7 +2,8 @@
 Form label `<label>`
 
 ## Usage
-You can pass all [available html attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label) for the input tag in addition to the custom props detailed below.
+You can pass all [available html label attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)
+for the label tag in addition to the custom props detailed below.
 
 ```javascript
 import { Atoms } from '@dnovicki/dv-components';

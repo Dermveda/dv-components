@@ -2,6 +2,8 @@
 Arrow button links should only be used when completing an action or it is a nostyle link or could be interpreted as not a clickable element. An instance of this might be the dropdown navigation CTAs. In order to make them look more like a clickable element, an arrow was added to make it more clear that these were clickable elements.
 
 ## Usage
+Your only able to pass [aria](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)
+attributes to this component in terms of props outside of the custom proptypes definition
 
 ### Internal Link
 Opens link in current tab for internal links and uses react-router-dom links
