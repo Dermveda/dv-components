@@ -7,7 +7,6 @@ export {
 export { Icon, IconCircle } from './icon';
 export { default as Bar } from './bar';
 export { default as HiddenText } from './hidden-text';
-export { default as Input } from './input';
 export {
 	ListItemTitle,
 	ListItemBody,
@@ -48,7 +47,7 @@ export {
 } from './article-content';
 export { default as Main } from './main';
 export { MenuIcon, ChevronDown } from './interactive-icon';
-export { Label, Select } from './form-elements';
+export { Label, Select, Input } from './form-elements';
 export { Dropdown, DropdownContainer } from './dropdown';
 export { MegaMenuItem, SubMenuContainer } from './mega-menu';
 export { default as LinkWrapper } from './link-wrapper';

@@ -7,7 +7,7 @@ import { boolean, object, number } from '@storybook/addon-knobs';
 /* eslint-enable import/no-extraneous-dependencies */
 
 import { Lipsum } from 'utils';
-import BarReadme from './bar.md';
+import BarReadme from './docs/bar.md';
 import Bar from './bar';
 
 storiesOf('Atoms/Bar', module)

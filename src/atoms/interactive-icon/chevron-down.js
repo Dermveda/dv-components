@@ -1,11 +1,12 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { space, color, hover } from 'styled-system';
 import { Icon } from 'atoms';
 
 const DropDownIcon = styled(Icon).attrs({
-	p: 3,
-	color: 'gray.medium',
-	hover: {
+	p: props => props.p || 3,
+	color: props => props.color || 'gray.medium',
+	hover: props => props.hover || {
 		color: 'gray.dark'
 	},
 	name: 'chevronDown'
@@ -20,5 +21,13 @@ const DropDownIcon = styled(Icon).attrs({
 	${color};
 	${hover};
 `;
+
+DropDownIcon.propTypes = {
+	isOpen: PropTypes.bool
+};
+
+DropDownIcon.defaultProps = {
+	isOpen: false
+};
 
 export default DropDownIcon;

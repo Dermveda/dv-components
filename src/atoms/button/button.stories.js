@@ -8,10 +8,10 @@ import { withReadme } from 'storybook-readme';
 /* eslint-enable import/no-extraneous-dependencies */
 
 // Readme file imports
-import ButtonReadme from './button.md';
-import ArrowButtonReadme from './arrow-button.md';
-import ArrowButtonLinkReadme from './arrow-button-link.md';
-import ButtonLinkReadme from './button-link.md';
+import ButtonReadme from './docs/button.md';
+import ArrowButtonReadme from './docs/arrow-button.md';
+import ArrowButtonLinkReadme from './docs/arrow-button-link.md';
+import ButtonLinkReadme from './docs/button-link.md';
 
 import Button from './button';
 import ButtonLink from './button-link';
