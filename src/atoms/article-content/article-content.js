@@ -9,6 +9,7 @@ import tag from 'clean-tag';
 
 export const ArticleHeader = styled.header`
 	${flipOrder};
+	display: inline-flex;
 `;
 
 export const ArticleContainer = sys({

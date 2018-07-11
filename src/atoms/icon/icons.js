@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import { space, display, color } from 'styled-system';
+import { space, display, color, height, width } from 'styled-system';
 
 import iconMapper, { icons } from './icon-names';
 
@@ -85,6 +85,8 @@ export const SVGWrapper = styled.svg`
 		transform: rotate(${prop.rotate});
 	`};
 	${color};
+	${height};
+	${width};
 `;
 
 const Icon = ({

@@ -42,7 +42,7 @@ const SubtitleComponent = styled(makeSubtitleComponent).attrs({
 export const Subtitle = createSkeletonElement(SubtitleComponent);
 
 const makeContentComponent = sys(
-	'space', 'fontSize', 'color', 'lineHeight'
+	'space', 'fontSize', 'color', 'lineHeight', 'fontWeight'
 );
 
 const makeContent = styled(makeContentComponent).attrs({

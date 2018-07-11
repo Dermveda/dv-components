@@ -5,32 +5,37 @@ import { Bar, H3, ButtonLink, Icon } from 'atoms';
 
 const ArticleBar = styled(Bar)`
 	position: relative;
-	h3 {
+	& > *:first-child {
 		margin: 0;
 		font-weight: 700;
 		text-transform: uppercase;
 	}
 `;
 
-const ArticleLink = styled(ButtonLink)`
-	svg {
-		color: #717171;
-		transform: rotate(-90deg);
-		height: 12px;
-		width: 12px;
-	}
-`;
-
-const ArticleListHeader = ({ title, buttonAttributes, ...props }) => {
+const ArticleListHeader = ({ title, titleAttributes, buttonAttributes, ...props }) => {
 	const { text: buttonText, ...buttonProps } = buttonAttributes;
+	const headerAttributes = Object.assign({}, {
+		is: 'h2',
+		color: 'gray.dark',
+		fontSize: 1,
+		mb: 0
+	}, titleAttributes);
 
 	return (
 		<ArticleBar px={2} bg="gray.light" justifyContent="space-between" {...props}>
-			<H3 is="h2" color="gray.medium" fontSize={1} mb={0}>{title}</H3>
-			<ArticleLink fontSize={1} type="secondary" {...buttonProps} nostyle>
+			<H3 {...headerAttributes}>{title}</H3>
+			<ButtonLink fontSize={1} type="secondary" {...buttonProps} nostyle>
 				{buttonText}
-				<Icon name="chevronDown" type="outline" iconSize="xs" strokeSize={4} />
-			</ArticleLink>
+				<Icon
+					name="chevronDown"
+					type="outline"
+					height="12px"
+					width="12px"
+					strokeSize={4}
+					rotate="-90deg"
+					color="gray.light"
+				/>
+			</ButtonLink>
 		</ArticleBar>
 	);
 };
@@ -40,7 +45,12 @@ ArticleListHeader.propTypes = {
 	buttonAttributes: PropTypes.shape({
 		text: PropTypes.string.isRequired,
 		to: PropTypes.string.isRequired
-	}).isRequired
+	}).isRequired,
+	titleAttributes: PropTypes.object
+};
+
+ArticleListHeader.defaultProps = {
+	titleAttributes: {}
 };
 
 export default ArticleListHeader;

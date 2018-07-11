@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import {
 	BulletItem,
 	BulletIcon,
@@ -11,8 +10,7 @@ import {
 	ArrowButtonLink
 } from 'atoms';
 
-
-class BulletListItem extends Component {
+export default class BulletListItem extends Component {
 	static propTypes = {
 		title: PropTypes.string.isRequired,
 		children: PropTypes.node.isRequired,
@@ -51,7 +49,7 @@ class BulletListItem extends Component {
 		iconAttributes.name ? (
 			<BulletIcon {...iconAttributes} />
 		) : (
-			<BulletItem {...bulletAttributes}>{value}</BulletItem>
+			<BulletItem p="10px" {...bulletAttributes}>{value}</BulletItem>
 		)
 	)
 
@@ -80,5 +78,3 @@ class BulletListItem extends Component {
 		);
 	}
 }
-
-export default BulletListItem;

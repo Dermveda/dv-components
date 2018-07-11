@@ -6,14 +6,14 @@ import { fontSize } from 'utils';
 import { hideVisually } from 'polished';
 import { space } from 'styled-system';
 
-import { Bar, NavLink, MenuLinks } from 'atoms';
+import { Bar, MenuLinks } from 'atoms';
 
 const TitleLink = styled(Link)`
 	text-decoration: none;
 	outline: none;
 `;
 
-const Title = styled.h1.attrs({
+const Title = styled.div.attrs({
 	fontSize: 3
 })`
 	display: flex;

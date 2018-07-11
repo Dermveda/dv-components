@@ -26,7 +26,9 @@ const BreadCrumbContainer = styled.div`
 
 export default class MenuContainer extends Component {
 	static propTypes = {
-		onClick: PropTypes.func
+		onClick: PropTypes.func,
+		dismiss: PropTypes.func,
+		links: PropTypes.array
 	}
 
 	static defaultProps = {

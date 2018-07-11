@@ -2,11 +2,15 @@ import React from 'react';
 
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from '@storybook/react';
+import { object } from '@storybook/addon-knobs/react';
+import { withReadme } from 'storybook-readme';
 /* eslint-enable import/no-extraneous-dependencies */
 
+import IconAttributesReadme from './docs/icon-attributes.md';
 import IconAttributes from './icon-attributes';
 
 storiesOf('Molecules/Icon Attributes', module)
+	.addDecorator(withReadme(IconAttributesReadme))
 	.add('simple input', () => {
 		const defaultAttributes = [
 			{
@@ -24,5 +28,5 @@ storiesOf('Molecules/Icon Attributes', module)
 				text: 'Free'
 			}
 		];
-		return <IconAttributes attributeListing={defaultAttributes} />;
+		return <IconAttributes attributeListing={object('attributeListing', defaultAttributes)} />;
 	});

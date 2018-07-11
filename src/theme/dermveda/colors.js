@@ -42,6 +42,11 @@ const accent = {
 	logo: '#10ac84'
 };
 
+const status = {
+	success: '#249f58',
+	error: '#e74c3c'
+};
+
 const textColors = ['#2B2B2B', '#103A45'];
 
 const gradientInverse = {
@@ -52,6 +57,7 @@ const gradientInverse = {
 };
 
 const colors = {
+	status,
 	primary,
 	secondary,
 	tertiary,

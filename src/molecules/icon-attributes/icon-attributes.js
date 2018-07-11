@@ -1,40 +1,29 @@
 import React from 'react';
-import { space, flexDirection } from 'styled-system';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Icon, HiddenText } from 'atoms';
-import { fontSize } from 'utils';
+import { Icon, HiddenText, FlexBox, Content } from 'atoms';
 
-const AttributeListing = styled.ul.attrs({
+const AttributeListing = styled(FlexBox).attrs({
+	is: 'ul',
+	display: 'flex',
+	flexDirection: 'row',
+	flexWrap: 'wrap',
 	p: props => props.p || 0
 })`
-	display: flex;
-	flex-flow: row wrap;
 	list-style-type: none;
-
-	${space};
 `;
 
-const AttributeListItem = styled.li.attrs({
+const AttributeListItem = styled(FlexBox).attrs({
 	m: 0,
-	p: 0,
-	flexDirection: props => props.column ? 'column' : ['column', 'row', 'row']
+	py: 0,
+	px: 3,
+	is: 'li',
+	flexDirection: props => props.column ? 'column' : ['column', 'row', 'row'],
+	fontWeight: 600,
+	display: 'flex',
+	flexWrap: 'nowrap',
+	alignItems: 'center'
 })`
-	${space};
-	${flexDirection};
-	color: rgba(0, 0, 0, 0.8);
-	font-weight: 600;
-
-	display: flex;
-	flex-wrap: nowrap;
-	align-items: center;
-
-	svg {
-		color: rgba(0, 0, 0, 0.6);
-	}
-
-	padding: 0 16px;
-
 	&:first-of-type {
 		padding-left: 0;
 	}
@@ -42,12 +31,6 @@ const AttributeListItem = styled.li.attrs({
 	&:last-of-type {
 		padding-right: 0;
 	}
-`;
-
-const AttributeText = styled.span.attrs({
-	fontSize: props => props.small ? [0, 1] : [1, 2]
-})`
-	${fontSize};
 `;
 
 const IconAttributes = ({ attributeListing, small, column, ...attrs }) => (
@@ -60,11 +43,22 @@ const IconAttributes = ({ attributeListing, small, column, ...attrs }) => (
 					pb={[1, 0]}
 					aria-hidden
 					iconSize="sm"
+					color="rgba(0, 0, 0, .6)"
 					strokeSize={4}
 					type="outline"
+					alignToText
 				/>
 				<HiddenText>{attribute.label}: </HiddenText>
-				<AttributeText small={small}>{attribute.text}</AttributeText>
+				{
+					attribute.text && (
+						<Content
+							fontSize={small ? [0, 1] : [1, 2]} m={0} pt={1}
+							color="rgba(0, 0, 0, 0.8)"
+						>
+							{attribute.text}
+						</Content>
+					)
+				}
 			</AttributeListItem>
 		))}
 	</AttributeListing>
@@ -75,11 +69,11 @@ IconAttributes.propTypes = {
 		iconAttributes: PropTypes.shape({
 			name: PropTypes.string.isRequired
 		}),
-		column: PropTypes.bool,
 		label: PropTypes.string.isRequired,
-		text: PropTypes.string.isRequired,
-		small: PropTypes.bool
-	})).isRequired
+		text: PropTypes.string,
+	})).isRequired,
+	small: PropTypes.bool,
+	column: PropTypes.bool
 };
 
 IconAttributes.defaultProps = {

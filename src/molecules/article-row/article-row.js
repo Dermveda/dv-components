@@ -1,97 +1,87 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { LinkWrapper } from 'atoms';
-import { noStyleLink } from 'styles';
-import { Link } from 'react-router-dom';
-
 import {
 	H3,
+	LinkWrapper,
 	Subtitle,
 	ArticleImage,
 	ArticleImageContainer,
 	ArticleDescription,
 	ArticleHeader,
 	ArticleContainer,
-	ArticleBody,
-	ArticleImageLinkable
+	ArticleBody
 } from 'atoms';
 
-const NoStyleLink = styled(Link)`
-	${noStyleLink};
-	display: flex;
-	flex-direction: column;
-`;
+export default class ArticleRow extends Component {
+	static propTypes = {
+		title: PropTypes.string.isRequired,
+		subtitle: PropTypes.string,
+		subtitleLink: PropTypes.string,
+		description: PropTypes.string,
+		children: PropTypes.node,
+		to: PropTypes.string,
+		imageAttributes: PropTypes.shape({
+			src: PropTypes.string.isRequired,
+			alt: PropTypes.string.isRequired
+		})
+	}
 
-const Linkable = ({ children, isLinkable, to }) => isLinkable ?
-	<NoStyleLink to={to}>{children}</NoStyleLink> :
-	<React.Fragment>{children}</React.Fragment>;
+	static defaultProps = {
+		subtitle: null,
+		description: null,
+		children: null,
+		imageAttributes: {},
+		to: null
+	}
 
-const ImageLinkable = ({ children, isLinkable, to }) => isLinkable ?
-	<ArticleImageLinkable to={to}>{children}</ArticleImageLinkable> :
-	<React.Fragment>{children}</React.Fragment>;
+	renderTitle = ({ to, title }) => (
+		<LinkWrapper to={to}>
+			<H3 fontSize={[1, 2]} fontWeight="bold">
+				{title}
+			</H3>
+		</LinkWrapper>
+	)
 
-const ArticleRow = ({ title, subtitle, description, imageAttributes, children, isLinkable, subtitleLink, to, ...attrs }) => (
-	<ArticleContainer {...attrs}>
-		<ArticleBody>
-			<ArticleHeader>
-				{title && (
-					<LinkWrapper to={to}>
-						<H3 fontSize={[1, 2]} fontWeight="bold">
-							{title}
-						</H3>
-					</LinkWrapper>
-				)}
-				{subtitle && (
-					<LinkWrapper to={subtitleLink}>
-						<Subtitle is="div">
-							{subtitle}
-						</Subtitle>
-					</LinkWrapper>
-				)}
-			</ArticleHeader>
-			<Linkable to={to} isLinkable={isLinkable}>
-				{description && (
-					<ArticleDescription>
-						{
-							description.includes('<p>') ?
-								<div dangerouslySetInnerHTML={{__html: description}} /> : description
-						}
-					</ArticleDescription>
-				)}
-			</Linkable>
-			{children && children}
-		</ArticleBody>
-		{imageAttributes && (
-			<ImageLinkable to={to} isLinkable={isLinkable}>
-				<ArticleImageContainer>
-					<ArticleImage {...imageAttributes} />
-				</ArticleImageContainer>
-			</ImageLinkable>
-		)}
-	</ArticleContainer>
-);
+	renderSubtitle = ({ subtitleLink, subtitle }) => (
+		<LinkWrapper to={subtitleLink}>
+			<Subtitle is="div">
+				{subtitle}
+			</Subtitle>
+		</LinkWrapper>
+	)
 
-ArticleRow.propTypes = {
-	title: PropTypes.string.isRequired,
-	subtitle: PropTypes.string,
-	description: PropTypes.string,
-	children: PropTypes.node,
-	isLinkable: PropTypes.bool,
-	to: PropTypes.string,
-	imageAttributes: PropTypes.shape({
-		src: PropTypes.string.isRequired,
-		alt: PropTypes.string.isRequired
-	})
-};
+	renderImage = ({ imageAttributes, to }) => (
+		<LinkWrapper to={to}>
+			<ArticleImageContainer>
+				<ArticleImage {...imageAttributes} />
+			</ArticleImageContainer>
+		</LinkWrapper>
+	)
 
-ArticleRow.defaultProps = {
-	subtitle: null,
-	description: null,
-	children: null,
-	imageAttributes: {},
-	isLinkable: false,
-	to: null
-};
+	renderDescription = ({ to, description }) => (
+		<LinkWrapper to={to}>
+			<ArticleDescription>
+				<div dangerouslySetInnerHTML={{__html: description}} />
+			</ArticleDescription>
+		</LinkWrapper>
+	)
 
-export default ArticleRow;
+	render = () => {
+		const {
+			title, subtitle, description, imageAttributes, children, subtitleLink, to, ...attrs
+		} = this.props;
+		return (
+			<ArticleContainer {...attrs}>
+				<ArticleBody>
+					<ArticleHeader>
+						{title && this.renderTitle(this.props)}
+						{subtitle && this.renderSubtitle(this.props)}
+					</ArticleHeader>
+					{description && this.renderDescription(this.props)}
+					{children && children}
+				</ArticleBody>
+				{imageAttributes && this.renderImage(this.props)}
+			</ArticleContainer>
+		);
+	}
+}

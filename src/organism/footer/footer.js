@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import sys from 'system-components';
 import { fontSize } from 'utils';
 import { color, space, themeGet } from 'styled-system';
 import { HiddenText, Icon } from 'atoms';
 import { InlineForm } from 'molecules';
 
-const FooterSectionTitle = styled.h4.attrs({
-	fontSize: [0, 1],
+const makeFooterSectionTitle = sys({
 	color: 'gray.medium',
 	m: 0,
-	mb: 2
+	mb: 2,
+	fontWeight: 700,
+	letterSpacing: '.03rem'
+});
+
+const FooterSectionTitle = styled(makeFooterSectionTitle).attrs({
+	fontSize: [0, 1]
 })`
 	${fontSize};
-	${color};
-	${space};
-	font-weight: 700;
-	letter-spacing: .03rem;
 	text-transform: uppercase;
 `;
 

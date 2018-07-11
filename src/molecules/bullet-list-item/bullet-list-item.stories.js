@@ -2,29 +2,34 @@ import React from 'react';
 
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from '@storybook/react';
+import { object, text } from '@storybook/addon-knobs/react';
+import { withReadme } from 'storybook-readme';
 /* eslint-enable import/no-extraneous-dependencies */
 
+import BulletListReadme from './docs/bullet-list-item.md';
+import IconListReadme from './docs/icon-list-item.md';
 import BulletListItem from './bullet-list-item';
 
 storiesOf('Molecules/Bullet List Item', module)
-	.add('list values', () => (
+	.add('number bullets', withReadme(BulletListReadme, () => (
 		<BulletListItem
-			title="test"
-			listOrderAttributes={{
+			title={text('title', 'Test')}
+			listOrderAttributes={object('listOrderAttributes', {
 				value: 3,
 				type: 'tertiary'
-			}}
+			})}
 		>
-			Maecenas efficitur sed urna porttitor dictum. Mauris varius est eu libero consectetur pretium. Etiam enim neque, pellentesque id fringilla non, accumsan vel magna.
+			{text('children', 'Lorem ipsum dolor sit amit')}
 		</BulletListItem>
-	))
-	.add('icon bullets', () => (
+	)))
+	.add('icon bullets', withReadme(IconListReadme, () => (
 		<BulletListItem
-			title="test"
-			iconAttributes={{
-				name: 'rightArrow'
-			}}
+			title={text('title', 'Test')}
+			iconAttributes={object('iconAttributes', {
+				name: 'rightArrow',
+				type: 'primary'
+			})}
 		>
-			Fusce tellus est, finibus at quam sit amet, faucibus ornare lacus. Nulla pellentesque nunc id eleifend consequat. Cras ac sapien.
+			{text('children', 'Lorem ipsum dolor sit amit')}
 		</BulletListItem>
-	));
+	)));

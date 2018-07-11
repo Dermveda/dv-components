@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Dropdown, DropdownContainer, NavButtonLink, Icon } from 'atoms';
 import { source } from 'react-aim';
 
 class HoverNav extends Component {
+	static propTypes = {
+		title: PropTypes.string.isRequired,
+		children: PropTypes.node
+	}
+
 	state = {
 		displayDropdown: false
 	}
@@ -13,7 +19,7 @@ class HoverNav extends Component {
 			React.cloneElement(child, { dismissDropdown: this.dismissDropdown })
 	);
 
-	dismissDropdown = (e) => this.setState({ displayDropdown: false });
+	dismissDropdown = () => this.setState({ displayDropdown: false });
 
 	toggleDropdown = () => this.setState(({ displayDropdown }) => ({ displayDropdown: !displayDropdown }));
 

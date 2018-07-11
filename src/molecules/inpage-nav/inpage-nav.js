@@ -1,28 +1,24 @@
 import React from 'react';
-import { Link as ScrollLink } from 'react-scroll';
-import { Bar, NavLink } from 'atoms';
+import styled from 'styled-components';
+import { DesktopInPageNav, MobileInPageNav } from './index';
 
-const Link = NavLink.withComponent(ScrollLink);
+const DesktopNav = styled(DesktopInPageNav)`
+	@media (max-width: 64rem) {
+		display: none;
+	}
+`;
 
-const InPageNav = ({ links, ...props }) => (
-	<Bar color="white" is="nav" bg="accent.secondary" justifyContent="center" {...props}>
-		{links.map(link => (
-			<Link
-				key={link.to}
-				px="0"
-				flex="1"
-				to={link.to}
-				spy
-				color="white"
-				smooth
-				isDynamic
-				duration={300}
-				offset={-70}
-			>
-				{link.text}
-			</Link>
-		))}
-	</Bar>
+const MobileNav = styled(MobileInPageNav)`
+	@media (min-width: 64rem) {
+		display: none;
+	}
+`;
+
+const InPageNav = (props) => (
+	<React.Fragment>
+		<DesktopNav {...props} />
+		<MobileNav {...props} />
+	</React.Fragment>
 );
 
 

@@ -1,14 +1,14 @@
 import styled from 'styled-components';
+import sys from 'system-components';
 import { fontSize } from 'utils';
-import { space, color } from 'styled-system';
 
-const Label = styled.label.attrs({
-	fontSize: [1, 2],
-	pb: 1
+const makeLabel = sys('display', 'color', 'space');
+
+const Label = styled(makeLabel).attrs({
+	fontSize: props => props.fontSize || [1, 2],
+	pb: props => props.pb || 1,
+	display: props => props.display || 'block'
 })`
-	display: block;
-	${color};
-	${space};
 	${fontSize};
 `;
 

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { space } from 'styled-system';
-import { Bar, NavLink, ChevronDown, NavScrollLink } from 'atoms';
+import { Bar, ChevronDown, NavScrollLink } from 'atoms';
 import { SlideDown } from 'animations';
 import { fontSize } from 'utils';
 
@@ -42,6 +43,13 @@ const Box = styled.div.attrs({
 `;
 
 export default class MobileInPageNav extends Component {
+	static propTypes = {
+		links: PropTypes.arrayOf(PropTypes.shape({
+			to: PropTypes.string.isRequired,
+			text: PropTypes.string.isRequired
+		})).isRequired
+	}
+
 	state = {
 		selectedItem: this.props.links[0].text,
 		isHidden: true
@@ -87,7 +95,7 @@ export default class MobileInPageNav extends Component {
 							leftBorder
 							pl={2}
 							onSetActive={this.handleSetActive}
-							color="white"
+							color="white !important"
 							smooth
 							isDynamic
 							duration={300}

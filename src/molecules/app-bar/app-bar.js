@@ -8,17 +8,20 @@ import { space, justifyContent, themeGet } from 'styled-system';
 const Bar = styled.header`
 	display: flex;
 	align-items: center;
+	background: white;
 
 	position: fixed;
 	top: 0;
+	right: 0;
+	left: 0;
 
 	border-top: 3px solid ${themeGet('colors.accent.logo', '#2B2B2B')};
 	border-bottom: 1px solid #ACACAC;
 	${space};
-	${justifyContent}
+	${justifyContent};
 `;
 
-const Title = styled.h1`
+const Title = styled.div`
 	margin: 0;
 	padding: 0;
 	font-size: 1.2rem;

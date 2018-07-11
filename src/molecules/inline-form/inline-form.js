@@ -1,43 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { space, color, fontWeight } from 'styled-system';
-import { fontSize } from 'utils';
-import { Input, ArrowButton, HiddenText } from 'atoms';
+import { Input, ArrowButton, HiddenText, InlineFormContainer, Label, Box } from 'atoms';
 
-const Form = styled.form`
-	display: flex;
-	flex-flow: row wrap;
-	align-items: stretch;
-	${space};
-`;
-
-const Label = styled.label`
-	margin: 0;
-	padding: 0;
-	display: flex;
-`;
-
-const EmojiWrapper = styled.div.attrs({
-	ariaHidden: true
-})`
-	${space};
-`;
-
-const P = styled.p.attrs({
-	fontWeight: 600,
-	fontSize: 2,
-	my: '12px'
-})`
-	display: flex;
-	color: ${props => props.success ? '#249f58' : '#e74c3c'};
-	${fontSize};
-	${space};
-	${color};
-	${fontWeight};
-`;
-
-class InlineForm extends Component {
+export default class InlineForm extends Component {
 	static propTypes = {
 		inputAttributes: PropTypes.shape({
 			type: PropTypes.string.isRequired,
@@ -49,11 +14,18 @@ class InlineForm extends Component {
 		}),
 		buttonText: PropTypes.string,
 		onSubmit: PropTypes.func.isRequired,
-		successMessage: PropTypes.string
+		successMessage: PropTypes.string,
+		success: PropTypes.bool,
+		loading: PropTypes.bool,
+		isPromise: PropTypes.bool,
+		label: PropTypes.string.isRequired
 	}
 
 	static defaultProps = {
 		inputValue: '',
+		success: false,
+		isPromise: false,
+		loading: false,
 		buttonAttributes: {
 			type: 'primary'
 		},
@@ -63,7 +35,9 @@ class InlineForm extends Component {
 
 	state = {
 		inputValue: this.props.inputValue,
-		submitting: false
+		submitting: false,
+		error: false,
+		success: false
 	}
 
 	handleInput = ({ target }) => this.setState({ inputValue: target.value })
@@ -83,29 +57,39 @@ class InlineForm extends Component {
 		}
 	}
 
+	makeContentAttributes = (success) => ({
+		display: 'flex',
+		fontWeight: 600,
+		fontSize: 2,
+		my: '12px',
+		is: 'p',
+		color: `status.${success ? 'success' : 'error'}`
+	});
+
 	resetStatus = () => this.setState({ success: false, error: false });
 
 	renderSuccessMessage = () => (
-		<P success>
-			<EmojiWrapper mr={3}>&#x1F64C;</EmojiWrapper>
+		<Box {...this.makeContentAttributes(true)}>
+			<Box mr={3} aria-hidden>&#x1F64C;</Box>
 			{this.props.successMessage}
-			<EmojiWrapper ml={3}>&#x1F64C;</EmojiWrapper>
-		</P>
+			<Box ml={3} aria-hidden>&#x1F64C;</Box>
+		</Box>
 	)
 
 	render() {
-		const { inputAttributes, buttonAttributes, buttonText, success, loading, ...props } = this.props;
+		const { inputAttributes, label, buttonAttributes, buttonText, success, loading, ...props } = this.props;
 		const { success: successState, error } = this.state;
 		if (success || successState) return this.renderSuccessMessage();
 		return (
 			<React.Fragment>
-				<Form onSubmit={this.handleSubmit} {...props}>
-					<Label>
-						<HiddenText>test</HiddenText>
+				<InlineFormContainer onSubmit={this.handleSubmit} {...props}>
+					<Label m="0" pb="0" display="flex">
+						<HiddenText>{label}</HiddenText>
 						<Input
 							value={this.state.inputValue}
 							onChange={this.handleInput}
 							required
+							placeholder={label}
 							ref={(input) => { this.input = input; }}
 							{...inputAttributes}
 						/>
@@ -119,16 +103,14 @@ class InlineForm extends Component {
 					>
 						{buttonText}
 					</ArrowButton>
-				</Form>
+				</InlineFormContainer>
 				{error && (
-					<P success={false}>
-						<EmojiWrapper mr={3}>&#x1F614;</EmojiWrapper>
+					<Box {...this.makeContentAttributes(false)}>
+						<Box mr={3} aria-hidden>&#x1F614;</Box>
 						Something went wrong, please try again.
-					</P>
+					</Box>
 				)}
 			</React.Fragment>
 		);
 	}
 }
-
-export default InlineForm;

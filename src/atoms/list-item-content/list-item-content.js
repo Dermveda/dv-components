@@ -53,6 +53,7 @@ export const BulletItem = styled.span.attrs({
 	font-family: ${themeGet('fonts.display', 'serif')};
 	width: 30px;
 	height: 30px;
+	font-weight: 600;
 	border-radius: 100%;
 	display: flex;
 	flex-flow: row;

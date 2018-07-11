@@ -3,28 +3,24 @@ import React from 'react';
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { withInfo } from '@storybook/addon-info';
+import { withReadme } from 'storybook-readme';
 /* eslint-enable import/no-extraneous-dependencies */
 
+import AppBarReadme from './docs/app-bar.md';
 import { ArrowButton } from 'atoms';
+import { Lipsum } from 'utils';
 import AppBar from './app-bar';
 
 storiesOf('Molecules/App Bar', module)
-	.add(
-		'without children',
-		withInfo(`
-			App Bar without any children, used when user is logged in.
-		`)(() => (
+	.addDecorator(withReadme(AppBarReadme))
+	.add('without children', () => (
+		<div>
 			<AppBar title="LearnSkin" logo="http://fillmurray.com/150/32" />
-		))
-	)
-	.add(
-		'with children',
-		withInfo(`
-			# When to use
-			App bar with children, used when the user is not logged and need
-			some global CTA
-		`)(() => (
+			<Lipsum />
+		</div>
+	))
+	.add('with children', () => (
+		<div>
 			<AppBar title="LearnSkin" logo="http://fillmurray.com/150/32">
 				<ArrowButton
 					type="primary"
@@ -35,5 +31,6 @@ storiesOf('Molecules/App Bar', module)
 					Try it Free
 				</ArrowButton>
 			</AppBar>
-		))
-	);
+			<Lipsum />
+		</div>
+	));

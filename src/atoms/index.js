@@ -17,6 +17,7 @@ export {
 	BulletIcon,
 	BulletListContainer
 } from './list-item-content';
+export { default as Badge } from './badge';
 export {
 	MenuLinks,
 	MenuButtons,
@@ -35,7 +36,7 @@ export {
 	CardSubtitle,
 	CardFooter
 } from './card-content';
-export { H3, Subtitle, Content } from './typography';
+export { H3, Subtitle, Content, Box, GridBox, FlexBox } from './typography';
 export {
 	ArticleHeader,
 	ArticleContainer,
@@ -47,7 +48,7 @@ export {
 } from './article-content';
 export { default as Main } from './main';
 export { MenuIcon, ChevronDown } from './interactive-icon';
-export { Label, Select, Input } from './form-elements';
+export { Label, Select, Input, InlineFormContainer } from './form-elements';
 export { Dropdown, DropdownContainer } from './dropdown';
 export { MegaMenuItem, SubMenuContainer } from './mega-menu';
 export { default as LinkWrapper } from './link-wrapper';
