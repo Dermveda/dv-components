@@ -1,9 +1,7 @@
 /* eslint-disable */
-const path = require('path'),
-	ExtractTextPlugin = require('extract-text-webpack-plugin'),
-	UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const path = require('path');
 
-let config = {
+module.exports = {
 	context: path.resolve(__dirname, './src'),
 	devtool: 'source-map',
 	entry: {
@@ -17,7 +15,6 @@ let config = {
 	module: {
 		rules: [
 			{
-				//using .babelrc
 				test: /\.(js|jsx)$/,
 				exclude: [/node_modules/],
 				use: [{
@@ -25,26 +22,9 @@ let config = {
 				}],
 			},
 			{
-				test: /(\.scss|\.css)$/,
-				exclude: [/node_modules/],
-				use: ExtractTextPlugin.extract({
-					fallback: 'style-loader',
-					use: [{
-						loader: 'css-loader',
-						options: {
-							// modules: true,
-							importLoaders: 1,
-							root: '.',
-							// localIdentName: '[path][name]__[local]--[hash:base64:5]',
-						}
-					}, 'sass-loader']
-				})
-			},
-			{
 				test: /\.svg$/,
 				loader: 'svg-inline-loader'
 			}
-			//loaders for other file types can go here
 		]
 	},
 	externals: {
@@ -52,10 +32,5 @@ let config = {
 		'react-router-dom': 'commonjs react-router-dom',
 		'react-dom': 'commonjs react-dom',
 		'styled-components': 'commonjs styled-components'
-	},
-	plugins: [
-		new ExtractTextPlugin("styles.css"),
-	]
-}
-
-module.exports = config;
+	}
+};

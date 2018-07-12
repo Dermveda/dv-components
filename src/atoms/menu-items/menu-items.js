@@ -13,6 +13,8 @@ export const MenuLinks = styled.div`
 	${space};
 `;
 
+MenuLinks.displayName = 'MenuLinks';
+
 export const MenuButtons = styled.div`
 	display: flex;
 	flex-flow: row nowrap;

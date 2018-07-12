@@ -1,4 +1,3 @@
-import * as Deprecated from './deprecated';
 import * as Atoms from './atoms';
 import * as Theme from './theme';
 import * as Molecules from './molecules';
@@ -16,6 +15,5 @@ module.exports = {
 	Utils,
 	Styles,
 	Theme,
-	Deprecated,
 	globalStyles
 };
