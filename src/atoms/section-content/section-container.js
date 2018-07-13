@@ -32,7 +32,10 @@ const SectionContainer = styled(({
 	` : `
 		background: ${props => themeGet(`backgrounds.${props.type}`, 'transparent')};
 	`};
-	${props => props.centered ? 'margin: 0 auto' : ''};
+	${props => props.centered && `
+		margin-left: auto !important;
+		margin-right: auto !important;
+	`};
 	${props => props.content ? 'max-width: 1200px': ''};
 `;
 

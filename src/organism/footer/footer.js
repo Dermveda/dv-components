@@ -190,6 +190,7 @@ export default class Footer extends Component {
 									isPromise={newsLetter.isPromise}
 									success={newsLetter.success}
 									loading={newsLetter.loading}
+									label={newsLetter.label}
 								/>
 							</NewsLetterContainer>
 						)}

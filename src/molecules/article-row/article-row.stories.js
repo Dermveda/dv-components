@@ -71,7 +71,6 @@ storiesOf('Molecules/Article Row', module)
 		const SkeletonWrapper = createSkeletonProvider(
 			{
 				articles: [makeFakeArticle(0), makeFakeArticle(1), makeFakeArticle(2)],
-
 			},
 			() => boolean('skeleton loading', true),
 			'pending'
