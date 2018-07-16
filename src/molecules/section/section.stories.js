@@ -3,12 +3,14 @@ import React from 'react';
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { withReadme } from 'storybook-readme';
 import { object, text, select } from '@storybook/addon-knobs/react';
 /* eslint-enable import/no-extraneous-dependencies */
 
 import Section from './section';
 
 storiesOf('Molecules/Section', module)
+	.addDecorator(withReadme)
 	.add('simple section', () => {
 		const buttonAttributes = {
 			text: 'Start Earning CE',
