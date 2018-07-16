@@ -10,6 +10,7 @@
     "prepublish": "npm run build",
     "commitmsg": "validate-commit-msg",
     "storybook": "start-storybook -p 6007",
+	"deploy-storybook": "storybook-to-ghpages",
     "build-storybook": "build-storybook"
   },
   "files": [
@@ -30,6 +31,7 @@
     "@storybook/addon-viewport": "^3.4.4",
     "@storybook/addons": "^3.4.4",
     "@storybook/react": "^3.4.4",
+    "@storybook/storybook-deployer": "^2.3.0",
     "autoprefixer": "^7.1.6",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
