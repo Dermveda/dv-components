@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import btoa from 'btoa';
 import { Wiggle } from 'img';
 import {
@@ -17,6 +18,37 @@ const cardContentStyles = {
 };
 
 export default class CardRow extends Component {
+	static propTypes = {
+		articles: PropTypes.arrayOf(PropTypes.shape({
+			imageAttributes: PropTypes.shape({
+				src: PropTypes.string.isRequired,
+				alt: PropTypes.string.isRequired
+			}),
+			to: PropTypes.string.isRequired,
+			title: PropTypes.string.isRequired,
+			subtitleLink: PropTypes.string,
+			subtitle: PropTypes.string
+		})),
+		renderFooter: PropTypes.func,
+		headerAttributes: PropTypes.shape({
+			title: PropTypes.string,
+			buttonAttributes: PropTypes.shape({
+				text: PropTypes.string.isRequired
+			})
+		}),
+		showAll: PropTypes.bool,
+		description: PropTypes.string,
+		footerProps: PropTypes.arrayOf(PropTypes.string)
+	}
+
+	static defaultProps = {
+		renderFooter: () => {},
+		footerProps: [],
+		showAll: false,
+		description: null,
+		headerAttributes: null
+	}
+
 	pluckProps = (footerProps, props) => Object
 		.keys(props)
 		.filter(x => footerProps.includes(x))
@@ -30,21 +62,27 @@ export default class CardRow extends Component {
 
 	renderArticleRow = ({ ...article }) => (
 		<Card mx={2} my={3} boxShadow={1} flex="1 300px" hover={{ boxShadow: 2 }}>
-			<LinkWrapper to={article.to}>
-				<CardImage {...article.imageAttributes} />
-			</LinkWrapper>
+			{article.imageAttributes && (
+				<LinkWrapper to={article.to}>
+					<CardImage {...article.imageAttributes} />
+				</LinkWrapper>
+			)}
 			<CardContainer>
 				<CardHeader>
 					<LinkWrapper to={article.to}>
 						<CardTitle>{article.title}</CardTitle>
 					</LinkWrapper>
-					<LinkWrapper to={article.subtitleLink}>
-						<CardSubtitle>{article.subtitle}</CardSubtitle>
-					</LinkWrapper>
+					{article.subtitle && (
+						<LinkWrapper to={article.subtitleLink}>
+							<CardSubtitle>{article.subtitle}</CardSubtitle>
+						</LinkWrapper>
+					)}
 				</CardHeader>
-				<CardFooter>
-					{this.renderFooter(article)}
-				</CardFooter>
+				{this.renderFooter && (
+					<CardFooter width="100%">
+						{this.renderFooter(article)}
+					</CardFooter>
+				)}
 			</CardContainer>
 		</Card>
 	)
@@ -52,9 +90,7 @@ export default class CardRow extends Component {
 	render = () => {
 		const {
 			articles,
-			headerAttributes = {
-				buttonAttributes: { text: null }
-			},
+			headerAttributes,
 			description,
 			footerProps,
 			showAll,
@@ -68,12 +104,12 @@ export default class CardRow extends Component {
 				.slice(0, 3)
 				.map(this.renderArticleRow);
 
-		const buttonAttributes = {
+		const buttonAttributes = headerAttributes ? {
 			...headerAttributes.buttonAttributes,
 			buttonLeft: false,
 			small: true,
 			type: 'primary'
-		};
+		} : undefined;
 
 		return (
 			<Section

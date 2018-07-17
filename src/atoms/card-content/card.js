@@ -19,7 +19,10 @@ export const Card = sys({
 
 export const CardContainer = sys({
 	is: 'div',
-	p: 4
+	p: 4,
+	display: 'grid',
+	gridTemplateRows: '1fr auto',
+	height: '100%'
 });
 
 export const CardImage = sys({
@@ -73,5 +76,7 @@ export const CardText = styled.p.attrs({
 export const CardFooter = sys({
 	is: 'footer',
 	pt: 3,
-	mt: 'auto'
+	mt: 'auto',
+	gridRowStart: 2,
+	gridRowEnd: 3
 }, 'width');

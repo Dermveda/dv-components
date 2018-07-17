@@ -29,6 +29,7 @@ storiesOf('Atoms/Buttons', module)
 			raised={boolean('raised', false)}
 			squared={boolean('squared', false)}
 			white={boolean('white', false)}
+			outline={boolean('outline', false)}
 		>
 			{text('Text', 'I am a simple button')}
 		</Button>
@@ -44,6 +45,7 @@ storiesOf('Atoms/Buttons', module)
 			raised={boolean('raised', false)}
 			squared={boolean('squared', false)}
 			white={boolean('white', false)}
+			outline={boolean('outline', false)}
 		>
 			{text('test', 'I am a simple button')}
 		</ButtonLink>
@@ -59,6 +61,7 @@ storiesOf('Atoms/Buttons', module)
 			raised={boolean('raised', false)}
 			squared={boolean('squared', false)}
 			white={boolean('white', false)}
+			outline={boolean('outline', false)}
 		>
 			{text('test', 'I am a simple button')}
 		</ButtonLink>
@@ -74,6 +77,7 @@ storiesOf('Atoms/Buttons', module)
 			raised={boolean('raised', false)}
 			squared={boolean('squared', false)}
 			white={boolean('white', false)}
+			outline={boolean('outline', false)}
 		>
 			{text('test', 'I am a simple button')}
 		</ArrowButton>
@@ -88,6 +92,7 @@ storiesOf('Atoms/Buttons', module)
 			nostyle={boolean('nostyle', false)}
 			raised={boolean('raised', false)}
 			squared={boolean('squared', false)}
+			outline={boolean('outline', false)}
 			white={boolean('white', false)}
 		>
 			{text('test', 'I am a simple button')}
@@ -98,6 +103,7 @@ storiesOf('Atoms/Buttons', module)
 			href="http://google.com"
 			large={boolean('large', false)}
 			small={boolean('small', false)}
+			outline={boolean('outline', false)}y
 			type={select('type', ['primary', 'secondary', 'tertiary', 'bold'], 'primary')}
 			gradient={boolean('gradient', false)}
 			nostyle={boolean('nostyle', false)}
