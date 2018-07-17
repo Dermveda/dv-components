@@ -1,17 +1,8 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
-import { Card, CardImage, CardContainer, CardHeader, CardTitle, CardSubtitle, CardFooter, LinkWrapper } from 'atoms';
+import {
+	FlexBox, Card, CardImage, CardContainer, CardHeader, CardTitle, CardSubtitle, CardFooter, LinkWrapper, Content
+} from 'atoms';
 import { Section, ArticleListHeader } from 'molecules';
-
-const Box = styled.div`
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: center;
-	align-items: stretch;
-	& > * {
-		flex: 1 300px;
-	}
-`;
 
 export default class CardRow extends Component {
 	pluckProps = (footerProps, props) => Object
@@ -26,7 +17,7 @@ export default class CardRow extends Component {
 	}
 
 	renderArticleRow = ({ ...article }) => (
-		<Card mx={2} my={3}>
+		<Card mx={2} my={3} flex="1 300px">
 			<LinkWrapper to={article.to}>
 				<CardImage {...article.imageAttributes} />
 			</LinkWrapper>
@@ -49,15 +40,19 @@ export default class CardRow extends Component {
 	render = () => {
 		const {
 			articles,
+			showAll,
 			headerAttributes,
 			footerProps,
 			renderFooter,
+			description,
 			...props
 		} = this.props;
 
-		const rowArticles = articles
-			.slice(0, 3) //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
-			.map(this.renderArticleRow);
+		const rowArticles = showAll ?
+			articles.map(this.renderArticleRow) :
+			articles
+				.slice(0, 3)
+				.map(this.renderArticleRow);
 
 		const buttonAttributes = {
 			...headerAttributes.buttonAttributes,
@@ -76,10 +71,17 @@ export default class CardRow extends Component {
 				content
 				buttonAttributes={buttonAttributes}
 			>
-				<ArticleListHeader {...headerAttributes} />
-				<Box>
+				{headerAttributes && (<ArticleListHeader {...headerAttributes} />)}
+				{description && <Content mt={3} mb={2}>{description}</Content>}
+				<FlexBox
+					display="flex"
+					flexDirection="row"
+					flexWrap="wrap"
+					justifyContent="center"
+					alignItems="stretch"
+				>
 					{rowArticles}
-				</Box>
+				</FlexBox>
 			</Section>
 		);
 	}

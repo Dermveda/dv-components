@@ -23,19 +23,21 @@ const ArticleListHeader = ({ title, titleAttributes, buttonAttributes, ...props 
 
 	return (
 		<ArticleBar px={2} bg="gray.light" justifyContent="space-between" {...props}>
-			<H3 {...headerAttributes}>{title}</H3>
-			<ButtonLink fontSize={1} type="secondary" {...buttonProps} nostyle>
-				{buttonText}
-				<Icon
-					name="chevronDown"
-					type="outline"
-					height="12px"
-					width="12px"
-					strokeSize={4}
-					rotate="-90deg"
-					color="gray.light"
-				/>
-			</ButtonLink>
+			<H3 py={2} {...headerAttributes}>{title}</H3>
+			{buttonText && (
+				<ButtonLink fontSize={1} type="secondary" {...buttonProps} nostyle>
+					{buttonText}
+					<Icon
+						name="chevronDown"
+						type="outline"
+						height="12px"
+						width="12px"
+						strokeSize={4}
+						rotate="-90deg"
+						color="gray.light"
+					/>
+				</ButtonLink>
+			)}
 		</ArticleBar>
 	);
 };
@@ -45,12 +47,15 @@ ArticleListHeader.propTypes = {
 	buttonAttributes: PropTypes.shape({
 		text: PropTypes.string.isRequired,
 		to: PropTypes.string.isRequired
-	}).isRequired,
+	}),
 	titleAttributes: PropTypes.object
 };
 
 ArticleListHeader.defaultProps = {
-	titleAttributes: {}
+	titleAttributes: {},
+	buttonAttributes: {
+		text: null
+	}
 };
 
 export default ArticleListHeader;

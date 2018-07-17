@@ -7,10 +7,11 @@ import { withReadme } from 'storybook-readme';
 import { object, text, select } from '@storybook/addon-knobs/react';
 /* eslint-enable import/no-extraneous-dependencies */
 
+import SectionReadme from './docs/section.md';
 import Section from './section';
 
 storiesOf('Molecules/Section', module)
-	.addDecorator(withReadme)
+	.addDecorator(withReadme(SectionReadme))
 	.add('simple section', () => {
 		const buttonAttributes = {
 			text: 'Start Earning CE',

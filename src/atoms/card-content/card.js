@@ -13,7 +13,7 @@ export const Card = sys({
 	flexWrap: 'nowrap',
 	maxWidth: 500,
 	color: '#2b2b2b',
-}, 'boxShadow', 'space', 'hover', () => `
+}, 'boxShadow', 'space', 'hover', 'flex', () => `
 	transition: all .2s ease-in-out;
 `);
 

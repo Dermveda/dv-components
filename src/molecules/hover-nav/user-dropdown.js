@@ -18,6 +18,14 @@ class UserDropdown extends Component {
 		displayDropdown: false
 	}
 
+	dismissDropdown = () => this.setState({ displayDropdown: false });
+
+	renderChildren = (children) => React.Children.map(children, (child) =>
+		child.props.to ?
+			React.cloneElement(child, { onClick: this.dismissDropdown }) :
+			React.cloneElement(child, { dismissDropdown: this.dismissDropdown })
+	);
+
 	render() {
 		const { displayDropdown } = this.state;
 		return (
@@ -40,7 +48,7 @@ class UserDropdown extends Component {
 				<div style={{ position: 'relative' }}>
 					<ProfileDropdown>
 						<Dropdown is="ul" boxShadow={2} display={displayDropdown}>
-							{this.props.children}
+							{this.renderChildren(this.props.children)}
 						</Dropdown>
 					</ProfileDropdown>
 				</div>

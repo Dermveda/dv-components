@@ -2,7 +2,7 @@ import React from 'react';
 
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from '@storybook/react';
-import { boolean } from '@storybook/addon-knobs/react';
+import { text, boolean } from '@storybook/addon-knobs/react';
 /* eslint-enable import/no-extraneous-dependencies */
 
 import TileFeatured from './tile-featured';
@@ -26,14 +26,12 @@ const article = {
 storiesOf('Organism/Templates', module)
 	.add('card row', () => (
 		<CardRow
+			description={text('description', 'Something of a description can go here')}
 			headerAttributes={{
-				buttonAttributes: {
-					to: '/sdf',
-					text: 'Something'
-				},
 				title: 'Article List'
 			}}
-			articles={[article, article, article]}
+			showAll={boolean('showAll', false)}
+			articles={[article, article, article, article, article]}
 			footerProps={['author', '_id']}
 			renderFooter={({ author, _id }) => (
 				<div>
@@ -52,7 +50,9 @@ storiesOf('Organism/Templates', module)
 				},
 				title: 'Article List'
 			}}
-			articles={[article, article, article]}
+			showAll={boolean('showAll', false)}
+			description={text('description', 'Nunc luctus neque et dolor dignissim scelerisque. In vitae porttitor lorem, ac vestibulum eros. Curabitur ac condimentum eros.')}
+			articles={[article, article, article, article, article]}
 			footerProps={['author', '_id']}
 			renderFooter={({ author, _id }) => (
 				<div>
@@ -64,6 +64,7 @@ storiesOf('Organism/Templates', module)
 	))
 	.add('tile featured', () => (
 		<TileFeatured
+			description={text('description', 'Something of a description can go here')}
 			headerAttributes={{
 				buttonAttributes: {
 					to: '/sdf',

@@ -1,11 +1,10 @@
 import React from 'react';
-import {
-	ArticleListHeader,
-	Section,
-	ArticleRowList
-} from 'molecules';
+import { Content } from 'atoms';
+import { ArticleListHeader, Section, ArticleRowList } from 'molecules';
 
-const TileFeatured = ({ articles, renderFooter, footerProps, headerAttributes, ...props }) => (
+const TileFeatured = ({
+	articles, description, renderFooter, footerProps, headerAttributes, ...props
+}) => (
 	<Section centered content {...props} buttonAttributes={{
 		...headerAttributes.buttonAttributes,
 		noButtonSpacing: true,
@@ -14,7 +13,8 @@ const TileFeatured = ({ articles, renderFooter, footerProps, headerAttributes, .
 		small: true,
 		type: 'primary'
 	}}>
-		<ArticleListHeader {...headerAttributes} />
+		{headerAttributes && (<ArticleListHeader {...headerAttributes} />)}
+		{description && <Content mt={3} mb={2}>{description}</Content>}
 		<ArticleRowList
 			articles={articles}
 			renderFooter={renderFooter}
