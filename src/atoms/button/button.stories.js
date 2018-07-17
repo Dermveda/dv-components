@@ -3,87 +3,108 @@ import React from 'react';
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from 'storybook-addon-a11y';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, boolean, text, select } from '@storybook/addon-knobs/react';
+import { boolean, text, select } from '@storybook/addon-knobs/react';
+import { withReadme } from 'storybook-readme';
 /* eslint-enable import/no-extraneous-dependencies */
+
+// Readme file imports
+import ButtonReadme from './docs/button.md';
+import ArrowButtonReadme from './docs/arrow-button.md';
+import ArrowButtonLinkReadme from './docs/arrow-button-link.md';
+import ButtonLinkReadme from './docs/button-link.md';
 
 import Button from './button';
 import ButtonLink from './button-link';
 import { ArrowButton, ArrowButtonLink } from './arrow-button';
 
 storiesOf('Atoms/Buttons', module)
-	.addDecorator(checkA11y)
-	.addDecorator(withKnobs)
-	.add(
-		'with text',
-		withInfo(`
-            ## About
-            A simple button that executes an action
-
-            ## Usage
-            ~~~js
-            import { Button } from 'dv-component-library/atoms';
-
-            <Button>I'm a simple button!</Button>
-            ~~~
-        `)(() => (
-			<Button
-				large={boolean('isLarge', false)}
-				onClick={action('button click')}
-				type={select('button types', ['primary', 'secondary', 'tertiary', 'bold'], 'primary')}
-				gradient={boolean('isGradient', false)}
-				outline={boolean('isOutline', false)}
-				raised={boolean('isRaised', false)}
-				nostyle={boolean('isNoStyle', false)}
-				squared={boolean('isSquared', false)}
-				white={boolean('isWHite', false)}
-			>
-				{text('Text', 'I am a simple button')}
-			</Button>
-		))
-	)
-	.add('button link', () => (
-		<ButtonLink
-			href="#"
-			large={boolean('isLarge', false)}
+	.add('simple button', withReadme(ButtonReadme, () => (
+		<Button
 			onClick={action('button click')}
-			type={select('button types', ['primary', 'secondary', 'tertiary', 'bold'], 'primary')}
-			gradient={boolean('isGradient', false)}
-			nostyle={boolean('isNoStyle', false)}
-			raised={boolean('isRaised', false)}
-			squared={boolean('isSquared', false)}
-			white={boolean('isWHite', false)}
+			large={boolean('large', false)}
+			small={boolean('small', false)}
+			type={select('type', ['primary', 'secondary', 'tertiary', 'bold'], 'primary')}
+			gradient={boolean('gradient', false)}
+			nostyle={boolean('nostyle', false)}
+			raised={boolean('raised', false)}
+			squared={boolean('squared', false)}
+			white={boolean('white', false)}
+		>
+			{text('Text', 'I am a simple button')}
+		</Button>
+	)))
+	.add('internal button link', withReadme(ButtonLinkReadme, () => (
+		<ButtonLink
+			to="/page"
+			large={boolean('large', false)}
+			small={boolean('small', false)}
+			type={select('type', ['primary', 'secondary', 'tertiary', 'bold'], 'primary')}
+			gradient={boolean('gradient', false)}
+			nostyle={boolean('nostyle', false)}
+			raised={boolean('raised', false)}
+			squared={boolean('squared', false)}
+			white={boolean('white', false)}
 		>
 			{text('test', 'I am a simple button')}
 		</ButtonLink>
-	))
-	.add('arrow button', () => (
+	)))
+	.add('external button link', withReadme(ButtonLinkReadme, () => (
+		<ButtonLink
+			href="http://google.com"
+			large={boolean('large', false)}
+			small={boolean('small', false)}
+			type={select('type', ['primary', 'secondary', 'tertiary', 'bold'], 'primary')}
+			gradient={boolean('gradient', false)}
+			nostyle={boolean('nostyle', false)}
+			raised={boolean('raised', false)}
+			squared={boolean('squared', false)}
+			white={boolean('white', false)}
+		>
+			{text('test', 'I am a simple button')}
+		</ButtonLink>
+	)))
+	.add('arrow button', withReadme(ArrowButtonReadme, () => (
 		<ArrowButton
-			large={boolean('isLarge', false)}
 			onClick={action('button click')}
-			type={select('button types', ['primary', 'secondary', 'tertiary', 'bold'], 'primary')}
-			gradient={boolean('isGradient', false)}
-			nostyle={boolean('isNoStyle', false)}
-			raised={boolean('isRaised', false)}
-			white={boolean('isWHite', false)}
-			squared={boolean('isSquared', false)}
+			large={boolean('large', false)}
+			small={boolean('small', false)}
+			type={select('type', ['primary', 'secondary', 'tertiary', 'bold'], 'primary')}
+			gradient={boolean('gradient', false)}
+			nostyle={boolean('nostyle', false)}
+			raised={boolean('raised', false)}
+			squared={boolean('squared', false)}
+			white={boolean('white', false)}
 		>
 			{text('test', 'I am a simple button')}
 		</ArrowButton>
-	))
-	.add('arrow button link', () => (
+	)))
+	.add('internal arrow button link', withReadme(ArrowButtonLinkReadme, () => (
 		<ArrowButtonLink
-			href="#"
-			large={boolean('isLarge', false)}
-			onClick={action('button click')}
-			type={select('button types', ['primary', 'secondary', 'tertiary', 'bold'], 'primary')}
-			gradient={boolean('isGradient', false)}
-			nostyle={boolean('isNoStyle', false)}
-			raised={boolean('isRaised', false)}
-			squared={boolean('isSquared', false)}
-			white={boolean('isWHite', false)}
+			to="/page"
+			large={boolean('large', false)}
+			small={boolean('small', false)}
+			type={select('type', ['primary', 'secondary', 'tertiary', 'bold'], 'primary')}
+			gradient={boolean('gradient', false)}
+			nostyle={boolean('nostyle', false)}
+			raised={boolean('raised', false)}
+			squared={boolean('squared', false)}
+			white={boolean('white', false)}
 		>
 			{text('test', 'I am a simple button')}
 		</ArrowButtonLink>
-	));
+	)))
+	.add('external arrow button link', withReadme(ArrowButtonLinkReadme, () => (
+		<ArrowButtonLink
+			href="http://google.com"
+			large={boolean('large', false)}
+			small={boolean('small', false)}
+			type={select('type', ['primary', 'secondary', 'tertiary', 'bold'], 'primary')}
+			gradient={boolean('gradient', false)}
+			nostyle={boolean('nostyle', false)}
+			raised={boolean('raised', false)}
+			squared={boolean('squared', false)}
+			white={boolean('white', false)}
+		>
+			{text('test', 'I am a simple button')}
+		</ArrowButtonLink>
+	)));

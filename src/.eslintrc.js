@@ -26,6 +26,7 @@ module.exports = {
 			"tab",
 			{ "SwitchCase": 1 }
 		],
+		"no-unused-vars": ["error", { "ignoreRestSiblings": true }],
 		"linebreak-style": [
 			"error",
 			"unix"

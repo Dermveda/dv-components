@@ -1,28 +1,54 @@
+import React from 'react';
+import sys from 'system-components';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { color, flex, flexWrap, flexDirection, justifyContent, alignItems, space, themeGet } from 'styled-system';
+import { themeGet } from 'styled-system';
 
-const SectionContainer = styled.section.attrs({
-	p: [2, 4, 6],
-	m: 0
+const SystemSection = sys('color', 'flex', 'flexWrap', 'flexDirection', 'justifyContent', 'alignItems', 'space', 'maxWidth', 'display');
+
+const SectionContainer = styled(({
+	content, /* eslint-disable-line */
+	centered, /* eslint-disable-line */
+	backgroundImage, /* eslint-disable-line */
+	children,
+	...props
+}) => <SystemSection {...props}>{children}</SystemSection>).attrs({
+	py: props => props.py ||[5, 4, 6],
+	px: props => props.px || [3, 4, 6],
+	m: props => props.m || 0,
+	is: props => props.is || 'section',
+	display: props => props.display || 'flex',
+	justifyContent: props => props.justifyContent || 'center'
 })`
-	${color};
-	${flex};
-	${flexWrap};
-	${flexDirection};
-	${justifyContent};
-	${alignItems};
-	${space};
+	flex-flow: column nowrap;
+	align-items: center;
 
-	background: ${props => themeGet(`backgrounds.${props.type}`, 'transparent')};
+	${props => props.backgroundImage ? `
+		background-image: url('${props.backgroundImage.url}');
+		background-repeat: ${props.backgroundImage.pattern ? 'repeat' : 'no-repeat'};
+		background-size: ${props.backgroundImage.pattern ? props.backgroundImage.size || 'auto' : 'cover'};
+		background-position: ${props.backgroundImage.position || 'center center'};
+		background-color: ${props => themeGet(`colors.${props.backgroundImage.color}`, 'transparent')};
+	` : `
+		background: ${props => themeGet(`backgrounds.${props.type}`, 'transparent')};
+	`};
+	${props => props.centered && `
+		margin-left: auto !important;
+		margin-right: auto !important;
+	`};
+	${props => props.content ? 'max-width: 1200px': ''};
 `;
 
 SectionContainer.propTypes = {
-	type: PropTypes.oneOf(['white', 'gray', 'primary', 'tertiary', 'secondary'])
+	type: PropTypes.oneOf(['white', 'gray', 'primary', 'tertiary', 'secondary', 'transparent']),
+	centered: PropTypes.bool,
+	content: PropTypes.bool
 };
 
 SectionContainer.defaultProps = {
-	type: 'white'
+	type: 'white',
+	centered: false,
+	content: false
 };
 
 export default SectionContainer;

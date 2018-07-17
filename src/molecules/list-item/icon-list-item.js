@@ -1,44 +1,59 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
 	ListItemContainer,
 	ListItemTitle,
 	ListItemBody,
+	ListItemHeader,
 	IconCircle,
-	ArrowButton
+	ArrowButton,
+	Subtitle,
+	ArrowButtonLink
 } from 'atoms';
 
-const IconListItem = ({
-	iconAttributes, buttonAttributes, title, children, ...attrs
-}) => {
-	const { text, ...buttonProps } = buttonAttributes;
+class IconListItem extends Component {
+	static propTypes = {
+		title: PropTypes.string.isRequired,
+		iconAttributes: PropTypes.shape({
+			name: PropTypes.string.isRequired
+		}).isRequired,
+		subtitle: PropTypes.string,
+		children: PropTypes.node.isRequired,
+		buttonAttributes: PropTypes.shape({
+			text: PropTypes.string.isRequired,
+			nostyle: true
+		})
+	}
 
-	return (
-		<ListItemContainer {...attrs}>
-			<IconCircle {...iconAttributes} />
-			<ListItemTitle mt={2}>{title}</ListItemTitle>
-			<ListItemBody>{children}</ListItemBody>
-			{text && (
-				<ArrowButton mt={3} {...buttonProps}>{text}</ArrowButton>
-			)}
-		</ListItemContainer>
-	);
-};
+	static defaultProps = {
+		buttonAttributes: {},
+		subtitle: null
+	}
 
-IconListItem.propTypes = {
-	title: PropTypes.string.isRequired,
-	iconAttributes: PropTypes.shape({
-		name: PropTypes.string.isRequired
-	}).isRequired,
-	children: PropTypes.node.isRequired,
-	buttonAttributes: PropTypes.shape({
-		text: PropTypes.string.isRequired,
-		nostyle: true
-	})
-};
+	renderButton = (buttonProps, text) => (
+		buttonProps.onClick ? (
+			<ArrowButton {...buttonProps} mt={3}>{text}</ArrowButton>
+		) : (
+			<ArrowButtonLink {...buttonProps} mt={3}>{text}</ArrowButtonLink>
+		)
+	)
 
-IconListItem.defaultProps = {
-	buttonAttributes: {}
-};
+	render() {
+		const { iconAttributes, buttonAttributes, title, children, subtitle, ...attrs } = this.props;
+		const { text, ...buttonProps } = buttonAttributes;
+
+		return (
+			<ListItemContainer {...attrs}>
+				<IconCircle {...iconAttributes} />
+				<ListItemHeader mt={3}>
+					<ListItemTitle>{title}</ListItemTitle>
+					{subtitle && <Subtitle pb={1} color="#717171">{subtitle}</Subtitle>}
+				</ListItemHeader>
+				<ListItemBody>{children}</ListItemBody>
+				{text && this.renderButton(buttonProps, text)}
+			</ListItemContainer>
+		);
+	}
+}
 
 export default IconListItem;

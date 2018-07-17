@@ -29,6 +29,12 @@ const gradient = {
 	tertiary: [tertiary.main, tertiary.tertiary]
 };
 
+const gray = {
+	light: '#f7f7f7',
+	medium: '#717171',
+	dark: '#2b2b2b'
+};
+
 const gradientInverse = {
 	primary: `linear-gradient(to top, ${primary.main}, ${primary.tertiary})`,
 	bold: `linear-gradient(to top, ${bold.main}, ${bold.tertiary})`,
@@ -42,6 +48,7 @@ const colors = {
 	tertiary,
 	bold,
 	gradient,
+	gray,
 	gradientInverse
 };
 

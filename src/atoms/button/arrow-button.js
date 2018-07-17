@@ -2,31 +2,41 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Icon from '../icon/icons';
-import { Button, ButtonLink } from '../index';
+import Button from './button';
+import ButtonLink from './button-link';
+import { Spin } from 'animations';
 
 const ArrowIcon = styled(Icon).attrs({
 	name: 'rightArrow',
 	type: 'outline',
-	strokeSize: 4,
-	iconSize: 'xs',
+	strokeSize: 3,
+	iconSize: 'sm',
 	'aria-hidden': true
 })`
 	color: white;
 	stroke: white;
+	${props => props.spin && `
+		animation: ${Spin} 1s ease infinite;
+	`};
 `;
 
-const ArrowButton = ({ children, ...props }) => (
+export const ArrowButton = ({ children, spin, ...props }) => (
 	<Button {...props}>
 		{children}
-		<ArrowIcon alignToText />
+		<ArrowIcon alignToText spin={spin} />
 	</Button>
 );
 
 ArrowButton.propTypes = {
-	children: PropTypes.node.isRequired
+	children: PropTypes.node.isRequired,
+	spin: PropTypes.bool
 };
 
-const ArrowButtonLink = ({ children, ...props }) => (
+ArrowButton.defaultProps = {
+	spin: false
+};
+
+export const ArrowButtonLink = ({ children, ...props }) => (
 	<ButtonLink {...props}>
 		{children}
 		<ArrowIcon alignToText />
@@ -35,9 +45,4 @@ const ArrowButtonLink = ({ children, ...props }) => (
 
 ArrowButtonLink.propTypes = {
 	children: PropTypes.node.isRequired
-};
-
-module.exports = {
-	ArrowButton,
-	ArrowButtonLink
 };

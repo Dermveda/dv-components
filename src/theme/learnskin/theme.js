@@ -8,16 +8,17 @@ import colors from './colors';
 
 const learnSkinTheme = {
 	fonts: {
-		0: `Abril Text, ${systemFonts}`,
-		display: '"Abril Fatface", Georgia, serif'
+		0: `Abril-Text, Georgia, 'Times New Roman', times, ${systemFonts}`,
+		display: '"Abril-Fatface", Georgia, "Times New Roman", times, serif'
 	},
-	fontSizes: [0.619, 0.825, 1.1, 1.466, 1.955, 2.606, 3.473],
+	fontSizes: [0.819, 1.092, 1.455, 1.94, 2.585, 3.446, 4.594],
 	shadows: [
 		'none',
 		'rgba(50, 50, 93, 0.11) 0px 4px 6px 0px, rgba(0, 0, 0, 0.08) 0px 1px 3px 0px',
 		'0 7px 14px rgba(50,50,93,.1),0 3px 6px rgba(0,0,0,.08)'
 	],
 	space: [0, 4, 8, 16, 24, 32, 64],
+	lineHeights: [1, 1.125, 1.25, 1.5, 1.75],
 	backgrounds: {
 		gray: '#f7f7f7',
 		primary: `linear-gradient(to bottom right, ${colors.gradient.primary.join(',')})`,
@@ -57,13 +58,29 @@ const BaseFont = styled.div`
 	}
 `;
 
-const LearnSkinTheme = ({ children }) => (
-	<ThemeProvider theme={learnSkinTheme}>
-		<BaseFont>
-			{children}
-		</BaseFont>
-	</ThemeProvider>
-);
+class LearnSkinTheme extends React.Component {
+	componentDidMount() {
+		if (typeof window !== 'undefined' && !sessionStorage.fonts) {
+			const webFont = require('webfontloader');
+			webFont.load({
+				typekit: {
+					id: 'tum6nht'
+				},
+				active: () => {
+					sessionStorage.fonts = true;
+				}
+			});
+		}
+	}
+
+	render = () => (
+		<ThemeProvider theme={learnSkinTheme}>
+			<BaseFont>
+				{this.props.children}
+			</BaseFont>
+		</ThemeProvider>
+	)
+}
 
 LearnSkinTheme.propTypes = {
 	children: PropTypes.node.isRequired

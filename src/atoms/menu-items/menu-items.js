@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { space } from 'styled-system';
 import { fontSize } from 'utils';
+import { Icon } from 'atoms';
 
 export const MenuLinks = styled.div`
 	display: flex;
@@ -11,6 +12,8 @@ export const MenuLinks = styled.div`
 	${fontSize};
 	${space};
 `;
+
+MenuLinks.displayName = 'MenuLinks';
 
 export const MenuButtons = styled.div`
 	display: flex;
@@ -27,4 +30,13 @@ export const MenuButtons = styled.div`
 	}
 
 	${space};
+`;
+
+export const MegaMenuIcon = styled(Icon).attrs({
+	name: 'chevronDown',
+	iconSize: 'xs',
+	type: 'outline',
+	strokeSize: 3
+})`
+	transform: rotate(-90deg);
 `;

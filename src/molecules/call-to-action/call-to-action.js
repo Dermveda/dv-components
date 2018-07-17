@@ -1,62 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import sys from 'system-components';
-import { themeGet } from 'styled-system';
-import { fontSize } from 'utils';
+import { Button, ButtonLink, H3, Content, Box, FlexBox } from 'atoms';
 
-import { Button, ButtonLink } from 'atoms';
-
-const Title = sys({
-	is: 'h4',
-	pb: 4,
-	m: 0,
-	fontSize: [3, 4],
-	fontWeight: 700
-}).extend`
-	${fontSize}
-
-	font-family: ${themeGet('fonts.display', 'serif')};
-`;
-
-const Body = sys({
-	is: 'p',
-	p: 0,
-	pb: [3, 0],
-	m: 0,
-	fontSize: 2,
-	fontWeight: 'normal'
-}).extend`
-	${fontSize}
-`;
-
-const Section = sys({
-	is: 'section',
-	display: 'flex',
-	flexDirection: ['column', 'row'],
-	flexWrap: ['nowrap', 'wrap'],
-	alignItems: ['flex-start', 'center'],
-	justifyContent: 'space-between',
-	fontWeight: 600,
-	p: [5, 6],
-	background: '#f7f7f7'
-});
-
-const Box = sys({
-	pr: 3,
-	display: 'flex',
-	flexDirection: 'column',
-	flexWrap: 'nowrap',
-	alignItems: 'flex-start'
-});
-
-const CallToAction = ({ buttonProps, title, children }) => {
+const CallToAction = ({ buttonProps, title, children, ...props }) => {
 	const { text, ...buttonAttrs } = buttonProps;
 
+	const sectionProps = Object.assign({}, {
+		is: 'aside',
+		display: 'flex',
+		flexDirection: ['column', 'row'],
+		flexWrap: ['nowrap', 'wrap'],
+		alignItems: ['flex-start', 'center'],
+		justifyContent: 'space-between',
+		p: [5, 6],
+		bg: 'gray.light'
+	}, props);
+
 	return (
-		<Section>
-			<Box>
-				<Title>{title}</Title>
-				<Body>{children}</Body>
+		<FlexBox {...sectionProps}>
+			<Box pr={3}>
+				<H3 fontSize={[3, 4]} is="h4">{title}</H3>
+				<Content pb={3} m={0}>{children}</Content>
 			</Box>
 			{
 				buttonProps.onClick ? (
@@ -65,7 +29,7 @@ const CallToAction = ({ buttonProps, title, children }) => {
 					<ButtonLink type="primary" outline {...buttonAttrs}>{text}</ButtonLink>
 				)
 			}
-		</Section>
+		</FlexBox>
 	);
 };
 

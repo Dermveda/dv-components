@@ -15,7 +15,9 @@
 				"atoms": "./src/atoms",
 				"styles": "./src/styles",
 				"organisms": "./src/organisms",
-				"static": "./src/static"
+				"static": "./src/static",
+				"animations": "./src/animations",
+				"img": "./src/img"
 			}
 		}]
 	]

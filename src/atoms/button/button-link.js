@@ -1,18 +1,46 @@
-import { themeGet } from 'styled-system';
-import { nostyle } from 'styles';
-import Button from './button';
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import { createSkeletonElement } from '@trainline/react-skeletor';
+import { Link as RouterLink } from 'react-router-dom';
+import {
+	buttonProps, buttonDefaultProps, buttonCSS, buttonAttributes
+} from './button-styles';
 
-const Link = Button.withComponent('a');
-const ButtonLink = Link.extend`
-	text-decoration: none;
-	color: ${props => themeGet(`colors.${props.type}.secondary`, '#2b2b2b')};
-
-	&:hover {
-		color: ${props => themeGet(`colors.${props.type}.secondary`, '#2b2b2b')};
-		text-decoration: none;
-	}
-
-	${props => props.nostyle && nostyle};
+const makeExternalLink = styled.a.attrs(buttonAttributes)`
+	${buttonCSS};
 `;
 
-export default ButtonLink;
+/* eslint-disable no-unused-vars */
+const makeLocalLink = styled(({
+	type,
+	gradient,
+	outline,
+	squared,
+	large,
+	small,
+	raised,
+	children,
+	nostyle,
+	white,
+	...props
+}) => <RouterLink {...props}>{children}</RouterLink>).attrs(buttonAttributes)`
+	${buttonCSS};
+`;
+/* eslint-enable */
+
+const ExternalLink = createSkeletonElement(makeExternalLink);
+const LocalLink = createSkeletonElement(makeLocalLink);
+
+export default class ButtonLink extends Component {
+	static propTypes = buttonProps
+	static defaultProps = buttonDefaultProps
+
+	render = () => {
+		const { href, ...attrs } = this.props;
+		return href ? (
+			<ExternalLink href={href} rel="noopener noreferrer" target="_blank" {...attrs} />
+		) : (
+			<LocalLink {...attrs } />
+		);
+	}
+}

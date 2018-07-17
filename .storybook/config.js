@@ -1,26 +1,36 @@
 import React from 'react';
-import { configure, addDecorator, setAddon } from '@storybook/react';
+import { configure, addDecorator } from '@storybook/react';
 import backgrounds from "@storybook/addon-backgrounds";
-import infoAddon, { setDefaults } from '@storybook/addon-info';
+import { setDefaults } from '@storybook/addon-info';
+import { withKnobs, select } from '@storybook/addon-knobs/react';
 import StoryRouter from 'storybook-react-router';
-import { LearnSkinTheme } from 'theme';
+import { checkA11y } from 'storybook-addon-a11y';
+import { LearnSkinTheme, DermvedaTheme } from 'theme';
+import '../src/global.styles';
+import '../src/static/icons.svg';
 
 const req = require.context('../src', true, /\.stories\.js$/);
 
 // Configure withInfo addon
-setDefaults({
-    inline: true
-});
-setAddon(infoAddon);
+setDefaults({ source: false, inline: true });
 
-// Configure storybook react router
-// addDecorator(StoryRouter());
+// Configure React router
+addDecorator(StoryRouter());
+addDecorator(checkA11y);
 
 // Configure theme provider
+addDecorator(withKnobs);
+const ThemeSwitcher = ({ theme, storyfn }) => theme === 'learnskin' ? (
+	<LearnSkinTheme>{storyfn()}</LearnSkinTheme>
+) : (
+	<DermvedaTheme>{storyfn()}</DermvedaTheme>
+);
+
 addDecorator(storyfn => (
-	<LearnSkinTheme>
-		{storyfn()}
-	</LearnSkinTheme>
+	<ThemeSwitcher
+		theme={select('theme', ['learnskin', 'dermveda'], 'dermveda', 'theme-provider')}
+		storyfn={storyfn}
+	/>
 ));
 
 // Configure background options

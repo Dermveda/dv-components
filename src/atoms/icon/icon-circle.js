@@ -3,7 +3,7 @@ import sys from 'system-components';
 import PropTypes from 'prop-types';
 import { adjustHue } from 'polished';
 import { themeGet } from 'styled-system';
-import { Icon } from '.';
+import Icon from './icons';
 
 const IconWrapper = sys({
 	is: 'div',
@@ -25,18 +25,20 @@ const IconWrapper = sys({
 	}
 `));
 
-const IconCircle = ({ background, ...props }) => (
-	<IconWrapper type={background}>
+const IconCircle = ({ background, className, ...props }) => (
+	<IconWrapper type={background} className={className}>
 		<Icon {...props} />
 	</IconWrapper>
 );
 
 IconCircle.propTypes = {
+	className: PropTypes.string,
 	background: PropTypes.oneOf(['primary', 'secondary', 'tertiary'])
 };
 
 IconCircle.defaultProps = {
-	background: 'primary'
+	background: 'primary',
+	className: ''
 };
 
 export default IconCircle;

@@ -1,19 +1,43 @@
 import styled from 'styled-components';
-import { space, justifyContent, themeGet, display } from 'styled-system';
+import PropTypes from 'prop-types';
+import sys from 'system-components';
+import { themeGet } from 'styled-system';
+import { fontSize } from 'utils';
 
-const Bar = styled.header`
-	display: flex;
-	flex-flow: row wrap;
-	align-items: center;
+const MakeBar = sys({
+	flexWrap: 'wrap',
+	alignItems: 'center',
+	position: 'sticky'
+}, 'color', 'space', 'flexDirection', 'justifyContent', 'display');
 
-	position: sticky;
-	top: 0;
+const Bar = styled(MakeBar).attrs({
+	display: props => props.display || 'flex'
+})`
+	top: ${props => props.top};
+	z-index: ${props => props.zIndex};
 
-	border-top: 4px solid ${themeGet('colors.primary.tertiary', '#2B2B2B')};
-	border-bottom: 1px solid #ACACAC;
-	${space};
-	${display}
-	${justifyContent};
+	${props => props.navBorder && `
+		border-top: 4px solid ${themeGet('colors.accent.logo')(props)};
+		border-bottom: 1px solid #ACACAC;
+	`};
+
+	${fontSize};
 `;
+
+Bar.propTypes = {
+	/** test */
+	top: PropTypes.number,
+	/** tesadfdst */
+	zIndex: PropTypes.number,
+	navBorder: PropTypes.bool
+};
+
+Bar.defaultProps = {
+	top: 0,
+	zIndex: 100,
+	navBorder: false
+};
+
+Bar.displayName = 'Bar';
 
 export default Bar;

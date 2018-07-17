@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+import { space, display, color, height, width } from 'styled-system';
 
-import { icons } from './icon-names';
-import iconMapper from './icon-names';
-
+import iconMapper, { icons } from './icon-names';
 
 // size is one of xs, s, md, lg, xl
 const iconSize = {
@@ -61,18 +60,33 @@ const alignToText = css`
 	use { color: inherit; }
 `;
 
-const SVGWrapper = styled.svg`
-	${baseStyles};
-	${prop => prop.type === 'outline' && outlineStyles};
-	${prop => prop.alignToText && alignToText};
-	${prop => (prop.strokeSize === 1 || prop.strokeSize === 3) && oddStroke};
+const glyph = css`
+	stroke-width: 0;
+`;
 
+const outline = css`
+	${outlineStyles};
+	${prop => (prop.strokeSize === 1 || prop.strokeSize === 3) && oddStroke};
+	stroke-width: ${prop => strokeSize[prop.strokeSize]};
+`;
+
+export const SVGWrapper = styled.svg`
+	${baseStyles};
+	${space};
+	${display};
+
+	${prop => prop.type == 'outline' ? outline : glyph};
+	${prop => prop.alignToText && alignToText};
 
 	height: ${prop => iconSize[prop.iconSize]};
 	width: ${prop => iconSize[prop.iconSize]};
 
-	stroke-width: ${prop => strokeSize[prop.strokeSize]};
-
+	${prop => prop.rotate && `
+		transform: rotate(${prop.rotate});
+	`};
+	${color};
+	${height};
+	${width};
 `;
 
 const Icon = ({
@@ -82,11 +96,11 @@ const Icon = ({
 	type,
 	...props
 }) => (
-	<SVGWrapper type={type} {...props}>
+	<SVGWrapper type={type} {...props} viewBox="0 0 48 48">
 		<g>
 			{title && <title>{title}</title>}
 			{description && <desc>{description}</desc>}
-			<use xlinkHref={iconMapper(name, type)} />
+			{iconMapper(name, type)}
 		</g>
 	</SVGWrapper>
 );
