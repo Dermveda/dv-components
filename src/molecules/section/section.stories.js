@@ -8,11 +8,13 @@ import { object, text, select } from '@storybook/addon-knobs/react';
 /* eslint-enable import/no-extraneous-dependencies */
 
 import SectionReadme from './docs/section.md';
+import CircleReadme from './docs/circle-section.md';
+
 import Section from './section';
+import CircleSection from './circle-section';
 
 storiesOf('Molecules/Section', module)
-	.addDecorator(withReadme(SectionReadme))
-	.add('simple section', () => {
+	.add('simple section', withReadme(SectionReadme, () => {
 		const buttonAttributes = {
 			text: 'Start Earning CE',
 			onClick: action('clicked section cta'),
@@ -42,8 +44,8 @@ storiesOf('Molecules/Section', module)
 				pharetra nisl.
 			</Section>
 		);
-	})
-	.add('with background image', () => {
+	}))
+	.add('with background image', withReadme(SectionReadme, () => {
 		const buttonAttributes = {
 			text: 'Start Earning CE',
 			onClick: action('clicked section cta'),
@@ -76,8 +78,8 @@ storiesOf('Molecules/Section', module)
 				pharetra nisl.
 			</Section>
 		);
-	})
-	.add('with background image pattern', () => {
+	}))
+	.add('with background image pattern', withReadme(SectionReadme, () => {
 		const buttonAttributes = {
 			text: 'Start Earning CE',
 			onClick: action('clicked section cta'),
@@ -87,19 +89,19 @@ storiesOf('Molecules/Section', module)
 
 		return (
 			<Section
-				bg="gray.light"
-				imageAttributes={{
+				bg={text('bg', 'gray.light')}
+				imageAttributes={object('imageAttributes', {
 					src: 'http://fillmurray.com/100/100',
 					alt: 'something',
-				}}
-				titleAttributes={{
+				})}
+				titleAttributes={object('titleAttributes', {
 					fontFamily: 'styled'
-				}}
-				backgroundImage={{
+				})}
+				backgroundImage={object('backgroundImage', {
 					url: 'https://transparenttextures.com/patterns/always-grey.png',
 					pattern: true,
 					size: '90px'
-				}}
+				})}
 				title={text('Title', 'Why LearnSkin')}
 				buttonAttributes={object('button', buttonAttributes)}
 				type={select('background', ['white', 'gray', 'primary', 'tertiary'], 'white')}
@@ -110,4 +112,22 @@ storiesOf('Molecules/Section', module)
 				pharetra nisl.
 			</Section>
 		);
-	});
+	}))
+	.add('circle section', withReadme(CircleReadme, () => (
+		<div style={{ marginTop: '120px' }}>
+			<CircleSection
+				content
+				bg="gray.light"
+				centered
+				circleAttributes={object('circleAttributes', {
+					text: 'Hi there I\'m and example!',
+					bg: 'tomato'
+				})}
+			>
+				Duis sit amet sem mi. Maecenas aliquam, orci in imperdiet
+				dapibus, tellus metus sodales dolor, et tempus lacus eros
+				eget dolor. Etiam quis metus commodo, rhoncus velit ultrices,
+				pharetra nisl.
+			</CircleSection>
+		</div>
+	)));

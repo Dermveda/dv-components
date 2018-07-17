@@ -1,5 +1,5 @@
 export { default as CallToAction } from './call-to-action';
-export { default as Section } from './section';
+export { Section, CircleSection } from './section';
 export { default as AppBar } from './app-bar';
 export { default as DesktopMenu } from './desktop-menu';
 export { default as InlineForm } from './inline-form';
