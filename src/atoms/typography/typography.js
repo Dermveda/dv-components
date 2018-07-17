@@ -59,7 +59,7 @@ export const Content = createSkeletonElement(makeContent);
 
 const boxUtils = [
 	'flex', 'space', 'color', 'display', 'width', 'textAlign', 'lineHeight', 'fontWeight', 'letterSpacing',
-	'maxWidth', 'minWidth', 'height', 'maxHeight', 'minHeight', 'borders', 'hover', 'alignSelf', 'justifySelf'
+	'maxWidth', 'minWidth', 'height', 'maxHeight', 'minHeight', 'borders', 'hover', 'alignSelf', 'justifySelf', 'position', 'zIndex', 'top', 'left', 'bottom', 'right'
 ];
 
 const flexBox = [

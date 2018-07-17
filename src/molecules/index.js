@@ -13,3 +13,4 @@ export { default as ArticleListHeader } from './article-list-header';
 export { UserDropdown, HoverNav } from './hover-nav';
 export { MobileInPageNav, InPageNav, DesktopInPageNav } from './inpage-nav';
 export { default as MobileMenuContainer } from './menu-container';
+export { default as VideoSection } from './video-section';
