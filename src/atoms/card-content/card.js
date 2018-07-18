@@ -4,18 +4,25 @@ import { fontSize } from 'utils';
 import { flipOrder } from 'styles';
 import { space } from 'styled-system';
 
-export const Card = sys({
-	border: '1px solid #ececec',
-	borderRadius: '3px',
-	background: 'white',
-	display: 'flex',
-	flexDirection: 'column',
-	flexWrap: 'nowrap',
-	maxWidth: 500,
-	color: '#2b2b2b',
-}, 'boxShadow', 'space', 'hover', 'flex', () => `
+export const Card = sys(
+	{
+		border: '1px solid #ececec',
+		borderRadius: '3px',
+		background: 'white',
+		display: 'flex',
+		flexDirection: 'column',
+		flexWrap: 'nowrap',
+		maxWidth: [500, 500, 384],
+		color: '#2b2b2b'
+	},
+	'boxShadow',
+	'space',
+	'hover',
+	'flex',
+	() => `
 	transition: all .2s ease-in-out;
-`);
+`
+);
 
 export const CardContainer = sys({
 	is: 'div',
@@ -56,7 +63,7 @@ export const CardSubtitle = styled.h4.attrs({
 
 	color: #717171;
 	text-transform: uppercase;
-	letter-spacing: .04rem;
+	letter-spacing: 0.04rem;
 `;
 
 export const CardHeader = styled.header`
@@ -73,10 +80,13 @@ export const CardText = styled.p.attrs({
 	line-height: 1.5;
 `;
 
-export const CardFooter = sys({
-	is: 'footer',
-	pt: 3,
-	mt: 'auto',
-	gridRowStart: 2,
-	gridRowEnd: 3
-}, 'width');
+export const CardFooter = sys(
+	{
+		is: 'footer',
+		pt: 3,
+		mt: 'auto',
+		gridRowStart: 2,
+		gridRowEnd: 3
+	},
+	'width'
+);
