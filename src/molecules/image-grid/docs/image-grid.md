@@ -1,6 +1,8 @@
 ## About
 A column view of image and content that breaks down to a flex column
 
+- [x] Has skeleton loading
+
 ## Usage
 Any props passed to the `imageAttributes` attribute will be passed down to the image tag.
 
