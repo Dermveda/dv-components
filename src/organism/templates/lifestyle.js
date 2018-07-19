@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import btoa from 'btoa';
 import { Wiggle } from 'img';
-import {
-	Card, CardImage, CardContainer, CardHeader, CardTitle, CardSubtitle, CardFooter, LinkWrapper, FlexBox, Content
-} from 'atoms';
+import { Card, CardImage, CardContainer, CardHeader, CardTitle, CardSubtitle, CardFooter, LinkWrapper, FlexBox, Content } from 'atoms';
 import { Section } from 'molecules';
 
 const cardContentStyles = {
@@ -19,16 +17,19 @@ const cardContentStyles = {
 
 export default class CardRow extends Component {
 	static propTypes = {
-		articles: PropTypes.arrayOf(PropTypes.shape({
-			imageAttributes: PropTypes.shape({
-				src: PropTypes.string.isRequired,
-				alt: PropTypes.string.isRequired
-			}),
-			to: PropTypes.string.isRequired,
-			title: PropTypes.string.isRequired,
-			subtitleLink: PropTypes.string,
-			subtitle: PropTypes.string
-		})),
+		articles: PropTypes.arrayOf(
+			PropTypes.shape({
+				imageAttributes: PropTypes.shape({
+					src: PropTypes.string.isRequired,
+					alt: PropTypes.string.isRequired
+				}),
+				to: PropTypes.string.isRequired,
+				title: PropTypes.string.isRequired,
+				subtitleLink: PropTypes.string,
+				subtitle: PropTypes.string,
+				cardAttributes: PropTypes.object
+			})
+		),
 		renderFooter: PropTypes.func,
 		headerAttributes: PropTypes.shape({
 			title: PropTypes.string,
@@ -39,7 +40,7 @@ export default class CardRow extends Component {
 		showAll: PropTypes.bool,
 		description: PropTypes.string,
 		footerProps: PropTypes.arrayOf(PropTypes.string)
-	}
+	};
 
 	static defaultProps = {
 		renderFooter: () => {},
@@ -47,21 +48,21 @@ export default class CardRow extends Component {
 		showAll: false,
 		description: null,
 		headerAttributes: null
-	}
+	};
 
-	pluckProps = (footerProps, props) => Object
-		.keys(props)
-		.filter(x => footerProps.includes(x))
-		.reduce((acc, curr) => ({ ...acc, [curr]: props[curr] }), {});
+	pluckProps = (footerProps, props) =>
+		Object.keys(props)
+			.filter(x => footerProps.includes(x))
+			.reduce((acc, curr) => ({ ...acc, [curr]: props[curr] }), {});
 
-	renderFooter = (article) => {
+	renderFooter = article => {
 		const { footerProps, renderFooter } = this.props;
 		const renderProps = this.pluckProps(footerProps, article);
 		return renderFooter(renderProps);
-	}
+	};
 
 	renderArticleRow = ({ ...article }) => (
-		<Card mx={2} my={3} boxShadow={1} flex="1 300px" hover={{ boxShadow: 2 }}>
+		<Card mx={2} my={3} boxShadow={1} flex="1 300px" hover={{ boxShadow: 2 }} {...article.cardAttributes}>
 			{article.imageAttributes && (
 				<LinkWrapper to={article.to}>
 					<CardImage {...article.imageAttributes} />
@@ -78,38 +79,24 @@ export default class CardRow extends Component {
 						</LinkWrapper>
 					)}
 				</CardHeader>
-				{this.renderFooter && (
-					<CardFooter width="100%">
-						{this.renderFooter(article)}
-					</CardFooter>
-				)}
+				{this.renderFooter && <CardFooter width="100%">{this.renderFooter(article)}</CardFooter>}
 			</CardContainer>
 		</Card>
-	)
+	);
 
 	render = () => {
-		const {
-			articles,
-			headerAttributes,
-			description,
-			footerProps,
-			showAll,
-			renderFooter,
-			...props
-		} = this.props;
+		const { articles, headerAttributes, description, footerProps, showAll, renderFooter, ...props } = this.props;
 
-		const rowArticles = showAll ?
-			articles.map(this.renderArticleRow) :
-			articles
-				.slice(0, 3)
-				.map(this.renderArticleRow);
+		const rowArticles = showAll ? articles.map(this.renderArticleRow) : articles.slice(0, 3).map(this.renderArticleRow);
 
-		const buttonAttributes = headerAttributes ? {
-			...headerAttributes.buttonAttributes,
-			buttonLeft: false,
-			small: true,
-			type: 'primary'
-		} : undefined;
+		const buttonAttributes = headerAttributes
+			? {
+				...headerAttributes.buttonAttributes,
+				buttonLeft: false,
+				small: true,
+				type: 'primary'
+			  }
+			: undefined;
 
 		return (
 			<Section
@@ -131,24 +118,12 @@ export default class CardRow extends Component {
 					pb: 1,
 					color: 'accent.tertiary',
 					fontWeight: 400
-				}}
-			>
-				{description && (
-					<Content {...cardContentStyles}>
-						{description}
-					</Content>
-				)}
-				<FlexBox
-					display="flex"
-					flexDirection="row"
-					pt={4}
-					flexWrap="wrap"
-					justifyContent="center"
-					alignItems="stretch"
-				>
+				}}>
+				{description && <Content {...cardContentStyles}>{description}</Content>}
+				<FlexBox display="flex" flexDirection="row" pt={4} flexWrap="wrap" justifyContent="center" alignItems="stretch">
 					{rowArticles}
 				</FlexBox>
 			</Section>
 		);
-	}
+	};
 }

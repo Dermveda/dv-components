@@ -4,7 +4,7 @@ import { fontSize } from 'utils';
 import { flipOrder } from 'styles';
 import { space } from 'styled-system';
 
-export const Card = sys(
+export const CreateCard = sys(
 	{
 		border: '1px solid #ececec',
 		borderRadius: '3px',
@@ -12,17 +12,18 @@ export const Card = sys(
 		display: 'flex',
 		flexDirection: 'column',
 		flexWrap: 'nowrap',
-		maxWidth: [500, 500, 384],
 		color: '#2b2b2b'
 	},
 	'boxShadow',
 	'space',
 	'hover',
 	'flex',
-	() => `
-	transition: all .2s ease-in-out;
-`
+	'maxWidth'
 );
+
+export const Card = styled(CreateCard).attrs({ maxWidth: props => props.maxWidth || [500, 500, 384] })`
+	transition: all 0.2s ease -in -out;
+`;
 
 export const CardContainer = sys({
 	is: 'div',
