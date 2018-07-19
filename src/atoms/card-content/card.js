@@ -1,5 +1,6 @@
 import sys from 'system-components';
 import styled from 'styled-components';
+import { createSkeletonElement } from '@trainline/react-skeletor';
 import { fontSize } from 'utils';
 import { flipOrder } from 'styles';
 import { space } from 'styled-system';
@@ -33,7 +34,7 @@ export const CardContainer = sys({
 	height: '100%'
 });
 
-export const CardImage = sys({
+const makeCardImage = sys({
 	is: 'img',
 	p: 0,
 	mt: '-1px',
@@ -43,7 +44,9 @@ export const CardImage = sys({
 	width: 'calc(100% + 2px)'
 });
 
-export const CardTitle = styled.h3.attrs({
+export const CardImage = createSkeletonElement(makeCardImage);
+
+const makeCardTitle = styled.h3.attrs({
 	fontSize: [2, 3],
 	pb: 2,
 	m: 0
@@ -54,7 +57,9 @@ export const CardTitle = styled.h3.attrs({
 	font-weight: 700;
 `;
 
-export const CardSubtitle = styled.h4.attrs({
+export const CardTitle = createSkeletonElement(makeCardTitle);
+
+const makeCardSubtitle = styled.h4.attrs({
 	fontSize: [0, 1],
 	pb: 1,
 	m: 0
@@ -67,11 +72,13 @@ export const CardSubtitle = styled.h4.attrs({
 	letter-spacing: 0.04rem;
 `;
 
+export const CardSubtitle = createSkeletonElement(makeCardSubtitle);
+
 export const CardHeader = styled.header`
 	${flipOrder};
 `;
 
-export const CardText = styled.p.attrs({
+const makeCardText = styled.p.attrs({
 	fontSize: 1,
 	m: 0
 })`
@@ -81,7 +88,9 @@ export const CardText = styled.p.attrs({
 	line-height: 1.5;
 `;
 
-export const CardFooter = sys(
+export const CardText = createSkeletonElement(makeCardText);
+
+const makeCardFooter = sys(
 	{
 		is: 'footer',
 		pt: 3,
@@ -91,3 +100,5 @@ export const CardFooter = sys(
 	},
 	'width'
 );
+
+export const CardFooter = createSkeletonElement(makeCardFooter);
