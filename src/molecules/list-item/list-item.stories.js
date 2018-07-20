@@ -22,13 +22,15 @@ storiesOf('Molecules/List Item', module)
 				title={text('title', 'Physicians CME')}
 				buttonAttributes={object('button', buttonAttributes)}
 				type={select('background', ['white', 'gray', 'primary'], 'white')}
-				subtitle={text('subtitle', 'Something')}
-			>
-				{text('description', `
+				subtitle={text('subtitle', 'Something')}>
+				{text(
+					'description',
+					`
 					We’re on a mission to provide mobile-friendly continuing education
 					taught by the world’s top skin care experts. Receive CE credits from anywhere
 					in the world, on any device.
-				`)}
+				`
+				)}
 			</ListItem>
 		);
 	})
@@ -49,13 +51,15 @@ storiesOf('Molecules/List Item', module)
 				iconAttributes={object('icon', iconAttributes)}
 				buttonAttributes={object('button', buttonAttributes)}
 				subtitle={text('subtitle', 'Something')}
-				type={select('background', ['white', 'grey', 'primary'], 'white')}
-			>
-				{text('description', `
+				type={select('background', ['white', 'grey', 'primary'], 'white')}>
+				{text(
+					'description',
+					`
 					We’re on a mission to provide mobile-friendly continuing education
 					taught by the world’s top skin care experts. Receive CE credits from anywhere
 					in the world, on any device.
-				`)}
+				`
+				)}
 			</IconListItem>
 		);
 	})
@@ -73,17 +77,20 @@ storiesOf('Molecules/List Item', module)
 
 		return (
 			<ImageListItem
+				to={text('to', '/')}
 				title={text('title', 'Physicians CME')}
 				subtitle={text('subtitle', 'Something')}
 				imageAttributes={object('icon', imageAttributes)}
 				buttonAttributes={object('button', buttonAttributes)}
-				type={select('background', ['white', 'grey', 'primary'], 'white')}
-			>
-				{text('description', `
+				type={select('background', ['white', 'grey', 'primary'], 'white')}>
+				{text(
+					'description',
+					`
 					We’re on a mission to provide mobile-friendly continuing education
 					taught by the world’s top skin care experts. Receive CE credits from anywhere
 					in the world, on any device.
-				`)}
+				`
+				)}
 			</ImageListItem>
 		);
 	});
