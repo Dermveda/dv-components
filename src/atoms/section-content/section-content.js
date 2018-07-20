@@ -2,10 +2,16 @@ import sys from 'system-components';
 import styled from 'styled-components';
 import { fontSize } from 'utils';
 
-const makeSectionTitle = sys({
-	fontWeight: 700,
-	m: 0
-}, 'color', 'textAlign', 'fontFamily', 'lineHeight');
+const makeSectionTitle = sys(
+	{
+		fontWeight: 700,
+		m: 0
+	},
+	'color',
+	'textAlign',
+	'fontFamily',
+	'lineHeight'
+);
 
 export const SectionTitle = styled(makeSectionTitle).attrs({
 	fontSize: props => props.fontSize || [4, 5],
@@ -18,10 +24,10 @@ export const SectionTitle = styled(makeSectionTitle).attrs({
 	${fontSize};
 `;
 
-const makeSectionBody = sys('color', 'flex', 'flexWrap', 'flexDirection', 'justifyContent', 'alignItems', 'space' ,'width');
+const makeSectionBody = sys('color', 'flex', 'display', 'flexWrap', 'flexDirection', 'justifyContent', 'alignItems', 'space', 'width');
 
 export const SectionBody = styled(makeSectionBody).attrs({
-	fontSize: props => props.fontSize || [1, 2],
+	fontSize: props => props.fontSize || [1, 2]
 })`
 	${fontSize};
 `;

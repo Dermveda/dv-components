@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 const NoStyleLink = styled(Link)`
 	color: inherit;
 	text-decoration: none;
+	cursor: pointer;
 
 	display: block;
 	&:hover {
@@ -16,9 +17,14 @@ const NoStyleLink = styled(Link)`
 	${height};
 `;
 
-const LinkWrapper = ({ to, children, ...props }) => to ?
-	<NoStyleLink {...props} to={to}>{children}</NoStyleLink> :
-	<React.Fragment>{children}</React.Fragment>;
+const LinkWrapper = ({ to, children, ...props }) =>
+	to ? (
+		<NoStyleLink {...props} to={to}>
+			{children}
+		</NoStyleLink>
+	) : (
+		<React.Fragment>{children}</React.Fragment>
+	);
 
 LinkWrapper.propTypes = {
 	to: PropTypes.string,
