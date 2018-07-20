@@ -77,7 +77,7 @@ storiesOf('Molecules/List Item', module)
 
 		return (
 			<ImageListItem
-				to={text('to', '/')}
+				internalLink={text('to', '/')}
 				title={text('title', 'Physicians CME')}
 				subtitle={text('subtitle', 'Something')}
 				imageAttributes={object('icon', imageAttributes)}

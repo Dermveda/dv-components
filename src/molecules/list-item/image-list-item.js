@@ -17,6 +17,7 @@ class ImageListItem extends Component {
 		title: PropTypes.string.isRequired,
 		subtitle: PropTypes.string,
 		to: PropTypes.string,
+		href: PropTypes.string,
 		imageAttributes: PropTypes.shape({
 			src: PropTypes.string.isRequired,
 			alt: PropTypes.string.isRequired
@@ -45,12 +46,12 @@ class ImageListItem extends Component {
 		);
 
 	render() {
-		const { imageAttributes, buttonAttributes, title, subtitle, children, to, ...attrs } = this.props;
+		const { imageAttributes, buttonAttributes, title, subtitle, children, to, href, ...attrs } = this.props;
 		const { text, ...buttonProps } = buttonAttributes;
 
 		return (
 			<ListItemContainer {...attrs}>
-				<LinkWrapper to={to}>
+				<LinkWrapper to={to} href={href}>
 					<ListItemImage {...imageAttributes} />
 					<ListItemHeader mt={3}>
 						<ListItemTitle>{title}</ListItemTitle>
