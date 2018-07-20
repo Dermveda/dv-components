@@ -7,11 +7,14 @@ import {
 	ListItemHeader,
 	ArrowButton,
 	ArrowButtonLink,
-	Subtitle
+	Subtitle,
+	LinkWrapper
 } from 'atoms';
 
 class ListItem extends Component {
 	static propTypes = {
+		to: PropTypes.string,
+		href: PropTypes.string,
 		title: PropTypes.string.isRequired,
 		children: PropTypes.node.isRequired,
 		subtitle: PropTypes.string,
@@ -37,16 +40,18 @@ class ListItem extends Component {
 	)
 
 	render() {
-		const { title, children, buttonAttributes, subtitle, ...attrs } = this.props;
+		const { title, children, to, href, buttonAttributes, subtitle, ...attrs } = this.props;
 		const { text, ...buttonProps } = buttonAttributes;
 
 		return (
 			<ListItemContainer {...attrs}>
-				<ListItemHeader>
-					<ListItemTitle>{title}</ListItemTitle>
-					{subtitle && <Subtitle pb={1} color="#717171">{subtitle}</Subtitle>}
-				</ListItemHeader>
-				<ListItemBody>{children}</ListItemBody>
+				<LinkWrapper to={to} href={href}>
+					<ListItemHeader>
+						<ListItemTitle>{title}</ListItemTitle>
+						{subtitle && <Subtitle pb={1} color="#717171">{subtitle}</Subtitle>}
+					</ListItemHeader>
+					<ListItemBody>{children}</ListItemBody>
+				</LinkWrapper>
 				{text && this.renderButton(buttonProps, text)}
 			</ListItemContainer>
 		);

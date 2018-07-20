@@ -19,6 +19,22 @@ this will output the following html:
 </a>
 ```
 
+### With external link
+```javascript
+import { Atoms } from '@dnovicki/dv-components';
+
+<Atoms.LinkWrapper href="http://google.com" target="_blank" rel="noopener noreferrer">
+	<div>i am a link</div>
+</Atoms.LinkWrapper>
+```
+
+this will output the following html:
+```html
+<a href="http://localhost/tester">
+	<div>i am a link</div>
+</a>
+```
+
 ### Without internal Link
 ```javascript
 import { Atoms } from '@dnovicki/dv-components';
