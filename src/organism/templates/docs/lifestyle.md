@@ -3,13 +3,13 @@
 A listing of articles used for templates. Use only for lifestyle articles (used to be known as Skintegrative). This is for articles
 that are not necessarily scientific or data driven, but are more like Top 10 things to do when you have acne kinda thing.
 
-- [x] Allows Skeleton Loading
+-   [x] Allows Skeleton Loading
 
 ## Usage
+
 Render footer is passed the props that are defined in footer props. These props are [plucked](https://ramdajs.com/docs/#pluck) from
 the articles object. The render footer function then can be given a function that returns a JSX object that will render underneath the
 article title.
-
 
 ```javascript
 import { Organisms } from '@dnovicki/dv-components';
@@ -50,8 +50,9 @@ const article = {
 ```
 
 ## Custom PropTypes
+
 | property         | propType         | required | default | description                                                                                       |
-|:-----------------|:-----------------|:---------|:--------|:--------------------------------------------------------------------------------------------------|
+| :--------------- | :--------------- | :------- | :------ | :------------------------------------------------------------------------------------------------ |
 | articles         | [articles]       | true     |         | array of articles to list                                                                         |
 | description      | string           | false    |         | text that appears underneath the article list header                                              |
 | headerAttributes | headerAttributes | false    | null    | attributes that are passed directly to the article list header                                    |
@@ -60,35 +61,46 @@ const article = {
 | showAll          | boolean          | false    | false   | normally the listing of cards is limited to three, this will create unlimited amount of card rows |
 
 ### articles
+
 | property        | propType        | required | default | description                                                       |
-|:----------------|:----------------|:---------|:--------|:------------------------------------------------------------------|
+| :-------------- | :-------------- | :------- | :------ | :---------------------------------------------------------------- |
 | title           | string          | true     |         | title of article                                                  |
 | to              | string          | true     |         | internal link to article                                          |
 | imageAttributes | imageAttributes | true     |         | image information                                                 |
 | subtitle        | string          | false    | null    | subtitle text to appear above article title                       |
 | subtitle link   | string          | false    | null    | link that wraps around the subtitle (typically for category urls) |
 | description     | string          | false    | null    | text to appear underneath the title                               |
+| cardAttributes  | cardAttributes  | false    |         | card styles                                                       |
 
 ### imageAttributes
+
 Any [valid img attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img) can be passed to this object to an img tag.
 
 | property | propType | required | default | description    |
-|:---------|:---------|:---------|:--------|:---------------|
+| :------- | :------- | :------- | :------ | :------------- |
 | src      | string   | true     |         | image url      |
 | alt      | string   | true     |         | image alt text |
 
+## cardAttributes
+
+| property | propType | required | default         | description                      |
+| :------- | :------- | :------- | :-------------- | :------------------------------- |
+| maxWidth | array    | false    | [500, 500, 384] | breakpoints for card's max-width |
+
 ### headerAttributes
+
 Attributes that are passed directly to the article list header (the bar the appears above the listing of articles)
-| property         | propType         | required | default | description                                                                              |
+| property | propType | required | default | description |
 |:-----------------|:-----------------|:---------|:--------|:-----------------------------------------------------------------------------------------|
-| title            | string           | false    | null    | text that appears on the left side of the bar                                            |
-| buttonAttributes | buttonAttributes | false    | null    | button attributes passed to the button element that appears on the right side of the bar |
+| title | string | false | null | text that appears on the left side of the bar |
+| buttonAttributes | buttonAttributes | false | null | button attributes passed to the button element that appears on the right side of the bar |
 
 ### buttonAttributes
+
 one of href or to is required
 
 | property | propType | required | default | description                       |
-|:---------|:---------|:---------|:--------|:----------------------------------|
+| :------- | :------- | :------- | :------ | :-------------------------------- |
 | to       | string   | X        |         | internal url for link             |
 | href     | string   | X        |         | external url for link             |
 | text     | string   | true     |         | string that appears in the button |
