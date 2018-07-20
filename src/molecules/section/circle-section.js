@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { color } from 'styled-system';
+import tag from 'clean-tag';
 import { createSkeletonElement } from '@trainline/react-skeletor';
 import styled from 'styled-components';
 import Section from './section';
 
-const Circle = createSkeletonElement(styled('div')`
+const Circle = createSkeletonElement(styled(tag)`
 	width: 220px;
 	height: 220px;
 	font-weight: 500;
@@ -34,6 +35,7 @@ const Circle = createSkeletonElement(styled('div')`
 
 const SectionContainer = styled(Section).attrs({
 	fontSize: [2, 3],
+	mb: 2
 })`
 	& > div {
 		text-align: center;
@@ -42,7 +44,7 @@ const SectionContainer = styled(Section).attrs({
 	}
 
 	@media(min-width: 900px) {
-		margin-top: 40px !important;
+		margin-top: 120px !important;
 
 		& > div {
 			font-size: 1.8rem;
