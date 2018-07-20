@@ -62,8 +62,8 @@ class ImageListItem extends Component {
 						)}
 					</ListItemHeader>
 					<ListItemBody>{children}</ListItemBody>
-					{text && this.renderButton(buttonProps, text)}
 				</LinkWrapper>
+				{text && this.renderButton(buttonProps, text)}
 			</ListItemContainer>
 		);
 	}
