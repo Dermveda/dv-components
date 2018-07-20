@@ -16,6 +16,7 @@ class ImageListItem extends Component {
 	static propTypes = {
 		title: PropTypes.string.isRequired,
 		subtitle: PropTypes.string,
+		to: PropTypes.string,
 		imageAttributes: PropTypes.shape({
 			src: PropTypes.string.isRequired,
 			alt: PropTypes.string.isRequired
