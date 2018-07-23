@@ -2,8 +2,13 @@ import React from 'react';
 
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from '@storybook/react';
-import { text, boolean } from '@storybook/addon-knobs/react';
+import { withReadme } from 'storybook-readme';
+import { text, boolean, object } from '@storybook/addon-knobs/react';
 /* eslint-enable import/no-extraneous-dependencies */
+
+import AritcleRowReadme from './docs/article-row.md';
+import CardRowReadme from './docs/card-row.md';
+import LifestyleReadme from './docs/lifestyle.md';
 
 import TileFeatured from './tile-featured';
 import CardRow from './card-row';
@@ -24,36 +29,40 @@ const article = {
 };
 
 storiesOf('Organism/Templates', module)
-	.add('card row', () => (
+	.add('card row', withReadme(CardRowReadme, () => (
 		<CardRow
 			description={text('description', 'Something of a description can go here')}
-			headerAttributes={{
-				title: 'Article List'
-			}}
-			showAll={boolean('showAll', false)}
-			articles={[article, article, article, article, article]}
-			footerProps={['author', '_id']}
-			renderFooter={({ author, _id }) => (
-				<div>
-					{author && <p>{author}</p>}
-					{_id && <p>{_id}</p>}
-				</div>
-			)}
-		/>
-	))
-	.add('Lifestyle', () => (
-		<Lifestyle
-			headerAttributes={{
+			headerAttributes={object('headerAttributes', {
+				title: 'Article List',
 				buttonAttributes: {
 					to: '/sdf',
 					text: 'Something'
 				},
-				title: 'Article List'
-			}}
+			})}
 			showAll={boolean('showAll', false)}
-			description={text('description', 'Nunc luctus neque et dolor dignissim scelerisque. In vitae porttitor lorem, ac vestibulum eros. Curabitur ac condimentum eros.')}
-			articles={[article, article, article, article, article]}
-			footerProps={['author', '_id']}
+			articles={object('articles', [article, article, article, article, article])}
+			footerProps={object('footerProps', ['author', '_id'])}
+			renderFooter={({ author, _id }) => (
+				<div style={{ marginTop: 'auto' }}>
+					{author && <p>{author}</p>}
+					{_id && <p>{_id}</p>}
+				</div>
+			)}
+		/>
+	)))
+	.add('Lifestyle', withReadme(LifestyleReadme, () => (
+		<Lifestyle
+			description={text('description', 'Something of a description can go here')}
+			headerAttributes={object('headerAttributes', {
+				title: 'Article List',
+				buttonAttributes: {
+					to: '/sdf',
+					text: 'Something'
+				},
+			})}
+			showAll={boolean('showAll', false)}
+			articles={object('articles', [article, article, article, article, article])}
+			footerProps={object('footerProps', ['author', '_id'])}
 			renderFooter={({ author, _id }) => (
 				<div>
 					{author && <p>{author}</p>}
@@ -61,19 +70,20 @@ storiesOf('Organism/Templates', module)
 				</div>
 			)}
 		/>
-	))
-	.add('tile featured', () => (
+	)))
+	.add('tile featured', withReadme(AritcleRowReadme, () => (
 		<TileFeatured
 			description={text('description', 'Something of a description can go here')}
-			headerAttributes={{
+			headerAttributes={object('headerAttributes', {
+				title: 'Article List',
 				buttonAttributes: {
 					to: '/sdf',
 					text: 'Something'
 				},
-				title: 'Article List'
-			}}
-			articles={[article, article, article]}
-			footerProps={['author', '_id']}
+			})}
+			showAll={boolean('showAll', false)}
+			articles={object('articles', [article, article, article, article, article])}
+			footerProps={object('footerProps', ['author', '_id'])}
 			renderFooter={({ author, _id }) => (
 				<div>
 					{author && <p>{author}</p>}
@@ -81,4 +91,4 @@ storiesOf('Organism/Templates', module)
 				</div>
 			)}
 		/>
-	));
+	)));

@@ -4,9 +4,10 @@ import styled from 'styled-components';
 import { height } from 'styled-system';
 import { Link } from 'react-router-dom';
 
-const NoStyleLink = styled(Link)`
+const ExternalLink = styled('a')`
 	color: inherit;
 	text-decoration: none;
+	cursor: pointer;
 
 	display: block;
 	&:hover {
@@ -16,12 +17,27 @@ const NoStyleLink = styled(Link)`
 	${height};
 `;
 
-const LinkWrapper = ({ to, children, ...props }) => to ?
-	<NoStyleLink {...props} to={to}>{children}</NoStyleLink> :
-	<React.Fragment>{children}</React.Fragment>;
+const InternalLink = ExternalLink.withComponent(Link);
+
+const LinkWrapper = ({ to, href, children, ...props }) => {
+	if (to)
+		return (
+			<InternalLink to={to} {...props}>
+				{children}
+			</InternalLink>
+		);
+	else if (href)
+		return (
+			<ExternalLink href={href} {...props} target="_blank" rel="noopener noreferrer">
+				{children}
+			</ExternalLink>
+		);
+	return <React.Fragment>{children}</React.Fragment>;
+};
 
 LinkWrapper.propTypes = {
 	to: PropTypes.string,
+	href: PropTypes.string,
 	children: PropTypes.node.isRequired
 };
 

@@ -1,5 +1,5 @@
 export { default as CallToAction } from './call-to-action';
-export { default as Section } from './section';
+export { Section, CircleSection } from './section';
 export { default as AppBar } from './app-bar';
 export { default as DesktopMenu } from './desktop-menu';
 export { default as InlineForm } from './inline-form';
@@ -13,3 +13,5 @@ export { default as ArticleListHeader } from './article-list-header';
 export { UserDropdown, HoverNav } from './hover-nav';
 export { MobileInPageNav, InPageNav, DesktopInPageNav } from './inpage-nav';
 export { default as MobileMenuContainer } from './menu-container';
+export { default as VideoSection } from './video-section';
+export { default as ImageGrid } from './image-grid'; 

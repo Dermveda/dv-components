@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import { space, themeGet, lineHeight } from 'styled-system';
+import { space, themeGet, lineHeight, maxWidth, width, height, borderRadius, flex } from 'styled-system';
 import { createSkeletonElement } from '@trainline/react-skeletor';
 import { flipOrder } from 'styles';
 import { fontSize } from 'utils';
 import { IconCircle } from 'atoms';
 
 const makeListItemTitle = styled.h3.attrs({
-	fontSize: [3, 4],
+	fontSize: props => props.fontSize || [1, 2],
 	lineHeight: 2,
 	pb: 3,
 	m: 0
@@ -14,6 +14,7 @@ const makeListItemTitle = styled.h3.attrs({
 	${space};
 	${lineHeight};
 	${fontSize};
+	font-weight: 600;
 	font-family: ${themeGet('fonts.display', 'serif')};
 `;
 export const ListItemTitle = createSkeletonElement(makeListItemTitle);
@@ -30,18 +31,25 @@ const makeListItemBody = styled.p.attrs({
 `;
 export const ListItemBody = createSkeletonElement(makeListItemBody);
 
-export const ListItemContainer = styled.li`
+export const ListItemContainer = styled.li.attrs({
+	flex: props => props.flex || '1 250px'
+})`
 	${space};
-	display: flex;
-	flex-flow: column nowrap;
-	align-items: flex-start;
-	background: ${props => themeGet(`backgrounds.${props.type}`, 'transparent')}
+	${maxWidth};
+	${width};
+	${flex};
+	display: block;
+	background: ${props => themeGet(`backgrounds.${props.type}`, 'transparent')};
 `;
 
-const makeListItemImage = styled.img`
-	width: 125px;
-	height: 125px;
-	border-radius: 100%;
+const makeListItemImage = styled.img.attrs({
+	width: props => props.width || '125px',
+	height: props => props.height || '125px',
+	borderRadius: props => props.borderRadius || '100%'
+})`
+	${width}
+	${height}
+	${borderRadius}
 `;
 export const ListItemImage = createSkeletonElement(makeListItemImage);
 
@@ -60,7 +68,7 @@ export const BulletItem = styled.span.attrs({
 	align-items: center;
 	justify-content: center;
 	color: white;
-	background: ${props => themeGet(`backgrounds.${props.type}`, 'white')}
+	background: ${props => themeGet(`backgrounds.${props.type}`, 'white')};
 `;
 
 export const BulletIcon = styled(IconCircle).attrs({

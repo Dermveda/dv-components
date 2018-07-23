@@ -4,8 +4,8 @@ import { ArticleRow } from 'molecules';
 
 export default class ArticleRowList extends Component {
 	static propTypes = {
-		footerProps: PropTypes.arrayOf(PropTypes.string).isRequired,
-		renderFooter: PropTypes.func.isRequired,
+		footerProps: PropTypes.arrayOf(PropTypes.string),
+		renderFooter: PropTypes.func,
 		articles: PropTypes.arrayOf(PropTypes.shape({
 			title: PropTypes.string.isRequired,
 			subtitle: PropTypes.string,
@@ -18,6 +18,11 @@ export default class ArticleRowList extends Component {
 				alt: PropTypes.string.isRequired
 			})
 		})).isRequired
+	}
+
+	static defaultProps = {
+		footerProps: [],
+		renderFooter: () => {}
 	}
 
 	pluckProps = (footerProps, props) => Object

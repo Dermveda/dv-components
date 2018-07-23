@@ -7,7 +7,7 @@ const makeH3Component = sys({
 	lineHeight: 1.25,
 	display: 'inline-block',
 	fontFamily: 'fonts.display'
-}, 'textAlign', 'space', 'fontWeight', 'fontSize', 'color', 'maxWidth');
+}, 'textAlign', 'space', 'fontWeight', 'color', 'maxWidth');
 
 const H3Component = styled(makeH3Component).attrs({
 	fontSize: props => props.fontSize || [2, 3, 3],
@@ -59,7 +59,7 @@ export const Content = createSkeletonElement(makeContent);
 
 const boxUtils = [
 	'flex', 'space', 'color', 'display', 'width', 'textAlign', 'lineHeight', 'fontWeight', 'letterSpacing',
-	'maxWidth', 'minWidth', 'height', 'maxHeight', 'minHeight', 'borders', 'hover', 'alignSelf', 'justifySelf'
+	'maxWidth', 'minWidth', 'height', 'maxHeight', 'minHeight', 'borders', 'hover', 'alignSelf', 'justifySelf', 'position', 'zIndex', 'top', 'left', 'bottom', 'right'
 ];
 
 const flexBox = [

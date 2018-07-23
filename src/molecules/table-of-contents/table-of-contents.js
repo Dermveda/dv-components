@@ -18,23 +18,9 @@ export default class TableOfContents extends Component {
 		</ExternalLink>
 	)
 
-	renderScrollLink = ({ ref = null, key = null, text }) => (
-		<PageLink
-			spy
-			to="test"
-			offset={-95}
-			duration={300}
-			smooth
-			activeClass="scrollLinkActive"
-		>
-			<span>{text}</span>
-		</PageLink>
-	)
-
 	renderLink = ({ to, href, ...props }) => {
 		if (to) return this.renderInternalLink({ to, ...props });
 		else if (href) return this.renderExternalLink({ href, ...props });
-		else return this.renderScrollLink(...props);
 	}
 
 	renderGrouping = ({ title, key, links }) => (
