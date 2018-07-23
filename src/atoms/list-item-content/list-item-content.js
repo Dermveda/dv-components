@@ -1,5 +1,18 @@
 import styled from 'styled-components';
-import { space, themeGet, lineHeight, maxWidth, width, height, borderRadius, flex } from 'styled-system';
+import {
+	space,
+	themeGet,
+	textAlign,
+	lineHeight,
+	flex,
+	maxWidth,
+	width,
+	height,
+	borders,
+	borderRadius,
+	borderWidth,
+	borderColor
+} from 'styled-system';
 import { createSkeletonElement } from '@trainline/react-skeletor';
 import { flipOrder } from 'styles';
 import { fontSize } from 'utils';
@@ -14,7 +27,7 @@ const makeListItemTitle = styled.h3.attrs({
 	${space};
 	${lineHeight};
 	${fontSize};
-	font-weight: 600;
+	font-weight: ${props => props.fontWeight || '600'};
 	font-family: ${themeGet('fonts.display', 'serif')};
 `;
 export const ListItemTitle = createSkeletonElement(makeListItemTitle);
@@ -32,12 +45,16 @@ const makeListItemBody = styled.p.attrs({
 export const ListItemBody = createSkeletonElement(makeListItemBody);
 
 export const ListItemContainer = styled.li.attrs({
-	flex: props => props.flex || '1 250px',
-	maxWidth: props => props.maxWidth || 'inherit'
+	flex: props => props.flex || '1 250px'
 })`
+	${flex};
 	${space};
 	${maxWidth};
-	${flex};
+	${borders};
+	${borderColor};
+	${borderRadius};
+	${borderWidth};
+	${textAlign};
 	display: block;
 	background: ${props => themeGet(`backgrounds.${props.type}`, 'transparent')};
 `;
