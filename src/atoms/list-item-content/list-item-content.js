@@ -36,6 +36,7 @@ export const ListItemContainer = styled.li.attrs({
 })`
 	${space};
 	${maxWidth};
+	${width};
 	${flex};
 	display: block;
 	background: ${props => themeGet(`backgrounds.${props.type}`, 'transparent')};
