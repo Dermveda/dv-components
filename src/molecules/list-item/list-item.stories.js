@@ -19,6 +19,7 @@ storiesOf('Molecules/List Item', module)
 
 		return (
 			<ListItem
+				to={text('to', 'internal link')}
 				title={text('title', 'Physicians CME')}
 				buttonAttributes={object('button', buttonAttributes)}
 				type={select('background', ['white', 'gray', 'primary'], 'white')}
@@ -47,6 +48,7 @@ storiesOf('Molecules/List Item', module)
 
 		return (
 			<IconListItem
+				to={text('to', '/tester')}
 				title={text('title', 'Physicians CME')}
 				iconAttributes={object('icon', iconAttributes)}
 				buttonAttributes={object('button', buttonAttributes)}
@@ -77,7 +79,7 @@ storiesOf('Molecules/List Item', module)
 
 		return (
 			<ImageListItem
-				internalLink={text('to', '/')}
+				to={text('to', '/tester')}
 				title={text('title', 'Physicians CME')}
 				subtitle={text('subtitle', 'Something')}
 				imageAttributes={object('icon', imageAttributes)}
