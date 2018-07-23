@@ -32,8 +32,7 @@ const makeListItemBody = styled.p.attrs({
 export const ListItemBody = createSkeletonElement(makeListItemBody);
 
 export const ListItemContainer = styled.li.attrs({
-	flex: props => props.flex || '1 250px',
-	maxWidth: props => props.maxWidth || 'inherit'
+	flex: props => props.flex || '1 250px'
 })`
 	${space};
 	${maxWidth};
