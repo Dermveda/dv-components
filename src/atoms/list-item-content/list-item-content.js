@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { space, themeGet, lineHeight, width, flex } from 'styled-system';
+import { space, themeGet, lineHeight, maxWidth, width, height, borderRadius, flex } from 'styled-system';
 import { createSkeletonElement } from '@trainline/react-skeletor';
 import { flipOrder } from 'styles';
 import { fontSize } from 'utils';
@@ -32,19 +32,24 @@ const makeListItemBody = styled.p.attrs({
 export const ListItemBody = createSkeletonElement(makeListItemBody);
 
 export const ListItemContainer = styled.li.attrs({
-	flex: props => props.flex || '1 250px'
+	flex: props => props.flex || '1 250px',
+	maxWidth: props => props.maxWidth || 'inherit'
 })`
 	${space};
-	${width};
+	${maxWidth};
 	${flex};
 	display: block;
 	background: ${props => themeGet(`backgrounds.${props.type}`, 'transparent')};
 `;
 
-const makeListItemImage = styled.img`
-	width: 125px;
-	height: 125px;
-	border-radius: 100%;
+const makeListItemImage = styled.img.attrs({
+	width: props => props.width || '125px',
+	height: props => props.height || '125px',
+	borderRadius: props => props.borderRadius || '100%'
+})`
+	${width}
+	${height}
+	${borderRadius}
 `;
 export const ListItemImage = createSkeletonElement(makeListItemImage);
 
