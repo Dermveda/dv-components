@@ -9,7 +9,8 @@ import {
 	ArrowButton,
 	ArrowButtonLink,
 	Subtitle,
-	LinkWrapper
+	LinkWrapper,
+	Box
 } from 'atoms';
 
 class ImageListItem extends Component {
@@ -41,9 +42,9 @@ class ImageListItem extends Component {
 				{text}
 			</ArrowButton>
 		) : (
-			<ArrowButtonLink {...buttonProps} mt={3}>
-				{text}
-			</ArrowButtonLink>
+			<Box mt={buttonProps.mt || 3}>
+				<ArrowButtonLink {...buttonProps}>{text}</ArrowButtonLink>
+			</Box>
 		);
 
 	render() {
