@@ -64,7 +64,8 @@ storiesOf('Molecules/Article Row', module)
 			description: '__________ ________ __________',
 			imageAttributes: {
 				src: '__________',
-				style: { height: 'calc(20vh)', maxHeight: '200px', display: 'block' }
+				style: { height: 'calc(20vh)', maxHeight: '200px', display: 'block' },
+				className: 'pending'
 			}
 		});
 

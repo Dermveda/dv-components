@@ -55,6 +55,7 @@ export const ListItemContainer = styled.li.attrs({
 	${borderRadius};
 	${borderWidth};
 	${textAlign};
+	${width};
 	display: block;
 	background: ${props => themeGet(`backgrounds.${props.type}`, 'transparent')};
 `;

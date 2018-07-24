@@ -4,7 +4,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withReadme } from 'storybook-readme';
-import { object, text, select } from '@storybook/addon-knobs/react';
+import { createSkeletonProvider } from '@trainline/react-skeletor';
+import { object, text, select, boolean } from '@storybook/addon-knobs/react';
 /* eslint-enable import/no-extraneous-dependencies */
 
 import SectionReadme from './docs/section.md';
@@ -130,4 +131,33 @@ storiesOf('Molecules/Section', module)
 				pharetra nisl.
 			</CircleSection>
 		</div>
-	)));
+	)))
+	.add('circle section skeleton loading', () => {
+		const createSkeletonWrapper = (props) => (
+			<CircleSection {...props} />
+		);
+
+		const SkeletonWrapper = createSkeletonProvider(
+			{
+				circleAttributes: {
+					text: '_________'
+				}
+			},
+			() => boolean('skeleton loading', true),
+			'pending'
+		)(createSkeletonWrapper);
+
+		return (
+			<SkeletonWrapper
+				content
+				bg="gray.light"
+				centered
+				circleAttributes={object('circleAttributes', {
+					text: 'Hi there I\'m and example!',
+					bg: 'tomato'
+				})}
+			>
+				Maecenas efficitur sed urna porttitor dictum. Mauris varius est eu libero consectetur pretium.
+			</SkeletonWrapper>
+		);
+	});
