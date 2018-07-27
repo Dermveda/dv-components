@@ -9,7 +9,8 @@ import {
 	ArrowButton,
 	ArrowButtonLink,
 	Subtitle,
-	LinkWrapper
+	LinkWrapper,
+	Box
 } from 'atoms';
 
 class ImageListItem extends Component {
@@ -26,7 +27,8 @@ class ImageListItem extends Component {
 		buttonAttributes: PropTypes.shape({
 			text: PropTypes.string.isRequired,
 			nostyle: true
-		})
+		}),
+		titleAttributes: PropTypes.object
 	};
 
 	static defaultProps = {
@@ -40,13 +42,13 @@ class ImageListItem extends Component {
 				{text}
 			</ArrowButton>
 		) : (
-			<ArrowButtonLink {...buttonProps} mt={3}>
-				{text}
-			</ArrowButtonLink>
+			<Box mt={buttonProps.mt || 3}>
+				<ArrowButtonLink {...buttonProps}>{text}</ArrowButtonLink>
+			</Box>
 		);
 
 	render() {
-		const { imageAttributes, buttonAttributes, title, subtitle, children, to, href, ...attrs } = this.props;
+		const { imageAttributes, buttonAttributes, title, titleAttributes, subtitle, children, to, href, ...attrs } = this.props;
 		const { text, ...buttonProps } = buttonAttributes;
 
 		return (
@@ -54,7 +56,7 @@ class ImageListItem extends Component {
 				<LinkWrapper to={to} href={href}>
 					<ListItemImage {...imageAttributes} />
 					<ListItemHeader mt={3}>
-						<ListItemTitle>{title}</ListItemTitle>
+						<ListItemTitle {...titleAttributes}>{title}</ListItemTitle>
 						{subtitle && (
 							<Subtitle pb={1} color="#717171">
 								{subtitle}
