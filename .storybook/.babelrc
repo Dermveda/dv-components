@@ -18,7 +18,7 @@
 				"theme": "./src/theme",
 				"atoms": "./src/atoms",
 				"styles": "./src/styles",
-				"organisms": "./src/organisms",
+				"organisms": "./src/organism",
 				"static": "./src/static",
 				"animations": "./src/animations",
 				"img": "./src/img"
