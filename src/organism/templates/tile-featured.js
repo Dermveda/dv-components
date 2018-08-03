@@ -1,32 +1,125 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Content } from 'atoms';
+import { Card, LinkWrapper, CardImage, CardContainer, CardHeader, CardTitle, CardSubtitle, CardFooter, Content, FlexBox } from 'atoms';
 import { ArticleListHeader, Section, ArticleRowList } from 'molecules';
+import { modifyCloudinary } from 'utils';
 
-const TileFeatured = ({
-	articles, description, renderFooter, footerProps, headerAttributes, ...props
-}) => {
-	const buttonAttributes = headerAttributes ? {
-		...headerAttributes.buttonAttributes,
-		noButtonSpacing: true,
-		buttonLeft: false,
-		nostyle: true,
-		small: true,
-		type: 'primary'
-	} : undefined;
+export default class TileFeatured extends Component {
+	pluckProps = (footerProps, props) =>
+		Object.keys(props)
+			.filter(x => footerProps.includes(x))
+			.reduce((acc, curr) => ({ ...acc, [curr]: props[curr] }), {});
 
-	return (
-		<Section centered content {...props} buttonAttributes={buttonAttributes}>
-			{headerAttributes && (<ArticleListHeader {...headerAttributes} />)}
-			{description && <Content mt={3} mb={2}>{description}</Content>}
-			<ArticleRowList
-				articles={articles}
-				renderFooter={renderFooter}
-				footerProps={footerProps}
-			/>
-		</Section>
-	);
-};
+	renderFooter = article => {
+		const { footerProps, renderFooter } = this.props;
+		const renderProps = this.pluckProps(footerProps, article);
+		return renderFooter(renderProps);
+	};
+
+	renderArticleTile = (article) => (
+		<Card mx={2} my={3} flex="2 600px" maxWidth="100%">
+			<FlexBox display={['block', 'none']}>
+				<LinkWrapper to={article.to}>
+					<CardImage {...article.imageAttributes} />
+				</LinkWrapper>
+			</FlexBox>
+			<FlexBox display="flex" alignItems="stretch" height="100%">
+				<FlexBox py={[4, 6]} alignSelf="center" px={3} flex="1 50%">
+					<CardHeader>
+						<LinkWrapper to={article.to}>
+							<CardTitle>{article.title}</CardTitle>
+						</LinkWrapper>
+						{article.subtitle && (
+							<LinkWrapper to={article.subtitleLink}>
+								<CardSubtitle>{article.subtitle}</CardSubtitle>
+							</LinkWrapper>
+						)}
+					</CardHeader>
+					{this.renderFooter && (
+						<CardFooter mt="auto" width="100%">
+							{this.renderFooter(article)}
+						</CardFooter>
+					)}
+				</FlexBox>
+				<FlexBox display={['none', 'block']} flex="1 50%" height="100%">
+					<LinkWrapper to={article.to} style={{ width: '100%', height: '100%' }}>
+						<div style={{
+							backgroundImage: `url("${modifyCloudinary(article.imageAttributes.src, { w: 400, h: 700, c: 'fill', g: 'auto' })}")`,
+							backgroundSize: 'cover',
+							backgroundPosition: 'center',
+							height:'100%'
+						}} />
+					</LinkWrapper>
+				</FlexBox>
+			</FlexBox>
+		</Card>
+	)
+
+	renderArticleCard = (article) => (
+		<Card mx={2} my={3} flex="1 300px" {...article.cardAttributes}>
+			{article.imageAttributes && (
+				<LinkWrapper to={article.to}>
+					<CardImage {...article.imageAttributes} />
+				</LinkWrapper>
+			)}
+			<CardContainer>
+				<CardHeader>
+					<LinkWrapper to={article.to}>
+						<CardTitle>{article.title}</CardTitle>
+					</LinkWrapper>
+					{article.subtitle && (
+						<LinkWrapper to={article.subtitleLink}>
+							<CardSubtitle>{article.subtitle}</CardSubtitle>
+						</LinkWrapper>
+					)}
+				</CardHeader>
+				{this.renderFooter && (
+					<CardFooter mt="auto" width="100%">
+						{this.renderFooter(article)}
+					</CardFooter>
+				)}
+			</CardContainer>
+		</Card>
+	)
+
+	render = () => {
+		const {
+			articles, description, renderFooter, footerProps, headerAttributes, ...props
+		} = this.props;
+
+		const buttonAttributes = headerAttributes ? {
+			...headerAttributes.buttonAttributes,
+			noButtonSpacing: true,
+			buttonLeft: false,
+			nostyle: true,
+			small: true,
+			type: 'primary'
+		} : undefined;
+
+		return (
+			<Section centered content {...props} buttonAttributes={buttonAttributes}>
+				{headerAttributes && (<ArticleListHeader {...headerAttributes} />)}
+				{description && <Content mt={3} mb={2}>{description}</Content>}
+				<FlexBox
+					flexWrap="wrap"
+					display="flex"
+					justifyContent="center"
+					alignItems="stretch"
+					mx={-2}
+					mb={5}
+				>
+					{this.renderArticleTile(articles[1])}
+					{this.renderArticleCard(articles[0])}
+				</FlexBox>
+				<ArticleRowList
+					articles={articles}
+					renderFooter={renderFooter}
+					footerProps={footerProps}
+				/>
+			</Section>
+		);
+	}
+}
 
 TileFeatured.propTypes = {
 	articles: PropTypes.arrayOf(PropTypes.shape({
@@ -56,5 +149,3 @@ TileFeatured.defaultProps = {
 	description: null,
 	headerAttributes: null
 };
-
-export default TileFeatured;

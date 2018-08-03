@@ -6,7 +6,7 @@ import { text } from '@storybook/addon-knobs/react';
 /* eslint-enable import/no-extraneous-dependencies */
 
 import { FlexBox } from 'atoms';
-import { RowListing, CardRow, Lifestyle } from '../organism';
+import { RowListing, CardRow, Lifestyle, TileFeatured, TileSmall } from '../organism';
 
 const article = {
 	_id: '59ead04ac9ad306351f29a7c',
@@ -24,7 +24,7 @@ const article = {
 
 storiesOf('CMS/Tag', module)
 	.add('tile-featured', () => (
-		<RowListing
+		<TileFeatured
 			description={text('description', 'Something of a description can go here (optional)')}
 			headerAttributes={{
 				title: text('Title', 'Background'),
@@ -50,7 +50,7 @@ storiesOf('CMS/Tag', module)
 		/>
 	))
 	.add('tile-small', () => (
-		<RowListing
+		<TileSmall
 			description={text('description', 'Something of a description can go here (optional)')}
 			headerAttributes={{
 				title: text('Title', 'Background'),
