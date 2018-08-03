@@ -52,3 +52,4 @@ export { Label, Select, Input, InlineFormContainer } from './form-elements';
 export { Dropdown, DropdownContainer } from './dropdown';
 export { MegaMenuItem, SubMenuContainer } from './mega-menu';
 export { default as LinkWrapper } from './link-wrapper';
+export { Sidebar, SidebarMain, Container } from './sidebar';
