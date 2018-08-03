@@ -15,6 +15,7 @@ export const CreateCard = sys(
 		flexWrap: 'nowrap',
 		color: '#2b2b2b'
 	},
+	'minWidth',
 	'boxShadow',
 	'space',
 	'hover',

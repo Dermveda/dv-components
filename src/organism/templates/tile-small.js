@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Card, LinkWrapper, CardImage, CardContainer, CardHeader, CardTitle, CardSubtitle, CardFooter, Content, FlexBox } from 'atoms';
 import { ArticleListHeader, Section, ArticleRowList } from 'molecules';
@@ -17,13 +18,23 @@ export default class TileFeatured extends Component {
 	};
 
 	renderArticleTile = (article) => (
-		<Card mx={2} my={3} flex="2 600px" maxWidth="100%">
+		<Card mx={2} my={3} flex="1 45%" maxWidth="100%" minWidth={['100%', '450px']}>
 			<FlexBox display={['block', 'none']}>
 				<LinkWrapper to={article.to}>
 					<CardImage {...article.imageAttributes} />
 				</LinkWrapper>
 			</FlexBox>
 			<FlexBox display="flex" alignItems="stretch" height="100%">
+				<FlexBox display={['none', 'block']} flex="1 50%" height="100%">
+					<LinkWrapper to={article.to} style={{ width: '100%', height: '100%' }}>
+						<div style={{
+							backgroundImage: `url("${modifyCloudinary(article.imageAttributes.src, { w: 400, h: 700, c: 'fill', g: 'auto' })}")`,
+							backgroundSize: 'cover',
+							backgroundPosition: 'center',
+							height:'100%'
+						}} />
+					</LinkWrapper>
+				</FlexBox>
 				<FlexBox py={[4, 6]} alignSelf="center" px={3} flex="1 50%">
 					<CardHeader>
 						<LinkWrapper to={article.to}>
@@ -41,44 +52,7 @@ export default class TileFeatured extends Component {
 						</CardFooter>
 					)}
 				</FlexBox>
-				<FlexBox display={['none', 'block']} flex="1 50%" height="100%">
-					<LinkWrapper to={article.to} style={{ width: '100%', height: '100%' }}>
-						<div style={{
-							backgroundImage: `url("${modifyCloudinary(article.imageAttributes.src, { w: 400, h: 700, c: 'fill', g: 'auto' })}")`,
-							backgroundSize: 'cover',
-							backgroundPosition: 'center',
-							height:'100%'
-						}} />
-					</LinkWrapper>
-				</FlexBox>
 			</FlexBox>
-		</Card>
-	)
-
-	renderArticleCard = (article) => (
-		<Card mx={2} my={3} flex="1 300px" {...article.cardAttributes}>
-			{article.imageAttributes && (
-				<LinkWrapper to={article.to}>
-					<CardImage {...article.imageAttributes} />
-				</LinkWrapper>
-			)}
-			<CardContainer>
-				<CardHeader>
-					<LinkWrapper to={article.to}>
-						<CardTitle>{article.title}</CardTitle>
-					</LinkWrapper>
-					{article.subtitle && (
-						<LinkWrapper to={article.subtitleLink}>
-							<CardSubtitle>{article.subtitle}</CardSubtitle>
-						</LinkWrapper>
-					)}
-				</CardHeader>
-				{this.renderFooter && (
-					<CardFooter mt="auto" width="100%">
-						{this.renderFooter(article)}
-					</CardFooter>
-				)}
-			</CardContainer>
 		</Card>
 	)
 
@@ -114,7 +88,7 @@ export default class TileFeatured extends Component {
 						mb={5}
 					>
 						{this.renderArticleTile(articles[0])}
-						{this.renderArticleCard(articles[1])}
+						{this.renderArticleTile(articles[1])}
 					</FlexBox>
 				)}
 				{articleList && (
