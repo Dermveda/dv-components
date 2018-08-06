@@ -8,7 +8,7 @@ import { Section } from 'molecules';
 const ImageGrid = styled(Section)`
 	& > div {
 		display: grid;
-		grid-template-columns: ${props => props.direction === 'right' ? 'minmax(700px, 1fr) 1fr' : '1fr minmax(700px, 1fr)'};
+		grid-template-columns: ${props => props.direction === 'right' ? 'minmax(60%, 1fr) 1fr' : '1fr minmax(60%, 1fr)'};
 		align-items: center;
 		padding: 0;
 
