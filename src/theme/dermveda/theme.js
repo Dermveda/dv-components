@@ -69,7 +69,7 @@ class DermvedaTheme extends React.Component {
 					families: ['Raleway:400,500,600,700']
 				},
 				typekit: {
-					id: 'vdp5fzz'
+					id: 'bsg6jcy'
 				}
 			});
 		}

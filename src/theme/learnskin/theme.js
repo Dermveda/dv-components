@@ -64,7 +64,7 @@ class LearnSkinTheme extends React.Component {
 			const webFont = require('webfontloader');
 			webFont.load({
 				typekit: {
-					id: 'tum6nht'
+					id: 'ffn7omn'
 				},
 				active: () => {
 					sessionStorage.fonts = true;
