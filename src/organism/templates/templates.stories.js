@@ -14,6 +14,7 @@ import RowListing from './row-listing';
 import TileFeatured from './tile-featured';
 import CardRow from './card-row';
 import Lifestyle from './lifestyle';
+import TileSmall from './tile-small';
 
 const article = {
 	_id: '59ead04ac9ad306351f29a7c',
@@ -94,22 +95,47 @@ storiesOf('Organism/Templates', module)
 		/>
 	)))
 	.add('tile featured', withReadme(AritcleRowReadme, () => (
-		<TileFeatured
-			description={text('description', 'Something of a description can go here')}
-			headerAttributes={object('headerAttributes', {
-				title: 'Article List',
-				buttonAttributes: {
-					to: '/sdf',
-					text: 'Something'
-				}
-			})}
-			showAll={boolean('showAll', false)}
-			articles={object('articles', [article, article, article, article, article])}
-			footerProps={object('footerProps', ['author', '_id'])}
-			renderFooter={({author, _id}) => (
-				<div>
-					{author && <p>{author}</p>}
-				</div>
-			)}
-		/>
-	)));
+		<div style={{ width: '66.666667%', padding: '15px' }}>
+			<TileFeatured
+				description={text('description', 'Something of a description can go here')}
+				headerAttributes={object('headerAttributes', {
+					title: 'Article List',
+					buttonAttributes: {
+						to: '/sdf',
+						text: 'Something'
+					}
+				})}
+				showAll={boolean('showAll', false)}
+				articles={object('articles', [article, article, article, article, article])}
+				footerProps={object('footerProps', ['author', '_id'])}
+				renderFooter={({author, _id}) => (
+					<div>
+						{author && <p>{author}</p>}
+					</div>
+				)}
+			/>
+		</div>
+	)))
+	.add('tile small', withReadme(AritcleRowReadme, () => (
+		<div style={{ width: '66.666667%' }}>
+			<TileSmall
+				description={text('description', 'Something of a description can go here')}
+				headerAttributes={object('headerAttributes', {
+					title: 'Article List',
+					buttonAttributes: {
+						to: '/sdf',
+						text: 'Something'
+					}
+				})}
+				showAll={boolean('showAll', false)}
+				articles={object('articles', [article, article, article, article, article])}
+				footerProps={object('footerProps', ['author', '_id'])}
+				renderFooter={({author, _id}) => (
+					<div>
+						{author && <p>{author}</p>}
+					</div>
+				)}
+			/>
+		</div>
+
+	)))
