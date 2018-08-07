@@ -44,44 +44,40 @@ const Box = styled.div.attrs({
 
 export default class MobileInPageNav extends Component {
 	static propTypes = {
-		links: PropTypes.arrayOf(PropTypes.shape({
-			to: PropTypes.string.isRequired,
-			text: PropTypes.string.isRequired
-		})).isRequired
-	}
+		links: PropTypes.arrayOf(
+			PropTypes.shape({
+				to: PropTypes.string.isRequired,
+				text: PropTypes.string.isRequired
+			})
+		).isRequired
+	};
 
 	state = {
 		selectedItem: this.props.links[0].text,
 		isHidden: true
-	}
+	};
 
-	componentDidUpdate = (prevProps) => {
+	componentDidUpdate = prevProps => {
 		if (this.props.links[0].text !== prevProps.links[0].text) {
 			this.setState({ selectedItem: this.props.links[0].text });
 		}
-	}
+	};
 
-	handleSetActive = to => this.setState({
-		selectedItem: this.props.links.find(x => x.to === to).text
-	})
+	handleSetActive = to =>
+		this.setState({
+			selectedItem: this.props.links.find(x => x.to === to).text
+		});
 
-	handleDropDownToggle = () => this.setState(({ isHidden }) => ({
-		isHidden: !isHidden
-	}));
+	handleDropDownToggle = () =>
+		this.setState(({ isHidden }) => ({
+			isHidden: !isHidden
+		}));
 
 	render = () => {
 		const { links, ...props } = this.props;
 
 		return (
-			<NavBar
-				color="white"
-				is="nav"
-				bg="accent.secondary"
-				justifyContent="center"
-				alignItems="center"
-				flexDirection="column"
-				{...props}
-			>
+			<NavBar color="black" is="nav" bg="accent.primary" justifyContent="center" alignItems="center" flexDirection="column" {...props}>
 				<Box onClick={this.handleDropDownToggle}>
 					<div>{this.state.selectedItem}</div>
 					<ChevronDown iconSize="sm" isOpen={!this.state.isHidden} />
@@ -95,18 +91,17 @@ export default class MobileInPageNav extends Component {
 							leftBorder
 							pl={2}
 							onSetActive={this.handleSetActive}
-							color="white !important"
+							color="black !important"
 							smooth
 							isDynamic
 							duration={300}
 							offset={-70}
-							onClick={this.handleDropDownToggle}
-						>
+							onClick={this.handleDropDownToggle}>
 							{link.text}
 						</NavScrollLink>
 					))}
 				</Slider>
 			</NavBar>
 		);
-	}
+	};
 }

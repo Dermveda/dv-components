@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { space, lineHeight } from 'styled-system';
+import { space, lineHeight, justifyContent } from 'styled-system';
 import { flipOrder } from 'styles';
 
 import { HeroContainer, HeroTitle, HeroSubTitle, HeroBody, HeroImage } from 'atoms';
@@ -19,11 +19,10 @@ const ImageContainer = styled.div`
 	overflow: hidden;
 	flex: 1 30%;
 	display: flex;
+	${justifyContent};
 `;
 
-const Hero = ({
-	title, subtitle, children, imageAttributes, type, subtitleAttributes, ...attrs
-}) => (
+const Hero = ({ title, subtitle, children, imageAttributes, imageContainerAttributes, type, subtitleAttributes, ...attrs }) => (
 	<HeroContainer type={type} {...attrs}>
 		<HeroBody>
 			<FlippedBox lineHeight="1.25">
@@ -32,13 +31,11 @@ const Hero = ({
 			</FlippedBox>
 			{children}
 		</HeroBody>
-		{
-			imageAttributes && (
-				<ImageContainer>
-					<HeroImage {...imageAttributes} />
-				</ImageContainer>
-			)
-		}
+		{imageAttributes && (
+			<ImageContainer {...imageContainerAttributes}>
+				<HeroImage {...imageAttributes} />
+			</ImageContainer>
+		)}
 	</HeroContainer>
 );
 
@@ -47,6 +44,7 @@ Hero.propTypes = {
 	children: PropTypes.node.isRequired,
 	subtitle: PropTypes.string,
 	subtitleAttributes: PropTypes.object,
+	imageContainerAttributes: PropTypes.object,
 	imageAttributes: PropTypes.shape({
 		alt: PropTypes.string.isRequired,
 		src: PropTypes.string.isRequired
