@@ -5,15 +5,17 @@ import { Bar, NavLink } from 'atoms';
 
 const Link = NavLink.withComponent(ScrollLink);
 
-const DesktopInPageNav = ({ links, ...props }) => (
-	<Bar color="black" is="nav" bg="accent.primary" justifyContent="center" {...props}>
-		{links.map(link => (
-			<Link key={link.to} px="0" flex="1" to={link.to} spy color="black !important" smooth isDynamic duration={300} offset={-70}>
-				{link.text}
-			</Link>
-		))}
-	</Bar>
-);
+const DesktopInPageNav = ({ links, ...props }) => {
+	return (
+		<Bar color="black" is="nav" bg="accent.primary" justifyContent="center" {...props}>
+			{links.map(link => (
+				<Link key={link.to} px="0" flex="1" to={link.to} spy color="black !important" smooth isDynamic duration={300} offset={-70}>
+					{link.text}
+				</Link>
+			))}
+		</Bar>
+	);
+};
 
 DesktopInPageNav.propTypes = {
 	links: PropTypes.arrayOf(

@@ -4,18 +4,23 @@ import { space, color, hover } from 'styled-system';
 import { Icon } from 'atoms';
 
 const DropDownIcon = styled(Icon).attrs({
-	p: props => props.p || 3,
-	color: props => props.color || 'gray.medium',
-	hover: props => props.hover || {
-		color: 'gray.dark'
+	p: props => {
+		console.log('props.p', props.p);
+		return props.p || 3;
 	},
+	color: props => props.color || 'gray.medium',
+	hover: props =>
+		props.hover || {
+			color: 'gray.dark',
+			cursor: 'pointer'
+		},
 	name: 'chevronDown'
 })`
 	display: flex;
-	transition: transform .15s linear, color .1s linear;
+	transition: transform 0.15s linear, color 0.1s linear;
 	overflow: visible !important;
-    box-sizing: content-box;
-	${props => props.isOpen ? 'transform: scaleY(-1)': 'transform: scaleY(1)'};
+	box-sizing: content-box;
+	${props => (props.isOpen ? 'transform: scaleY(-1)' : 'transform: scaleY(1)')};
 
 	${space};
 	${color};

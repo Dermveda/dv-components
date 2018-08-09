@@ -11,6 +11,7 @@ const NavBar = styled(Bar)`
 	left: 0;
 	overflow: hidden;
 	padding: 0 8px;
+	${space};
 `;
 
 const Slider = styled.div`

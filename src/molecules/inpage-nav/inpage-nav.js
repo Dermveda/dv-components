@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { space } from 'styled-system';
 import { DesktopInPageNav, MobileInPageNav } from './index';
 
 const DesktopNav = styled(DesktopInPageNav)`
@@ -14,12 +15,11 @@ const MobileNav = styled(MobileInPageNav)`
 	}
 `;
 
-const InPageNav = (props) => (
+const InPageNav = props => (
 	<React.Fragment>
 		<DesktopNav {...props} />
 		<MobileNav {...props} />
 	</React.Fragment>
 );
-
 
 export default InPageNav;
