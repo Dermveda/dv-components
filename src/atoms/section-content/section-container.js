@@ -2,7 +2,7 @@ import React from 'react';
 import sys from 'system-components';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { themeGet, width, space } from 'styled-system';
+import { themeGet, width } from 'styled-system';
 
 const SystemSection = sys('color', 'flex', 'flexWrap', 'flexDirection', 'justifyContent', 'alignItems', 'space', 'maxWidth', 'display');
 
