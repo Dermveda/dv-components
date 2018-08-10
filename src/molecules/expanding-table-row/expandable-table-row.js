@@ -48,7 +48,6 @@ export default class ExpandableTableRow extends Component {
 			<React.Fragment>
 				<TableRow {...rowAttributes} borderTop="1px solid #F7F7F7">
 					{row.rowData.map((data, index) => {
-						console.log(data, index);
 						if (index === 1)
 							return (
 								<TableCell key={`row-data-${index}`} {...cellAttributes} {...activeStyle} {...secondColStyles}>
