@@ -20,13 +20,25 @@ const ImageContainer = styled.div`
 	flex: 1 30%;
 	display: flex;
 	${justifyContent};
+	${space};
 `;
 
-const Hero = ({ title, subtitle, children, imageAttributes, imageContainerAttributes, type, subtitleAttributes, ...attrs }) => (
+const Hero = ({
+	title,
+	subtitle,
+	children,
+	imageAttributes,
+	imageContainerAttributes,
+	type,
+	titleAttributes,
+	subtitleAttributes,
+	bodyAttributes,
+	...attrs
+}) => (
 	<HeroContainer type={type} {...attrs}>
-		<HeroBody>
+		<HeroBody {...bodyAttributes}>
 			<FlippedBox lineHeight="1.25">
-				<HeroTitle>{title}</HeroTitle>
+				<HeroTitle {...titleAttributes}>{title}</HeroTitle>
 				{subtitle && <HeroSubTitle {...subtitleAttributes}>{subtitle}</HeroSubTitle>}
 			</FlippedBox>
 			{children}
@@ -41,6 +53,7 @@ const Hero = ({ title, subtitle, children, imageAttributes, imageContainerAttrib
 
 Hero.propTypes = {
 	title: PropTypes.string.isRequired,
+	titleAttributes: PropTypes.object,
 	children: PropTypes.node.isRequired,
 	subtitle: PropTypes.string,
 	subtitleAttributes: PropTypes.object,
@@ -49,6 +62,7 @@ Hero.propTypes = {
 		alt: PropTypes.string.isRequired,
 		src: PropTypes.string.isRequired
 	}),
+	bodyAttributes: PropTypes.object,
 	type: PropTypes.oneOf(['gray', 'primary', 'secondary', 'tertiary', 'transparent', 'white'])
 };
 

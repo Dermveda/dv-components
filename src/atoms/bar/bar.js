@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import sys from 'system-components';
-import { themeGet, space } from 'styled-system';
+import { themeGet, space, maxWidth } from 'styled-system';
 import { fontSize } from 'utils';
 
 const MakeBar = sys(
@@ -32,6 +32,7 @@ const Bar = styled(MakeBar).attrs({
 	`};
 	${space};
 	${fontSize};
+	${maxWidth};
 `;
 
 Bar.propTypes = {

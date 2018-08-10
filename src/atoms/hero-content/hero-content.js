@@ -40,15 +40,16 @@ export const HeroContainer = styled.header.attrs({
 	${borders};
 	${borderColor};
 	${boxShadow};
+	${width};
 `;
 
 const makeHeroTitle = styled.h1.attrs({
 	m: 0,
 	pb: 3,
-	fontSize: [4, 5]
+	fontSize: props => props.fontSize || [4, 5]
 })`
 	font-family: ${props => themeGet('fonts.display')(props)};
-	font-weight: normal;
+	font-weight: ${props => props.fontWeight || 'normal'};
 
 	${fontSize};
 	${space};
@@ -57,7 +58,7 @@ const makeHeroTitle = styled.h1.attrs({
 export const HeroTitle = createSkeletonElement(makeHeroTitle);
 
 const makeHeroSubTitle = styled.h2.attrs({
-	fontSize: 2,
+	fontSize: props => props.fontSize || 2,
 	m: 0,
 	pb: 1,
 	color: props => props.color || '#717171'
@@ -79,7 +80,7 @@ const makeHeroBody = styled.div.attrs({
 	flex: props => props.flex || '2 60%'
 })`
 	max-width: 800px;
-	min-width: 300px;
+	min-width: ${props => props.minWidth || '300px'};
 
 	${flex};
 	${space};

@@ -10,6 +10,7 @@ export default class ExpandingTable extends Component {
 		headCellAttributes: PropTypes.object,
 		bodyRowAttributes: PropTypes.object,
 		bodyCellAttributes: PropTypes.object,
+		bodyBoxAttributes: PropTypes.object,
 		bodyData: PropTypes.arrayOf(
 			PropTypes.shape({
 				rowData: PropTypes.array,
@@ -19,21 +20,40 @@ export default class ExpandingTable extends Component {
 	};
 
 	render() {
-		const { headData, headRowAttributes, headCellAttributes, bodyRowAttributes, bodyCellAttributes, bodyData, ...attrs } = this.props;
+		const {
+			headData,
+			headRowAttributes,
+			headCellAttributes,
+			bodyRowAttributes,
+			bodyCellAttributes,
+			bodyBoxAttributes,
+			bodyData,
+			...attrs
+		} = this.props;
 		return (
 			<TableContainer {...attrs}>
-				<TableRow {...headRowAttributes} bg="gray.light" textTransform="uppercase" fontWeight="700">
-					{headData.map((data, index) => (
-						<TableCell key={`table-head-${index}`} {...headCellAttributes}>
-							{data}
-						</TableCell>
-					))}
+				<TableRow {...headRowAttributes} bg="gray.light" textTransform="uppercase" fontWeight="700" py={[1, 0]}>
+					{headData.map((data, index) => {
+						if (index === 1)
+							return (
+								<TableCell key={`table-head-${index}`} {...headCellAttributes} headCell justifyContent="center">
+									{data}
+								</TableCell>
+							);
+						else
+							return (
+								<TableCell key={`table-head-${index}`} {...headCellAttributes} headCell>
+									{data}
+								</TableCell>
+							);
+					})}
 				</TableRow>
 				{bodyData.map((row, index) => (
 					<ExpandingTableRow
 						row={row}
 						rowAttributes={bodyRowAttributes}
 						cellAttributes={bodyCellAttributes}
+						expandingBoxAttributes={bodyBoxAttributes}
 						key={`expanding-row-${index}`}
 					/>
 				))}

@@ -4,10 +4,7 @@ import { space, color, hover } from 'styled-system';
 import { Icon } from 'atoms';
 
 const DropDownIcon = styled(Icon).attrs({
-	p: props => {
-		console.log('props.p', props.p);
-		return props.p || 3;
-	},
+	p: props => props.p || 3,
 	color: props => props.color || 'gray.medium',
 	hover: props =>
 		props.hover || {

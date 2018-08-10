@@ -10,21 +10,24 @@ export const TableRow = styled('div').attrs({
 	grid-template-columns: 1.5fr 1fr 0.5fr;
 	text-transform: ${props => props.textTransform};
 	font-weight: ${props => props.fontWeight};
-	&:nth-last-child(-n + 2) {
-		text-align: center;
-	}
 	${space};
 	${color};
 	${borders};
 `;
 
 export const TableCell = styled('div').attrs({
-	fontSize: props => props.fontSize || 1,
+	fontSize: props => props.fontSize || [0, 1],
 	px: props => props.px || [2, 3, 3],
 	fontWeight: props => props.fontWeight || 525
 })`
 	display: flex;
-	${textAlign};
+	align-items: center;
+	${props =>
+		props.headCell
+			? `@media(max-width: 320px) {
+			display: none;
+		}`
+			: ''} ${textAlign};
 	${fontSize};
 	${space};
 	${borders};

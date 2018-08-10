@@ -25,6 +25,7 @@ export default class ExpandableTableRow extends Component {
 	static propTypes = {
 		rowAttributes: PropTypes.object,
 		cellAttributes: PropTypes.object,
+		expandingBoxAttributes: PropTypes.object,
 		row: PropTypes.arrayOf(
 			PropTypes.shape({
 				rowData: PropTypes.array,
@@ -38,17 +39,30 @@ export default class ExpandableTableRow extends Component {
 	};
 
 	render() {
-		const { row, rowAttributes, cellAttributes } = this.props;
+		const { row, rowAttributes, cellAttributes, expandingBoxAttributes } = this.props;
 		if (!row) return;
+		let activeStyle;
+		this.state.isExpanded ? (activeStyle = { style: { fontWeight: 600 } }) : null;
+		const secondColStyles = { justifyContent: 'center' };
 		return (
 			<React.Fragment>
 				<TableRow {...rowAttributes} borderTop="1px solid #F7F7F7">
-					{row.rowData.map((data, index) => (
-						<TableCell key={`row-data-${index}`} {...cellAttributes}>
-							{data}
-						</TableCell>
-					))}
-					<TableCell {...cellAttributes} justifyContent="flex-end">
+					{row.rowData.map((data, index) => {
+						console.log(data, index);
+						if (index === 1)
+							return (
+								<TableCell key={`row-data-${index}`} {...cellAttributes} {...activeStyle} {...secondColStyles}>
+									{data}
+								</TableCell>
+							);
+						else
+							return (
+								<TableCell key={`row-data-${index}`} {...cellAttributes} {...activeStyle}>
+									{data}
+								</TableCell>
+							);
+					})}
+					<TableCell {...cellAttributes} {...activeStyle} justifyContent="flex-end">
 						{row.details ? (
 							<ChevronDown
 								isOpen={this.state.isExpanded}
@@ -60,7 +74,7 @@ export default class ExpandableTableRow extends Component {
 					</TableCell>
 				</TableRow>
 				{row.details ? (
-					<ExpandingBox isHidden={!this.state.isExpanded} {...rowAttributes}>
+					<ExpandingBox isHidden={!this.state.isExpanded} {...rowAttributes} {...expandingBoxAttributes}>
 						<Box>{row.details}</Box>
 					</ExpandingBox>
 				) : null}

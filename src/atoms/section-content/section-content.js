@@ -31,4 +31,5 @@ export const SectionBody = styled(makeSectionBody).attrs({
 	fontSize: props => props.fontSize || [1, 2]
 })`
 	${fontSize};
+	width: inherit;
 `;

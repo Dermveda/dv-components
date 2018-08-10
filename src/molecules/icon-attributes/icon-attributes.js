@@ -18,8 +18,8 @@ const AttributeListItem = styled(FlexBox).attrs({
 	py: 0,
 	px: 3,
 	is: 'li',
-	flexDirection: props => props.column ? 'column' : ['column', 'row', 'row'],
-	fontWeight: 600,
+	flexDirection: props => (props.column ? 'column' : ['column', 'row', 'row']),
+	fontWeight: props => props.fontWeight || 600,
 	display: 'flex',
 	flexWrap: 'nowrap',
 	alignItems: 'center'
@@ -33,45 +33,52 @@ const AttributeListItem = styled(FlexBox).attrs({
 	}
 `;
 
+const buildIconAttributes = iconAttributes => {
+	const { name, type, iconSize, color } = iconAttributes;
+	return {
+		pr: [0, 2],
+		pb: [1, 0],
+		name: name,
+		'aria-hidden': true,
+		iconSize: iconSize || 'sm',
+		color: color || 'rgba(0, 0, 0, .6)',
+		strokeSize: 4,
+		type: type || 'outline',
+		alignToText: true
+	};
+};
+
 const IconAttributes = ({ attributeListing, small, column, ...attrs }) => (
 	<AttributeListing {...attrs}>
-		{attributeListing.map(attribute => (
-			<AttributeListItem column={column} key={attribute.label}>
-				<Icon
-					{...attribute.iconAttributes}
-					pr={[0, 2]}
-					pb={[1, 0]}
-					aria-hidden
-					iconSize="sm"
-					color="rgba(0, 0, 0, .6)"
-					strokeSize={4}
-					type="outline"
-					alignToText
-				/>
-				<HiddenText>{attribute.label}: </HiddenText>
-				{
-					attribute.text && (
-						<Content
-							fontSize={small ? [0, 1] : [1, 2]} m={0} pt={1}
-							color="rgba(0, 0, 0, 0.8)"
-						>
+		{attributeListing.map(attribute => {
+			const iconAttributes = buildIconAttributes(attribute.iconAttributes);
+			return (
+				<AttributeListItem column={column} key={attribute.label} {...attribute.textAttributes}>
+					<Icon {...iconAttributes} />
+					<HiddenText>{attribute.label}: </HiddenText>
+					{attribute.text && (
+						<Content fontSize={small ? [0, 1] : [1, 2]} m={0} pt={1} color="rgba(0, 0, 0, 0.8)">
 							{attribute.text}
 						</Content>
-					)
-				}
-			</AttributeListItem>
-		))}
+					)}
+				</AttributeListItem>
+			);
+		})}
 	</AttributeListing>
 );
 
 IconAttributes.propTypes = {
-	attributeListing: PropTypes.arrayOf(PropTypes.shape({
-		iconAttributes: PropTypes.shape({
-			name: PropTypes.string.isRequired
-		}),
-		label: PropTypes.string.isRequired,
-		text: PropTypes.string,
-	})).isRequired,
+	attributeListing: PropTypes.arrayOf(
+		PropTypes.shape({
+			iconAttributes: PropTypes.shape({
+				name: PropTypes.string.isRequired,
+				type: PropTypes.string
+			}),
+			textAttributes: PropTypes.object,
+			label: PropTypes.string.isRequired,
+			text: PropTypes.string
+		})
+	).isRequired,
 	small: PropTypes.bool,
 	column: PropTypes.bool
 };
