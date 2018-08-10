@@ -2,7 +2,7 @@ import React from 'react';
 import sys from 'system-components';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { themeGet, width } from 'styled-system';
+import { themeGet, width, space } from 'styled-system';
 
 const SystemSection = sys('color', 'flex', 'flexWrap', 'flexDirection', 'justifyContent', 'alignItems', 'space', 'maxWidth', 'display');
 
@@ -41,6 +41,7 @@ const SectionContainer = styled(
 	`};
 	${props => (props.content ? 'max-width: 1200px' : '')};
 	${width};
+	${props => (props.pb !== undefined ? `padding-bottom: ${props.pb}` : '')};
 `;
 
 SectionContainer.propTypes = {
