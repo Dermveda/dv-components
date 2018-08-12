@@ -82,6 +82,12 @@ const makeHeroBody = styled.div.attrs({
 	max-width: 800px;
 	min-width: ${props => props.minWidth || '300px'};
 
+	@media (max-width: 768px) {
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+	}
+
 	${flex};
 	${space};
 	${order};
@@ -90,11 +96,16 @@ const makeHeroBody = styled.div.attrs({
 export const HeroBody = createSkeletonElement(makeHeroBody);
 
 const makeHeroImage = styled('img').attrs({
-	width: props => props.width || '100%',
-	height: props => props.height || 'auto'
+	width: props => props.width || '100%'
 })`
 	${width};
-	${height};
+	height: ${props => props.height || 'auto'};
+	@media (max-width: 320px) {
+		height: ${props => {
+		if (props.height !== 'auto' && props.height.slice(-2) === 'px') return `${parseInt(props.height.slice(0, -2)) / 2}px`;
+		return props.height;
+	}};
+	}
 `;
 
 export const HeroImage = createSkeletonElement(makeHeroImage);

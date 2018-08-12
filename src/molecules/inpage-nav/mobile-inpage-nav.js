@@ -96,7 +96,7 @@ export default class MobileInPageNav extends Component {
 							smooth
 							isDynamic
 							duration={300}
-							offset={-70}
+							offset={-80}
 							onClick={this.handleDropDownToggle}>
 							{link.text}
 						</NavScrollLink>

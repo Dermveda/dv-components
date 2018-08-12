@@ -32,7 +32,7 @@ export default class ExpandingTable extends Component {
 		} = this.props;
 		return (
 			<TableContainer {...attrs}>
-				<TableRow {...headRowAttributes} bg="gray.light" textTransform="uppercase" fontWeight="700" py={[1, 0]}>
+				<TableRow {...headRowAttributes} bg="gray.light" textTransform="uppercase" fontWeight="700" py={[3, 2]}>
 					{headData.map((data, index) => {
 						if (index === 1)
 							return (

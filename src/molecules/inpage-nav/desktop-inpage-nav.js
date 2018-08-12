@@ -9,7 +9,7 @@ const DesktopInPageNav = ({ links, ...props }) => {
 	return (
 		<Bar color="black" is="nav" bg="accent.primary" justifyContent="center" {...props}>
 			{links.map(link => (
-				<Link key={link.to} px="0" flex="1" to={link.to} spy color="black !important" smooth isDynamic duration={300} offset={-70}>
+				<Link key={link.to} px="0" flex="1" to={link.to} spy color="black !important" smooth isDynamic duration={300} offset={-80}>
 					{link.text}
 				</Link>
 			))}
