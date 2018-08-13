@@ -43,10 +43,10 @@ const SectionContainer = styled(
 		margin-right: auto !important;
 	`};
 	${props => (props.content ? 'max-width: 1200px' : '')};
-	${width};
-	${space};
 	${props => (props.pb !== undefined ? `padding-bottom: ${props.pb};` : '')};
 	${props => (props.pt !== undefined ? `padding-top: ${props.pt};` : '')};
+	${width};
+	${space};
 `;
 
 SectionContainer.propTypes = {
