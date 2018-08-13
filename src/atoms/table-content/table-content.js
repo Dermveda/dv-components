@@ -22,6 +22,7 @@ export const TableCell = styled('div').attrs({
 })`
 	display: flex;
 	align-items: center;
+	word-break: break-word;
 	${props =>
 		props.headCell
 			? `@media(max-width: 320px) {
