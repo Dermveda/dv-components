@@ -3,23 +3,22 @@ import styled from 'styled-components';
 import { DesktopInPageNav, MobileInPageNav } from './index';
 
 const DesktopNav = styled(DesktopInPageNav)`
-	@media (max-width: 64rem) {
-		display: none;
+	@media (max-width: 1023px) {
+		display: none !important;
 	}
 `;
 
 const MobileNav = styled(MobileInPageNav)`
-	@media (min-width: 64rem) {
-		display: none;
+	@media (min-width: 1024px) {
+		display: none !important;
 	}
 `;
 
-const InPageNav = (props) => (
+const InPageNav = props => (
 	<React.Fragment>
 		<DesktopNav {...props} />
 		<MobileNav {...props} />
 	</React.Fragment>
 );
-
 
 export default InPageNav;

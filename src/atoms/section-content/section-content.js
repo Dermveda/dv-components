@@ -1,6 +1,7 @@
 import sys from 'system-components';
 import styled from 'styled-components';
 import { createSkeletonElement } from '@trainline/react-skeletor';
+import { display, alignContent } from 'styled-system';
 import { fontSize } from 'utils';
 
 const makeSectionTitle = sys(
@@ -31,4 +32,7 @@ export const SectionBody = styled(makeSectionBody).attrs({
 	fontSize: props => props.fontSize || [1, 2]
 })`
 	${fontSize};
+	${display};
+	${alignContent};
+	width: inherit;
 `;

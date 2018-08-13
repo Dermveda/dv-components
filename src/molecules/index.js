@@ -14,4 +14,5 @@ export { UserDropdown, HoverNav } from './hover-nav';
 export { MobileInPageNav, InPageNav, DesktopInPageNav } from './inpage-nav';
 export { default as MobileMenuContainer } from './menu-container';
 export { default as VideoSection } from './video-section';
-export { default as ImageGrid } from './image-grid'; 
+export { default as ImageGrid } from './image-grid';
+export { default as ExpandingTableRow } from './expanding-table-row';
