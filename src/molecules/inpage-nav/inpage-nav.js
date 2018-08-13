@@ -4,13 +4,13 @@ import { DesktopInPageNav, MobileInPageNav } from './index';
 
 const DesktopNav = styled(DesktopInPageNav)`
 	@media (max-width: 1023px) {
-		display: none;
+		display: none !important;
 	}
 `;
 
 const MobileNav = styled(MobileInPageNav)`
 	@media (min-width: 1024px) {
-		display: none;
+		display: none !important;
 	}
 `;
 
