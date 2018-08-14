@@ -21,12 +21,12 @@ const Bar = styled(tag.div).attrs({
 `;
 
 Bar.propTypes = {
-	top: PropTypes.number,
+	top: PropTypes.string,
 	zIndex: PropTypes.number
 };
 
 Bar.defaultProps = {
-	top: 0,
+	top: '0px',
 	zIndex: 100
 };
 

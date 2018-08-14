@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import sys from 'system-components';
+import tag from 'clean-tag';
+import { space, color, maxWidth, textAlign, lineHeight } from 'styled-system';
 import { createSkeletonElement } from '@trainline/react-skeletor';
 import { fontSize } from 'utils';
 
@@ -46,35 +48,17 @@ const SubtitleComponent = styled(makeSubtitleComponent).attrs({
 
 export const Subtitle = createSkeletonElement(SubtitleComponent);
 
-const makeContentComponent = sys([
-	'flex',
-	'space',
-	'color',
-	'display',
-	'width',
-	'textAlign',
-	'lineHeight',
-	'fontWeight',
-	'letterSpacing',
-	'maxWidth',
-	'minWidth',
-	'height',
-	'maxHeight',
-	'minHeight',
-	'borders',
-	'hover',
-	'alignSelf',
-	'justifySelf',
-	'fontFamily'
-]);
-
-const makeContent = styled(makeContentComponent).attrs({
+const makeContent = styled(tag.p).attrs({
 	fontSize: props => props.fontSize || [1, 2],
 	mb: props => props.mb || 2,
-	lineHeight: props => props.lineHeight || 1.5,
-	is: props => props.is || 'p'
+	lineHeight: props => props.lineHeight || 1.5
 })`
 	${fontSize};
+	${maxWidth};
+	${textAlign};
+	${lineHeight};
+	${space};
+	${color};
 `;
 
 export const Content = createSkeletonElement(makeContent);

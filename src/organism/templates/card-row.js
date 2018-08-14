@@ -50,7 +50,7 @@ export default class CardRow extends Component {
 	};
 
 	renderArticleRow = ({ ...article }) => (
-		<Card mx={2} my={3} flex="1 300px" {...article.cardAttributes}>
+		<Card key={`card-${article.title.split(' ').join('')}`} mx={2} my={3} flex="1 300px" {...article.cardAttributes}>
 			{article.imageAttributes && (
 				<LinkWrapper to={article.to}>
 					<CardImage {...article.imageAttributes} />

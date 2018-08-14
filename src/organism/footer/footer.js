@@ -50,7 +50,7 @@ const FooterLinkSectionContainer = styled.div.attrs({
 })`
 	${space};
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 `;
 
 const FooterLinkSection = styled.div.attrs({
@@ -131,12 +131,13 @@ const NewsLetterContainer = styled.div.attrs({ pt: 4 })`
 `;
 
 export default class Footer extends Component {
-	renderSocial = () => this.props.social.map(x => (
-		<NoStyleLink key={x.name} href={x.href} target="_blank" rel="noopener noreferrer">
-			<HiddenText>{x.text}</HiddenText>
-			<Icon name={x.name} aria-hidden />
-		</NoStyleLink>
-	))
+	renderSocial = () =>
+		this.props.social.map(x => (
+			<NoStyleLink key={x.name} href={x.href} target="_blank" rel="noopener noreferrer">
+				<HiddenText>{x.text}</HiddenText>
+				<Icon name={x.name} aria-hidden />
+			</NoStyleLink>
+		));
 
 	render() {
 		const { imageAttributes, footerLinks, newsLetter, renderLegal, social, success, loading } = this.props;
@@ -147,36 +148,34 @@ export default class Footer extends Component {
 						<ImageLink to="/">
 							<img {...imageAttributes} />
 						</ImageLink>
-						<FlexBox>
-							{this.renderSocial()}
-						</FlexBox>
+						<FlexBox>{this.renderSocial()}</FlexBox>
 					</FooterHeader>
 					<div>
 						<FooterLinkSectionContainer>
-							{footerLinks && (
+							{footerLinks &&
 								footerLinks.map((list, index) => (
-									<FooterLinkSection key={index}>
+									<FooterLinkSection key={`footer-link-section-${index}`}>
 										<FooterSectionTitle>{list.title}</FooterSectionTitle>
 										<FooterLinkContainer>
-											{list.links.map(item => item.to ? (
-												<FooterLink to={item.to} key={item.to}>
-													{item.text}
-												</FooterLink>
-											) : (
-												<FooterExternalLink
-													href={item.href}
-													key={item.href}
-													target="_blank"
-													rel="noopener noreferrer"
-												>
-													{item.text}
-												</FooterExternalLink>
-											)
+											{list.links.map(
+												item =>
+													item.to ? (
+														<FooterLink to={item.to} key={`footer-link-internal-${item.to}`}>
+															{item.text}
+														</FooterLink>
+													) : (
+														<FooterExternalLink
+															href={item.href}
+															key={`footer-link-external-${item.href}`}
+															target="_blank"
+															rel="noopener noreferrer">
+															{item.text}
+														</FooterExternalLink>
+													)
 											)}
 										</FooterLinkContainer>
 									</FooterLinkSection>
-								))
-							)}
+								))}
 						</FooterLinkSectionContainer>
 						{newsLetter && (
 							<NewsLetterContainer>
@@ -194,11 +193,7 @@ export default class Footer extends Component {
 								/>
 							</NewsLetterContainer>
 						)}
-						{renderLegal && (
-							<FooterLegal>
-								{renderLegal()}
-							</FooterLegal>
-						)}
+						{renderLegal && <FooterLegal>{renderLegal()}</FooterLegal>}
 					</div>
 				</FooterBox>
 			</FooterContainer>

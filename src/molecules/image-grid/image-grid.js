@@ -8,7 +8,7 @@ import { Section } from 'molecules';
 const ImageGrid = styled(Section)`
 	& > div {
 		display: grid;
-		grid-template-columns: ${props => props.direction === 'right' ? 'minmax(60%, 1fr) 1fr' : '1fr minmax(60%, 1fr)'};
+		grid-template-columns: ${props => (props.direction === 'right' ? 'minmax(60%, 1fr) 1fr' : '1fr minmax(60%, 1fr)')};
 		align-items: center;
 		padding: 0;
 
@@ -30,9 +30,11 @@ const ImageGrid = styled(Section)`
 
 const Img = createSkeletonElement(styled.img`
 	width: calc(100% - 16px);
-	${props => props.direction === 'left' ? 'margin-right: auto' : 'margin-left: auto' };
+	${props => (props.direction === 'left' ? 'margin-right: auto' : 'margin-left: auto')};
 
-	${props => props.mobileHide && `
+	${props =>
+		props.mobileHide &&
+		`
 		@media (max-width: 800px) {
 			img {
 				display: none;
@@ -53,9 +55,9 @@ const SkeletonBox = createSkeletonElement(Box);
 
 const ColumnLayout = ({ imageAttributes, children, direction, mobileHide, ...attrs }) => (
 	<ImageGrid direction={direction} {...attrs}>
-		{direction === 'left' && <Img direction={direction} mobileHide={mobileHide} {...imageAttributes} /> }
+		{direction === 'left' && <Img direction={direction} mobileHide={mobileHide} {...imageAttributes} />}
 		<SkeletonBox>{children}</SkeletonBox>
-		{direction !== 'left' && <Img direction={direction} mobileHide={mobileHide} {...imageAttributes} /> }
+		{direction !== 'left' && <Img direction={direction} mobileHide={mobileHide} {...imageAttributes} />}
 	</ImageGrid>
 );
 
@@ -65,7 +67,7 @@ ColumnLayout.propTypes = {
 		alt: PropTypes.string.isRequired
 	}).isRequired,
 	mobileHide: PropTypes.bool,
-	children: PropTypes.node.isRequried,
+	children: PropTypes.node,
 	direction: PropTypes.oneOf(['left', 'right'])
 };
 

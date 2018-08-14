@@ -11,11 +11,8 @@ const NavBar = styled(Bar)`
 	left: 0;
 	overflow: hidden;
 	padding: 0 8px;
-<<<<<<< HEAD
 	position: sticky;
-=======
 	${space};
->>>>>>> 1cc6952eed6dd12f66f13c3db85f2051e8e69005
 `;
 
 const Slider = styled.div`
