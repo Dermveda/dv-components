@@ -11,7 +11,11 @@ const NavBar = styled(Bar)`
 	left: 0;
 	overflow: hidden;
 	padding: 0 8px;
+<<<<<<< HEAD
 	position: sticky;
+=======
+	${space};
+>>>>>>> 1cc6952eed6dd12f66f13c3db85f2051e8e69005
 `;
 
 const Slider = styled.div`
@@ -78,7 +82,7 @@ export default class MobileInPageNav extends Component {
 		const { links, ...props } = this.props;
 
 		return (
-			<NavBar is="nav" bg="accent.secondary" justifyContent="center" alignItems="center" flexDirection="column" {...props}>
+			<NavBar color="black" is="nav" bg="accent.primary" justifyContent="center" alignItems="center" flexDirection="column" {...props}>
 				<Box onClick={this.handleDropDownToggle}>
 					<div>{this.state.selectedItem}</div>
 					<ChevronDown iconSize="sm" isOpen={!this.state.isHidden} />
@@ -92,11 +96,11 @@ export default class MobileInPageNav extends Component {
 							leftBorder
 							pl={2}
 							onSetActive={this.handleSetActive}
-							color="white !important"
+							color="black !important"
 							smooth
 							isDynamic
 							duration={300}
-							offset={-70}
+							offset={-80}
 							onClick={this.handleDropDownToggle}>
 							{link.text}
 						</NavScrollLink>

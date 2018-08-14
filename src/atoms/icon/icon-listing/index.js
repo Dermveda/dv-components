@@ -21,3 +21,6 @@ export { default as Cart } from './cart';
 export { default as SchoolBuilding } from './school-building';
 export { default as Search } from './search';
 export { default as Link } from './link';
+export { default as CircleCross } from './circle-cross';
+export { default as CircleCheck } from './circle-check';
+export { default as Circle } from './circle';

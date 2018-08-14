@@ -1,23 +1,8 @@
-import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-// import sys from 'system-components';
 import tag from 'clean-tag';
-import { themeGet, color, space, flexDirection, justifyContent, display } from 'styled-system';
+import { color, space, flexDirection, justifyContent, display } from 'styled-system';
 import { fontSize } from 'utils';
-
-// const MakeBar = sys(
-// 	{
-// 		flexWrap: 'wrap',
-// 		alignItems: 'center',
-// 		position: 'sticky'
-// 	},
-// 	'color',
-// 	'space',
-// 	'flexDirection',
-// 	'justifyContent',
-// 	'display'
-// );
 
 const Bar = styled(tag.div).attrs({
 	display: props => props.display || 'flex',

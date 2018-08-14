@@ -24,7 +24,10 @@ export const icons = {
 	cart: 'Cart',
 	school: 'SchoolBuilding',
 	search: 'Search',
-	externalLink: 'Link'
+	externalLink: 'Link',
+	circleCross: 'CircleCross',
+	circleCheck: 'CircleCheck',
+	circle: 'Circle'
 };
 
 const Icon = (icon, type) => {
