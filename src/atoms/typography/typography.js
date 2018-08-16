@@ -1,39 +1,5 @@
 import styled from 'styled-components';
 import sys from 'system-components';
-import tag from 'clean-tag';
-import {
-	space,
-	color,
-	maxWidth,
-	textAlign,
-	lineHeight,
-	flex,
-	display,
-	width,
-	fontWeight,
-	letterSpacing,
-	minWidth,
-	height,
-	maxHeight,
-	minHeight,
-	borders,
-	hover,
-	alignSelf,
-	justifySelf,
-	position,
-	zIndex,
-	top,
-	left,
-	bottom,
-	right,
-	borderRadius,
-	justifyContent,
-	alignItems,
-	alignContent,
-	flexWrap,
-	flexBasis,
-	flexDirection
-} from 'styled-system';
 import { createSkeletonElement } from '@trainline/react-skeletor';
 import { fontSize } from 'utils';
 
@@ -80,17 +46,35 @@ const SubtitleComponent = styled(makeSubtitleComponent).attrs({
 
 export const Subtitle = createSkeletonElement(SubtitleComponent);
 
-const makeContent = styled(tag.p).attrs({
+const makeContentComponent = sys(
+	'flex',
+	'space',
+	'color',
+	'display',
+	'width',
+	'textAlign',
+	'lineHeight',
+	'fontWeight',
+	'letterSpacing',
+	'maxWidth',
+	'minWidth',
+	'height',
+	'maxHeight',
+	'minHeight',
+	'borders',
+	'hover',
+	'alignSelf',
+	'justifySelf',
+	'fontFamily'
+);
+
+const makeContent = styled(makeContentComponent).attrs({
 	fontSize: props => props.fontSize || [1, 2],
 	mb: props => props.mb || 2,
-	lineHeight: props => props.lineHeight || 1.5
+	lineHeight: props => props.lineHeight || 1.5,
+	is: props => props.is || 'p'
 })`
 	${fontSize};
-	${maxWidth};
-	${textAlign};
-	${lineHeight};
-	${space};
-	${color};
 `;
 
 export const Content = createSkeletonElement(makeContent);
@@ -119,9 +103,7 @@ const boxUtils = [
 	'top',
 	'left',
 	'bottom',
-	'right',
-	'borderRadius',
-	'justifyContent'
+	'right'
 ];
 
 const flexBox = ['alignItems', 'alignContent', 'justifyContent', 'flexWrap', 'flexBasis', 'flexDirection'].concat(boxUtils);
@@ -139,41 +121,6 @@ const gridBox = [
 	'gridTemplateRows'
 ].concat(boxUtils);
 
-export const Box = styled(tag.div)`
-	${flex};
-	${space};
-	${color};
-	${display};
-	${width};
-	${textAlign};
-	${lineHeight};
-	${fontWeight};
-	${letterSpacing};
-	${maxWidth};
-	${minWidth};
-	${height};
-	${maxHeight};
-	${minHeight};
-	${borders};
-	${hover};
-	${alignSelf};
-	${justifySelf};
-	${position};
-	${zIndex};
-	${top};
-	${left};
-	${bottom};
-	${right};
-	${borderRadius};
-	${justifyContent};
-`;
-export const FlexBox = styled(Box)`
-	${alignItems};
-	${alignContent};
-	${justifyContent};
-	${flexWrap};
-	${flexBasis};
-	${flexDirection};
-`;
-
+export const Box = sys(...boxUtils);
+export const FlexBox = sys(...flexBox);
 export const GridBox = sys(...gridBox);
