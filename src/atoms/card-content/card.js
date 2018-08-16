@@ -4,7 +4,7 @@ import tag from 'clean-tag';
 import { createSkeletonElement } from '@trainline/react-skeletor';
 import { fontSize } from 'utils';
 import { flipOrder } from 'styles';
-import { space, gridRowStart, gridRowEnd, width } from 'styled-system';
+import { space, width, color } from 'styled-system';
 
 export const CreateCard = sys(
 	{
@@ -77,6 +77,7 @@ export const CardSubtitle = createSkeletonElement(makeCardSubtitle);
 
 export const CardHeader = styled.header`
 	${flipOrder};
+	${space};
 `;
 
 const makeCardText = styled.p.attrs({
@@ -92,10 +93,11 @@ const makeCardText = styled.p.attrs({
 export const CardText = createSkeletonElement(makeCardText);
 
 const makeCardFooter = styled(tag.footer).attrs({
-	pt: 3,
-	mt: 'auto'
+	bg: ({ isGray }) => isGray ? 'gray.light' : ''
 })`
+	${space};
 	${width};
+	${color};
 `;
 
 export const CardFooter = createSkeletonElement(makeCardFooter);

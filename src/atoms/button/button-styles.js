@@ -47,7 +47,6 @@ export const buttonDefaultProps = {
 };
 
 export const buttonCSS = css`
-	${space};
 	${border};
 	${fontSize};
 	${display};
@@ -99,6 +98,7 @@ export const buttonCSS = css`
 			}
 		}
 	`};
+	${space};
 	${props => props.white && `
 		border-color: white;
 		color: white;
@@ -117,5 +117,5 @@ export const buttonCSS = css`
 export const buttonAttributes = {
 	fontSize: ({ large, fontSize }) => fontSize || (large ? [2, 3] : [1, 2]),
 	py: ({ small }) => (small ? 2 : [2, 3]),
-	px: ({ small }) => (small ? 3 : [3, 4])
+	px: ({ small, px }) => (small && !px ? 3 : [3, 4])
 };
