@@ -66,17 +66,21 @@ const NavButtonLink = styled.button.attrs({
 class MegaMenuItem extends Component {
 	static propTypes = {
 		title: PropTypes.string.isRequired,
-		children: PropTypes.node.isRequired,
+		children: PropTypes.node,
 		dismissDropdown: PropTypes.func,
 		to: PropTypes.string,
-		onClick: PropTypes.func.isRequired
-	}
+		onClick: PropTypes.func
+	};
 
 	state = {
 		displayMenu: false
-	}
+	};
 
-	getId = () => this.props.title.toLowerCase().split(' ').join('-');
+	getId = () =>
+		this.props.title
+			.toLowerCase()
+			.split(' ')
+			.join('-');
 
 	renderSubMenu = () => {
 		const id = this.getId();
@@ -88,34 +92,33 @@ class MegaMenuItem extends Component {
 					data-toggle="dropdown"
 					aria-haspopup="true"
 					aria-expanded={this.state.displayMenu}
-					isActive={this.state.displayMenu}
-				>
+					isActive={this.state.displayMenu}>
 					<span>{title}</span>
 					<MegaMenuIcon />
 				</LinkItem>
-				{this.state.displayMenu &&
-					React.cloneElement(children, { 'aria-labelledby': id, dismissDropdown })
-				}
+				{this.state.displayMenu && React.cloneElement(children, { 'aria-labelledby': id, dismissDropdown })}
 			</React.Fragment>
 		);
-	}
+	};
 
 	renderMenuLink = () => {
 		const { to, title, dismissDropdown, ...props } = this.props;
-		return this.props.to ?
-			<NavLink to={to} {...props}>{title}</NavLink> :
-			<NavButtonLink
-				onClick={() => { dismissDropdown(); this.props.onClick(); }}
-			>
+		return this.props.to ? (
+			<NavLink to={to} {...props}>
 				{title}
-			</NavButtonLink>;
-	}
+			</NavLink>
+		) : (
+			<NavButtonLink
+				onClick={() => {
+					dismissDropdown();
+					this.props.onClick();
+				}}>
+				{title}
+			</NavButtonLink>
+		);
+	};
 
-	render = () => (
-		<MenuItem>
-			{this.props.children ? this.renderSubMenu() : this.renderMenuLink()}
-		</MenuItem>
-	)
+	render = () => <MenuItem>{this.props.children ? this.renderSubMenu() : this.renderMenuLink()}</MenuItem>;
 }
 
 export default source({

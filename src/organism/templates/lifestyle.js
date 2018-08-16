@@ -86,7 +86,11 @@ export default class CardRow extends Component {
 						</LinkWrapper>
 					)}
 				</CardHeader>
-				{this.renderFooter && <CardFooter width="100%">{this.renderFooter(article)}</CardFooter>}
+				{this.renderFooter && (
+					<CardFooter pt={2} width="100%">
+						{this.renderFooter(article)}
+					</CardFooter>
+				)}
 			</CardContainer>
 		</Card>
 	);
