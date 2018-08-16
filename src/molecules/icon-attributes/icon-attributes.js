@@ -1,24 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Icon, HiddenText, FlexBox, Content } from 'atoms';
+import tag from 'clean-tag';
+import { display, flexDirection, flexWrap, space, alignItems } from 'styled-system';
+import { Icon, HiddenText, Content } from 'atoms';
 
-const AttributeListing = styled(FlexBox).attrs({
-	is: 'ul',
+const AttributeListing = styled(tag.ul).attrs({
 	display: 'flex',
 	flexDirection: 'row',
 	flexWrap: 'wrap',
 	p: props => props.p || 0
 })`
 	list-style-type: none;
+	${display};
+	${flexDirection};
+	${flexWrap};
+	${space};
 `;
 
-const AttributeListItem = styled(FlexBox).attrs({
+const AttributeListItem = styled(tag.li).attrs({
 	m: 0,
 	py: 0,
 	px: 3,
-	is: 'li',
-	flexDirection: props => (props.column ? 'column' : ['column', 'row', 'row']),
+	flexDirection: props => props.flexDirection,
 	fontWeight: props => props.fontWeight || 600,
 	display: 'flex',
 	flexWrap: 'nowrap',
@@ -31,6 +35,11 @@ const AttributeListItem = styled(FlexBox).attrs({
 	&:last-of-type {
 		padding-right: 0;
 	}
+	${display};
+	${flexWrap};
+	${alignItems};
+	${flexDirection};
+	${space};
 `;
 
 const buildIconAttributes = iconAttributes => {
@@ -52,8 +61,9 @@ const IconAttributes = ({ attributeListing, small, column, ...attrs }) => (
 	<AttributeListing {...attrs}>
 		{attributeListing.map(attribute => {
 			const iconAttributes = buildIconAttributes(attribute.iconAttributes);
+			const flexDirection = column ? { flexDirection: 'column' } : { flexDirection: ['column', 'row', 'row'] };
 			return (
-				<AttributeListItem column={column} key={attribute.label} {...attribute.textAttributes}>
+				<AttributeListItem {...flexDirection} key={attribute.label} {...attribute.textAttributes}>
 					<Icon {...iconAttributes} />
 					<HiddenText>{attribute.label}: </HiddenText>
 					{attribute.text && (

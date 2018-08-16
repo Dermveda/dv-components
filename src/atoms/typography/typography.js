@@ -1,7 +1,39 @@
 import styled from 'styled-components';
 import sys from 'system-components';
 import tag from 'clean-tag';
-import { space, color, maxWidth, textAlign, lineHeight } from 'styled-system';
+import {
+	space,
+	color,
+	maxWidth,
+	textAlign,
+	lineHeight,
+	flex,
+	display,
+	width,
+	fontWeight,
+	letterSpacing,
+	minWidth,
+	height,
+	maxHeight,
+	minHeight,
+	borders,
+	hover,
+	alignSelf,
+	justifySelf,
+	position,
+	zIndex,
+	top,
+	left,
+	bottom,
+	right,
+	borderRadius,
+	justifyContent,
+	alignItems,
+	alignContent,
+	flexWrap,
+	flexBasis,
+	flexDirection
+} from 'styled-system';
 import { createSkeletonElement } from '@trainline/react-skeletor';
 import { fontSize } from 'utils';
 
@@ -107,6 +139,41 @@ const gridBox = [
 	'gridTemplateRows'
 ].concat(boxUtils);
 
-export const Box = sys(...boxUtils);
-export const FlexBox = sys(...flexBox);
+export const Box = styled(tag.div)`
+	${flex};
+	${space};
+	${color};
+	${display};
+	${width};
+	${textAlign};
+	${lineHeight};
+	${fontWeight};
+	${letterSpacing};
+	${maxWidth};
+	${minWidth};
+	${height};
+	${maxHeight};
+	${minHeight};
+	${borders};
+	${hover};
+	${alignSelf};
+	${justifySelf};
+	${position};
+	${zIndex};
+	${top};
+	${left};
+	${bottom};
+	${right};
+	${borderRadius};
+	${justifyContent};
+`;
+export const FlexBox = styled(Box)`
+	${alignItems};
+	${alignContent};
+	${justifyContent};
+	${flexWrap};
+	${flexBasis};
+	${flexDirection};
+`;
+
 export const GridBox = sys(...gridBox);
