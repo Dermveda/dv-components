@@ -24,7 +24,7 @@ export default class ArticleRow extends Component {
 			src: PropTypes.string.isRequired,
 			alt: PropTypes.string.isRequired
 		})
-	}
+	};
 
 	static defaultProps = {
 		subtitle: null,
@@ -32,7 +32,7 @@ export default class ArticleRow extends Component {
 		children: null,
 		imageAttributes: {},
 		to: null
-	}
+	};
 
 	renderTitle = ({ to, title }) => (
 		<LinkWrapper to={to}>
@@ -40,15 +40,13 @@ export default class ArticleRow extends Component {
 				{title}
 			</H3>
 		</LinkWrapper>
-	)
+	);
 
 	renderSubtitle = ({ subtitleLink, subtitle }) => (
 		<LinkWrapper to={subtitleLink}>
-			<Subtitle is="div">
-				{subtitle}
-			</Subtitle>
+			<Subtitle is="div">{subtitle}</Subtitle>
 		</LinkWrapper>
-	)
+	);
 
 	renderImage = ({ imageAttributes, to }) => (
 		<LinkWrapper to={to}>
@@ -56,20 +54,18 @@ export default class ArticleRow extends Component {
 				<ArticleImage {...imageAttributes} />
 			</ArticleImageContainer>
 		</LinkWrapper>
-	)
+	);
 
 	renderDescription = ({ to, description }) => (
 		<LinkWrapper to={to}>
 			<ArticleDescription>
-				<div dangerouslySetInnerHTML={{__html: description}} />
+				<div dangerouslySetInnerHTML={{ __html: description }} />
 			</ArticleDescription>
 		</LinkWrapper>
-	)
+	);
 
 	render = () => {
-		const {
-			title, subtitle, description, imageAttributes, children, subtitleLink, to, ...attrs
-		} = this.props;
+		const { title, subtitle, description, imageAttributes, children, subtitleLink, to, ...attrs } = this.props;
 		return (
 			<ArticleContainer {...attrs}>
 				<ArticleBody>
@@ -83,5 +79,5 @@ export default class ArticleRow extends Component {
 				{imageAttributes && this.renderImage(this.props)}
 			</ArticleContainer>
 		);
-	}
+	};
 }

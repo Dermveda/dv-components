@@ -14,11 +14,12 @@ import {
 	borderColor
 } from 'styled-system';
 import { createSkeletonElement } from '@trainline/react-skeletor';
+import tag from 'clean-tag';
 import { flipOrder } from 'styles';
 import { fontSize } from 'utils';
 import { IconCircle } from 'atoms';
 
-const makeListItemTitle = styled.h3.attrs({
+const makeListItemTitle = styled(tag.h3).attrs({
 	fontSize: props => props.fontSize || [1, 2],
 	lineHeight: 2,
 	pb: 3,
@@ -32,7 +33,7 @@ const makeListItemTitle = styled.h3.attrs({
 `;
 export const ListItemTitle = createSkeletonElement(makeListItemTitle);
 
-const makeListItemBody = styled.p.attrs({
+const makeListItemBody = styled(tag.p).attrs({
 	fontSize: [1, 2],
 	pt: 1,
 	m: 0,
@@ -44,7 +45,7 @@ const makeListItemBody = styled.p.attrs({
 `;
 export const ListItemBody = createSkeletonElement(makeListItemBody);
 
-export const ListItemContainer = styled.li.attrs({
+export const ListItemContainer = styled(tag.li).attrs({
 	flex: props => props.flex || '1 250px'
 })`
 	${flex};
@@ -60,7 +61,7 @@ export const ListItemContainer = styled.li.attrs({
 	background: ${props => themeGet(`backgrounds.${props.type}`, 'transparent')};
 `;
 
-const makeListItemImage = styled.img.attrs({
+const makeListItemImage = styled(tag.img).attrs({
 	width: props => props.width || '125px',
 	height: props => props.height || '125px',
 	borderRadius: props => props.borderRadius || '100%'

@@ -23,16 +23,19 @@ class ImageListItem extends Component {
 			src: PropTypes.string.isRequired,
 			alt: PropTypes.string.isRequired
 		}).isRequired,
-		children: PropTypes.node.isRequired,
+		children: PropTypes.node,
 		buttonAttributes: PropTypes.shape({
 			text: PropTypes.string.isRequired,
-			nostyle: true
+			href: PropTypes.string,
+			to: PropTypes.string
 		}),
 		titleAttributes: PropTypes.object
 	};
 
 	static defaultProps = {
-		buttonAttributes: {},
+		buttonAttributes: {
+			nostyle: true
+		},
 		subtitle: null
 	};
 

@@ -12,7 +12,7 @@ const cardContentStyles = {
 	fontSize: [2, 3],
 	color: 'accent.tertiary',
 	fontWeight: 600,
-	maxWidth: '800px'
+	maxWidth: 800
 };
 
 export default class CardRow extends Component {
@@ -62,7 +62,14 @@ export default class CardRow extends Component {
 	};
 
 	renderArticleRow = ({ ...article }) => (
-		<Card mx={2} my={3} boxShadow={1} flex="1 300px" hover={{ boxShadow: 2 }} {...article.cardAttributes}>
+		<Card
+			key={`lifestyle-article-card-${article.title.split(' ').join('')}`}
+			mx={2}
+			my={3}
+			boxShadow={1}
+			flex="1 300px"
+			hover={{ boxShadow: 2 }}
+			{...article.cardAttributes}>
 			{article.imageAttributes && (
 				<LinkWrapper to={article.to}>
 					<CardImage {...article.imageAttributes} />
@@ -79,7 +86,11 @@ export default class CardRow extends Component {
 						</LinkWrapper>
 					)}
 				</CardHeader>
-				{this.renderFooter && <CardFooter width="100%">{this.renderFooter(article)}</CardFooter>}
+				{this.renderFooter && (
+					<CardFooter pt={2} width="100%">
+						{this.renderFooter(article)}
+					</CardFooter>
+				)}
 			</CardContainer>
 		</Card>
 	);

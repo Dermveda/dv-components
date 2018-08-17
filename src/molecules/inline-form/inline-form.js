@@ -19,7 +19,7 @@ export default class InlineForm extends Component {
 		loading: PropTypes.bool,
 		isPromise: PropTypes.bool,
 		label: PropTypes.string.isRequired
-	}
+	};
 
 	static defaultProps = {
 		inputValue: '',
@@ -31,33 +31,34 @@ export default class InlineForm extends Component {
 		},
 		buttonText: 'Submit',
 		successMessage: 'Successfully Submitted!'
-	}
+	};
 
 	state = {
 		inputValue: this.props.inputValue,
 		submitting: false,
 		error: false,
 		success: false
-	}
+	};
 
-	handleInput = ({ target }) => this.setState({ inputValue: target.value })
+	handleInput = ({ target }) => this.setState({ inputValue: target.value });
 
-	handleSubmit = (e) => {
+	handleSubmit = e => {
 		if (e.target.checkValidity()) {
 			this.resetStatus();
 			e.preventDefault();
 			if (this.props.isPromise) {
 				this.setState({ submitting: true });
-				this.props.onSubmit(this.state.inputValue)
+				this.props
+					.onSubmit(this.state.inputValue)
 					.then(() => this.setState({ submitting: false, success: true }))
 					.catch(() => this.setState({ submitting: false, error: true }));
 			} else {
 				this.props.onSubmit(this.state.inputValue);
 			}
 		}
-	}
+	};
 
-	makeContentAttributes = (success) => ({
+	makeContentAttributes = success => ({
 		display: 'flex',
 		fontWeight: 600,
 		fontSize: 2,
@@ -70,14 +71,29 @@ export default class InlineForm extends Component {
 
 	renderSuccessMessage = () => (
 		<Box {...this.makeContentAttributes(true)}>
-			<Box mr={3} aria-hidden>&#x1F64C;</Box>
+			<span mr={3} aria-hidden>
+				&#x1F64C;
+			</span>
 			{this.props.successMessage}
-			<Box ml={3} aria-hidden>&#x1F64C;</Box>
+			<span ml={3} aria-hidden>
+				&#x1F64C;
+			</span>
 		</Box>
-	)
+	);
 
 	render() {
-		const { inputAttributes, label, buttonAttributes, buttonText, success, loading, ...props } = this.props;
+		const {
+			inputAttributes,
+			inputValue,
+			buttonAttributes,
+			buttonText,
+			successMessage,
+			success,
+			loading,
+			isPromise,
+			label,
+			...props
+		} = this.props;
 		const { success: successState, error } = this.state;
 		if (success || successState) return this.renderSuccessMessage();
 		return (
@@ -90,23 +106,21 @@ export default class InlineForm extends Component {
 							onChange={this.handleInput}
 							required
 							placeholder={label}
-							ref={(input) => { this.input = input; }}
+							ref={input => {
+								this.input = input;
+							}}
 							{...inputAttributes}
 						/>
 					</Label>
-					<ArrowButton
-						raised={false}
-						squared
-						onClick={this.handleSubmit}
-						spin={loading || this.state.submitting}
-						{...buttonAttributes}
-					>
+					<ArrowButton raised={false} squared onClick={this.handleSubmit} spin={loading || this.state.submitting} {...buttonAttributes}>
 						{buttonText}
 					</ArrowButton>
 				</InlineFormContainer>
 				{error && (
 					<Box {...this.makeContentAttributes(false)}>
-						<Box mr={3} aria-hidden>&#x1F614;</Box>
+						<Box mr={3} aria-hidden>
+							&#x1F614;
+						</Box>
 						Something went wrong, please try again.
 					</Box>
 				)}

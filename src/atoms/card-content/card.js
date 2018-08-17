@@ -1,9 +1,10 @@
 import sys from 'system-components';
 import styled from 'styled-components';
+import tag from 'clean-tag';
 import { createSkeletonElement } from '@trainline/react-skeletor';
 import { fontSize } from 'utils';
 import { flipOrder } from 'styles';
-import { space } from 'styled-system';
+import { space, width, color } from 'styled-system';
 
 export const CreateCard = sys(
 	{
@@ -76,6 +77,7 @@ export const CardSubtitle = createSkeletonElement(makeCardSubtitle);
 
 export const CardHeader = styled.header`
 	${flipOrder};
+	${space};
 `;
 
 const makeCardText = styled.p.attrs({
@@ -90,15 +92,12 @@ const makeCardText = styled.p.attrs({
 
 export const CardText = createSkeletonElement(makeCardText);
 
-const makeCardFooter = sys(
-	{
-		is: 'footer',
-		pt: 3,
-		mt: 'auto',
-		gridRowStart: 2,
-		gridRowEnd: 3
-	},
-	'width'
-);
+const makeCardFooter = styled(tag.footer).attrs({
+	bg: ({ isGray }) => isGray ? 'gray.light' : ''
+})`
+	${space};
+	${width};
+	${color};
+`;
 
 export const CardFooter = createSkeletonElement(makeCardFooter);

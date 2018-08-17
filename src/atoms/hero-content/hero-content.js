@@ -15,10 +15,11 @@ import {
 	width,
 	height
 } from 'styled-system';
+import tag from 'clean-tag';
 import { createSkeletonElement } from '@trainline/react-skeletor';
 import { fontSize } from 'utils';
 
-export const HeroContainer = styled.header.attrs({
+export const HeroContainer = styled(tag.header).attrs({
 	flexDirection: ['column', 'column', 'row'],
 	flexWrap: ['nowrap', 'nowrap', 'wrap'],
 	justifyContent: ['center', 'center', 'space-between'],

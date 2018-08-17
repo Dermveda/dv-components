@@ -3,11 +3,18 @@ import sys from 'system-components';
 import { createSkeletonElement } from '@trainline/react-skeletor';
 import { fontSize } from 'utils';
 
-const makeH3Component = sys({
-	lineHeight: 1.25,
-	display: 'inline-block',
-	fontFamily: 'fonts.display'
-}, 'textAlign', 'space', 'fontWeight', 'color', 'maxWidth');
+const makeH3Component = sys(
+	{
+		lineHeight: 1.25,
+		display: 'inline-block',
+		fontFamily: 'fonts.display'
+	},
+	'textAlign',
+	'space',
+	'fontWeight',
+	'color',
+	'maxWidth'
+);
 
 const H3Component = styled(makeH3Component).attrs({
 	fontSize: props => props.fontSize || [2, 3, 3],
@@ -20,9 +27,7 @@ const H3Component = styled(makeH3Component).attrs({
 
 export const H3 = createSkeletonElement(H3Component);
 
-const makeSubtitleComponent = sys(
-	'textAlign', 'space', 'fontWeight', 'color'
-);
+const makeSubtitleComponent = sys('textAlign', 'space', 'fontWeight', 'color');
 
 const SubtitleComponent = styled(makeSubtitleComponent).attrs({
 	fontSize: props => props.fontSize || [0, 1],
@@ -33,7 +38,7 @@ const SubtitleComponent = styled(makeSubtitleComponent).attrs({
 	color: props => props.color || 'gray.medium'
 })`
 	display: inline-block;
-	letter-spacing: .03rem;
+	letter-spacing: 0.03rem;
 	text-transform: uppercase;
 	line-height: 1;
 	${fontSize};
@@ -42,8 +47,25 @@ const SubtitleComponent = styled(makeSubtitleComponent).attrs({
 export const Subtitle = createSkeletonElement(SubtitleComponent);
 
 const makeContentComponent = sys(
-	'flex', 'space', 'color', 'display', 'width', 'textAlign', 'lineHeight', 'fontWeight', 'letterSpacing',
-	'maxWidth', 'minWidth', 'height', 'maxHeight', 'minHeight', 'borders', 'hover', 'alignSelf', 'justifySelf', 'fontFamily'
+	'flex',
+	'space',
+	'color',
+	'display',
+	'width',
+	'textAlign',
+	'lineHeight',
+	'fontWeight',
+	'letterSpacing',
+	'maxWidth',
+	'minWidth',
+	'height',
+	'maxHeight',
+	'minHeight',
+	'borders',
+	'hover',
+	'alignSelf',
+	'justifySelf',
+	'fontFamily'
 );
 
 const makeContent = styled(makeContentComponent).attrs({
@@ -58,17 +80,45 @@ const makeContent = styled(makeContentComponent).attrs({
 export const Content = createSkeletonElement(makeContent);
 
 const boxUtils = [
-	'flex', 'space', 'color', 'display', 'width', 'textAlign', 'lineHeight', 'fontWeight', 'letterSpacing',
-	'maxWidth', 'minWidth', 'height', 'maxHeight', 'minHeight', 'borders', 'hover', 'alignSelf', 'justifySelf', 'position', 'zIndex', 'top', 'left', 'bottom', 'right'
+	'flex',
+	'space',
+	'color',
+	'display',
+	'width',
+	'textAlign',
+	'lineHeight',
+	'fontWeight',
+	'letterSpacing',
+	'maxWidth',
+	'minWidth',
+	'height',
+	'maxHeight',
+	'minHeight',
+	'borders',
+	'hover',
+	'alignSelf',
+	'justifySelf',
+	'position',
+	'zIndex',
+	'top',
+	'left',
+	'bottom',
+	'right'
 ];
 
-const flexBox = [
-	'alignItems', 'alignContent', 'justifyContent', 'flexWrap', 'flexBasis', 'flexDirection'
-].concat(boxUtils);
+const flexBox = ['alignItems', 'alignContent', 'justifyContent', 'flexWrap', 'flexBasis', 'flexDirection'].concat(boxUtils);
 
 const gridBox = [
-	'gridGap', 'gridColumnGap', 'gridRowGap', 'gridColumn', 'gridRow', 'gridAutoFlow', 'gridAutoColumns',
-	'gridAutoRows', 'gridTemplateColumns', 'gridTemplateRows'
+	'gridGap',
+	'gridColumnGap',
+	'gridRowGap',
+	'gridColumn',
+	'gridRow',
+	'gridAutoFlow',
+	'gridAutoColumns',
+	'gridAutoRows',
+	'gridTemplateColumns',
+	'gridTemplateRows'
 ].concat(boxUtils);
 
 export const Box = sys(...boxUtils);

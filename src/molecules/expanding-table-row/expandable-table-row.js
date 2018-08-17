@@ -26,12 +26,10 @@ export default class ExpandableTableRow extends Component {
 		rowAttributes: PropTypes.object,
 		cellAttributes: PropTypes.object,
 		expandingBoxAttributes: PropTypes.object,
-		row: PropTypes.arrayOf(
-			PropTypes.shape({
-				rowData: PropTypes.array,
-				details: PropTypes.node
-			})
-		)
+		row: PropTypes.shape({
+			rowData: PropTypes.array,
+			details: PropTypes.node
+		})
 	};
 
 	state = {

@@ -1,52 +1,37 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import sys from 'system-components';
-import { themeGet, space, maxWidth } from 'styled-system';
+import tag from 'clean-tag';
+import { color, space, flexDirection, justifyContent, display, maxWidth, position, alignItems, flexWrap } from 'styled-system';
 import { fontSize } from 'utils';
 
-const MakeBar = sys(
-	{
-		flexWrap: 'wrap',
-		alignItems: 'center',
-		position: 'sticky'
-	},
-	'color',
-	'space',
-	'flexDirection',
-	'justifyContent',
-	'display'
-);
-
-const Bar = styled(MakeBar).attrs({
+const Bar = styled(tag.div).attrs({
 	display: props => props.display || 'flex',
-	mt: props => props.mt
+	flexWrap: 'wrap',
+	alignItems: 'center',
+	position: 'sticky'
 })`
 	top: ${props => props.top};
 	z-index: ${props => props.zIndex};
-
-	${props =>
-		props.navBorder &&
-		`
-		border-top: 4px solid ${themeGet('colors.accent.logo')(props)};
-		border-bottom: 1px solid #ACACAC;
-	`};
-	${space};
 	${fontSize};
+	${color};
+	${space};
+	${flexDirection};
+	${justifyContent};
+	${display};
 	${maxWidth};
+	${position};
+	${alignItems};
+	${flexWrap};
 `;
 
 Bar.propTypes = {
-	/** test */
-	top: PropTypes.number,
-	/** tesadfdst */
-	zIndex: PropTypes.number,
-	navBorder: PropTypes.bool
+	top: PropTypes.string,
+	zIndex: PropTypes.number
 };
 
 Bar.defaultProps = {
-	top: 0,
-	zIndex: 100,
-	navBorder: false
+	top: '0px',
+	zIndex: 100
 };
 
 Bar.displayName = 'Bar';

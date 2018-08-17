@@ -1,23 +1,26 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Dropdown, DropdownContainer, NavButtonLink, Icon } from 'atoms';
-import { source } from 'react-aim';
+import { source } from 'react-aim-fork-cs';
 
 class HoverNav extends Component {
 	static propTypes = {
 		title: PropTypes.string.isRequired,
 		children: PropTypes.node
-	}
+	};
 
 	state = {
 		displayDropdown: false
-	}
+	};
 
-	renderChildren = (children) => React.Children.map(children, (child) =>
-		child.props.to ?
-			React.cloneElement(child, { onClick: this.dismissDropdown }) :
-			React.cloneElement(child, { dismissDropdown: this.dismissDropdown })
-	);
+	renderChildren = children =>
+		React.Children.map(
+			children,
+			child =>
+				child.props.to
+					? React.cloneElement(child, { onClick: this.dismissDropdown })
+					: React.cloneElement(child, { dismissDropdown: this.dismissDropdown })
+		);
 
 	dismissDropdown = () => this.setState({ displayDropdown: false });
 
@@ -25,7 +28,10 @@ class HoverNav extends Component {
 
 	render() {
 		const { displayDropdown } = this.state;
-		const id = this.props.title.toLowerCase().split(' ').join('-');
+		const id = this.props.title
+			.toLowerCase()
+			.split(' ')
+			.join('-');
 		return (
 			<li style={{ listStyleType: 'none' }}>
 				<NavButtonLink
@@ -37,26 +43,13 @@ class HoverNav extends Component {
 					aria-haspopup="true"
 					onClick={this.toggleDropdown}
 					id={id}
-					aria-expanded={displayDropdown}
-				>
+					aria-expanded={displayDropdown}>
 					{this.props.title}
-					<Icon
-						iconSize="xs"
-						ml={2}
-						alignToText
-						type="outline"
-						name="chevronDown"
-						rotate={displayDropdown ? '180deg' : '0'}
-					/>
+					<Icon iconSize="xs" ml={2} alignToText type="outline" name="chevronDown" rotate={displayDropdown ? '180deg' : '0'} />
 				</NavButtonLink>
 				<div style={{ position: 'relative' }}>
 					<DropdownContainer>
-						<Dropdown
-							is="ul"
-							boxShadow={2}
-							display={displayDropdown}
-							aria-labelledby={id}
-						>
+						<Dropdown is="ul" boxShadow={2} display={displayDropdown} aria-labelledby={id}>
 							{this.renderChildren(this.props.children)}
 						</Dropdown>
 					</DropdownContainer>

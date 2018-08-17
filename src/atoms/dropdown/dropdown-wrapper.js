@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { target } from 'react-aim';
+import { target } from 'react-aim-fork-cs';
 
 const DropdownContainer = styled.div`
 	position: absolute;
