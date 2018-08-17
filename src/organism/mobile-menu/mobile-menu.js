@@ -51,17 +51,14 @@ const MobileItem = styled(NavLink).attrs({
 	font-weight: 600;
 	text-decoration: none;
 
-	svg { color: #717171; }
-
-	&.active ${LinkText},
-	&.active svg {
-		color: ${themeGet('colors.tertiary.main')};
+	svg {
+		color: #717171;
 	}
 `;
 
 const MenuContainer = styled.div`
 	height: calc(100vh - 56px);
-	transition: transform .3s cubic-bezier(.59,.04,.4,1), opacity .3s cubic-bezier(.59,.04,.4,1);
+	transition: transform 0.3s cubic-bezier(0.59, 0.04, 0.4, 1), opacity 0.3s cubic-bezier(0.59, 0.04, 0.4, 1);
 	background-color: #f7f7f7;
 	position: fixed;
 	width: 100vw;
@@ -125,7 +122,7 @@ const CTANavLink = styled(Link).attrs({
 
 	svg {
 		margin-left: 16px;
-		margin-top: 0
+		margin-top: 0;
 	}
 	${space};
 	${fontSize};
@@ -134,7 +131,7 @@ const CTANavLink = styled(Link).attrs({
 class MobileMenu extends Component {
 	state = {
 		showMenu: false
-	}
+	};
 
 	onClick = () =>
 		this.setState(({ showMenu }) => {
@@ -144,8 +141,8 @@ class MobileMenu extends Component {
 				else body.classList.remove('no-scroll');
 			}
 
-			return ({ showMenu: !showMenu });
-		})
+			return { showMenu: !showMenu };
+		});
 
 	render() {
 		const showStyles = {
@@ -165,10 +162,7 @@ class MobileMenu extends Component {
 			<div className={this.props.className}>
 				<MenuContainer style={this.state.showMenu ? showStyles : hiddenStyles}>
 					<MobileNavLinkContainer>
-						<MobileMenuContainer
-							links={drawerLinks}
-							dismiss={this.onClick}
-						/>
+						<MobileMenuContainer links={drawerLinks} dismiss={this.onClick} />
 					</MobileNavLinkContainer>
 					{showCallToAction && (
 						<CTANavLink to={callToAction.link} onClick={this.onClick}>

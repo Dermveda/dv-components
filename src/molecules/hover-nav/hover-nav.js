@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Dropdown, DropdownContainer, NavButtonLink, Icon } from 'atoms';
-import { source } from 'react-aim-fork-cs';
+import { source } from 'react-aim';
 
 class HoverNav extends Component {
 	static propTypes = {
