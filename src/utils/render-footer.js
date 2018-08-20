@@ -3,9 +3,9 @@ const pluckProps = (footerProps, props) =>
 		.filter(x => footerProps.includes(x))
 		.reduce((acc, curr) => ({ ...acc, [curr]: props[curr] }), {});
 
-const renderFooter = (footerProps, article, renderFooter) => {
+const renderFooter = (footerProps, article, buildFooter) => {
 	const renderProps = pluckProps(footerProps, article);
-	return renderFooter(renderProps);
+	return buildFooter(renderProps);
 };
 
 export default renderFooter;

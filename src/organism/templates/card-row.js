@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FlexBox, Card, CardImage, CardContainer, CardHeader, CardTitle, CardSubtitle, CardFooter, LinkWrapper, Content } from 'atoms';
 import { Section, ArticleListHeader } from 'molecules';
-import { renderFooter } from 'utils';
+import { renderFooter as buildFooter } from 'utils';
 
 export default class CardRow extends Component {
 	static propTypes = {
@@ -57,9 +57,9 @@ export default class CardRow extends Component {
 						</LinkWrapper>
 					)}
 				</CardHeader>
-				{this.renderFooter && (
+				{this.props.renderFooter && (
 					<CardFooter mt="auto" pt={2} width="100%">
-						{renderFooter(this.props.footerProps, article, this.props.renderFooter)}
+						{buildFooter(this.props.footerProps, article, this.props.renderFooter)}
 					</CardFooter>
 				)}
 			</CardContainer>
