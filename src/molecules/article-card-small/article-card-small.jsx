@@ -50,15 +50,12 @@ export default class ArticleCardSmall extends Component {
 	);
 
 	renderImage = ({ article: { imageAttributes, to } = {} }) => {
-		const LinkWrapperStyled = styled(LinkWrapper)`
-			order: -1;
-		`;
 		return (
-			<LinkWrapperStyled to={to}>
+			<LinkWrapper to={to}>
 				<SmallArticleImageContainer>
 					<SmallArticleImage {...imageAttributes} />
 				</SmallArticleImageContainer>
-			</LinkWrapperStyled>
+			</LinkWrapper>
 		);
 	};
 
@@ -72,6 +69,7 @@ export default class ArticleCardSmall extends Component {
 
 		return (
 			<SmallArticleContainer {...attrs}>
+				{this.renderImage(this.props)}
 				<SmallArticleBody>
 					<ArticleHeader>
 						{title && this.renderTitle(this.props)}
@@ -79,7 +77,6 @@ export default class ArticleCardSmall extends Component {
 					</ArticleHeader>
 					{this.renderFooterSection(this.props)}
 				</SmallArticleBody>
-				{this.renderImage(this.props)}
 			</SmallArticleContainer>
 		);
 	};
