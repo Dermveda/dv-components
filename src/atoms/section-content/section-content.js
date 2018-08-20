@@ -17,7 +17,7 @@ const makeSectionTitle = sys(
 
 export const SectionTitle = createSkeletonElement(styled(makeSectionTitle).attrs({
 	fontSize: props => props.fontSize || [4, 5],
-	textAlign: props => props.textAlign || 'left',
+	textAlign: props => props.textAlign || 'center',
 	color: props => props.color || 'textColors.1',
 	is: props => props.is || 'h2',
 	mt: props => props.mt || 3,
