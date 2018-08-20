@@ -26,7 +26,19 @@ export const SectionTitle = createSkeletonElement(styled(makeSectionTitle).attrs
 	${fontSize};
 `);
 
-const makeSectionBody = sys('color', 'flex', 'display', 'flexWrap', 'flexDirection', 'justifyContent', 'alignItems', 'space', 'width', 'maxWidth');
+const makeSectionBody = sys(
+	'color',
+	'flex',
+	'display',
+	'flexWrap',
+	'flexDirection',
+	'justifyContent',
+	'alignItems',
+	'space',
+	'width',
+	'maxWidth',
+	'textAlign'
+);
 
 export const SectionBody = styled(makeSectionBody).attrs({
 	fontSize: props => props.fontSize || [1, 2],
