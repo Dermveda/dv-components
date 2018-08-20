@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { source } from 'react-aim-fork-cs';
+import { source } from 'react-aim';
 import { space, hover } from 'styled-system';
 import { fontSize } from 'utils';
 import { MegaMenuIcon } from 'atoms';

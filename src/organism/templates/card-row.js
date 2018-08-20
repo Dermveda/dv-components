@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FlexBox, Card, CardImage, CardContainer, CardHeader, CardTitle, CardSubtitle, CardFooter, LinkWrapper, Content } from 'atoms';
 import { Section, ArticleListHeader } from 'molecules';
+import { renderFooter as buildFooter } from 'utils';
 
 export default class CardRow extends Component {
 	static propTypes = {
@@ -38,17 +39,6 @@ export default class CardRow extends Component {
 		headerAttributes: null
 	};
 
-	pluckProps = (footerProps, props) =>
-		Object.keys(props)
-			.filter(x => footerProps.includes(x))
-			.reduce((acc, curr) => ({ ...acc, [curr]: props[curr] }), {});
-
-	renderFooter = article => {
-		const { footerProps, renderFooter } = this.props;
-		const renderProps = this.pluckProps(footerProps, article);
-		return renderFooter(renderProps);
-	};
-
 	renderArticleRow = ({ ...article }) => (
 		<Card key={`card-${article.title.split(' ').join('')}`} mx={2} my={3} flex="1 300px" {...article.cardAttributes}>
 			{article.imageAttributes && (
@@ -67,9 +57,9 @@ export default class CardRow extends Component {
 						</LinkWrapper>
 					)}
 				</CardHeader>
-				{this.renderFooter && (
+				{this.props.renderFooter && (
 					<CardFooter mt="auto" pt={2} width="100%">
-						{this.renderFooter(article)}
+						{buildFooter(this.props.footerProps, article, this.props.renderFooter)}
 					</CardFooter>
 				)}
 			</CardContainer>

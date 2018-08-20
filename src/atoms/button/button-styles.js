@@ -9,17 +9,20 @@ const hoverStyles = css`
 	&:hover:not(:active):not(:focus) {
 		background: ${props => darken(0.2, themeGet(`colors.${props.type}.main`)(props))};
 	}
-	&:active, &:focus {
+	&:active,
+	&:focus {
 		background: ${props => themeGet(`colors.${props.type}.main`)(props)};
 	}
 `;
 
 const gradient = css`
-	background: ${props => `linear-gradient(to bottom, ${themeGet(`colors.gradient.${props.type}.0`)(props)}, ${themeGet(`colors.gradient.${props.type}.1`)(props)})`};
+	background: ${props =>
+		`linear-gradient(to bottom, ${themeGet(`colors.gradient.${props.type}.0`)(props)}, ${themeGet(`colors.gradient.${props.type}.1`)(props)})`};
 	&:hover:not(:active):not(:focus) {
 		background-position: 0 8px;
 	}
-	&:active, &:focus {
+	&:active,
+	&:focus {
 		background-position: 0;
 	}
 `;
@@ -63,43 +66,49 @@ export const buttonCSS = css`
 	border-radius: ${props => !props.squared && '8px'};
 	border: 0;
 
-	transition: all .2s ease-in-out;
+	transition: all 0.2s ease-in-out;
 
 	background: ${props => themeGet(`colors.${props.type}.main`, '#f7f7f7')};
 	color: ${props => themeGet(`colors.${props.type}.secondary`, '#2b2b2b')};
 
 	& > svg {
 		margin-left: 8px;
-		transition: all .2s ease-in-out;
+		transition: all 0.2s ease-in-out;
 	}
 
-	&:hover, &:active, &:focus {
+	&:hover,
+	&:active,
+	&:focus {
 		outline: 0;
 		color: ${props => themeGet(`colors.${props.type}.secondary`, '#2b2b2b')} !important;
 	}
 
-	${props => (!props.raised && !props.nostyle && !props.gradient && !props.white && hoverStyles)};
+	${props => !props.raised && !props.nostyle && !props.gradient && !props.white && hoverStyles};
 	${props => props.nostyle && nostyle};
 	${props => props.raised && raised};
 	${props => props.gradient && gradient};
 	${props => props.outline && outline};
-	${props => props.outline && css`
-		box-shadow: none;
-		&:hover {
-			color: ${themeGet(`colors.${props.type}.secondary`)(props)} !important;
-			background-color: ${themeGet(`colors.${props.type}.main`)(props)};
-			background: ${props.gradient && themeGet(`colors.gradient.${props.type}`)(props)};
-			border-color: transparent;
+	${props =>
+		props.outline &&
+		css`
+			box-shadow: none;
+			&:hover {
+				color: ${themeGet(`colors.${props.type}.secondary`)(props)} !important;
+				background-color: ${themeGet(`colors.${props.type}.main`)(props)};
+				background: ${props.gradient && themeGet(`colors.gradient.${props.type}`)(props)};
+				border-color: transparent;
 
-			svg {
-				color: ${themeGet(`colors.${props.type}.secondary`)(props)};
-				stroke: ${themeGet(`colors.${props.type}.secondary`)(props)};
-				fill: ${themeGet(`colors.${props.type}.secondary`)(props)};
+				svg {
+					color: ${themeGet(`colors.${props.type}.secondary`)(props)};
+					stroke: ${themeGet(`colors.${props.type}.secondary`)(props)};
+					fill: ${themeGet(`colors.${props.type}.secondary`)(props)};
+				}
 			}
-		}
-	`};
+		`};
 	${space};
-	${props => props.white && `
+	${props =>
+		props.white &&
+		`
 		border-color: white;
 		color: white;
 		background-color: transparent;
@@ -111,11 +120,11 @@ export const buttonCSS = css`
 		&:focus, &:active {
 			background: rgba(0, 0, 0, 0.4);
 		}
-	`}
+	`};
 `;
 
 export const buttonAttributes = {
-	fontSize: ({ large, fontSize }) => fontSize || (large ? [2, 3] : [1, 2]),
+	fontSize: ({ large, fontSize }) => fontSize || (large ? [1, 2] : [0, 1]),
 	py: ({ small }) => (small ? 2 : [2, 3]),
 	px: ({ small, px }) => (small && !px ? 3 : [3, 4])
 };

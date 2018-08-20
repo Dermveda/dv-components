@@ -2,13 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { space } from 'styled-system';
 import PropTypes from 'prop-types';
-import {
-	SectionTitle,
-	SectionBody,
-	SectionContainer,
-	Button,
-	ButtonLink
-} from 'atoms';
+import { SectionTitle, SectionBody, SectionContainer, Button, ButtonLink } from 'atoms';
 
 class Section extends Component {
 	static propTypes = {
@@ -27,7 +21,7 @@ class Section extends Component {
 		children: PropTypes.node,
 		backgroundImage: PropTypes.object,
 		bodyAttributes: PropTypes.object
-	}
+	};
 
 	static defaultProps = {
 		buttonAttributes: { text: null },
@@ -37,7 +31,7 @@ class Section extends Component {
 		children: null,
 		backgroundImage: null,
 		bodyAttributes: {}
-	}
+	};
 
 	static ButtonContainer = styled.div`
 		${space};
@@ -45,21 +39,14 @@ class Section extends Component {
 		display: flex;
 		flex-flow: row nowrap;
 		align-items: center;
-		justify-content: ${props => props.alignLeft ? 'flex-start' : 'center'};
-	`
+		justify-content: ${props => (props.alignLeft ? 'flex-start' : 'center')};
+	`;
 
-	renderButton = (buttonProps, text) => (
-		buttonProps.onClick ? (
-			<Button {...buttonProps}>{text}</Button>
-		) : (
-			<ButtonLink {...buttonProps}>{text}</ButtonLink>
-		)
-	)
+	renderButton = (buttonProps, text) =>
+		buttonProps.onClick ? <Button {...buttonProps}>{text}</Button> : <ButtonLink {...buttonProps}>{text}</ButtonLink>;
 
 	render() {
-		const {
-			buttonAttributes, title, children, titleAttributes, bodyAttributes, imageAttributes, ...attrs
-		} = this.props;
+		const { buttonAttributes, title, children, titleAttributes, bodyAttributes, imageAttributes, ...attrs } = this.props;
 		const { text, noButtonSpacing, buttonLeft, ...buttonProps } = buttonAttributes;
 
 		return (
@@ -68,10 +55,7 @@ class Section extends Component {
 				{title && <SectionTitle {...titleAttributes}>{title}</SectionTitle>}
 				{children && <SectionBody {...bodyAttributes}>{children}</SectionBody>}
 				{text && (
-					<Section.ButtonContainer
-						alignLeft={buttonLeft}
-						pt={noButtonSpacing ? 0 : [3, 4, 6]}
-					>
+					<Section.ButtonContainer alignLeft={buttonLeft} pt={noButtonSpacing ? 0 : [3, 4, 6]}>
 						{this.renderButton(buttonProps, text)}
 					</Section.ButtonContainer>
 				)}

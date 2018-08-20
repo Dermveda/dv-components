@@ -26,7 +26,11 @@ export {
 	ArticleImage,
 	ArticleImageContainer,
 	ArticleDescription,
-	ArticleImageLinkable
+	ArticleImageLinkable,
+	SmallArticleContainer,
+	SmallArticleBody,
+	SmallArticleImageContainer,
+	SmallArticleImage
 } from './article-content';
 export { default as Main } from './main';
 export { MenuIcon, ChevronDown } from './interactive-icon';

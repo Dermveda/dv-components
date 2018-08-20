@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Dropdown, Icon, NavButtonLink, DropdownContainer } from 'atoms';
-import { source } from 'react-aim-fork-cs';
+import { source } from 'react-aim';
 
 const ProfileDropdown = styled(DropdownContainer)`
 	left: -200px;

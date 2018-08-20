@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { target } from 'react-aim-fork-cs';
+import { target } from 'react-aim';
 import styled from 'styled-components';
 import tag from 'clean-tag';
 import { boxShadow } from 'styled-system';
