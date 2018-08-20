@@ -5,5 +5,9 @@ export {
 	ArticleImage,
 	ArticleImageContainer,
 	ArticleDescription,
-	ArticleImageLinkable
+	ArticleImageLinkable,
+	SmallArticleContainer,
+	SmallArticleBody,
+	SmallArticleImageContainer,
+	SmallArticleImage
 } from './article-content';

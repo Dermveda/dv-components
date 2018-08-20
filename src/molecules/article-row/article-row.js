@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { space } from 'styled-system';
 import {
 	H3,
 	LinkWrapper,
@@ -22,7 +24,8 @@ export default class ArticleRow extends Component {
 		to: PropTypes.string,
 		imageAttributes: PropTypes.shape({
 			src: PropTypes.string.isRequired,
-			alt: PropTypes.string.isRequired
+			alt: PropTypes.string.isRequired,
+			isLeft: PropTypes.bool
 		})
 	};
 
@@ -48,13 +51,28 @@ export default class ArticleRow extends Component {
 		</LinkWrapper>
 	);
 
-	renderImage = ({ imageAttributes, to }) => (
-		<LinkWrapper to={to}>
-			<ArticleImageContainer>
-				<ArticleImage {...imageAttributes} />
-			</ArticleImageContainer>
-		</LinkWrapper>
-	);
+	renderImage = ({ imageAttributes, to }) => {
+		let LinkWrapperLeft;
+		if (imageAttributes.isLeft) {
+			LinkWrapperLeft = styled(LinkWrapper)`
+				order: -1;
+			`;
+			return (
+				<LinkWrapperLeft to={to}>
+					<ArticleImageContainer>
+						<ArticleImage {...imageAttributes} />
+					</ArticleImageContainer>
+				</LinkWrapperLeft>
+			);
+		}
+		return (
+			<LinkWrapper to={to}>
+				<ArticleImageContainer>
+					<ArticleImage {...imageAttributes} />
+				</ArticleImageContainer>
+			</LinkWrapper>
+		);
+	};
 
 	renderDescription = ({ to, description }) => (
 		<LinkWrapper to={to}>
@@ -66,18 +84,31 @@ export default class ArticleRow extends Component {
 
 	render = () => {
 		const { title, subtitle, description, imageAttributes, children, subtitleLink, to, ...attrs } = this.props;
+		let ArticleContainerStyled = ArticleContainer;
+		let ArticleBodyStyled = ArticleBody;
+		if (imageAttributes.isLeft) {
+			ArticleContainerStyled = styled(ArticleContainer)`
+				grid-template-columns: 30% 1fr;
+			`;
+			ArticleBodyStyled = styled(ArticleBody).attrs({
+				mr: 0,
+				ml: [2, 3]
+			})`
+				${space};
+			`;
+		}
 		return (
-			<ArticleContainer {...attrs}>
-				<ArticleBody>
+			<ArticleContainerStyled {...attrs}>
+				<ArticleBodyStyled>
 					<ArticleHeader>
 						{title && this.renderTitle(this.props)}
 						{subtitle && this.renderSubtitle(this.props)}
 					</ArticleHeader>
 					{description && this.renderDescription(this.props)}
 					{children && children}
-				</ArticleBody>
+				</ArticleBodyStyled>
 				{imageAttributes && this.renderImage(this.props)}
-			</ArticleContainer>
+			</ArticleContainerStyled>
 		);
 	};
 }

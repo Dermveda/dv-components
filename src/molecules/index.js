@@ -16,3 +16,4 @@ export { default as MobileMenuContainer } from './menu-container';
 export { default as VideoSection } from './video-section';
 export { default as ImageGrid } from './image-grid';
 export { default as ExpandingTableRow } from './expanding-table-row';
+export { ArticleCardSmall, ArticleCardSmList } from './article-card-small';
