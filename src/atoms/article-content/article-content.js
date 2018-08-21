@@ -23,7 +23,7 @@ export const ArticleContainer = sys({
 });
 
 export const ArticleBody = styled.div.attrs({
-	fontSize: [0, 1],
+	fontSize: [1, 2],
 	mr: [2, 3]
 })`
 	${fontSize};
@@ -83,7 +83,7 @@ export const ArticleImageLinkable = styled(Link)`
 const makeArticleDescription = styled.div.attrs({
 	m: props => props.m || 0,
 	pb: props => props.pb || 3,
-	fontSize: 1,
+	fontSize: [1, 2],
 	display: ['none', 'none', 'block']
 })`
 	${display};

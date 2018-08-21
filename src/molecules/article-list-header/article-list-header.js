@@ -31,7 +31,7 @@ const ArticleListHeader = ({ title, titleAttributes, buttonAttributes, ...props 
 				{title}
 			</H3>
 			{buttonText && (
-				<ButtonLink fontSize={1} type="secondary" {...buttonProps} nostyle>
+				<ButtonLink fontSize={[1, 2]} type="secondary" {...buttonProps} nostyle>
 					{buttonText}
 					<Icon name="chevronDown" type="outline" height="12px" width="12px" strokeSize={4} rotate="-90deg" color="gray.light" />
 				</ButtonLink>
