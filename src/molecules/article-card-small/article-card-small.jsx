@@ -35,7 +35,7 @@ export default class ArticleCardSmall extends Component {
 
 	renderTitle = ({ article: { to, title } = {} }) => (
 		<LinkWrapper to={to}>
-			<H3 fontSize={[0, 2, 2]} fontWeight="bold" mb={0}>
+			<H3 fontSize={[1, 2, 2]} fontWeight="bold" mb={0}>
 				{title}
 			</H3>
 		</LinkWrapper>
@@ -43,7 +43,7 @@ export default class ArticleCardSmall extends Component {
 
 	renderSubtitle = ({ article: { subtitleLink, subtitle } = {} }) => (
 		<LinkWrapper to={subtitleLink}>
-			<Subtitle fontSize={0} is="div">
+			<Subtitle fontSize={[0, 1, 1]} is="div">
 				{subtitle}
 			</Subtitle>
 		</LinkWrapper>

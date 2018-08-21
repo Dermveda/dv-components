@@ -8,7 +8,7 @@ import { SlideDown } from 'animations';
 
 const ExpandingBox = styled.div.attrs({
 	px: [2, 3, 3],
-	fontSize: 1
+	fontSize: [1, 2]
 })`
 	${SlideDown};
 	${space};

@@ -7,7 +7,7 @@ export const TableRow = styled('div').attrs({
 	py: props => props.py || 2
 })`
 	display: grid;
-	grid-template-columns: 2fr 0.75fr 0.35fr;
+	grid-template-columns: 1.7fr 1.3fr 0.2fr;
 	text-transform: ${props => props.textTransform};
 	font-weight: ${props => props.fontWeight};
 	${space};
@@ -16,7 +16,7 @@ export const TableRow = styled('div').attrs({
 `;
 
 export const TableCell = styled('div').attrs({
-	fontSize: props => props.fontSize || [0, 1],
+	fontSize: props => props.fontSize || [1, 2],
 	px: props => props.px || [2, 3, 3],
 	fontWeight: props => props.fontWeight || 525
 })`

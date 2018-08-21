@@ -23,7 +23,7 @@ export const ArticleContainer = sys({
 });
 
 export const ArticleBody = styled.div.attrs({
-	fontSize: [0, 1, 2],
+	fontSize: [0, 1],
 	mr: [2, 3]
 })`
 	${fontSize};

@@ -48,7 +48,7 @@ const makeCardImage = sys({
 export const CardImage = createSkeletonElement(makeCardImage);
 
 const makeCardTitle = styled.h3.attrs({
-	fontSize: [2, 3],
+	fontSize: [1, 2],
 	pb: 2,
 	m: 0
 })`
@@ -81,7 +81,7 @@ export const CardHeader = styled.header`
 `;
 
 const makeCardText = styled.p.attrs({
-	fontSize: 1,
+	fontSize: [0, 1],
 	m: 0
 })`
 	${space};
@@ -93,7 +93,7 @@ const makeCardText = styled.p.attrs({
 export const CardText = createSkeletonElement(makeCardText);
 
 const makeCardFooter = styled(tag.footer).attrs({
-	bg: ({ isGray }) => isGray ? 'gray.light' : ''
+	bg: ({ isGray }) => (isGray ? 'gray.light' : '')
 })`
 	${space};
 	${width};

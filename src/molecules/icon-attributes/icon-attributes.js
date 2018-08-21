@@ -67,7 +67,7 @@ const IconAttributes = ({ attributeListing, small, column, ...attrs }) => (
 					<Icon {...iconAttributes} />
 					<HiddenText>{attribute.label}: </HiddenText>
 					{attribute.text && (
-						<Content fontSize={small ? [0, 1] : [1, 2]} m={0} pt={1} color="rgba(0, 0, 0, 0.8)">
+						<Content fontSize={small ? [1, 2] : [2, 3]} m={0} pt={1} color="rgba(0, 0, 0, 0.8)">
 							{attribute.text}
 						</Content>
 					)}
