@@ -7,7 +7,7 @@ import {
 	Subtitle,
 	SmallArticleImage,
 	SmallArticleImageContainer,
-	ArticleDescription as ArticleFooter,
+	SmallArticleFooter,
 	ArticleHeader,
 	SmallArticleContainer,
 	SmallArticleBody
@@ -61,7 +61,7 @@ export default class ArticleCardSmall extends Component {
 
 	renderFooterSection = ({ footerProps, article, renderFooter }) => {
 		if (!renderFooter || !footerProps) return null;
-		return <ArticleFooter>{buildFooter(footerProps, article, renderFooter)}</ArticleFooter>;
+		return <SmallArticleFooter>{buildFooter(footerProps, article, renderFooter)}</SmallArticleFooter>;
 	};
 
 	render = () => {

@@ -26,6 +26,8 @@ export const ArticleBody = styled.div.attrs({
 	fontSize: [1, 2],
 	mr: [2, 3]
 })`
+	display: flex;
+	flex-direction: column;
 	${fontSize};
 	${space};
 `;
@@ -92,6 +94,24 @@ const makeArticleDescription = styled.div.attrs({
 `;
 export const ArticleDescription = createSkeletonElement(makeArticleDescription);
 
+const makeSmallArticleFooter = styled.div.attrs({
+	m: props => props.m || 0,
+	fontSize: [1, 2],
+	display: 'flex'
+})`
+	justify-content: flex-end;
+	height: 100%;
+	* {
+		margin-top: auto;
+		line-height: 0;
+	}
+	${display};
+	${space};
+	${fontSize};
+`;
+
+export const SmallArticleFooter = createSkeletonElement(makeSmallArticleFooter);
+
 const makeSmallArticleContainer = sys({
 	is: 'div',
 	display: 'grid',
@@ -107,10 +127,14 @@ const makeSmallArticleContainer = sys({
 
 export const SmallArticleContainer = createSkeletonElement(makeSmallArticleContainer);
 
-const makeSmallArticleBody = styled(ArticleBody).attrs({
-	ml: [2, 3],
-	my: 2
+const makeSmallArticleBody = styled('div').attrs({
+	fontSize: [1, 2],
+	py: [1, 2, 3],
+	px: [1, 2, 3]
 })`
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 	${space};
 `;
 

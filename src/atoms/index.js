@@ -30,7 +30,8 @@ export {
 	SmallArticleContainer,
 	SmallArticleBody,
 	SmallArticleImageContainer,
-	SmallArticleImage
+	SmallArticleImage,
+	SmallArticleFooter
 } from './article-content';
 export { default as Main } from './main';
 export { MenuIcon, ChevronDown } from './interactive-icon';
