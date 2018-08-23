@@ -1,7 +1,6 @@
 import sys from 'system-components';
 import styled from 'styled-components';
 import { createSkeletonElement } from '@trainline/react-skeletor';
-import { width } from 'styled-system';
 import { fontSize } from 'utils';
 
 const makeSectionTitle = sys(

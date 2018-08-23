@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 
 const SlideDown = css`
-	max-height: ${props => (props.isHidden ? '0' : props.maxHeight || '350px')};
+	max-height: ${props => (props.isHidden ? '0' : props.maxHeight || '1000px')};
 	background-color: ${props => props.backgroundColor};
 	overflow-y: scroll;
 
