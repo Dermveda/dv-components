@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { createSkeletonElement } from '@trainline/react-skeletor';
 import { space, color, textAlign, borders, justifyContent } from 'styled-system';
 import { fontSize } from 'utils';
 export const TableHeadData = styled;
@@ -18,7 +19,7 @@ export const TableRow = styled('div').attrs({
 	${borders};
 `;
 
-export const TableCell = styled('div').attrs({
+const makeTableCell = styled('div').attrs({
 	fontSize: props => props.fontSize || [1, 2],
 	px: props => props.px || [2, 3, 3],
 	fontWeight: props => props.fontWeight || 525
@@ -39,3 +40,5 @@ export const TableCell = styled('div').attrs({
 	${borders};
 	${justifyContent};
 `;
+
+export const TableCell = createSkeletonElement(makeTableCell);
