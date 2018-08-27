@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { space } from 'styled-system';
-import { Body, Image } from './components';
-import { renderFooter as buildFooter } from 'utils';
+import { LinkWrapper } from 'atoms';
+import { Body, Image, Footer } from './components';
 
-const SimpleCardContainer = styled('div')`
+const SimpleCardContainer = styled(LinkWrapper)`
 	display: flex;
 	flex-direction: column;
 	height: 100%;
@@ -19,19 +19,13 @@ const SimpleCardContainer = styled('div')`
 	${space};
 `;
 
-const FooterContainer = styled.div`
-	margin-top: auto;
-`;
-
-const SimpleCard = ({ item, imageContainerAttributes, bodyAttributes, footerProps, renderFooter, ...attrs }) => {
+const SimpleCard = ({ item, imageContainerAttributes, bodyAttributes, footerProps, renderFooter, footer, ...attrs }) => {
 	if (!item) return null;
-	let footer;
-	if (renderFooter) footer = <FooterContainer>{buildFooter(footerProps, item, renderFooter)}</FooterContainer>;
 	return (
-		<SimpleCardContainer {...attrs}>
+		<SimpleCardContainer to={item.to} {...attrs}>
 			<Image item={item} attrs={imageContainerAttributes} />
 			<Body item={item} attrs={bodyAttributes} />
-			{footer}
+			<Footer item={item} renderFooter={renderFooter} footerProps={footerProps} footer={footer} />
 		</SimpleCardContainer>
 	);
 };
@@ -52,6 +46,7 @@ SimpleCard.propTypes = {
 	imageContainerAttributes: PropTypes.object,
 	bodyAttributes: PropTypes.object,
 	footerProps: PropTypes.array,
-	renderFooter: PropTypes.func
+	renderFooter: PropTypes.func,
+	footer: PropTypes.object
 };
 export default SimpleCard;

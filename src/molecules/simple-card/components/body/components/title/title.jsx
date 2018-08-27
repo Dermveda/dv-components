@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { createSkeletonElement } from '@trainline/react-skeletor';
 import styled from 'styled-components';
 import { fontSize } from 'utils';
 
-const TitleContainer = styled('h3').attrs({
+const makeTitleContainer = styled('h3').attrs({
 	fontSize: [1, 1, 2]
 })`
 	${fontSize};
@@ -11,6 +12,8 @@ const TitleContainer = styled('h3').attrs({
 		font-size: 0.7rem;
 	}
 `;
+
+const TitleContainer = createSkeletonElement(makeTitleContainer);
 
 const Title = ({ title, attrs }) => {
 	if (!title) return null;

@@ -1,16 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { createSkeletonElement } from '@trainline/react-skeletor';
 import styled from 'styled-components';
 
-const ImageContainer = styled.div`
+const makeImageContainer = styled.div`
 	display: flex;
 	justify-content: center;
 `;
 
-const Img = styled.img`
-	max-height: 100px;
+const ImageContainer = createSkeletonElement(makeImageContainer);
+
+const makeImg = styled.img`
+	height: 100px;
 	width: auto;
 `;
+
+const Img = createSkeletonElement(makeImg);
 
 const Image = ({ item = {}, attrs }) => {
 	const { imageAttributes: { src, alt, attrs: imgAttrs } = {} } = item;

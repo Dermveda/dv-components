@@ -30,12 +30,17 @@ export default class ExpandableTableRow extends Component {
 			rowData: PropTypes.arrayOf(PropTypes.object),
 			details: PropTypes.node
 		}),
-		isExpanded: PropTypes.bool
+		initExpanded: PropTypes.bool
 	};
 
 	state = {
-		isExpanded: this.props.isExpanded || false
+		isExpanded: false
 	};
+
+	constructor(props) {
+		super(props);
+		if (this.props.initExpanded) this.state.isExpanded = this.props.initExpanded;
+	}
 
 	render() {
 		const { row, rowAttributes, cellAttributes, expandingBoxAttributes } = this.props;
@@ -44,11 +49,11 @@ export default class ExpandableTableRow extends Component {
 			<React.Fragment>
 				<TableRow {...rowAttributes} borderTop="1px solid #F7F7F7">
 					{row.rowData.map((data = {}, index) => (
-						<TableCell key={`row-data-${index}`} {...cellAttributes} active={this.state.isExpanded} center={data.center}>
+						<TableCell key={`row-data-${index}`} {...cellAttributes} center={data.center}>
 							{data.content}
 						</TableCell>
 					))}
-					<TableCell {...cellAttributes} active={this.state.isExpanded} justifyContent="flex-end">
+					<TableCell {...cellAttributes} key="row-data-arrow" justifyContent="flex-end">
 						{row.details ? (
 							<ChevronDown
 								isOpen={this.state.isExpanded}

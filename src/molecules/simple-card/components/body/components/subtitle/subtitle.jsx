@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { createSkeletonElement } from '@trainline/react-skeletor';
 import { fontSize } from 'utils';
 import { color } from 'styled-system';
 
-const SubtitleContainer = styled('h4').attrs({
+const makeSubtitleContainer = styled('h4').attrs({
 	fontSize: [0, 0, 1],
 	color: 'gray.medium'
 })`
@@ -12,6 +13,8 @@ const SubtitleContainer = styled('h4').attrs({
 	${fontSize};
 	${color};
 `;
+
+const SubtitleContainer = createSkeletonElement(makeSubtitleContainer);
 
 const Subtitle = ({ subtitle, attrs }) => {
 	if (!subtitle) return null;
