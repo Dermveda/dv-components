@@ -6,6 +6,7 @@ import styled from 'styled-components';
 const makeImageContainer = styled.div`
 	display: flex;
 	justify-content: center;
+	padding: 8px;
 `;
 
 const ImageContainer = createSkeletonElement(makeImageContainer);
