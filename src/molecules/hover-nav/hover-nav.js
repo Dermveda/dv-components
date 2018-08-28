@@ -35,7 +35,7 @@ class HoverNav extends Component {
 		return (
 			<li style={{ listStyleType: 'none' }}>
 				<NavButtonLink
-					fontSize={1}
+					fontSize={2}
 					role="menu"
 					px={2}
 					mx="12px"
