@@ -128,12 +128,12 @@ export const buttonAttributes = {
 		if (xs) return fontSize || 1;
 		return fontSize || (large ? 3 : 2);
 	},
-	py: ({ small, xs }) => {
+	py: ({ xs }) => {
 		if (xs) return 1;
-		return small ? 2 : [2, 3];
+		return 2;
 	},
-	px: ({ small, xs, px }) => {
+	px: ({ xs }) => {
 		if (xs) return 2;
-		return small && !px ? 3 : [3, 4];
+		return 3;
 	}
 };
