@@ -17,9 +17,11 @@ module.exports = {
 			{
 				test: /\.(js|jsx)$/,
 				exclude: [/node_modules/],
-				use: [{
-					loader: 'babel-loader'
-				}],
+				use: [
+					{
+						loader: 'babel-loader'
+					}
+				]
 			},
 			{
 				test: /\.svg$/,
@@ -28,7 +30,7 @@ module.exports = {
 		]
 	},
 	externals: {
-		'react': 'commonjs react', // this line is just to use the React dependency of our parent-testing-project instead of using our own React.
+		react: 'commonjs react', // this line is just to use the React dependency of our parent-testing-project instead of using our own React.
 		'react-router-dom': 'commonjs react-router-dom',
 		'react-dom': 'commonjs react-dom',
 		'styled-components': 'commonjs styled-components'
