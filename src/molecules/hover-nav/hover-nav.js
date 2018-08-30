@@ -10,7 +10,7 @@ const NavLink = styled(NavButtonLink).attrs({
 	fontSize: 1,
 	px: 2,
 	mx: '12px',
-	color: 'gray.dark'
+	color: props => props.color || 'gray.dark'
 })`
 	font-weight: 650 !important;
 	${fontSize};
@@ -21,7 +21,8 @@ const NavLink = styled(NavButtonLink).attrs({
 class HoverNav extends Component {
 	static propTypes = {
 		title: PropTypes.string.isRequired,
-		children: PropTypes.node
+		children: PropTypes.node,
+		topLevelLinkAttributes: PropTypes.object
 	};
 
 	state = {
@@ -55,6 +56,7 @@ class HoverNav extends Component {
 					aria-haspopup="true"
 					onClick={this.toggleDropdown}
 					id={id}
+					{...this.props.topLevelLinkAttributes}
 					aria-expanded={displayDropdown}>
 					{this.props.title}
 					<Icon iconSize="xs" ml={2} alignToText type="outline" name="chevronDown" rotate={displayDropdown ? '180deg' : '0'} />
