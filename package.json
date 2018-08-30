@@ -1,6 +1,6 @@
 {
   "name": "@dnovicki/dv-components",
-  "version": "3.5.12",
+  "version": "3.5.13",
   "description": "DV components built with React and Bootstrap",
   "scripts": {
     "test": "jest --verbose",
