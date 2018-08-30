@@ -36,7 +36,7 @@ export default class MenuContainer extends Component {
 	};
 
 	static defaultProps = {
-		onClick: () => {}
+		onClick: () => { }
 	};
 
 	state = {
@@ -85,17 +85,18 @@ export default class MenuContainer extends Component {
 		);
 	};
 
-	renderNavItem = item => {
+	renderNavItem = (item, i) => {
 		const buttonProps = {
+			key: item.key || item.text || `some-nav-item-${i}`,
 			onClick: item.subLinks
 				? () => {
 					this.addBreadCrumb(item);
-				  }
+				}
 				: () => {
 					if (item.onClick) item.onClick();
 					this.props.dismiss();
-				  },
-			to: item.to || undefined
+				},
+			to: item.to || undefined,
 		};
 
 		return buttonProps.to ? (
@@ -103,13 +104,13 @@ export default class MenuContainer extends Component {
 				<NavLinkText>{item.text}</NavLinkText>
 			</MobileNavLink>
 		) : (
-			<MobileNavBtnLink {...buttonProps}>
-				<NavLinkText>
-					<div style={{ paddingRight: '10px' }}>{item.text}</div>
-					<Icon type="outline" strokeSize={3} rotate="-90deg" iconSize="xs" name="chevronDown" />
-				</NavLinkText>
-			</MobileNavBtnLink>
-		);
+				<MobileNavBtnLink {...buttonProps}>
+					<NavLinkText>
+						<div style={{ paddingRight: '10px' }}>{item.text}</div>
+						<Icon type="outline" strokeSize={3} rotate="-90deg" iconSize="xs" name="chevronDown" />
+					</NavLinkText>
+				</MobileNavBtnLink>
+			);
 	};
 
 	render() {
