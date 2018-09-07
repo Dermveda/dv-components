@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { createSkeletonElement } from '@trainline/react-skeletor';
 import { space, color, textAlign, borders, justifyContent } from 'styled-system';
 import { fontSize } from 'utils';
-export const TableHeadData = styled;
 
 export const TableRow = styled('div').attrs({
 	py: props => props.py || 2

@@ -3,15 +3,17 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { createSkeletonElement } from '@trainline/react-skeletor';
 import { fontSize } from 'utils';
-import { color } from 'styled-system';
+import { color, textAlign } from 'styled-system';
 
 const makeSubtitleContainer = styled('h4').attrs({
 	fontSize: [0, 0, 1],
-	color: 'gray.medium'
+	color: 'gray.medium',
+	textAlign: props => props.textAlign || undefined
 })`
 	text-transform: uppercase;
 	${fontSize};
 	${color};
+	${textAlign};
 `;
 
 const SubtitleContainer = createSkeletonElement(makeSubtitleContainer);

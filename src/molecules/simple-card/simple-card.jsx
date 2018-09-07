@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { space } from 'styled-system';
+import { space, themeGet } from 'styled-system';
 import { LinkWrapper } from 'atoms';
 import { Body, Image, Footer } from './components';
 
@@ -10,13 +10,33 @@ const SimpleCardContainer = styled(LinkWrapper)`
 	flex-direction: column;
 	height: 100%;
 	width: 100%;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16);
+	&:hover {
+		* {
+			font-weight: 600;
+		}
+		div > h4 {
+			color: #7b7ef9;
+		}
+		div > h3 {
+			color: ${themeGet('colors.primary.main', '#6C6FF9')};
+		}
+		div > div > span {
+			color: #7b7ef9;
+		}
+	}
+	* {
+		transition: font-weight 0.1s ease-in-out;
+		transition: color 0.1s ease-in-out;
+	}
+	${props =>
+		props.noShadow
+			? ''
+			: `box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.16);
 	border-radius: 2px;
 	&:hover {
 		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.14), 0 3px 6px rgba(0, 0, 0, 0.2);
 	}
-	transition: box-shadow 0.1s ease-in-out;
-	${space};
+	transition: box-shadow 0.1s ease-in-out;`} ${space};
 `;
 
 const SimpleCard = ({ item, imageContainerAttributes, bodyAttributes, footerProps, renderFooter, footer, ...attrs }) => {
@@ -30,6 +50,7 @@ const SimpleCard = ({ item, imageContainerAttributes, bodyAttributes, footerProp
 	);
 };
 SimpleCard.propTypes = {
+	noShadow: PropTypes.bool,
 	item: PropTypes.shape({
 		title: PropTypes.string,
 		titleAttributes: PropTypes.object,

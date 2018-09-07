@@ -10,7 +10,7 @@ const NavLink = styled(NavButtonLink).attrs({
 	fontSize: 1,
 	px: 2,
 	mx: '12px',
-	color: props => props.color || 'gray.dark'
+	color: props => props.color || '#585858'
 })`
 	font-weight: 650 !important;
 	${fontSize};

@@ -47,7 +47,7 @@ export default class ExpandableTableRow extends Component {
 		if (!row) return;
 		return (
 			<React.Fragment>
-				<TableRow {...rowAttributes} borderTop="1px solid #F7F7F7" onClick={() => this.setState({ isExpanded: !this.state.isExpanded })}>
+				<TableRow {...rowAttributes} borderBottom="1px solid #F7F7F7" onClick={() => this.setState({ isExpanded: !this.state.isExpanded })}>
 					{row.rowData.map((data = {}, index) => (
 						<TableCell key={`row-data-${index}`} {...cellAttributes} center={data.center}>
 							{data.content}

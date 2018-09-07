@@ -14,8 +14,8 @@ const styles = css`
 	outline: none !important;
 	text-align: center;
 	font-weight: 600;
-	letter-spacing: .03rem;
-	transition: all .15s linear;
+	letter-spacing: 0.03rem;
+	transition: all 0.15s linear;
 	cursor: pointer;
 	flex-wrap: nowrap;
 	justify-content: space-between;
@@ -27,23 +27,23 @@ const styles = css`
 	outline: none;
 	white-space: nowrap;
 
-	${props => props.leftBorder ? `
+	${props =>
+		props.leftBorder
+			? `
 		border-left: 1px solid transparent;
-	` : `
+	`
+			: `
 		border-bottom: 1px solid transparent;
-	`}
-	text-decoration: none;
+	`} text-decoration: none;
 
 	&:hover {
-		color: ${props => darken(0.2, themeGet('colors.primary.main')(props))};
+		font-weight: 700;
+		color: unset;
 		text-decoration: none;
-		border-color: ${props => darken(0.2, themeGet('colors.primary.main')(props))};
 	}
 
 	&.active {
-		color: ${props => darken(0.2, themeGet('colors.primary.main')(props))};
 		text-decoration: none;
-		border-color: ${props => darken(0.2, themeGet('colors.primary.main')(props))};
 	}
 `;
 
@@ -56,53 +56,64 @@ const props = {
 	color: props => props.color || 'gray.medium'
 };
 
-export const NavLink = styled(({
-	fontSize, /* eslint-disable-line */
-	py, /* eslint-disable-line */
-	px, /* eslint-disable-line */
-	mx, /* eslint-disable-line */
-	color, /* eslint-disable-line */
-	leftBorder, /* eslint-disable-line */
-	...props
-}) => <RouterLink {...props} />).attrs(props)`${styles};`;
+export const NavLink = styled(
+	({
+		fontSize /* eslint-disable-line */,
+		py /* eslint-disable-line */,
+		px /* eslint-disable-line */,
+		mx /* eslint-disable-line */,
+		color /* eslint-disable-line */,
+		leftBorder /* eslint-disable-line */,
+		...props
+	}) => <RouterLink {...props} />
+).attrs(props)`
+	${styles};
+`;
 
-export const NavButtonLink = styled(({
-	fontSize, /* eslint-disable-line */
-	py, /* eslint-disable-line */
-	px, /* eslint-disable-line */
-	mx, /* eslint-disable-line */
-	color, /* eslint-disable-line */
-	leftBorder, /* eslint-disable-line */
-	...props
-}) => <button {...props} />).attrs(props)`${styles};`;
+export const NavButtonLink = styled(
+	({
+		fontSize /* eslint-disable-line */,
+		py /* eslint-disable-line */,
+		px /* eslint-disable-line */,
+		mx /* eslint-disable-line */,
+		color /* eslint-disable-line */,
+		leftBorder /* eslint-disable-line */,
+		...props
+	}) => <button {...props} />
+).attrs(props)`
+	${styles};
+`;
 
-export const NavScrollLink = styled(({
-	fontSize, /* eslint-disable-line */
-	py, /* eslint-disable-line */
-	px, /* eslint-disable-line */
-	mx, /* eslint-disable-line */
-	color, /* eslint-disable-line */
-	leftBorder, /* eslint-disable-line */
-	...props
-}) => <ScrollLink {...props} />).attrs(props)`${styles};`;
+export const NavScrollLink = styled(
+	({
+		fontSize /* eslint-disable-line */,
+		py /* eslint-disable-line */,
+		px /* eslint-disable-line */,
+		mx /* eslint-disable-line */,
+		color /* eslint-disable-line */,
+		leftBorder /* eslint-disable-line */,
+		...props
+	}) => <ScrollLink {...props} />
+).attrs(props)`
+	${styles};
+`;
 
 const mobileStyles = css`
 	display: flex;
 	flex-flow: column nowrap;
 	align-items: flex-start;
-	${'' /* justify-content: flex-start; */}
-
-	height: 56px;
+	${'' /* justify-content: flex-start; */} height: 56px;
 	text-align: center;
 	${space};
 	font-weight: 600;
 	text-decoration: none;
 	box-sizing: border-box;
 
-	svg { color: #717171; }
+	svg {
+		color: #717171;
+	}
 
-	&.active ${NavLinkText},
-	&.active svg {
+	&.active ${NavLinkText}, &.active svg {
 		color: ${themeGet('colors.tertiary.main')};
 	}
 `;
@@ -127,5 +138,9 @@ export const NavLinkText = styled.div`
 	}
 `;
 
-export const MobileNavLink = styled(NavLink).attrs(mobileProps)`${mobileStyles}`;
-export const MobileNavButtonLink = styled(NavButtonLink).attrs(mobileProps)`${mobileStyles}`;
+export const MobileNavLink = styled(NavLink).attrs(mobileProps)`
+	${mobileStyles};
+`;
+export const MobileNavButtonLink = styled(NavButtonLink).attrs(mobileProps)`
+	${mobileStyles};
+`;

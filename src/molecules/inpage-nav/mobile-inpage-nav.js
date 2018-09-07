@@ -79,7 +79,14 @@ export default class MobileInPageNav extends Component {
 		const { links, ...props } = this.props;
 
 		return (
-			<NavBar color="black" is="nav" bg="accent.primary" justifyContent="center" alignItems="center" flexDirection="column" {...props}>
+			<NavBar
+				color="black"
+				bg={this.props.bg || 'accent.primary'}
+				is="nav"
+				justifyContent="center"
+				alignItems="center"
+				flexDirection="column"
+				{...props}>
 				<Box onClick={this.handleDropDownToggle}>
 					<div>{this.state.selectedItem}</div>
 					<ChevronDown iconSize="sm" isOpen={!this.state.isHidden} />

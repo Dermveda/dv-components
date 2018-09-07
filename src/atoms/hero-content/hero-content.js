@@ -23,7 +23,7 @@ export const HeroContainer = styled(tag.header).attrs({
 	flexDirection: ['column', 'column', 'row'],
 	flexWrap: ['nowrap', 'nowrap', 'wrap'],
 	justifyContent: ['center', 'center', 'space-between'],
-	p: props => props.p || 4,
+	p: props => (typeof props.p === 'number' ? props.p : 4),
 	borderColor: props => props.borderColor
 })`
 	display: flex;
@@ -47,11 +47,11 @@ export const HeroContainer = styled(tag.header).attrs({
 const makeHeroTitle = styled.h1.attrs({
 	m: 0,
 	pb: 3,
-	fontSize: props => props.fontSize || [4, 5]
+	fontSize: props => props.fontSize || [4, 6]
 })`
-	font-family: ${props => themeGet('fonts.display')(props)};
+	font-family: ${props => (props.fontFamily ? themeGet(`fonts.${props.fontFamily}`)(props) : themeGet('fonts.display')(props))};
 	font-weight: ${props => props.fontWeight || 'normal'};
-
+	text-align: ${props => props.textAlign || 'left'};
 	${fontSize};
 	${space};
 `;
@@ -103,8 +103,8 @@ const makeHeroImage = styled('img').attrs({
 	height: ${props => props.height || 'auto'};
 	@media (max-width: 320px) {
 		height: ${props => {
-		if (props.height !== 'auto' && props.height.slice(-2) === 'px') return `${parseInt(props.height.slice(0, -2)) / 2}px`;
-		return props.height;
+		if (props.height && props.height !== 'auto' && props.height.slice(-2) === 'px') return `${parseInt(props.height.slice(0, -2)) / 2}px`;
+		return 'auto';
 	}};
 	}
 `;

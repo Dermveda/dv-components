@@ -10,7 +10,7 @@ const dermvedaTheme = {
 	fonts: {
 		0: `Raleway, ${systemFonts}`,
 		display: `Raleway, ${systemFonts}`,
-		styled: '"Abril-Fatface", "Times New Roman", times, serif'
+		styled: '"Abril Fatface", "Times New Roman", times, serif'
 	},
 	fontSizes: [0.6, 0.819, 1.092, 1.333, 1.455, 1.94, 2.585, 3.446, 4.594],
 	shadows: [

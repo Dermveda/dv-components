@@ -9,7 +9,7 @@ const Link = NavLink.withComponent(ScrollLink);
 const NavBar = styled(Bar).attrs({
 	color: 'black',
 	is: 'nav',
-	bg: 'accent.primary',
+	bg: props => props.bg || 'accent.primary',
 	justifyContent: 'center'
 })`
 	position: sticky;
@@ -19,7 +19,17 @@ const DesktopInPageNav = ({ links, ...props }) => {
 	return (
 		<NavBar {...props}>
 			{links.map(link => (
-				<Link key={link.to} px="0" flex="1" to={link.to} spy color="black !important" smooth isDynamic duration={300} offset={-80}>
+				<Link
+					key={link.to}
+					px="0"
+					flex="1"
+					to={link.to}
+					spy
+					color="black !important"
+					smooth
+					isDynamic
+					duration={300}
+					offset={props.offset || -80}>
 					{link.text}
 				</Link>
 			))}
@@ -33,7 +43,8 @@ DesktopInPageNav.propTypes = {
 			to: PropTypes.string.isRequired,
 			text: PropTypes.string.isRequired
 		})
-	).isRequired
+	).isRequired,
+	offset: PropTypes.number
 };
 
 export default DesktopInPageNav;
