@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components';
 import { Link as ScrollLink } from 'react-scroll';
 import { Link as RouterLink } from 'react-router-dom';
 import { space, themeGet, color, flex } from 'styled-system';
-import { darken } from 'polished';
 import { fontSize } from 'utils';
 
 const styles = css`
@@ -12,9 +11,8 @@ const styles = css`
 	${color};
 	${flex};
 	outline: none !important;
-	text-align: center;
-	font-weight: 600;
-	letter-spacing: 0.03rem;
+	${props => (props.textAlign ? `text-align: ${props.textAlign};` : 'text-align: center;')};
+	${props => (props.fontWeight ? `font-weight: ${props.fontWeight};` : 'font-weight: 600;')} letter-spacing: 0.03rem;
 	transition: all 0.15s linear;
 	cursor: pointer;
 	flex-wrap: nowrap;
@@ -36,13 +34,10 @@ const styles = css`
 		border-bottom: 1px solid transparent;
 	`} text-decoration: none;
 
-	&:hover {
+	&:hover,
+	&:active {
 		font-weight: 700;
-		color: unset;
-		text-decoration: none;
-	}
-
-	&.active {
+		color: ${props => themeGet(props.color, '#2b2b2b')};
 		text-decoration: none;
 	}
 `;
@@ -113,9 +108,7 @@ const mobileStyles = css`
 		color: #717171;
 	}
 
-	&.active ${NavLinkText}, &.active svg {
-		color: ${themeGet('colors.tertiary.main')};
-	}
+	&.active ${NavLinkText}
 `;
 
 const mobileProps = {

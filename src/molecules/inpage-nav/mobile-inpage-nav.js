@@ -44,6 +44,13 @@ const Box = styled.div.attrs({
 	${fontSize};
 `;
 
+const CurrentItem = styled.div.attrs({
+	fontSize: [1, 2]
+})`
+	font-weight: 600;
+	${fontSize};
+`;
+
 export default class MobileInPageNav extends Component {
 	static propTypes = {
 		links: PropTypes.arrayOf(
@@ -79,16 +86,9 @@ export default class MobileInPageNav extends Component {
 		const { links, ...props } = this.props;
 
 		return (
-			<NavBar
-				color="black"
-				bg={this.props.bg || 'accent.primary'}
-				is="nav"
-				justifyContent="center"
-				alignItems="center"
-				flexDirection="column"
-				{...props}>
+			<NavBar bg={this.props.bg || 'accent.primary'} is="nav" justifyContent="center" alignItems="center" flexDirection="column" {...props}>
 				<Box onClick={this.handleDropDownToggle}>
-					<div>{this.state.selectedItem}</div>
+					<CurrentItem>Jump to: {this.state.selectedItem}</CurrentItem>
 					<ChevronDown iconSize="sm" isOpen={!this.state.isHidden} />
 				</Box>
 				<Slider isHidden={this.state.isHidden}>
@@ -99,8 +99,9 @@ export default class MobileInPageNav extends Component {
 							spy
 							leftBorder
 							pl={2}
+							fontSize={[1, 2]}
 							onSetActive={this.handleSetActive}
-							color="black !important"
+							color="#717171 !important"
 							smooth
 							isDynamic
 							duration={300}
