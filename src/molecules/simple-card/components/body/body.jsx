@@ -8,7 +8,7 @@ const BodyContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	padding: 16px;
+	padding: 4px;
 `;
 
 const Body = ({ item = {}, attrs }) => {

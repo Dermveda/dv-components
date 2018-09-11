@@ -23,7 +23,8 @@ export const HeroContainer = styled(tag.header).attrs({
 	flexDirection: ['column', 'column', 'row'],
 	flexWrap: ['nowrap', 'nowrap', 'wrap'],
 	justifyContent: ['center', 'center', 'space-between'],
-	p: props => (typeof props.p === 'number' ? props.p : 4),
+	p: props => (typeof props.p === 'number' || typeof props.p === 'object' ? props.p : 4),
+	pr: props => props.pr,
 	borderColor: props => props.borderColor
 })`
 	display: flex;
