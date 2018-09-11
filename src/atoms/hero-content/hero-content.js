@@ -13,7 +13,7 @@ import {
 	borderColor,
 	boxShadow,
 	width,
-	height
+	minWidth
 } from 'styled-system';
 import tag from 'clean-tag';
 import { createSkeletonElement } from '@trainline/react-skeletor';
@@ -78,17 +78,17 @@ export const HeroSubTitle = createSkeletonElement(makeHeroSubTitle);
 const makeHeroBody = styled.div.attrs({
 	p: props => props.p || 4,
 	order: [2, 2, 0],
-	flex: props => props.flex || '2 60%'
+	flex: props => props.flex || '2 60%',
+	minWidth: props => props.minWidth || ['100px', '300px']
 })`
 	max-width: 800px;
-	min-width: ${props => props.minWidth || '300px'};
 
 	@media (max-width: 768px) {
 		display: flex;
 		flex-direction: column;
 		text-align: center;
 	}
-
+	${minWidth};
 	${flex};
 	${space};
 	${order};

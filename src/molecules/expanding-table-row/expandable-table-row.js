@@ -54,7 +54,7 @@ export default class ExpandableTableRow extends Component {
 						</TableCell>
 					))}
 					<TableCell {...cellAttributes} key="row-data-arrow" justifyContent="flex-end">
-						{row.details ? <ChevronDown isOpen={this.state.isExpanded} p={1} iconSize="sm" /> : null}
+						{row.details ? <ChevronDown isOpen={this.state.isExpanded} p={1} iconSize="xs" /> : null}
 					</TableCell>
 				</TableRow>
 				{row.details ? (

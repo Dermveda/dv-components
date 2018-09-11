@@ -61,6 +61,10 @@ export default class MobileInPageNav extends Component {
 		).isRequired
 	};
 
+	static defaultProps = {
+		links: [{to: '', text: ''}]
+	}
+
 	state = {
 		selectedItem: this.props.links[0].text,
 		isHidden: true
@@ -89,7 +93,7 @@ export default class MobileInPageNav extends Component {
 			<NavBar bg={this.props.bg || 'accent.primary'} is="nav" justifyContent="center" alignItems="center" flexDirection="column" {...props}>
 				<Box onClick={this.handleDropDownToggle}>
 					<CurrentItem>Jump to: {this.state.selectedItem}</CurrentItem>
-					<ChevronDown iconSize="sm" isOpen={!this.state.isHidden} />
+					<ChevronDown iconSize="xs" isOpen={!this.state.isHidden} />
 				</Box>
 				<Slider isHidden={this.state.isHidden}>
 					{links.map(link => (

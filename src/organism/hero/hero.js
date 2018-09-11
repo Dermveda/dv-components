@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { space, lineHeight, justifyContent, maxHeight } from 'styled-system';
+import { space, lineHeight, justifyContent, maxHeight, display, height } from 'styled-system';
 import { flipOrder } from 'styles';
 
 import { HeroContainer, HeroTitle, HeroSubTitle, HeroBody, HeroImage } from 'atoms';
@@ -15,14 +15,19 @@ const FlippedBox = styled.div`
 `;
 
 const ImageContainer = styled('div').attrs({
-	maxHeight: props => props.maxHeight || '300px'
+	maxHeight: props => props.maxHeight || '300px',
+	display: props => props.display || 'flex',
+	height: props => props.height,
+	m: props => props.m
 })`
 	overflow: hidden;
 	flex: 1 30%;
-	display: flex;
+	${display};
 	${justifyContent};
 	${space};
 	${maxHeight};
+	${height};
+	${space};
 `;
 
 const Hero = ({

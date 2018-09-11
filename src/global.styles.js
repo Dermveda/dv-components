@@ -68,25 +68,9 @@ injectGlobal`
 		font-weight: 700;
 	}
 
-@keyframes skeletonAnimation {
-		0% {
-			opacity: 0.8;
-		}
-		50% {
-			opacity: 0.4;
-		}
-		100% {
-			opacity: 0.8;
-		}
-	}
-
 	.pending {
-		color: #bdc3c7!important;
-		background-color: #bdc3c7!important;
-		border-color: #bdc3c7!important;
-		animation-name: skeletonAnimation;
-		animation-duration: 1.5s;
-		animation-iteration-count: infinite;
-		animation-timing-function: linear;
+		color: #ececec!important;
+		background-color: #ececec!important;
+		border-color: #ececec!important;
 	}
 `;
