@@ -9,5 +9,6 @@ export {
 	SmallArticleContainer,
 	SmallArticleBody,
 	SmallArticleImageContainer,
-	SmallArticleImage
+	SmallArticleImage,
+	SmallArticleFooter
 } from './article-content';

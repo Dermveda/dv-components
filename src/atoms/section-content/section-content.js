@@ -1,7 +1,6 @@
 import sys from 'system-components';
 import styled from 'styled-components';
 import { createSkeletonElement } from '@trainline/react-skeletor';
-import { width } from 'styled-system';
 import { fontSize } from 'utils';
 
 const makeSectionTitle = sys(
@@ -21,7 +20,8 @@ export const SectionTitle = createSkeletonElement(styled(makeSectionTitle).attrs
 	color: props => props.color || 'textColors.1',
 	is: props => props.is || 'h2',
 	mt: props => props.mt || 3,
-	pb: props => props.pb || 4
+	pb: props => props.pb || 4,
+	fontFamily: props => props.fontFamily
 })`
 	${fontSize};
 `);

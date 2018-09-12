@@ -1,12 +1,28 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { space, color } from 'styled-system';
 import { Dropdown, DropdownContainer, NavButtonLink, Icon } from 'atoms';
 import { source } from 'react-aim';
+import { fontSize } from 'utils';
+
+const NavLink = styled(NavButtonLink).attrs({
+	fontSize: 1,
+	px: 2,
+	mx: '12px',
+	color: props => props.color || '#585858'
+})`
+	font-weight: 650 !important;
+	${fontSize};
+	${space};
+	${color};
+`;
 
 class HoverNav extends Component {
 	static propTypes = {
 		title: PropTypes.string.isRequired,
-		children: PropTypes.node
+		children: PropTypes.node,
+		topLevelLinkAttributes: PropTypes.object
 	};
 
 	state = {
@@ -34,19 +50,17 @@ class HoverNav extends Component {
 			.join('-');
 		return (
 			<li style={{ listStyleType: 'none' }}>
-				<NavButtonLink
-					fontSize={1}
+				<NavLink
 					role="menu"
-					px={2}
-					mx="12px"
 					data-toggle="dropdown"
 					aria-haspopup="true"
 					onClick={this.toggleDropdown}
 					id={id}
+					{...this.props.topLevelLinkAttributes}
 					aria-expanded={displayDropdown}>
 					{this.props.title}
 					<Icon iconSize="xs" ml={2} alignToText type="outline" name="chevronDown" rotate={displayDropdown ? '180deg' : '0'} />
-				</NavButtonLink>
+				</NavLink>
 				<div style={{ position: 'relative' }}>
 					<DropdownContainer>
 						<Dropdown is="ul" boxShadow={2} display={displayDropdown} aria-labelledby={id}>

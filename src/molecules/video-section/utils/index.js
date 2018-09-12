@@ -1,2 +1,2 @@
 export { PlayerDismiss, PlayerContainer } from './player';
-export { PlayerButton, InfoContainer } from './info';
+export { PlayerButton, InfoContainer, PlayerText } from './info';

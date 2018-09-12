@@ -124,7 +124,16 @@ export const buttonCSS = css`
 `;
 
 export const buttonAttributes = {
-	fontSize: ({ large, fontSize }) => fontSize || (large ? [1, 2] : [0, 1]),
-	py: ({ small }) => (small ? 2 : [2, 3]),
-	px: ({ small, px }) => (small && !px ? 3 : [3, 4])
+	fontSize: ({ large, xs, fontSize }) => {
+		if (xs) return fontSize || 1;
+		return fontSize || (large ? 3 : 2);
+	},
+	py: ({ xs }) => {
+		if (xs) return 1;
+		return 2;
+	},
+	px: ({ xs }) => {
+		if (xs) return 2;
+		return 3;
+	}
 };

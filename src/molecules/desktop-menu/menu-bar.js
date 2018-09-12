@@ -50,7 +50,7 @@ const NavBar = styled(Bar).attrs({
 	justifyContent: 'space-between'
 })`
 	border-top: 4px solid ${themeGet('colors.accent.logo')};
-	border-bottom: 1px solid #acacac;
+	border-bottom: 1px solid #ececec;
 `;
 
 class MenuBar extends Component {

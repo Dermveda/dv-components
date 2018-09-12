@@ -36,7 +36,7 @@ export default class ArticleRow extends Component {
 
 	renderTitle = ({ to, title }) => (
 		<LinkWrapper to={to}>
-			<H3 fontSize={[1, 2]} fontWeight="bold">
+			<H3 fontSize={[1, 4]} fontWeight="bold">
 				{title}
 			</H3>
 		</LinkWrapper>

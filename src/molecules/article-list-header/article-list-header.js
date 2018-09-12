@@ -14,28 +14,26 @@ const ArticleBar = styled(Bar)`
 
 const ArticleListHeader = ({ title, titleAttributes, buttonAttributes, ...props }) => {
 	const { text: buttonText, ...buttonProps } = buttonAttributes;
-	const headerAttributes = Object.assign({}, {
-		is: 'h2',
-		color: 'gray.dark',
-		fontSize: 1,
-		mb: 0
-	}, titleAttributes);
+	const headerAttributes = Object.assign(
+		{},
+		{
+			is: 'h2',
+			color: 'gray.dark',
+			fontSize: [1, 2],
+			mb: 0
+		},
+		titleAttributes
+	);
 
 	return (
 		<ArticleBar px={2} bg="gray.light" justifyContent="space-between" {...props}>
-			<H3 py={2} {...headerAttributes}>{title}</H3>
+			<H3 py={2} {...headerAttributes}>
+				{title}
+			</H3>
 			{buttonText && (
-				<ButtonLink fontSize={1} type="secondary" {...buttonProps} nostyle>
+				<ButtonLink fontSize={[1, 2]} type="secondary" {...buttonProps} nostyle>
 					{buttonText}
-					<Icon
-						name="chevronDown"
-						type="outline"
-						height="12px"
-						width="12px"
-						strokeSize={4}
-						rotate="-90deg"
-						color="gray.light"
-					/>
+					<Icon name="chevronDown" type="outline" height="12px" width="12px" strokeSize={4} rotate="-90deg" color="gray.light" />
 				</ButtonLink>
 			)}
 		</ArticleBar>

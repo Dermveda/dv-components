@@ -12,7 +12,9 @@ const nostyle = css`
 		color: ${props => themeGet(`colors.${props.type}.${props.type === 'secondary' ? 'secondary' : 'main'}`)(props)};
 	}
 
-	&:hover {
+	&:hover,
+	&:active,
+	&:focus {
 		color: ${props => darken(0.2, themeGet(`colors.${props.type}.main`)(props))} !important;
 
 		svg {

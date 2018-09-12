@@ -8,7 +8,7 @@ import { space, justifyContent, themeGet } from 'styled-system';
 const Bar = styled.header`
 	display: flex;
 	align-items: center;
-	background: white;
+	background: #fbfbfb;
 
 	position: fixed;
 	top: 0;
@@ -16,7 +16,7 @@ const Bar = styled.header`
 	left: 0;
 
 	border-top: 3px solid ${themeGet('colors.accent.logo', '#2B2B2B')};
-	border-bottom: 1px solid #ACACAC;
+	border-bottom: 1px solid #ececec;
 	${space};
 	${justifyContent};
 `;
@@ -39,11 +39,7 @@ const TitleText = styled.span`
 `;
 
 const AppBar = ({ children, logo, to, title, ...props }) => (
-	<Bar {...props}
-		py={3}
-		px={children && 4}
-		justifyContent={children ? 'space-between' : 'center'}
-	>
+	<Bar {...props} py={3} px={children && 4} justifyContent={children ? 'space-between' : 'center'}>
 		<Title>
 			<LinkWrapper to={to}>
 				<TitleImage src={logo} alt={title} aria-hidden />
