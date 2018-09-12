@@ -103,7 +103,7 @@ export const BulletIcon = styled(IconCircle).attrs({
 	}
 `;
 
-export const BulletListContainer = ListItemContainer.extend`
+export const BulletListContainer = styled(ListItemContainer)`
 	display: flex;
 	flex-flow: row nowrap;
 

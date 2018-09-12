@@ -41,35 +41,41 @@ const SectionContainer = styled(
 })`
 	flex-flow: column nowrap;
 
-	${props =>
-		props.backgroundImage
-			? `
-		background-image: url('${props.backgroundImage.url}');
-		background-repeat: ${props.backgroundImage.pattern ? 'repeat' : 'no-repeat'};
-		background-size: ${props.backgroundImage.pattern ? props.backgroundImage.size || 'auto' : 'cover'};
-		background-position: ${props.backgroundImage.position || 'center center'};
-		background-color: ${props => themeGet(`colors.${props.backgroundImage.color}`, 'transparent')};
-	`
-			: ''};
-	${props =>
+	${props => {
+		if (props.backgroundImage)
+			return `
+				background-image: url('${props.backgroundImage.url}');
+				background-repeat: ${props.backgroundImage.pattern ? 'repeat' : 'no-repeat'};
+				background-size: ${props.backgroundImage.pattern ? props.backgroundImage.size || 'auto' : 'cover'};
+				background-position: ${props.backgroundImage.position || 'center center'};
+				background-color: ${themeGet(`colors.${props.backgroundImage.color}`, 'transparent')(props)};
+			`;
+		else {
+			return `background: ${themeGet(`backgrounds.${props.type}`, 'transparent')(props)}; `;
+		}
+	}}
+${
+	props =>
 		props.centered &&
 		`
 		margin-left: auto !important;
 		margin-right: auto !important;
 		`};
-	${props => (props.content ? 'max-width: 1200px' : '')};
-	${props => (props.pb !== undefined ? `padding-bottom: ${props.pb};` : '')};
-	${props => (props.pt !== undefined ? `padding-top: ${props.pt};` : '')};
+${ props => (props.content ? 'max-width: 1200px' : '')};
+${ props => (props.pb !== undefined ? `padding-bottom: ${props.pb};` : '')};
+${ props => (props.pt !== undefined ? `padding-top: ${props.pt};` : '')};
 `;
 
 SectionContainer.propTypes = {
 	centered: PropTypes.bool,
-	content: PropTypes.bool
+	content: PropTypes.bool,
+	type: PropTypes.string
 };
 
 SectionContainer.defaultProps = {
 	centered: false,
-	content: false
+	content: false,
+	// type: 'white'
 };
 
 export default SectionContainer;
