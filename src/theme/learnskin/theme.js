@@ -11,7 +11,7 @@ const learnSkinTheme = {
 		0: `Abril-Text, Georgia, 'Times New Roman', times, ${systemFonts}`,
 		display: '"Abril-Fatface", Georgia, "Times New Roman", times, serif'
 	},
-	fontSizes: [0.819, 1.092, 1.455, 1.94, 2.585, 3.446, 4.594],
+	fontSizes: [0.65, 0.85, 1.092, 1.333, 1.455, 1.94, 2.585, 3.446, 4.594],
 	shadows: [
 		'none',
 		'rgba(50, 50, 93, 0.11) 0px 4px 6px 0px, rgba(0, 0, 0, 0.08) 0px 1px 3px 0px',
@@ -35,7 +35,7 @@ const BaseFont = styled.div`
 	text-rendering: optimizeLegibility;
 	font-feature-settings: none;
 	font-variant-ligatures: none;
-	text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 
@@ -75,11 +75,9 @@ class LearnSkinTheme extends React.Component {
 
 	render = () => (
 		<ThemeProvider theme={learnSkinTheme}>
-			<BaseFont>
-				{this.props.children}
-			</BaseFont>
+			<BaseFont>{this.props.children}</BaseFont>
 		</ThemeProvider>
-	)
+	);
 }
 
 LearnSkinTheme.propTypes = {

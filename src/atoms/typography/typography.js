@@ -30,7 +30,11 @@ export const H3 = createSkeletonElement(H3Component);
 const makeSubtitleComponent = sys('textAlign', 'space', 'fontWeight', 'color');
 
 const SubtitleComponent = styled(makeSubtitleComponent).attrs({
-	fontSize: props => (typeof props.fontSize !== ('undefined' || 'null') ? props.fontSize : [0, 2]),
+	fontSize: props => {
+		if (typeof props.fontSize !== ('undefined' || 'null')) return props.fontSize;
+		else if (props.largeFont) return [2, 4];
+		return [0, 2];
+	},
 	m: props => props.m || 0,
 	mb: props => props.mb || 2,
 	is: props => props.is || 'h4',

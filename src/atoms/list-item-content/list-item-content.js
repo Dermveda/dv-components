@@ -20,7 +20,11 @@ import { fontSize } from 'utils';
 import { IconCircle } from 'atoms';
 
 const makeListItemTitle = styled(tag.h3).attrs({
-	fontSize: props => props.fontSize || [1, 2],
+	fontSize: props => {
+		if (typeof props.fontSize !== ('undefined' || 'null')) return props.fontSize;
+		else if (props.largeFont) return [5, 6];
+		return [1, 2];
+	},
 	lineHeight: 2,
 	pb: 3,
 	m: 0
@@ -28,7 +32,7 @@ const makeListItemTitle = styled(tag.h3).attrs({
 	${space};
 	${lineHeight};
 	${fontSize};
-	font-weight: ${props => props.fontWeight || '600'};
+	font-weight: ${props => props.fontWeight || '500'};
 	font-family: ${themeGet('fonts.display', 'serif')};
 `;
 export const ListItemTitle = createSkeletonElement(makeListItemTitle);
