@@ -62,8 +62,8 @@ export default class MobileInPageNav extends Component {
 	};
 
 	static defaultProps = {
-		links: [{to: '', text: ''}]
-	}
+		links: [{ to: '', text: '' }]
+	};
 
 	state = {
 		selectedItem: this.props.links[0].text,
@@ -105,7 +105,7 @@ export default class MobileInPageNav extends Component {
 							pl={2}
 							fontSize={[1, 2]}
 							onSetActive={this.handleSetActive}
-							color="#717171 !important"
+							// color="#717171 !important"
 							smooth
 							isDynamic
 							duration={300}
