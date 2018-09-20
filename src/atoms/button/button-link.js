@@ -25,14 +25,6 @@ export default class ButtonLink extends Component {
 
 	render = () => {
 		const { href, ...attrs } = this.props;
-		return href ? (
-			<div>
-				<ExternalLink href={href} rel="noopener noreferrer" target="_blank" {...attrs} />
-			</div>
-		) : (
-			<div>
-				<LocalLink {...attrs} />
-			</div>
-		);
+		return href ? <ExternalLink href={href} rel="noopener noreferrer" target="_blank" {...attrs} /> : <LocalLink {...attrs} />;
 	};
 }

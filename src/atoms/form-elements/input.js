@@ -17,15 +17,16 @@ const Input = styled.input.attrs({
 	${minWidth};
 	${maxWidth};
 
-	transition: all .2s linear;
+	transition: all 0.2s linear;
 	background-color: ${props => props.gray && lightGray};
 	border: 1px solid ${mediumGray};
 	border-color: ${props => props.gray && lightGray};
 	box-shadow: none;
 	display: block;
+	${props => (props.uppercase ? 'text-transform: uppercase;' : '')};
 
 	&:focus {
-		border-color: ${props => props.gray ? mediumGray : darkGray};
+		border-color: ${props => (props.gray ? mediumGray : darkGray)};
 	}
 `;
 

@@ -24,3 +24,6 @@ export { default as Link } from './link';
 export { default as CircleCross } from './circle-cross';
 export { default as CircleCheck } from './circle-check';
 export { default as Circle } from './circle';
+export { default as Plus } from './plus';
+export { default as Home } from './home';
+export { default as VideoLibrary } from './video_library';

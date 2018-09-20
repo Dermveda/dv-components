@@ -35,6 +35,30 @@ const gray = {
 	dark: '#2b2b2b'
 };
 
+const status = {
+	success: '#249f58',
+	error: '#e74c3c'
+};
+
+const progressive = {
+	success: {
+		dark: '#4F8A10',
+		light: '#DFF2BF'
+	},
+	warning: {
+		dark: '#9F6000',
+		light: '#FEEFB3'
+	},
+	error: {
+		dark: '#D8000C',
+		light: '#FFBABA'
+	},
+	info: {
+		dark: '#00529B',
+		light: '#BDE5F8'
+	}
+};
+
 const gradientInverse = {
 	primary: `linear-gradient(to top, ${primary.main}, ${primary.tertiary})`,
 	bold: `linear-gradient(to top, ${bold.main}, ${bold.tertiary})`,
@@ -43,13 +67,15 @@ const gradientInverse = {
 };
 
 const colors = {
+	status,
 	primary,
 	secondary,
 	tertiary,
 	bold,
 	gradient,
 	gray,
-	gradientInverse
+	gradientInverse,
+	progressive
 };
 
 export default colors;

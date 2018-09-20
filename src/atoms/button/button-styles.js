@@ -7,7 +7,7 @@ import { outline, raised, nostyle } from 'styles';
 
 const hoverStyles = css`
 	&:hover:not(:active):not(:focus) {
-		background: ${props => darken(0.2, themeGet(`colors.${props.type}.main`)(props))};
+		background: ${props => darken(0.2, themeGet(`colors.${props.type}.main`)(props))}};
 	}
 	&:active,
 	&:focus {
@@ -19,6 +19,7 @@ const gradient = css`
 	background: ${props =>
 		`linear-gradient(to bottom, ${themeGet(`colors.gradient.${props.type}.0`)(props)}, ${themeGet(`colors.gradient.${props.type}.1`)(props)})`};
 	&:hover:not(:active):not(:focus) {
+		color: #fff !important;
 		background-position: 0 8px;
 	}
 	&:active,
@@ -35,7 +36,9 @@ export const buttonProps = {
 	squared: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
 	large: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
 	small: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-	raised: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
+	raised: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+	disabled: PropTypes.bool,
+	fullWidth: PropTypes.bool
 };
 
 export const buttonDefaultProps = {
@@ -46,21 +49,23 @@ export const buttonDefaultProps = {
 	outline: false,
 	squared: false,
 	large: false,
-	small: false
+	small: false,
+	disabled: false,
+	fullWidth: false
 };
 
 export const buttonCSS = css`
-	${border};
-	${fontSize};
-	${display};
-
 	display: inline-flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
 	font-weight: 600;
-
-	text-decoration: none !important;
+	${props =>
+		props.fullWidth
+			? `
+		width: 100%;
+		justify-content: center;`
+			: 'justify-content: space-between;'} text-decoration: none !important;
 	cursor: pointer;
 
 	border-radius: ${props => !props.squared && '8px'};
@@ -79,8 +84,14 @@ export const buttonCSS = css`
 	&:hover,
 	&:active,
 	&:focus {
-		outline: 0;
-		color: ${props => themeGet(`colors.${props.type}.secondary`, '#2b2b2b')} !important;
+		${props =>
+		props.disabled
+			? `
+		  	opacity: 0.65; 
+  			cursor: not-allowed;
+		`
+			: `outline: 0;
+			color: ${props => themeGet(`colors.${props.type}.secondary`, '#2b2b2b')} !important;`};
 	}
 
 	${props => !props.raised && !props.nostyle && !props.gradient && !props.white && hoverStyles};
@@ -105,7 +116,6 @@ export const buttonCSS = css`
 				}
 			}
 		`};
-	${space};
 	${props =>
 		props.white &&
 		`
@@ -121,6 +131,10 @@ export const buttonCSS = css`
 			background: rgba(0, 0, 0, 0.4);
 		}
 	`};
+	${border};
+	${fontSize};
+	${display};
+	${space};
 `;
 
 export const buttonAttributes = {

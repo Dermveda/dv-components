@@ -8,8 +8,8 @@ import colors from './colors';
 
 const learnSkinTheme = {
 	fonts: {
-		0: `Abril-Text, Georgia, 'Times New Roman', times, ${systemFonts}`,
-		display: '"Abril-Fatface", Georgia, "Times New Roman", times, serif'
+		0: `"Open Sans", Arial, Verdana, sans-serif, ${systemFonts}`,
+		display: 'Merriweather, "Abril-Fatface", Georgia, "Times New Roman", times, serif'
 	},
 	fontSizes: [0.65, 0.85, 1.092, 1.333, 1.455, 1.94, 2.585, 3.446, 4.594],
 	shadows: [
@@ -49,12 +49,12 @@ const BaseFont = styled.div`
 
 	*::-moz-selection {
 		color: white;
-		background: ${darken(0.2, colors.tertiary.main)}};
+		/* background: ${darken(0.2, colors.tertiary.main)}}; */
 	}
 
 	*::selection {
 		color: white;
-		background: ${darken(0.2, colors.tertiary.main)}};
+		/* background: ${darken(0.2, colors.tertiary.main)}}; */
 	}
 `;
 
@@ -83,5 +83,7 @@ class LearnSkinTheme extends React.Component {
 LearnSkinTheme.propTypes = {
 	children: PropTypes.node.isRequired
 };
+
+export const lsThemeObj = learnSkinTheme;
 
 export default LearnSkinTheme;
