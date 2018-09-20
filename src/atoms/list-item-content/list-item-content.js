@@ -22,7 +22,7 @@ import { IconCircle } from 'atoms';
 const makeListItemTitle = styled(tag.h3).attrs({
 	fontSize: props => {
 		if (typeof props.fontSize !== ('undefined' || 'null')) return props.fontSize;
-		else if (props.largeFont) return [5, 6];
+		else if (props.largeFont) return [4, 5];
 		return [1, 2];
 	},
 	lineHeight: 2,
@@ -38,7 +38,11 @@ const makeListItemTitle = styled(tag.h3).attrs({
 export const ListItemTitle = createSkeletonElement(makeListItemTitle);
 
 const makeListItemBody = styled(tag.p).attrs({
-	fontSize: [1, 2],
+	fontSize: props => {
+		if (typeof props.fontSize !== ('undefined' || 'null')) return props.fontSize;
+		else if (props.largeFont) return [2, 3];
+		return [1, 2];
+	},
 	pt: 1,
 	m: 0,
 	lineHeight: 3

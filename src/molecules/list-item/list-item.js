@@ -8,6 +8,7 @@ class ListItem extends Component {
 		href: PropTypes.string,
 		largeFont: PropTypes.string,
 		title: PropTypes.string.isRequired,
+		titleAttributes: PropTypes.object,
 		children: PropTypes.node.isRequired,
 		subtitle: PropTypes.string,
 		buttonAttributes: PropTypes.shape({
@@ -35,20 +36,22 @@ class ListItem extends Component {
 		);
 
 	render() {
-		const { title, children, to, href, buttonAttributes, subtitle, largeFont, ...attrs } = this.props;
+		const { title, children, to, href, buttonAttributes, subtitle, largeFont, titleAttributes, ...attrs } = this.props;
 		const { text, ...buttonProps } = buttonAttributes;
 		return (
 			<ListItemContainer {...attrs}>
 				<LinkWrapper to={to} href={href}>
 					<ListItemHeader>
-						<ListItemTitle largeFont={largeFont}>{title}</ListItemTitle>
+						<ListItemTitle largeFont={largeFont} {...titleAttributes}>
+							{title}
+						</ListItemTitle>
 						{subtitle && (
 							<Subtitle pb={1} color="#717171" largeFont={largeFont}>
 								{subtitle}
 							</Subtitle>
 						)}
 					</ListItemHeader>
-					<ListItemBody>{children}</ListItemBody>
+					<ListItemBody largeFont={largeFont}>{children}</ListItemBody>
 				</LinkWrapper>
 				{text && this.renderButton(buttonProps, text)}
 			</ListItemContainer>
