@@ -26,11 +26,11 @@ class ListItem extends Component {
 
 	renderButton = (buttonProps, text) =>
 		buttonProps.onClick ? (
-			<ArrowButton {...buttonProps} mt={3}>
+			<ArrowButton {...buttonProps} mt={'auto'}>
 				{text}
 			</ArrowButton>
 		) : (
-			<ArrowButtonLink {...buttonProps} mt={3}>
+			<ArrowButtonLink {...buttonProps} mt={'auto'}>
 				{text}
 			</ArrowButtonLink>
 		);

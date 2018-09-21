@@ -65,7 +65,9 @@ export const ListItemContainer = styled(tag.li).attrs({
 	${borderWidth};
 	${textAlign};
 	${width};
-	display: block;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 	background: ${props => themeGet(`backgrounds.${props.type}`, 'transparent')};
 `;
 
