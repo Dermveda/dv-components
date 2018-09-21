@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { ImageGrid as ImgGrid, Section } from 'molecules';
 
 const ImageGrid = ({ messageText, title, image, imageAlt }) => (
-	<ImgGrid imageAttributes={{ src: image.secure_url, alt: imageAlt }} direction="right" content centered>
+	<ImgGrid imageAttributes={{ src: (image || {}).secure_url, alt: imageAlt }} direction="right" content centered>
 		<Section
 			display="block"
 			p="0px !important"
