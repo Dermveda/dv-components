@@ -27,6 +27,9 @@ class Form extends Component {
 			uppercase: PropTypes.bool
 		}),
 		formProps: PropTypes.object,
+		clearButtonText: PropTypes.string,
+		clearButtonProps: PropTypes.object,
+		onClear: PropTypes.func,
 		buttonText: PropTypes.string,
 		buttonProps: PropTypes.object,
 		onSubmit: PropTypes.func
@@ -35,12 +38,13 @@ class Form extends Component {
 		super(props);
 		this.state = this.initState();
 	}
-	initState = () => {
+	initState = isReset => {
 		const { inputs } = this.props;
 		if (!Array.isArray(inputs)) return null;
 		let inputValues = {};
 		inputs.forEach(input => {
-			inputValues[input.name] = input.initValue || '';
+			if (isReset) return (inputValues[input.name] = '');
+			return (inputValues[input.name] = input.initValue || '');
 		});
 		return inputValues;
 	};
@@ -51,8 +55,11 @@ class Form extends Component {
 		e.preventDefault();
 		const formIsValid = e.target.checkValidity();
 		if (formIsValid) this.props.onSubmit(this.state);
-		const purgedState = this.initState();
-		this.setState({ purgedState });
+	};
+	onReset = handleReset => {
+		const purgedState = this.initState(true);
+		this.setState({ ...purgedState });
+		handleReset();
 	};
 	renderInputs = () => {
 		const { inputs, inputProps } = this.props;
@@ -63,45 +70,37 @@ class Form extends Component {
 					return (
 						<FormGroup key={`form-input-${input.name}`}>
 							<Label>{input.label}</Label>
-							<Select
-								{...input}
-								// type={input.type}
-								// options={input.options}
-								// name={input.name}
-								// placeholder={input.placeholder}
-								// required={input.required}
-								value={this.state[input.name]}
-								onChange={this.onChange}
-								{...inputProps}
-							/>
+							<Select {...input} {...inputProps} value={this.state[input.name]} onChange={this.onChange} />
 						</FormGroup>
 					);
 				default:
 					return (
 						<FormGroup key={`form-input-${input.name}`}>
 							<Label>{input.label}</Label>
-							<Input
-								{...input}
-								type={input.type}
-								name={input.name}
-								placeholder={input.placeholder}
-								required={input.required}
-								value={this.state[input.name]}
-								onChange={this.onChange}
-								{...inputProps}
-							/>
+							<Input {...input} {...inputProps} value={this.state[input.name]} onChange={this.onChange} />
 						</FormGroup>
 					);
 			}
 		});
 	};
 	render() {
-		const { buttonText, buttonProps, formProps } = this.props;
+		const { buttonText, buttonProps, formProps, hasReset, handleReset } = this.props;
+		let resetBtn;
+		if (hasReset) {
+			resetBtn = (
+				<Button {...buttonProps} onClick={() => this.onReset(handleReset)} outline>
+					Reset
+				</Button>
+			);
+		}
 		return (
 			<FormContainer onSubmit={this.onSubmit} {...formProps}>
 				{this.renderInputs()}
 				<ButtonContainer>
-					<Button {...buttonProps}>{buttonText}</Button>
+					<Button {...buttonProps} my={2}>
+						{buttonText}
+					</Button>
+					{resetBtn}
 				</ButtonContainer>
 			</FormContainer>
 		);
