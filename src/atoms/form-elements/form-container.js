@@ -10,6 +10,9 @@ const FormContainer = styled('form').attrs({
 const FormGroup = styled('div').attrs({
 	p: 2
 })`
+	input {
+		width: 100%;
+	}
 	${space};
 `;
 

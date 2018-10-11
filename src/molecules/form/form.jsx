@@ -32,7 +32,8 @@ class Form extends Component {
 		onClear: PropTypes.func,
 		buttonText: PropTypes.string,
 		buttonProps: PropTypes.object,
-		onSubmit: PropTypes.func
+		onSubmit: PropTypes.func,
+		fullWidth: PropTypes.bool
 	};
 	constructor(props) {
 		super(props);
