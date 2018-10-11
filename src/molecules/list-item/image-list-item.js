@@ -4,6 +4,7 @@ import {
 	ListItemContainer,
 	ListItemTitle,
 	ListItemBody,
+	ListItemImageContainer,
 	ListItemImage,
 	ListItemHeader,
 	ArrowButton,
@@ -51,13 +52,26 @@ class ImageListItem extends Component {
 		);
 
 	render() {
-		const { imageAttributes, buttonAttributes, title, titleAttributes, subtitle, children, to, href, ...attrs } = this.props;
+		const {
+			imageAttributes,
+			imageContainerAttributes,
+			buttonAttributes,
+			title,
+			titleAttributes,
+			subtitle,
+			children,
+			to,
+			href,
+			...attrs
+		} = this.props;
 		const { text, ...buttonProps } = buttonAttributes;
 
 		return (
 			<ListItemContainer {...attrs}>
 				<LinkWrapper to={to} href={href}>
-					<ListItemImage {...imageAttributes} />
+					<ListItemImageContainer {...imageContainerAttributes}>
+						<ListItemImage {...imageAttributes} />
+					</ListItemImageContainer>
 					<ListItemHeader mt={3}>
 						<ListItemTitle {...titleAttributes}>{title}</ListItemTitle>
 						{subtitle && (

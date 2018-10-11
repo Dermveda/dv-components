@@ -71,14 +71,20 @@ export const ListItemContainer = styled(tag.li).attrs({
 	background: ${props => themeGet(`backgrounds.${props.type}`, 'transparent')};
 `;
 
-const makeListItemImage = styled(tag.img).attrs({
+export const ListItemImageContainer = styled(tag.div).attrs({
+	borderRadius: props => props.borderRadius || '100%',
 	width: props => props.width || '125px',
-	height: props => props.height || '125px',
-	borderRadius: props => props.borderRadius || '100%'
+	height: props => props.height || 'auto'
 })`
-	${width}
-	${height}
-	${borderRadius}
+	overflow: hidden;
+	${width};
+	${height};
+	${borderRadius};
+`;
+
+const makeListItemImage = styled(tag.img)`
+	width: inherit;
+	height: inherit;
 `;
 export const ListItemImage = createSkeletonElement(makeListItemImage);
 

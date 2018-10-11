@@ -23,7 +23,7 @@ class ListGroup extends Component {
 				type: PropTypes.string
 			})
 		)
-	}
+	};
 
 	static ListGrouping = styled.ul`
 		display: flex;
@@ -45,14 +45,24 @@ class ListGroup extends Component {
 			<ListGroup.ListGrouping {...attrs}>
 				{listItems.map(({ children, ...item }, i) => {
 					const key = `${item.title}-${i}`;
-					if (item.iconAttributes) return (
-						<IconListItem {...item} key={key}>{children}</IconListItem>
-					);
-					else if (item.imageAttributes) return (
-						<ImageListItem {...item} key={key}>{children}</ImageListItem>
-					);
+					if (item.iconAttributes)
+						return (
+							<IconListItem {...item} key={key}>
+								{children}
+							</IconListItem>
+						);
+					else if (item.imageAttributes)
+						return (
+							<ImageListItem {...item} key={key}>
+								{children}
+							</ImageListItem>
+						);
 
-					return <ListItem {...item} key={key}>{children}</ListItem>;
+					return (
+						<ListItem {...item} key={key}>
+							{children}
+						</ListItem>
+					);
 				})}
 			</ListGroup.ListGrouping>
 		);
