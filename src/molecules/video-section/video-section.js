@@ -8,7 +8,6 @@ export default class VideoPlayer extends Component {
 	static propTypes = {
 		videoUrl: PropTypes.string.isRequired,
 		description: PropTypes.string,
-		img: PropTypes.string.isRequired,
 		titleAttributes: PropTypes.shape({
 			title: PropTypes.string
 		})
@@ -33,6 +32,7 @@ export default class VideoPlayer extends Component {
 	});
 
 	renderPlayerText = ({ titleAttributes, description }) => {
+		if (!titleAttributes) return null;
 		const { titleText, ...titleProps } = this.generateTitleProps(titleAttributes);
 		return (
 			<PlayerText>
@@ -47,20 +47,20 @@ export default class VideoPlayer extends Component {
 	render = () => {
 		const { videoUrl, titleAttributes, description, img, ...props } = this.props;
 		return (
-			<FlexBox display="flex" {...props}>
-				<InfoContainer>
-					{this.renderPlayerText(this.props)}
+			// <FlexBox display="flex" {...props}>
+			<InfoContainer {...props}>
+				{this.renderPlayerText(this.props)}
 
-					<Box
-						is="iframe"
-						height={[127, 170]}
-						width={[225, 300]}
-						allow="autoplay; encrypted-media; fullscreen"
-						src={`${videoUrl}?modestbranding=1`}
-						border="none"
-					/>
-				</InfoContainer>
-			</FlexBox>
+				<Box
+					is="iframe"
+					height={[127, 170]}
+					width={[225, 300]}
+					allow="autoplay; encrypted-media; fullscreen"
+					src={`${videoUrl}?modestbranding=1`}
+					border="none"
+				/>
+			</InfoContainer>
+			// </FlexBox>
 		);
 	};
 }

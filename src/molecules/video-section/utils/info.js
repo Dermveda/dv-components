@@ -11,7 +11,7 @@ export const PlayerButton = sys(
 		alignItems: 'center',
 		justifyContent: 'center',
 		border: 'none',
-		bg: 'gray.light',
+		bg: props => props.bg || 'gray.light',
 		p: 3,
 		height: '250px'
 	},
