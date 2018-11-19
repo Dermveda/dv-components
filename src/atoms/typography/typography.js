@@ -39,7 +39,8 @@ const SubtitleComponent = styled(makeSubtitleComponent).attrs({
 	mb: props => props.mb || 2,
 	is: props => props.is || 'h4',
 	fontWeight: props => props.fontWeight || 600,
-	color: props => props.color || 'gray.medium'
+	color: props => props.color || 'gray.medium',
+	className: props => props.className
 })`
 	display: inline-block;
 	letter-spacing: 0.03rem;
