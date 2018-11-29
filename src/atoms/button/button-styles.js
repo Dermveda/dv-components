@@ -1,13 +1,13 @@
 import { css } from 'styled-components';
 import PropTypes from 'prop-types';
-import { darken } from 'polished';
 import { space, border, display, themeGet } from 'styled-system';
 import { fontSize } from 'utils';
 import { outline, raised, nostyle } from 'styles';
 
 const hoverStyles = css`
 	&:hover:not(:active):not(:focus) {
-		background: ${props => darken(0.2, themeGet(`colors.${props.type}.main`)(props))}};
+		color: ${props => themeGet(`colors.${props.type}.secondary`)(props)};
+		background: ${props => themeGet(`colors.${props.type}.tertiary`)(props)}};
 	}
 	&:active,
 	&:focus {
@@ -42,7 +42,7 @@ export const buttonProps = {
 };
 
 export const buttonDefaultProps = {
-	type: 'primary',
+	type: 'tertiary',
 	raised: false,
 	nostyle: false,
 	gradient: false,
@@ -68,7 +68,7 @@ export const buttonCSS = css`
 			: 'justify-content: space-between;'} text-decoration: none !important;
 	cursor: pointer;
 
-	border-radius: ${props => !props.squared && '8px'};
+	border-radius: ${props => !props.squared && '40px'};
 	border: 0;
 
 	transition: all 0.2s ease-in-out;
@@ -99,23 +99,6 @@ export const buttonCSS = css`
 	${props => props.raised && raised};
 	${props => props.gradient && gradient};
 	${props => props.outline && outline};
-	${props =>
-		props.outline &&
-		css`
-			box-shadow: none;
-			&:hover {
-				color: ${themeGet(`colors.${props.type}.secondary`)(props)} !important;
-				background-color: ${themeGet(`colors.${props.type}.main`)(props)};
-				background: ${props.gradient && themeGet(`colors.gradient.${props.type}`)(props)};
-				border-color: transparent;
-
-				svg {
-					color: ${themeGet(`colors.${props.type}.secondary`)(props)};
-					stroke: ${themeGet(`colors.${props.type}.secondary`)(props)};
-					fill: ${themeGet(`colors.${props.type}.secondary`)(props)};
-				}
-			}
-		`};
 	${props =>
 		props.white &&
 		`

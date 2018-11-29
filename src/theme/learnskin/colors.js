@@ -11,9 +11,9 @@ const secondary = {
 };
 
 const tertiary = {
-	main: '#668CFF',
+	main: '#7E51D5',
 	secondary: '#ffffff',
-	tertiary: '#45B9E1'
+	tertiary: '#6B3BC7'
 };
 
 const bold = {
