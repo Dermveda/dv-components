@@ -18,3 +18,4 @@ export { default as ImageGrid } from './image-grid';
 export { default as ExpandingTableRow } from './expanding-table-row';
 export { ArticleCardSmall, ArticleCardSmList } from './article-card-small';
 export { default as SimpleCard } from './simple-card/simple-card.jsx';
+export { default as Form } from './form/form.jsx';

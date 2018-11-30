@@ -6,6 +6,7 @@ export {
 	ListItemTitle,
 	ListItemBody,
 	ListItemContainer,
+	ListItemImageContainer,
 	ListItemImage,
 	ListItemHeader,
 	BulletItem,
@@ -35,9 +36,10 @@ export {
 } from './article-content';
 export { default as Main } from './main';
 export { MenuIcon, ChevronDown } from './interactive-icon';
-export { Label, Select, Input, InlineFormContainer } from './form-elements';
+export { Label, Select, Input, InlineFormContainer, FormContainer, FormGroup } from './form-elements';
 export { Dropdown, DropdownContainer } from './dropdown';
 export { MegaMenuItem, SubMenuContainer } from './mega-menu';
 export { default as LinkWrapper } from './link-wrapper';
 export { Sidebar, SidebarMain, Container } from './sidebar';
 export { TableContainer, TableRow, TableCell } from './table-content';
+export { default as Message } from './message/message.jsx';

@@ -2,6 +2,7 @@ export {
 	ListItemTitle,
 	ListItemBody,
 	ListItemContainer,
+	ListItemImageContainer,
 	ListItemImage,
 	BulletItem,
 	BulletIcon,

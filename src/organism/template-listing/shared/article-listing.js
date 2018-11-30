@@ -30,12 +30,12 @@ const generateSubtitle = (tagLabelName, category) => {
 	return `${res}${parentCategoryName}`;
 };
 
-const formatArticle = ({ title, _id, authors, image = {}, tagLabel, category, ...article }) => {
+const formatArticle = ({ title, _id, authors, image = {}, tagLabel, category, content, ...article }) => {
 	const { secure_url, ...imageProps } = image;
 	const { name: tagLabelName } = tagLabel || {};
 	const { key: categoryKey } = category || {};
+	const { brief } = content || {};
 	const subtitle = generateSubtitle(tagLabelName, category);
-
 	return {
 		title,
 		_id,
@@ -46,7 +46,7 @@ const formatArticle = ({ title, _id, authors, image = {}, tagLabel, category, ..
 			...imageProps,
 			alt: (article || {}).imageAlt
 		},
-		description: ((article || {}).content || {}).brief.replace(/<(?:.|\n)*?>/gm, ''),
+		description: (brief || '').replace(/<(?:.|\n)*?>/gm, ''),
 		authors,
 		subtitle,
 		subtitleLink: `/tags/${categoryKey}`

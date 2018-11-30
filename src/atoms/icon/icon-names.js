@@ -27,7 +27,10 @@ export const icons = {
 	externalLink: 'Link',
 	circleCross: 'CircleCross',
 	circleCheck: 'CircleCheck',
-	circle: 'Circle'
+	circle: 'Circle',
+	plus: 'Plus',
+	home: 'Home',
+	videoLibrary: 'VideoLibrary'
 };
 
 const Icon = (icon, type) => {

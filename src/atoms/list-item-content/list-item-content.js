@@ -20,7 +20,11 @@ import { fontSize } from 'utils';
 import { IconCircle } from 'atoms';
 
 const makeListItemTitle = styled(tag.h3).attrs({
-	fontSize: props => props.fontSize || [1, 2],
+	fontSize: props => {
+		if (typeof props.fontSize !== ('undefined' || 'null')) return props.fontSize;
+		else if (props.largeFont) return [4, 5];
+		return [1, 2];
+	},
 	lineHeight: 2,
 	pb: 3,
 	m: 0
@@ -28,13 +32,17 @@ const makeListItemTitle = styled(tag.h3).attrs({
 	${space};
 	${lineHeight};
 	${fontSize};
-	font-weight: ${props => props.fontWeight || '600'};
+	font-weight: ${props => props.fontWeight || '500'};
 	font-family: ${themeGet('fonts.display', 'serif')};
 `;
 export const ListItemTitle = createSkeletonElement(makeListItemTitle);
 
 const makeListItemBody = styled(tag.p).attrs({
-	fontSize: [1, 2],
+	fontSize: props => {
+		if (typeof props.fontSize !== ('undefined' || 'null')) return props.fontSize;
+		else if (props.largeFont) return [2, 3];
+		return [1, 2];
+	},
 	pt: 1,
 	m: 0,
 	lineHeight: 3
@@ -57,18 +65,26 @@ export const ListItemContainer = styled(tag.li).attrs({
 	${borderWidth};
 	${textAlign};
 	${width};
-	display: block;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 	background: ${props => themeGet(`backgrounds.${props.type}`, 'transparent')};
 `;
 
-const makeListItemImage = styled(tag.img).attrs({
+export const ListItemImageContainer = styled(tag.div).attrs({
+	borderRadius: props => props.borderRadius || '100%',
 	width: props => props.width || '125px',
-	height: props => props.height || '125px',
-	borderRadius: props => props.borderRadius || '100%'
+	height: props => props.height || 'auto'
 })`
-	${width}
-	${height}
-	${borderRadius}
+	overflow: hidden;
+	${width};
+	${height};
+	${borderRadius};
+`;
+
+const makeListItemImage = styled(tag.img)`
+	width: inherit;
+	height: inherit;
 `;
 export const ListItemImage = createSkeletonElement(makeListItemImage);
 
@@ -103,7 +119,7 @@ export const BulletIcon = styled(IconCircle).attrs({
 	}
 `;
 
-export const BulletListContainer = ListItemContainer.extend`
+export const BulletListContainer = styled(ListItemContainer)`
 	display: flex;
 	flex-flow: row nowrap;
 

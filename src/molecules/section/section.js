@@ -20,7 +20,8 @@ class Section extends Component {
 		title: PropTypes.string,
 		children: PropTypes.node,
 		backgroundImage: PropTypes.object,
-		bodyAttributes: PropTypes.object
+		bodyAttributes: PropTypes.object,
+		type: PropTypes.string
 	};
 
 	static defaultProps = {
@@ -30,7 +31,8 @@ class Section extends Component {
 		titleAttributes: {},
 		children: null,
 		backgroundImage: null,
-		bodyAttributes: {}
+		bodyAttributes: {},
+		type: 'white'
 	};
 
 	static ButtonContainer = styled.div`

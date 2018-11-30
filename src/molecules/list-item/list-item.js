@@ -1,56 +1,57 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {
-	ListItemContainer,
-	ListItemTitle,
-	ListItemBody,
-	ListItemHeader,
-	ArrowButton,
-	ArrowButtonLink,
-	Subtitle,
-	LinkWrapper
-} from 'atoms';
+import { ListItemContainer, ListItemTitle, ListItemBody, ListItemHeader, ArrowButton, ArrowButtonLink, Subtitle, LinkWrapper } from 'atoms';
 
 class ListItem extends Component {
 	static propTypes = {
 		to: PropTypes.string,
 		href: PropTypes.string,
+		largeFont: PropTypes.string,
 		title: PropTypes.string.isRequired,
+		titleAttributes: PropTypes.object,
 		children: PropTypes.node.isRequired,
 		subtitle: PropTypes.string,
 		buttonAttributes: PropTypes.shape({
 			text: PropTypes.string.isRequired,
 			nostyle: PropTypes.bool
 		})
-	}
+	};
 
 	static defaultProps = {
 		buttonAttributes: {
 			nostyle: true
 		},
 		subtitle: null
-	}
+	};
 
-	renderButton = (buttonProps, text) => (
+	renderButton = (buttonProps, text) =>
 		buttonProps.onClick ? (
-			<ArrowButton {...buttonProps} mt={3}>{text}</ArrowButton>
+			<ArrowButton {...buttonProps} mt={'auto'}>
+				{text}
+			</ArrowButton>
 		) : (
-			<ArrowButtonLink {...buttonProps} mt={3}>{text}</ArrowButtonLink>
-		)
-	)
+			<ArrowButtonLink {...buttonProps} mt={'auto'}>
+				{text}
+			</ArrowButtonLink>
+		);
 
 	render() {
-		const { title, children, to, href, buttonAttributes, subtitle, ...attrs } = this.props;
+		const { title, children, to, href, buttonAttributes, subtitle, largeFont, titleAttributes, ...attrs } = this.props;
 		const { text, ...buttonProps } = buttonAttributes;
-
 		return (
 			<ListItemContainer {...attrs}>
 				<LinkWrapper to={to} href={href}>
 					<ListItemHeader>
-						<ListItemTitle>{title}</ListItemTitle>
-						{subtitle && <Subtitle pb={1} color="#717171">{subtitle}</Subtitle>}
+						<ListItemTitle largeFont={largeFont} {...titleAttributes}>
+							{title}
+						</ListItemTitle>
+						{subtitle && (
+							<Subtitle pb={1} color="#717171" largeFont={largeFont}>
+								{subtitle}
+							</Subtitle>
+						)}
 					</ListItemHeader>
-					<ListItemBody>{children}</ListItemBody>
+					<ListItemBody largeFont={largeFont}>{children}</ListItemBody>
 				</LinkWrapper>
 				{text && this.renderButton(buttonProps, text)}
 			</ListItemContainer>

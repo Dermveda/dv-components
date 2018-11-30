@@ -43,7 +43,7 @@ const SectionContainer = styled(Section).attrs({
 		font-size: 1.4rem;
 	}
 
-	@media(min-width: 900px) {
+	@media (min-width: 900px) {
 		margin-top: 120px !important;
 
 		& > div {

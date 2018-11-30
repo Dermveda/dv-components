@@ -29,7 +29,6 @@ const oddStroke = css`
 
 const baseStyles = css`
 	display: inline-block;
-	color: #111111;
 
 	use {
 		fill: inherit;
@@ -57,7 +56,9 @@ const alignToText = css`
 	stroke: none;
 	fill: none;
 
-	use { color: inherit; }
+	use {
+		color: inherit;
+	}
 `;
 
 const glyph = css`
@@ -75,13 +76,15 @@ export const SVGWrapper = styled.svg`
 	${space};
 	${display};
 
-	${prop => prop.type == 'outline' ? outline : glyph};
+	${prop => (prop.type == 'outline' ? outline : glyph)};
 	${prop => prop.alignToText && alignToText};
 
 	height: ${prop => iconSize[prop.iconSize]};
 	width: ${prop => iconSize[prop.iconSize]};
 
-	${prop => prop.rotate && `
+	${prop =>
+		prop.rotate &&
+		`
 		transform: rotate(${prop.rotate});
 	`};
 	${color};
@@ -89,13 +92,7 @@ export const SVGWrapper = styled.svg`
 	${width};
 `;
 
-const Icon = ({
-	name,
-	title,
-	description,
-	type,
-	...props
-}) => (
+const Icon = ({ name, title, description, type, ...props }) => (
 	<SVGWrapper type={type} {...props} viewBox="0 0 48 48">
 		<g>
 			{title && <title>{title}</title>}

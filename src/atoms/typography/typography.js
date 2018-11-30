@@ -30,12 +30,17 @@ export const H3 = createSkeletonElement(H3Component);
 const makeSubtitleComponent = sys('textAlign', 'space', 'fontWeight', 'color');
 
 const SubtitleComponent = styled(makeSubtitleComponent).attrs({
-	fontSize: props => (typeof props.fontSize !== ('undefined' || 'null') ? props.fontSize : [0, 2]),
+	fontSize: props => {
+		if (typeof props.fontSize !== ('undefined' || 'null')) return props.fontSize;
+		else if (props.largeFont) return [2, 4];
+		return [0, 2];
+	},
 	m: props => props.m || 0,
 	mb: props => props.mb || 2,
 	is: props => props.is || 'h4',
 	fontWeight: props => props.fontWeight || 600,
-	color: props => props.color || 'gray.medium'
+	color: props => props.color || 'gray.medium',
+	className: props => props.className
 })`
 	display: inline-block;
 	letter-spacing: 0.03rem;
