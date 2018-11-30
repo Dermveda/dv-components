@@ -30,7 +30,8 @@ export const icons = {
 	circle: 'Circle',
 	plus: 'Plus',
 	home: 'Home',
-	videoLibrary: 'VideoLibrary'
+	videoLibrary: 'VideoLibrary',
+	gallery: 'Gallery'
 };
 
 const Icon = (icon, type) => {

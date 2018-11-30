@@ -5,9 +5,9 @@ const primary = {
 };
 
 const secondary = {
-	main: '#F7F7F7',
-	secondary: '#2B2B2B',
-	tertiary: '#717171'
+	main: '#3ebaec',
+	secondary: '#111111',
+	tertiary: '#29b3ea'
 };
 
 const tertiary = {

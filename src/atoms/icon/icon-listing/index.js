@@ -27,3 +27,4 @@ export { default as Circle } from './circle';
 export { default as Plus } from './plus';
 export { default as Home } from './home';
 export { default as VideoLibrary } from './video_library';
+export { default as Gallery } from './gallery';

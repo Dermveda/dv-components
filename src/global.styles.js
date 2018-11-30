@@ -35,9 +35,16 @@ injectGlobal`
 	h1, h2, h3, h4, h5, h6 {
 	  margin-bottom: 0.5rem;
 	  font-family: inherit;
-	  font-weight: 500;
 	  line-height: 1.25;
 	  color: inherit;
+	}
+
+	h1, h2, h3 {
+		font-weight: 700;
+	}
+
+	h4, h4, h6 {
+		font-weight: 600;
 	}
 
 	h1, .h1 {
