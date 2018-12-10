@@ -1,27 +1,23 @@
 const primary = {
-	main: '#45C4E5',
-	secondary: '#ffffff',
-	tertiary: '#47A3D9'
-};
-
-const secondary = {
 	main: '#3ebaec',
-	secondary: '#111111',
+	secondary: '#ffffff',
 	tertiary: '#29b3ea'
 };
-
+const secondary = {
+	main: '#FFE9B4',
+	secondary: '#111111',
+	tertiary: '#FFD97D'
+};
 const tertiary = {
 	main: '#7E51D5',
 	secondary: '#ffffff',
 	tertiary: '#6B3BC7'
 };
-
 const bold = {
 	main: '#F09819',
 	secondary: '#ffffff',
 	tertiary: '#F07218'
 };
-
 const gradient = {
 	primary: [primary.main, primary.tertiary],
 	bold: [bold.main, bold.tertiary],
