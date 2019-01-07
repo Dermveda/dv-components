@@ -5,7 +5,7 @@ const primary = {
 };
 const secondary = {
 	main: '#FFE9B4',
-	secondary: '#111111',
+	secondary: '#2b2b2b',
 	tertiary: '#FFD97D'
 };
 const tertiary = {
@@ -17,6 +17,11 @@ const bold = {
 	main: '#F09819',
 	secondary: '#ffffff',
 	tertiary: '#F07218'
+};
+const grayscale = {
+	main: '#2b2b2b',
+	secondary: '#717171',
+	tertiary: '#f7f7f7'
 };
 const gradient = {
 	primary: [primary.main, primary.tertiary],
@@ -67,6 +72,7 @@ const colors = {
 	primary,
 	secondary,
 	tertiary,
+	grayscale,
 	bold,
 	gradient,
 	gray,

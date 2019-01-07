@@ -89,9 +89,10 @@ export const buttonCSS = css`
 			? `
 		  	opacity: 0.65; 
   			cursor: not-allowed;
-		`
-			: `outline: 0;
-			color: ${props => themeGet(`colors.${props.type}.secondary`, '#2b2b2b')} !important;`};
+			`
+			: `
+			outline: 0;
+			color: #ffffff !important;`}
 	}
 
 	${props => !props.raised && !props.nostyle && !props.gradient && !props.white && hoverStyles};
@@ -113,7 +114,7 @@ export const buttonCSS = css`
 		&:focus, &:active {
 			background: rgba(0, 0, 0, 0.4);
 		}
-	`};
+		`};
 	${border};
 	${fontSize};
 	${display};
