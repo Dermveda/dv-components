@@ -1,25 +1,34 @@
 import { css } from 'styled-components';
 import { themeGet } from 'styled-system';
-import { darken } from 'polished';
-
-const color = props =>
-	darken(0.2, themeGet(`colors.${props.type}.${props.type === 'secondary' ? 'secondary' : 'main'}`)(props));
 
 const outline = css`
-	color: ${color}
-
+	color: ${props => themeGet(`colors.${props.type}.main`)};
 	background: transparent;
 
 	font-weight: 600;
 
-	border-width: 1px;
+	border-width: 2px;
 	border-style: solid;
 	border-color: ${props => themeGet(`colors.${props.type}.${props.type === 'secondary' ? 'secondary' : 'main'}`)(props)};
+	box-shadow: none;
 
 	svg {
-		stroke: ${color};
-		fill: ${color};
-		color: ${color};
+		stroke: ${props => themeGet(`colors.${props.type}.main`)};
+		fill: ${props => themeGet(`colors.${props.type}.main`)};
+		color: ${props => themeGet(`colors.${props.type}.main`)};
+	}
+
+	&:hover {
+		color: ${props => themeGet(`colors.${props.type}.secondary`)(props)} !important;
+		background-color: ${props => themeGet(`colors.${props.type}.tertiary`)(props)};
+		background: ${props => props.gradient && themeGet(`colors.gradient.${props.type}`)(props)};
+		border-color: transparent;
+
+		svg {
+			color: ${props => themeGet(`colors.${props.type}.secondary`)(props)};
+			stroke: ${props => themeGet(`colors.${props.type}.secondary`)(props)};
+			fill: ${props => themeGet(`colors.${props.type}.secondary`)(props)};
+		}
 	}
 `;
 

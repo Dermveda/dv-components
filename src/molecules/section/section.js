@@ -44,8 +44,9 @@ class Section extends Component {
 		justify-content: ${props => (props.alignLeft ? 'flex-start' : 'center')};
 	`;
 
-	renderButton = (buttonProps, text) =>
-		buttonProps.onClick ? <Button {...buttonProps}>{text}</Button> : <ButtonLink {...buttonProps}>{text}</ButtonLink>;
+	renderButton = (buttonProps, text) => {
+		return buttonProps.onClick ? <Button {...buttonProps}>{text}</Button> : <ButtonLink {...buttonProps}>{text}</ButtonLink>;
+	};
 
 	render() {
 		const { buttonAttributes, title, children, titleAttributes, bodyAttributes, imageAttributes, ...attrs } = this.props;

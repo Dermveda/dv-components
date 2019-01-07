@@ -8,8 +8,8 @@ import colors from './colors';
 
 const learnSkinTheme = {
 	fonts: {
-		0: `"Open Sans", Arial, Verdana, sans-serif, ${systemFonts}`,
-		display: 'Merriweather, "Abril-Fatface", Georgia, "Times New Roman", times, serif'
+		0: `Raleway, Arial, Verdana, sans-serif, ${systemFonts}`,
+		display: 'Raleway, Georgia, "Times New Roman", times, serif'
 	},
 	fontSizes: [0.65, 0.85, 1.092, 1.333, 1.455, 1.94, 2.585, 3.446, 4.594],
 	shadows: [
@@ -21,9 +21,9 @@ const learnSkinTheme = {
 	lineHeights: [1, 1.125, 1.25, 1.5, 1.75],
 	backgrounds: {
 		gray: '#f7f7f7',
-		primary: `linear-gradient(to bottom right, ${colors.gradient.primary.join(',')})`,
-		secondary: `linear-gradient(to bottom right, ${colors.gradient.secondary.join(',')})`,
-		tertiary: `linear-gradient(to bottom right, ${colors.gradient.tertiary.join(',')})`,
+		primary: colors.primary.main,
+		secondary: colors.secondary.main,
+		tertiary: colors.tertiary.main,
 		white: '#ffffff'
 	},
 	textColors: ['#2B2B2B', '#103A45'],

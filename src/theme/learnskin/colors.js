@@ -1,27 +1,28 @@
 const primary = {
-	main: '#45C4E5',
+	main: '#3ebaec',
 	secondary: '#ffffff',
-	tertiary: '#47A3D9'
+	tertiary: '#29b3ea'
 };
-
 const secondary = {
-	main: '#F7F7F7',
-	secondary: '#2B2B2B',
-	tertiary: '#717171'
+	main: '#FFE9B4',
+	secondary: '#2b2b2b',
+	tertiary: '#FFD97D'
 };
-
 const tertiary = {
-	main: '#668CFF',
+	main: '#7E51D5',
 	secondary: '#ffffff',
-	tertiary: '#45B9E1'
+	tertiary: '#6B3BC7'
 };
-
 const bold = {
 	main: '#F09819',
 	secondary: '#ffffff',
 	tertiary: '#F07218'
 };
-
+const grayscale = {
+	main: '#2b2b2b',
+	secondary: '#717171',
+	tertiary: '#f7f7f7'
+};
 const gradient = {
 	primary: [primary.main, primary.tertiary],
 	bold: [bold.main, bold.tertiary],
@@ -71,6 +72,7 @@ const colors = {
 	primary,
 	secondary,
 	tertiary,
+	grayscale,
 	bold,
 	gradient,
 	gray,

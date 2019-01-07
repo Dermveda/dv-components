@@ -105,7 +105,7 @@ export default class CardRow extends Component {
 				...headerAttributes.buttonAttributes,
 				buttonLeft: false,
 				small: true,
-				type: 'primary'
+				type: 'tertiary'
 			  }
 			: undefined;
 
