@@ -4,9 +4,9 @@ const primary = {
 	tertiary: '#29b3ea'
 };
 const secondary = {
-	main: '#F9A825',
+	main: '#FFE9B3',
 	secondary: '#2b2b2b',
-	tertiary: '#FFE9B3'
+	tertiary: '#F9A825'
 };
 const tertiary = {
 	main: '#7E51D5',
