@@ -8,7 +8,7 @@ import colors from './colors';
 
 const learnSkinTheme = {
 	fonts: {
-		0: `Raleway, Arial, Verdana, sans-serif, ${systemFonts}`,
+		0: `"Open Sans", Arial, Verdana, sans-serif, ${systemFonts}`,
 		display: 'Raleway, Georgia, "Times New Roman", times, serif'
 	},
 	fontSizes: [0.65, 0.85, 1.092, 1.333, 1.455, 1.94, 2.585, 3.446, 4.594],
