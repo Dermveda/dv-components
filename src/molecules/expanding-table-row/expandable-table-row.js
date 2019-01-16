@@ -28,7 +28,9 @@ export default class ExpandableTableRow extends Component {
 		expandingBoxAttributes: PropTypes.object,
 		row: PropTypes.shape({
 			rowData: PropTypes.arrayOf(PropTypes.object),
-			details: PropTypes.node
+			details: PropTypes.node,
+			scrollOnClick: PropTypes.bool,
+			scrollTop: PropTypes.int
 		}),
 		initExpanded: PropTypes.bool
 	};
@@ -40,14 +42,29 @@ export default class ExpandableTableRow extends Component {
 	constructor(props) {
 		super(props);
 		if (this.props.initExpanded) this.state.isExpanded = this.props.initExpanded;
+		this.rowRef = React.createRef();
 	}
+
+	scrollOnClick = () => {
+		window.scrollTo({
+			top: this.rowRef.offsetTop - this.props.row.scrollTop,
+			behavior: 'smooth'
+		});
+	};
 
 	render() {
 		const { row, rowAttributes, cellAttributes, expandingBoxAttributes } = this.props;
 		if (!row) return;
 		return (
 			<React.Fragment>
-				<TableRow {...rowAttributes} borderBottom="1px solid #F7F7F7" onClick={() => this.setState({ isExpanded: !this.state.isExpanded })}>
+				<TableRow
+					{...rowAttributes}
+					borderBottom="1px solid #F7F7F7"
+					innerRef={ref => (this.rowRef = ref)}
+					onClick={() => {
+						this.setState({ isExpanded: !this.state.isExpanded });
+						if (row.scrollOnClick) this.scrollOnClick();
+					}}>
 					{row.rowData.map((data = {}, index) => (
 						<TableCell key={`row-data-${index}`} {...cellAttributes} center={data.center}>
 							{data.content}
