@@ -32,6 +32,7 @@ const gradient = {
 
 const gray = {
 	light: '#f7f7f7',
+	lightmed: '#c1c1c1',
 	medium: '#717171',
 	dark: '#2b2b2b'
 };
