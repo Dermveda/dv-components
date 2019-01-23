@@ -3,22 +3,17 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { space } from 'styled-system';
 import { fontSize } from 'utils';
-import { TableRow, TableCell, ChevronDown } from 'atoms';
+import { TableRow, TableCell, ChevronDown, Box } from 'atoms';
 import { SlideDown } from 'animations';
 
 const ExpandingBox = styled.div.attrs({
 	px: [2, 3, 3],
+	py: props => !props.isHidden && [1, 2, 2],
 	fontSize: [1, 2]
 })`
 	${SlideDown};
 	${space};
 	${fontSize};
-`;
-
-const Box = styled.div.attrs({
-	py: [1, 2, 2]
-})`
-	${space};
 `;
 
 export default class ExpandableTableRow extends Component {
@@ -57,28 +52,30 @@ export default class ExpandableTableRow extends Component {
 		if (!row) return;
 		return (
 			<React.Fragment>
-				<TableRow
-					{...rowAttributes}
-					borderBottom="1px solid #F7F7F7"
-					innerRef={ref => (this.rowRef = ref)}
-					onClick={() => {
-						this.setState({ isExpanded: !this.state.isExpanded });
-						if (row.scrollOnClick) this.scrollOnClick();
-					}}>
-					{row.rowData.map((data = {}, index) => (
-						<TableCell key={`row-data-${index}`} {...cellAttributes} center={data.center}>
-							{data.content}
+				<Box borderBottom="1px solid #F7F7F7" borderTop="1px solid #F7F7F7">
+					<TableRow
+						{...rowAttributes}
+						borderBottom={this.state.isExpanded ? '1px solid #F7F7F7' : null}
+						innerRef={ref => (this.rowRef = ref)}
+						onClick={() => {
+							this.setState({ isExpanded: !this.state.isExpanded });
+							if (row.scrollOnClick) this.scrollOnClick();
+						}}>
+						{row.rowData.map((data = {}, index) => (
+							<TableCell key={`row-data-${index}`} {...cellAttributes} center={data.center}>
+								{data.content}
+							</TableCell>
+						))}
+						<TableCell {...cellAttributes} key="row-data-arrow" justifyContent="flex-end">
+							{row.details ? <ChevronDown isOpen={this.state.isExpanded} p={1} iconSize="xs" /> : null}
 						</TableCell>
-					))}
-					<TableCell {...cellAttributes} key="row-data-arrow" justifyContent="flex-end">
-						{row.details ? <ChevronDown isOpen={this.state.isExpanded} p={1} iconSize="xs" /> : null}
-					</TableCell>
-				</TableRow>
-				{row.details ? (
-					<ExpandingBox isHidden={!this.state.isExpanded} {...rowAttributes} {...expandingBoxAttributes}>
-						<Box>{row.details}</Box>
-					</ExpandingBox>
-				) : null}
+					</TableRow>
+					{row.details ? (
+						<ExpandingBox isHidden={!this.state.isExpanded} {...rowAttributes} {...expandingBoxAttributes}>
+							{row.details}
+						</ExpandingBox>
+					) : null}
+				</Box>
 			</React.Fragment>
 		);
 	}
