@@ -31,7 +31,7 @@ const generateSubtitle = (tagLabelName, category) => {
 };
 
 const formatArticle = ({ title, _id, authors, image = {}, tagLabel, category, content, ...article }) => {
-	const { secure_url, ...imageProps } = image;
+	const { secure_url, ...imageProps } = image || {};
 	const { name: tagLabelName } = tagLabel || {};
 	const { key: categoryKey } = category || {};
 	const { brief } = content || {};
