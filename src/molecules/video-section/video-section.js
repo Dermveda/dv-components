@@ -53,8 +53,8 @@ export default class VideoPlayer extends Component {
 
 				<Box
 					is="iframe"
-					height={[127, 170]}
-					width={[225, 300]}
+					height={props.height || [127, 170]}
+					width={props.width || [225, 300]}
 					allow="autoplay; encrypted-media; fullscreen"
 					src={`${videoUrl}?modestbranding=1`}
 					border="none"
